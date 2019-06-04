@@ -1,0 +1,26 @@
+table {
+    width: 100%;    
+    border-collapse: collapse;
+    margin-bottom: 1.5em;
+}
+table, th, td {
+    border: solid 1px black;
+}
+.table1_ {
+    text-align: center;
+    font-size: 0.7em;
+    height: 2.5cm;
+}
+.table1_ input {
+    width: 1.5cm;
+}
+p {
+    font-size: 0.8em;
+    text-align: justify;
+}
+.tab_ {
+    padding-left: 7mm;
+}
+.footer_ {
+    font-size: 0.7em;
+}

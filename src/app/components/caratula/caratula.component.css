@@ -1,0 +1,24 @@
+table {
+    width: 80%;
+    margin: 2.5cm auto 0 auto;
+}
+textarea {
+    width: 100%;
+    font-size: 2.3em;
+    font-weight: 700;
+    text-align: center;
+    resize: none;
+    font-family: 'Times New Roman', Times, serif;
+    text-transform: uppercase;
+}
+h1 {
+    font-size: 2em;    
+}
+.foot_ td {
+    text-align: right;
+    padding-top: 6.6cm;
+    overflow: hidden;
+}
+.num_, .giro_ {
+    padding-top: 2.5em;
+}
