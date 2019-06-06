@@ -1,0 +1,39 @@
+table {
+    width: 100%;    
+    border-collapse: collapse;
+    margin-bottom: 1.5em;
+  /*   height: 2.5cm; */
+}
+table, th, td {
+    border: solid 1px black;
+}
+th {
+    background-color: #aaa;
+}
+
+.table1_ {
+    text-align: center;
+    font-size: 0.7em;
+}
+.table3_ {
+    font-size: 0.65em;
+}
+.table3_ .col1_ {
+    width: 5cm;
+}
+.table3_ .col2_ {
+    width: 4cm;
+}
+.table3_ .cols_ {
+    width: 1cm;
+}
+.table3_ .colm_ {
+    width: 2cm;
+}
+.table3_ textarea{
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+    resize: none;
+    overflow: hidden;
+}

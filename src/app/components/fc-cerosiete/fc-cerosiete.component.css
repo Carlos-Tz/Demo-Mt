@@ -2,7 +2,7 @@ table {
     width: 100%;    
     border-collapse: collapse;
     margin-bottom: 1.5em;
-    height: 2.5cm;
+    /* height: 2.5cm; */
 }
 table, th, td {
     border: solid 1px black;
