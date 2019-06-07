@@ -18,6 +18,7 @@ import { FtCeroochoincie2Component } from './components/ft-ceroochoincie2/ft-cer
 import { FtCeroochoincpeComponent } from './components/ft-ceroochoincpe/ft-ceroochoincpe.component';
 import { FtOnceComponent } from './components/ft-once/ft-once.component';
 import { FtCeroseisComponent } from './components/ft-ceroseis/ft-ceroseis.component';
+import { PanelComponent } from './components/panel/panel.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { FtCeroseisComponent } from './components/ft-ceroseis/ft-ceroseis.compon
     FtCeroochoincie2Component,
     FtCeroochoincpeComponent,
     FtOnceComponent,
-    FtCeroseisComponent
+    FtCeroseisComponent,
+    PanelComponent
   ],
   imports: [
     BrowserModule,
