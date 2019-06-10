@@ -16,24 +16,30 @@ import { Ft11Component } from './components/ft11/ft11.component';
 import { Ft06Component } from './components/ft06/ft06.component';
 import { CaratulaComponent } from './components/caratula/caratula.component';
 import { AddClientComponent } from './components/add-client/add-client.component';
+import { ClientComponent } from './components/client/client.component';
+import { Ft10Component } from './components/ft10/ft10.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/', pathMatch: 'full'},
   {path: '', component: CaratulaComponent},
+  {path: 'portrait', component: PagePortraitComponent},
   {path: 'landscape', component: PageLandscapeComponent},
-  {path: 'ft-01', component: Ft01Component},
-  {path: 'fc-07', component: Fc07Component},
-  {path: 'ft-02', component: Ft02Component},
-  {path: 'ft-03', component: Ft03Component},
-  {path: 'ft-05', component: Ft05Component},
-  {path: 'ft-09', component: Ft09Component},
-  {path: 'ft-08INCIE1', component: Ft08incie1Component},
-  {path: 'ft-08INCIE2', component: Ft08incie2Component},
-  {path: 'ft-08INCPE', component: Ft08incpeComponent},
-  {path: 'ft-11', component: Ft11Component},
-  {path: 'ft-06', component: Ft06Component},
+  {path: 'ft-01/:key', component: Ft01Component},
+  {path: 'fc-07/:key', component: Fc07Component},
+  {path: 'ft-02/:key', component: Ft02Component},
+  {path: 'ft-03/:key', component: Ft03Component},
+  {path: 'ft-05/:key', component: Ft05Component},
+  {path: 'ft-09/:key', component: Ft09Component},
+  {path: 'ft-08INCIE1/:key', component: Ft08incie1Component},
+  {path: 'ft-08INCIE2/:key', component: Ft08incie2Component},
+  {path: 'ft-08INCPE/:key', component: Ft08incpeComponent},
+  {path: 'ft-11/:key', component: Ft11Component},
+  {path: 'ft-10/:key', component: Ft10Component},
+  {path: 'ft-06/:key', component: Ft06Component},
   {path: 'panel', component: PanelComponent},
-  {path: 'nuevo', component: AddClientComponent}
+  {path: 'nuevo', component: AddClientComponent},
+  {path: 'cliente/:key', component: ClientComponent},
+  {path: 'caratula/:key', component: CaratulaComponent},
 ];
 
 @NgModule({

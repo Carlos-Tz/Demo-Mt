@@ -3,76 +3,88 @@
   <section>
     <div class="page">
       <div class="inner">
+        <form [formGroup]="clientForm" (ngSubmit)="submitClientData()" novalidate autocomplete="off">
         <p>Datos del Solicitante</p>
-        <p>Razón Social: <input type="text"></p>
-        <p>Giro: <input type="text"></p>
-        <p>No. de Control Interno: <input type="text"></p>
-        <p>Nombre del responsable solicitante: <input type="text"></p>
-        <p>Teléfono: <input type="text"></p>
-        <p>Correo electrónico: <input type="text"></p>
-        <p>Identificación: <input type="text"></p>
-        <p>No de Id o Folio: <input type="text"></p>
-        <p>Fax: <input type="text"></p>
-        <p>RFC: <input type="text"></p>
-        <p>Fecha Inicio: <input type="date"></p>
-        <p>Fecha Termino: <input type="date"></p>
-        <p>Calle y No.: <input type="text"></p>
-        <p>Colonia o Población: <input type="text"></p>
-        <p>Municipio o Delegación: <input type="text"></p>
-        <p>Entidad Federativa: <input type="text"></p>
-        <p>C.P.: <input type="text"></p>
-        <p>Logo: <input type="file" accept="image/*"></p>
+        <p>Razón Social: <input type="text" formControlName="razon"></p>
+        <p>Giro: <input type="text" formControlName="giro"></p>
+        <p>No. de Control Interno: <input type="text" formControlName="nocontrol"></p>
+        <p>Nombre del responsable solicitante: <input type="text" formControlName="nombre"></p>
+        <p>Teléfono: <input type="text" formControlName="tel"></p>
+        <p>Correo electrónico: <input type="text" formControlName="correo"></p>
+        <p>Identificación: <input type="text" formControlName="id"></p>
+        <p>No de Id o Folio: <input type="text" formControlName="folio"></p>
+        <p>Fax: <input type="text" formControlName="fax"></p>
+        <p>RFC: <input type="text" formControlName="rfc"></p>
+        <p>Fecha Inicio: <input type="text"></p>
+        <!-- <p>Fecha Termino: <input type="date"></p> -->
+        <p>Calle y No.: <input type="text" formControlName="calle"></p>
+        <p>Colonia o Población: <input type="text" formControlName="colonia"></p>
+        <p>Municipio o Delegación: <input type="text" formControlName="munic"></p>
+        <p>Entidad Federativa: <input type="text" formControlName="estado"></p>
+        <p>C.P.: <input type="number" formControlName="cp"></p>
+        <p>Logo: <input type="file" accept="image/*"></p><br>
 
-        <p>Datos del Servicio.</p><br>
-        <p>Tipo de Servicio: <input type="text"></p>
+        <p>Datos del Servicio.</p>
+        <p>Tipo de Servicio: <input type="text" formControlName="tipos"></p>
         <p>
           Tensión:
-          <select name="tension">
-            <option value="Baja" selected>Baja</option>
+          <select name="tension" formControlName="tension">
+            <option value="Baja" selected >Baja</option>
             <option value="Media">Media</option>
             <option value="Alta">Alta</option>
           </select>
         </p>
-        <p>Carga Instalada: <input type="text"> Kw</p>
-        <p>Alcance de la Verificación: <input type="text"> Kw</p>
-        <p>Factor de Demanda: <input type="text"> %</p>
-        <p>Carga Demandada: <input type="text"> Kw</p>
-        <p>Corriente Demandada: <input type="text"> Amps. <input type="text"> V</p>
-        <p>Capacidad de Subestación: <input type="text"> kVA</p>
-        <p>Área electrificada: <input type="text"> m<sup>2</sup></p>
-        <p>Costo: <input type="text"></p>
-        <p>Costo letra: <input type="text"></p>
+        <p>Carga Instalada: <input type="number" step="0.01" min="0" formControlName="cargai"> Kw</p>
+        <p>Alcance de la Verificación: <input type="number" step="0.01" min="0" formControlName="alcance"> Kw</p>
+        <p>Factor de Demanda: <input type="number" min="0" max="100" formControlName="factor"> %</p>
+        <p>Carga Demandada: <input type="number" step="0.001" min="0" formControlName="cargadem"> Kw</p>
+        <p>Corriente Demandada: <input type="number" step="0.01" min="0" formControlName="corriente"> Amps. <input type="text" formControlName="volts"> V</p>
+        <p>Capacidad de Subestación: <input type="number" step="0.01" min="0" formControlName="sub"> kVA</p>
+        <p>Área electrificada: <input type="number" step="0.01" min="0" formControlName="area"> m<sup>2</sup></p>
+        <p>Costo: <input type="number" formControlName="costo" min="0"></p>
+        <p>Costo letra: <input type="text" formControlName="costol"></p>
         <p>Tipo de instalación:
-          <select name="instal">
-            <option value="publica" selected>Concentración pública</option>
+          <select name="instal" formControlName="instal">
+            <option value="publica" selected >Concentración pública</option>
             <option value="peligrosa">Área perligrosa</option>
           </select>
         </p>
-        <p>NOM-001-SEDE-2012 Instalaciones Eléctricas (utilización) <input type="checkbox"></p>
-        <p>NOM-007-ENER-2014 Eficiencia energética en sistemas de alumbrado no residenciales. <input type="checkbox"></p>
-        <p>NOM-013-ENER-2013 Eficiencia energética para sistemas de alumbrado en vialidades. <input type="checkbox"></p>
-        <p>Revisión de planos de proyecto y memoria de cálculo. <input type="checkbox"></p>
-        <p>Verificación de subestación eléctrica. <input type="checkbox"></p>
-        <p>Verificación de instalaciones en baja tensión. <input type="checkbox"></p>
+        <p>NOM-001-SEDE-2012 Instalaciones Eléctricas (utilización) <input type="checkbox" formControlName="nom1"></p>
+        <p>NOM-007-ENER-2014 Eficiencia energética en sistemas de alumbrado no residenciales. <input type="checkbox" formControlName="nom7"></p>
+        <p>NOM-013-ENER-2013 Eficiencia energética para sistemas de alumbrado en vialidades. <input type="checkbox" formControlName="nom13"></p>
+        <p>Revisión de planos de proyecto y memoria de cálculo. <input type="checkbox" formControlName="revp"></p>
+        <p>Verificación de subestación eléctrica. <input type="checkbox" formControlName="verfs"></p>
+        <p>Verificación de instalaciones en baja tensión. <input type="checkbox" formControlName="verfbt"></p>
         <p>
           Ambientes especiales:
-          <label for="ambientes-si">Si</label>
-          <input type="radio" name="ambientes" id="ambientes-si">
-          <label for="ambientes-no">No</label>
-          <input type="radio" name="ambientes" id="ambientes-no">
+          <label>Si
+             <input type="radio" formControlName="ambien" value="si">
+              <!-- <input type="radio" [value]="si" formControlName="ambien"> -->
+          </label>
+          <label>No
+            <input type="radio" formControlName="ambien" value="no">
+              <!-- <input type="radio" [value]="no" formControlName="ambien"> -->
+          </label>
         </p>
         <p>
 
           Memoria Técnica:
-          <label for="memoria-si">Si</label>
-          <input type="radio" name="memoria" id="memoria-si">
-          <label for="memoria-no">No</label>
-          <input type="radio" name="memoria" id="memoria-no">
-        </p> <br>
+          <label>Si
+              <input type="radio" value="si" formControlName="memo">
+          </label>
+         
+          <label>No
+              <input type="radio" value="no" formControlName="memo">
+          </label>
+        </p>
+        <br>
         <p>Datos del responsable de atender a la UVIE tanto en proyecto como en sitio 7.2 III.4:</p>
-        <p>Nombre: <input type="text"></p>
-        <p>Identificación: <input type="text"></p>
-        <p>No de Id o Folio: <input type="text"></p>
+        <p>Nombre: <input type="text" formControlName="nombreuv"></p>
+        <p>Identificación: <input type="text" formControlName="iduv"></p>
+        <p>No de Id o Folio: <input type="text" formControlName="foliouv"></p>
+
+        <button type="submit" [disabled]="!clientForm.valid">Guardar</button>
+        </form>
       </div>
     </div>
   </section>

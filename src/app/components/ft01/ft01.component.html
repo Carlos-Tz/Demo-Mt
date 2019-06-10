@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <div class="app">
     <section>
       <div class="page">
@@ -25,9 +26,9 @@
             </tr>
           </table>
   
-          <input type="text">
+          <p *ngIf="client"><b>{{ client.nombre }}</b></p>
           <p>Representante:</p>
-          <input type="text"><br>
+          <p *ngIf="client"><b>{{ client.razon }}</b></p><br>
           <p>En respuesta a su amable solicitud de cotización, estoy poniendo a su consideración el presupuesto relativo a
             la
             verificación de sus instalaciones eléctricas en baja tensión; conforme a la NOM-001-SEDE-2012, Instalaciones
@@ -35,12 +36,12 @@
   
           <p>GENERALES:</p><br>
   
-          <p>Razón social o nombre del cliente: <input type="text"></p>
-          <p>Giro (SCIAN) o actividad empresarial: <input type="text"></p>
-          <p>Domicilio del servicio: <input type="text"></p>
-          <p>Capacidad total en subestación: <input type="text"> kVA </p>
-          <p>Carga total instalada:<input type="text"> kW </p>
-          <p>Tipo de servicio: Instalación nueva <input type="checkbox" name="" id=""></p><br>
+          <p>Razón social o nombre del cliente: <b *ngIf="client">{{ client.razon }}</b></p>
+          <p>Giro (SCIAN) o actividad empresarial: <b *ngIf="client">{{ client.giro }}</b></p>
+          <p>Domicilio del servicio: <b *ngIf="client">{{ client.calle }}, {{ client.colonia }}. {{ client.munic }}, {{ client.estado }}</b></p>
+          <p>Capacidad total en subestación: <b *ngIf="client">{{ client.sub }}</b> kWA</p>
+          <p>Carga total instalada: <b *ngIf="client">{{ client.cargai }}</b> kW </p>
+          <p>Tipo de servicio: <b *ngIf="client">{{ client.tipos }}</b></p><br>
   
           <p>A fin de cumplir con las leyes aplicables a la materia, las instalaciones eléctricas en servicios en baja
             tensión y
@@ -170,8 +171,7 @@
           <p>8. La UVIE a través del SEDIVER generará y enviará el escrito para el informe trimestral de dictamenes de
             verificación e informe trimestral de dictamenes de verificación (anexo D).</p><br>
   
-          <p>El Costo: “EL SOLICITANTE” se obliga a pagar a “EL VERIFICADOR” por el servicio antes descrito la cantidad de
-            <input type="text"> + IVA, (<input type="text"> 00/100 M.N.), + IVA, a la entrega del Informe Técnico.
+          <p>El Costo: “EL SOLICITANTE” se obliga a pagar a “EL VERIFICADOR” por el servicio antes descrito la cantidad de $ <b *ngIf="client">{{ client.costo }}</b> + IVA, (<b *ngIf="client">{{ client.razonl }}</b> Pesos 00/100 M.N.), + IVA, a la entrega del Informe Técnico.
             Tiempo de entrega: Si el proyecto e instalación cumplen con la NOM ,al termino de la instalación se entregara
             el dictamen.</p><br>
           
@@ -226,7 +226,7 @@
                       </div>
                       <hr>
                       <div >
-                        <p><input type="text"></p>
+                        <p *ngIf="client">{{ client.razon }}</p>
                       </div>
                     </div>
                 </td>

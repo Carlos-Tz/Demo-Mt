@@ -29,6 +29,7 @@ import { Ft08incie2Component } from './components/ft08incie2/ft08incie2.componen
 import { Ft08incpeComponent } from './components/ft08incpe/ft08incpe.component';
 
 import { environment } from '../environments/environment';
+import { Ft10Component } from './components/ft10/ft10.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { environment } from '../environments/environment';
     Ft11Component,
     Ft08incie1Component,
     Ft08incie2Component,
-    Ft08incpeComponent
+    Ft08incpeComponent,
+    Ft10Component
   ],
   imports: [
     BrowserModule,

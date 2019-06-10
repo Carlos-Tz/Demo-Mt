@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ClientService } from 'src/app/services/client.service';
 
 @Component({
   selector: 'app-client',
@@ -6,10 +8,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./client.component.css']
 })
 export class ClientComponent implements OnInit {
-
-  constructor() { }
+  public clientData = {};
+  public key: string;
+  constructor(
+    private actRouter: ActivatedRoute,
+    public clientApi: ClientService
+  ) { }
 
   ngOnInit() {
+    this.key = this.actRouter.snapshot.paramMap.get('key');
+    this.clientApi.getCurrentData(this.key).valueChanges().subscribe(data => {
+      this.clientData = data;
+      //console.log(this.clientData);
+     // this.client = data.clients[key2];
+     // console.log(this.survey.question1);
+    });
   }
 
 }

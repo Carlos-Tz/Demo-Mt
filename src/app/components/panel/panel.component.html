@@ -1,0 +1,29 @@
+<app-navbar></app-navbar>
+<div class="app">
+    <section>
+        <div class="page-landscape">
+            <div class="inner">
+                <table *ngIf="data_" datatable [dtOptions]="dtOptions" class="row-border hover">
+                    <thead>
+                        <tr>
+                            <th>Razón Social</th>
+                            <th>No. de Control Interno</th>
+                            <th>Giro</th>
+                            <th>Responsable</th>
+                            <!-- <th>Más...</th> -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let client of dataList;let i=index; " [routerLink]="['/cliente/', client.$key]" style="cursor: pointer;">
+                            <td>{{client.razon}}</td>
+                            <td>{{client.nocontrol}}</td>
+                            <td>{{client.giro}}</td>
+                            <td>{{client.nombre}}</td>
+                            <!-- <td><a [routerLink]="['/cliente/', client.$key]">+</a></td> -->
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+</div>

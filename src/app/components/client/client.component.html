@@ -1,3 +1,83 @@
-<p>
-  client works!
-</p>
+<app-navbar></app-navbar>
+<div class="app">
+    <section>
+      <div class="page-landscape">
+        <div class="inner">
+          <p style="text-align: center;">Razón Social: {{ clientData.razon }}</p>
+          <div class="mini-content">
+              <div class="mini-page" [routerLink]="['/caratula/', key]">
+                <div class="inner">
+                  <p style="font-size: 1.2em;">CARÁTULA</p>
+                </div>
+              </div>
+            <div class="mini-page" [routerLink]="['/ft-01/', key]">
+              <div class="inner">
+                <p>FT-01</p>
+              </div>
+            </div>
+            <div class="mini-page" [routerLink]="['/ft-02/', key]">
+              <div class="inner">
+                <p>FT-02</p>
+              </div>
+            </div>
+            <div class="mini-page" [routerLink]="['/ft-03/', key]">
+              <div class="inner">
+                <p>FT-03</p>
+              </div>
+            </div>
+            <div class="mini-page" [routerLink]="['/ft-05/', key]">
+              <div class="inner">
+                <p>FT-05</p>
+              </div>
+            </div>
+            
+          </div>
+          <div class="mini-content" >
+              <div class="mini-page" [routerLink]="['/ft-06/', key]">
+                <div class="inner">
+                  <p>FT-06</p>
+                </div>
+              </div>
+            <div class="mini-page" [routerLink]="['/fc-07/', key]">
+              <div class="inner">
+                <p>FC-07</p>
+              </div>
+            </div>
+            <div class="mini-page" [routerLink]="['/ft-08INCIE1/', key]">
+              <div class="inner">
+                <p>FT-08<br>INCIE1</p>
+              </div>
+            </div>
+            <div class="mini-page" [routerLink]="['/ft-08INCIE2/', key]">
+              <div class="inner">
+                <p>FT-08<br>INCIE2</p>
+              </div>
+            </div>
+            <div class="mini-page" [routerLink]="['/ft-08INCPE/', key]">
+              <div class="inner">
+                <p>FT-08<br>INCPE</p>
+              </div>
+            </div>
+           
+          </div>
+          <div class="mini-content">
+              <div class="mini-page" [routerLink]="['/ft-09/', key]">
+                <div class="inner">
+                  <p>FT-09</p>
+                </div>
+              </div>
+            <div class="mini-page" [routerLink]="['/ft-10/', key]">
+              <div class="inner">
+                <p>FT-10</p>
+              </div>
+            </div>
+            <div class="mini-page" [routerLink]="['/ft-11/', key]">
+              <div class="inner">
+                <p>FT-11</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>

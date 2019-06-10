@@ -5,6 +5,8 @@
     --margin-last-page: 2em;
     --page-width: 21.59cm;
     --page-height: 27.94cm;
+    --mini-page-width: 4.63cm;
+    --mini-page-height: 6cm;
     --page-color: #FFFFFF;
     --page-inner-width: calc(100% - 7mm - 7mm);
     --page-inner-height: calc(100% - 1cm - 1cm);
@@ -60,9 +62,29 @@
     margin: 0 auto;
     box-shadow: 1px 5px 15px #707070;
   }
+  .mini-page{
+    /* position: relative; */
+    width: var(--mini-page-width);
+    min-width: var(--mini-page-width);
+    height: var(--mini-page-height);
+    min-height: var(--mini-page-height);
+    background: var(--page-color);
+   /*  margin: 0 auto; */
+    margin: 2mm 3.3mm;
+    box-shadow: 1px 3px 5px #707070;
+    cursor: pointer;
+  }
+  .mini-content {
+    display: flex;
+  }
+  .mini-content p {
+    font-size: 2.3em;
+    text-align: center;
+    color: #008000;
+  }
   .page:first-of-type, .page-landscape:first-of-type { margin-top: var(--margin-first-page); }
   .page:last-of-type, .page-landscape:last-of-type { margin-bottom: var(--margin-last-page); }
-  .page > .inner, .page-landscape > .inner {
+  .page > .inner, .page-landscape > .inner, .mini-page > .inner {
     position: relative;
     width: var(--page-inner-width);
     height: var(--page-inner-height);

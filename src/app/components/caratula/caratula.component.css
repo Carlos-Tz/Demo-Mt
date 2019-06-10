@@ -15,9 +15,12 @@ h1 {
     font-size: 2em;    
 }
 .foot_ td {
+    position: absolute;
     text-align: right;
-    padding-top: 6.6cm;
+   /* padding-top: 6.6cm;*/
     overflow: hidden;
+    bottom: 2em;
+    right: 2em;
 }
 .num_, .giro_ {
     padding-top: 2.5em;
