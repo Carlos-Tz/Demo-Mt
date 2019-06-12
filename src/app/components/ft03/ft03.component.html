@@ -27,21 +27,20 @@
         </table>
 
 
-        <p>No. de Control: <input type="text"></p>
+        <p style="text-align: right;">No. de Control: <b *ngIf="client">{{ client.nocontrol }}/{{ client.anio }}</b></p>
 
         <p>CONTRATO DE PRESTACIÓN DE SERVICIOS PROFESIONALES QUE celebran, por una parte MT INGENIERIA S.A. DE C.V.
           representada por el Ing. Héctor Martínez Peña a quien se denominará en lo sucesivo como “LA UNIDAD DE
-          VERIFICACIÓN”; por la otra <input type="text"> representada por <input type="text">, quien en lo sucesivo se
+          VERIFICACIÓN”; por la otra <b *ngIf="client">{{ client.razon }}</b> representada por <b *ngIf="client">{{ client.nombre }}</b>, quien en lo sucesivo se
           denominará como “EL SOLICITANTE”, los cuales firman para manifestar estar de acuerdo y dar validez al presente
           contrato, ambos presentan identificación oficial (IFE, Cartilla, Pasaporte, Cedula Profesional,CURP).</p><br>
 
         <p>DECLARACIONES</p><br>
 
         <p>PRIMERA.- La verificación se realizara en:</p>
-        <p>Nombre o Razón Social del Visitado: <input type="text"></p>
-        <p>Calle y No.: <input type="text">Colonia o Población: <input type="text"></p>
-        <p>Municipio o Delegación: <input type="text">Entidad federativa: <input type="text"> C.P: <input type="text">
-        </p><br>
+        <p>Nombre o Razón Social del Visitado: <b *ngIf="client">{{ client.razon }}</b></p>
+        <p>Calle y No.: <b *ngIf="client">{{ client.calle }} </b> Colonia o Población: <b *ngIf="client">{{ client.colonia }}</b></p>
+        <p>Municipio o Delegación: <b *ngIf="client">{{ client.munic }} </b> Entidad federativa: <b *ngIf="client">{{ client.estado }} </b> C.P: <b *ngIf="client">{{ client.cp }}</b>        </p><br>
         <p>SEGUNDA.- Declara ser LA UNIDAD DE VERIFICACIÓN ACREDITADA Y APROBADA para la EVALUACIÓN DE LA CONFORMIDAD
           conforme a lo establecido en los artículos 1, 3, 38 Fracc. VI, 68, 69, 70, 71, 84, 85, Y 86 de la LEY FEDERAL
           SOBRE METROLOGÍA Y NORMALIZACIÓN y para los efectos legales señala por domicilio:</p><br>
@@ -76,18 +75,23 @@
           responsabilidad del solicitante.</p><br>
         <p>2.- ALCANCE.- “LA UNIDAD DE VERIFICACIÓN” realizará los servicios relacionados con la verificación, con el
           propósito de comprobar el cumplimiento de las siguientes Normas Oficiales Mexicanas, según el caso:</p>
-        <p>NOM-001-SEDE-2012 Instalaciones Eléctricas (utilización). <input type="checkbox"></p>
-        <p>NOM-007-ENER-2014 Eficiencia energética en sistemas de alumbrado no residenciales. <input type="checkbox">
-        </p>
-        <p>NOM-013-ENER-2013 Eficiencia energética para sistemas de alumbrado en vialidades. <input type="checkbox"></p>
-        <p>Pág. 1 de 2</p>
+        <p>NOM-001-SEDE-2012 Instalaciones Eléctricas (utilización). <b *ngIf="client"><span *ngIf="client.nom1">X</span></b></p>
+        <p>NOM-007-ENER-2014 Eficiencia energética en sistemas de alumbrado no residenciales. <b *ngIf="client"><span *ngIf="client.nom7">X</span></b></p>
+        <p>NOM-013-ENER-2013 Eficiencia energética para sistemas de alumbrado en vialidades. <b *ngIf="client"><span *ngIf="client.nom13">X</span></b></p>
+        <p style="position: absolute; bottom: 0; right: 2em;">Pág. 1 de 2</p>
 
 
       </div>
-      <div class="no-print" id="printBtn" onclick="window.print()">
-        <img src="assets/save.png" alt="" width="75" height="75">
-      </div>
+      
     </div>
+    <div>
+        <button class="volver_ no-print" (click)="goBack()">
+          Volver
+        </button>
+        <button class="imprimir_ no-print" onclick="window.print()">
+          Imprimir
+        </button>
+      </div>
   </section>
 </div>
 
@@ -118,13 +122,13 @@
           </tr>
         </table>
         <p>El alcance de la Verificación comprende:</p>
-        <p>1.- Revisión de planos de proyecto y memoria de cálculo. <input type="checkbox"></p>
+        <p>1.- Revisión de planos de proyecto y memoria de cálculo. <b *ngIf="client"><span *ngIf="client.revp">X</span></b></p>
         <p>2.- Verificación de acometida en:</p>
-        <p class="tab_">Baja tensión <input type="checkbox"></p>
-        <p class="tab_">Media tensión <input type="checkbox"></p>
-        <p class="tab_">Alta tensión <input type="checkbox"></p>
-        <p>3.- Verificación de subestación eléctrica. <input type="checkbox"></p>
-        <p>4.- Verificación de instalaciones en baja tensión. <input type="checkbox"></p><br>
+        <p class="tab_">Baja tensión <b *ngIf="client"><span *ngIf="client.tension=='Baja'">X</span></b></p>
+        <p class="tab_">Media tensión <b *ngIf="client"><span *ngIf="client.tension=='Media'">X</span></b></p>
+        <p class="tab_">Alta tensión <b *ngIf="client"><span *ngIf="client.tension=='Alta'">X</span></b></p>
+        <p>3.- Verificación de subestación eléctrica. <b *ngIf="client"><span *ngIf="client.verfs">X</span></b></p>
+        <p>4.- Verificación de instalaciones en baja tensión. <b *ngIf="client"><span *ngIf="client.verfbt">X</span></b></p><br>
 
         <p>3.- “EL SOLICITANTE” se obliga, a acatar las observaciones documentadas en las Normas Oficiales Mexicanas,
           que hiciere en todo momento “LA UNIDAD DE VERIFICACIÓN”, que por escrito éste último comunicará en forma
@@ -135,7 +139,7 @@
           aplicables, “EL VERIFICADOR”, expedirá el dictamen de cumplimiento, mismo que “EL SOLICITANTE “, entregará a
           la compañía suministradora al celebrar el contrato definitivo de suministro eléctrico.</p><br>
         <p>5.- “EL SOLICITANTE” se obliga a pagar a “LA UNIDAD DE VERIFICACIÓN” por el servicio antes descrito la
-          cantidad de <input type="text"> (<input type="text"> Pesos 00/100 M.N.), debiéndose agregar el 16% de I.V.A, a
+          cantidad de $ <b *ngIf="client">{{ client.costo }}</b> (<b *ngIf="client">{{ client.costol }}</b> Pesos 00/100 M.N.), debiéndose agregar el 16% de I.V.A, a
           la entrega por parte del “LA UNIDAD DE VERIFICACIÓN” del DICTAMEN DE CUMPLIMIENTO DE VERIFICACIÓN DE LAS
           NORMAS OFICIALES MEXICANAS aplicables o informe técnico.</p><br>
         <p>6.- En caso que “EL SOLICITANTE” en forma unilateral y sin causas imputables a “LA UNIDAD DE VERIFICACIÓN”,
@@ -161,8 +165,7 @@
         <p>15.- La unidad de verificación y el personal no existen conflictos de intereses, ausencia de perjuicios
           neutralidad, equidad, actitud abierta.</p><br>
 
-        <p>Dado por duplicado en la Ciudad de México, a los <input type="number"> días del mes de <input type="number">
-          del año <input type="number">.</p><br>
+        <p>Dado por duplicado en la Ciudad de México, a <b *ngIf="client">{{ client.fechai }}</b>.</p><br>
 
         <table>
           <tr>
@@ -176,7 +179,7 @@
                 </div>
                 <hr>
                 <div>
-                  <p><input type="text"></p>
+                  <p><b *ngIf="client">{{ client.razon }}</b></p>
                 </div>
               </div>
             </td>
@@ -198,6 +201,7 @@
           </tr>
 
         </table>
+        <p style="position: absolute; bottom: 0; right: 2em;">Pág. 2 de 2</p>
       </div>
     </div>
   </section>

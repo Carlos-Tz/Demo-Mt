@@ -16,7 +16,11 @@ export class ClientService {
   public client = {};
   constructor(private db: AngularFireDatabase, private router: Router) { }
 
-  AddClient(client: Client, fecha: string) {
+  AddClient(client: Client, fecha: string, dia: string, mes: string, anio: string) {
+    client.dia = dia;
+    client.mes = mes;
+    client.anio = anio;
+    client.fechai = fecha;
     this.dataList.push(client/* {
       client */
       /* razon: client.razon,

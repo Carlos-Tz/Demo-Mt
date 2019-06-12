@@ -10,7 +10,7 @@
                 <h2>
                   <b>COTIZACIÓN</b>
                 </h2>
-                <h4><b>Fecha: <input type="text">Ref. MTI <input type="text"></b></h4>
+                <h4>Fecha: <b *ngIf="client">{{ client.dia }}/{{ client.mes }}/{{ client.anio }} </b>Ref. MTI <b *ngIf="client">{{ client.dia }}/{{ client.mes }}/{{ client.anio }} </b></h4>
   
               </td>
               <td style="padding-top: 3mm;">CÓDIGO: <b>FT-01</b></td>
@@ -38,7 +38,7 @@
   
           <p>Razón social o nombre del cliente: <b *ngIf="client">{{ client.razon }}</b></p>
           <p>Giro (SCIAN) o actividad empresarial: <b *ngIf="client">{{ client.giro }}</b></p>
-          <p>Domicilio del servicio: <b *ngIf="client">{{ client.calle }}, {{ client.colonia }}. {{ client.munic }}, {{ client.estado }}</b></p>
+          <p>Domicilio del servicio: <b *ngIf="client">{{ client.calle }} {{ client.colonia }}. {{ client.munic }} {{ client.estado }} {{ client.cp }}</b></p>
           <p>Capacidad total en subestación: <b *ngIf="client">{{ client.sub }}</b> kWA</p>
           <p>Carga total instalada: <b *ngIf="client">{{ client.cargai }}</b> kW </p>
           <p>Tipo de servicio: <b *ngIf="client">{{ client.tipos }}</b></p><br>
@@ -111,10 +111,15 @@
             la cancelación, lo que sea mayor, si “EL VERIFICADOR” no diera cabal cumplimiento a sus obligaciones del
             presente instrumento, “EL SOLICITANTE” Tendrá derecho a rescindirlo</p>
   
-        </div>
-        <div class="no-print" id="printBtn" onclick="window.print()">
-          <img src="assets/save.png" alt="" width="75" height="75">
-        </div>
+        </div>        
+      </div>
+      <div>
+        <button class="volver_ no-print" (click)="goBack()">
+          Volver
+        </button>
+        <button class="imprimir_ no-print" onclick="window.print()">
+          Imprimir
+        </button>  
       </div>
     </section>
   </div>
@@ -130,7 +135,7 @@
                 <h2>
                   <b>COTIZACIÓN</b>
                 </h2>
-                <p><b>Fecha: <input type="text">Ref. MTI <input type="text"></b></p>
+                <h4>Fecha: <b *ngIf="client">{{ client.dia }}/{{ client.mes }}/{{ client.anio }} </b>Ref. MTI <b *ngIf="client">{{ client.dia }}/{{ client.mes }}/{{ client.anio }} </b></h4>
   
               </td>
               <td style="padding-top: 3mm;">CÓDIGO: <b>FT-01</b></td>
@@ -226,7 +231,7 @@
                       </div>
                       <hr>
                       <div >
-                        <p *ngIf="client">{{ client.razon }}</p>
+                        <p *ngIf="client"><b>{{ client.razon }}</b></p>
                       </div>
                     </div>
                 </td>

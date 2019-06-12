@@ -8,14 +8,13 @@
               <td rowspan="4" style="width: 25%;"><img src="assets/mt.png" style="height: 2cm;"></td>
               <td rowspan="4" style="width: 25%;">
                 <h3><b>LISTA DE VERIFICACIÓN PROYECTO ELECTRICO NOM-001-SEDE-2012</b></h3>
-                <p>VERIFICACIÓN No. UVSEIE 448 A- <input type="text"></p>
-                <p>FECHA: <input type="text"></p>
+                <p>VERIFICACIÓN No. UVSEIE 448 A-<b *ngIf="client">{{ client.nocontrol }}/{{ client.anio }}</b></p>
+                <p>FECHA: <b *ngIf="client">{{ client.dia }}/{{ client.mes }}/{{ client.anio }}</b></p>
               </td>
-              <td colspan="3">RAZÓN SOCIAL: <input type="text"></td>
-              <!-- <td style="padding-top: 3mm;">CÓDIGO: <b>FC-07</b></td> -->
+              <td colspan="3"><p>RAZÓN SOCIAL: <b *ngIf="client">{{ client.razon }}</b></p></td>
             </tr>
             <tr>
-              <td>TENSIÓN: <input type="text"></td>
+              <td><p>TENSIÓN:<b *ngIf="client">{{ client.tension }} Tensión</b></p></td>
               <td>CÓDIGO: <b>FT-06</b></td>
               <td>EDICIÓN: <b>1</b></td>
             </tr>
@@ -23,7 +22,7 @@
               <td></td>
             </tr>
             <tr>
-              <td rowspan="2">CARGA INSTALADA: <input type="text"> <b>Kw</b></td>
+              <td rowspan="2"><p>CARGA INSTALADA: <b *ngIf="client">{{ client.cargai }} Kw</b></p></td>
               <td rowspan="2">NIVEL REV: <b>3</b></td>
               <td rowspan="2">VIGENCIA: <br><b>05-Dic-14</b></td>
             </tr>
@@ -318,9 +317,18 @@
             </tr>
           </table>
         </div>
-        <div class="no-print" id="printBtn" onclick="window.print()">
-          <img src="assets/save.png" alt="" width="75" height="75">
-        </div>
+        
       </div>
+      <div>
+          <button class="volver_ no-print" (click)="goBack()">
+            Volver
+          </button>
+          <button class="imprimir_ no-print" onclick="window.print()">
+            Imprimir
+          </button>
+          <button class="guardar_ no-print">
+            Guardar
+          </button>
+        </div>
     </section>
   </div>

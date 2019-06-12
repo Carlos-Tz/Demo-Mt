@@ -2,6 +2,9 @@ export interface Client {
     $key: string;
     date: number;
     fechai: string;
+    dia: string;
+    mes: string;
+    anio: string;
     fechaf: string;
     razon: string;
     giro: string;
@@ -19,6 +22,7 @@ export interface Client {
     estado: string;
     cp: number;
     logo: string;
+    planos: number;
     tipos: string;
     tension: string;
     cargai: number;

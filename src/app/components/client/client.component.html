@@ -3,7 +3,7 @@
     <section>
       <div class="page-landscape">
         <div class="inner">
-          <p style="text-align: center;">Razón Social: {{ clientData.razon }}</p>
+          <p style="text-align: center;">Razón Social: <b *ngIf="clientData">{{ clientData.razon }}</b></p>
           <div class="mini-content">
               <div class="mini-page" [routerLink]="['/caratula/', key]">
                 <div class="inner">
@@ -79,5 +79,10 @@
           </div>
         </div>
       </div>
+      <div>
+        <button class="volver_ no-print" (click)="goBack()">
+          Volver
+        </button>
+        </div>
     </section>
   </div>

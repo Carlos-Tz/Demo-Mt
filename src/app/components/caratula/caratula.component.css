@@ -23,5 +23,6 @@ h1 {
     right: 2em;
 }
 .num_, .giro_ {
-    padding-top: 2.5em;
+    padding-top: 1em;
+    padding-bottom: 2.5em;
 }

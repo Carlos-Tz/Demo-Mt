@@ -134,4 +134,63 @@
     left: 50%;
     transform: translate(-50%, -50%);
   }
+
+  .guardar_ {
+    position: fixed;
+    bottom: 225px;
+    right: 25px;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: #a4bd39;
+    color: #333;
+    font-weight: 600;
+    box-shadow: 1px 3px 5px #707070;
+  }
+
+  .imprimir_ {
+    position: fixed;
+    bottom: 125px;
+    right: 25px;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: #39b4bd;
+    color: #333;
+    font-weight: 600;
+    box-shadow: 1px 3px 5px #707070;
+  }
+  .volver_ {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: #7c7c80;
+    color: #333;
+    font-weight: 600;
+    box-shadow: 1px 3px 5px #707070;
+  }
+
+  .guardar_c {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: #a4bd39;
+    color: #333;
+    font-weight: 600;
+    box-shadow: 1px 3px 5px #707070;
+  }
+
+  .guardar_c:disabled {
+    background-color: #7c7c80;
+  }
   

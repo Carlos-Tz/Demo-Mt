@@ -51,12 +51,21 @@
               <td><textarea rows="2"></textarea></td>
             </tr>
           </table>
-          <p>Verificación número: UVSEIE 448 A-<input type="text">/<input type="text"><p>
-          <p>Fecha: <input type="text"> Verificador: Ing. Héctor Martínez Peña</p>
+          <p>Verificación número: UVSEIE 448 A-<b *ngIf="client">{{ client.nocontrol }}/{{ client.anio }}</b><p>
+          <p>Fecha: <b *ngIf="client">{{ client.dia }}/{{ client.mes }}/{{ client.anio }} </b> Verificador: Ing. Héctor Martínez Peña</p>
         </div>
-        <div class="no-print" id="printBtn" onclick="window.print()">
-          <img src="assets/save.png" alt="" width="75" height="75">
-        </div>
+        
+      </div>
+      <div>
+        <button class="volver_ no-print" (click)="goBack()">
+          Volver
+        </button>
+        <button class="imprimir_ no-print" onclick="window.print()">
+          Imprimir
+        </button>
+        <button class="guardar_ no-print">
+          Guardar
+        </button>
       </div>
     </section>
   </div>

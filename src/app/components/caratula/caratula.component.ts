@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ClientService } from 'src/app/services/client.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-caratula',
@@ -7,10 +8,13 @@ import { ClientService } from 'src/app/services/client.service';
   styleUrls: ['./caratula.component.css']
 })
 export class CaratulaComponent implements OnInit {
-  public client: {};
+  public client: {
+    anio: ''
+  };
 
   constructor(
-    private clientApi: ClientService
+    private clientApi: ClientService,
+    private location: Location
   ) { }
 
   ngOnInit() {
@@ -24,5 +28,8 @@ export class CaratulaComponent implements OnInit {
         } */
       });
     }
+  }
+  goBack = () => {
+    this.location.back();
   }
 }

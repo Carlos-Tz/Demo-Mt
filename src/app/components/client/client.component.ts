@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ClientService } from 'src/app/services/client.service';
+import { Client } from 'src/app/models/client';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-client',
@@ -8,11 +10,12 @@ import { ClientService } from 'src/app/services/client.service';
   styleUrls: ['./client.component.css']
 })
 export class ClientComponent implements OnInit {
-  public clientData = {};
+  public clientData: {};
   public key: string;
   constructor(
     private actRouter: ActivatedRoute,
-    public clientApi: ClientService
+    public clientApi: ClientService,
+    private location: Location
   ) { }
 
   ngOnInit() {
@@ -25,4 +28,7 @@ export class ClientComponent implements OnInit {
     });
   }
 
+  goBack = () => {
+    this.location.back();
+  }
 }

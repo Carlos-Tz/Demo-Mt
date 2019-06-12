@@ -9,15 +9,15 @@
     </a>
     <ul class="menu-items_">
     <!--   <li *ngIf="save==1 || save==2"><a class="a" (click)='authService.SignOut()'>Salir</a></li> -->
-      <li><a class="a" [routerLink]="['/panel']">Panel</a></li>
-      <li>
+      <li><button class="a" [routerLink]="['/panel']">Expedientes</button></li>
+      <!-- <li>
         <button class="nav-save-btn_">
           Guardar
         </button>
-      </li>
+      </li> -->
       <li>
         <button class="nav-add-btn_" [routerLink]="['/nuevo']">
-          +
+          Nuevo +
         </button>
       </li>
       <!-- <li *ngIf="save==0">

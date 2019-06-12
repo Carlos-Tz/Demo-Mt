@@ -5,7 +5,7 @@
       <div class="inner">
         <table>
           <tr>
-            <td>
+            <td class="num_">
               <p *ngIf="client" style="font-size: 2.7em;"><b>{{ client.razon }}</b></p>
              <!--  <textarea name="" id="" rows="3" style="font-size: 2.7em;">MINISO MÉXICO S.A.P.I. DE C.V.</textarea> -->
             </td>
@@ -29,7 +29,7 @@
           </tr>
           <tr>
             <td class="num_">
-                <p *ngIf="client" style="font-size: 2.7em;"><b>UVSEIE 448 A-{{ client.nocontrol }}/</b></p>
+                <p *ngIf="client" style="font-size: 2.7em;"><b>UVSEIE 448 A-{{ client.nocontrol }}/{{ client.anio }}</b></p>
               <!-- <textarea name="" id="" rows="2" style="font-size: 2.7em;">UVSEIE 448 - A - XXXX/19</textarea> -->
             </td>
           </tr>
@@ -40,9 +40,14 @@
           </tr>
         </table>
       </div>
-      <div class="no-print" id="printBtn" onclick="window.print()">
-        <img src="assets/save.png" alt="" width="75" height="75">
-      </div>
+    </div>
+    <div>
+      <button class="volver_ no-print" (click)="goBack()">
+        Volver
+      </button>
+      <button class="imprimir_ no-print" onclick="window.print()">
+        Imprimir
+      </button>      
     </div>
   </section>
 </div>

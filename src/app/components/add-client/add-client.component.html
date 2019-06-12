@@ -34,6 +34,7 @@
             <option value="Alta">Alta</option>
           </select>
         </p>
+        <p>Planos: <input type="number" min="0" formControlName="planos"></p>
         <p>Carga Instalada: <input type="number" step="0.01" min="0" formControlName="cargai"> Kw</p>
         <p>Alcance de la Verificación: <input type="number" step="0.01" min="0" formControlName="alcance"> Kw</p>
         <p>Factor de Demanda: <input type="number" min="0" max="100" formControlName="factor"> %</p>
@@ -83,9 +84,14 @@
         <p>Identificación: <input type="text" formControlName="iduv"></p>
         <p>No de Id o Folio: <input type="text" formControlName="foliouv"></p>
 
-        <button type="submit" [disabled]="!clientForm.valid">Guardar</button>
+        <!-- <button type="submit" [disabled]="!clientForm.valid">Guardar</button> -->
         </form>
       </div>
+    </div>
+    <div>
+      <button class="guardar_c no-print" (click)="submitClientData()" [disabled]="!clientForm.valid">
+        Guardar
+      </button>
     </div>
   </section>
 </div>

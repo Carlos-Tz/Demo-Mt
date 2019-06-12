@@ -13,6 +13,9 @@ import { Client } from 'src/app/models/client';
 })
 export class AddClientComponent implements OnInit {
   public fecha = '';
+  public dia = '';
+  public mes = '';
+  public anio = '';
   public clientForm: FormGroup;
   public dataList = [];
   constructor(
@@ -22,6 +25,10 @@ export class AddClientComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.dia = fechaObj.format(new Date(), 'D');
+    this.mes = fechaObj.format(new Date(), 'MMMM');
+    this.anio = fechaObj.format(new Date(), 'YY');
+    this.fecha = fechaObj.format(new Date(), 'D [de] MMM [del] YYYY');
     this.clientApi.GetDataList();
     this.cForm();
   }
@@ -45,6 +52,7 @@ export class AddClientComponent implements OnInit {
       cp: [''],
       tipos: [''],
       tension: [''],
+      planos: [''],
       cargai: [''],
       alcance: [''],
       factor: [''],
@@ -75,7 +83,7 @@ export class AddClientComponent implements OnInit {
   }
 
   submitClientData = () => {
-    this.clientApi.AddClient(this.clientForm.value, this.fecha);
+    this.clientApi.AddClient(this.clientForm.value, this.fecha, this.dia, this.mes, this.anio);
     this.toastr.success('Guardado!');
     this.ResetForm();
   }

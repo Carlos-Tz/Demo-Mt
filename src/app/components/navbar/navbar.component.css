@@ -34,16 +34,20 @@
   }
   .menu-items_ li .a {
     text-decoration: none;
-    color: #7c7c80;
+    color: #fff;
     border-radius: 10px;
     font-size: 1.1em;
+    background-color: #7c7c80;
+    height: 40px;
+    width: 4cm;
+    cursor: pointer;
   }
-  .menu-items_ li .a:link,
+  /* .menu-items_ li .a:link,
   .menu-items_ li .a:visited {
-    color: #7c7c80;
+    color: #fff;
     font-size: .85rem;
     font-weight: regular;
-  }
+  } */
   .menu-items_ li .nav-save-btn_ {
     background-color: #a4bd39;
     color: #fff;
@@ -56,11 +60,11 @@
   .menu-items_ li .nav-add-btn_ {
     background-color: #a4bd39;
     color: #fff;
-    border-radius: 50%;
+    border-radius: 10px;
     cursor: pointer;
     height: 40px;
-    width: 40px;
-    font-size: 2em;
+    width: 3cm;
+    font-size: 1.1em;
   }
   .svg-logo_ {
     width: 100%;

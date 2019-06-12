@@ -18,7 +18,7 @@ export class PanelComponent implements OnInit {
   ngOnInit() {
     this.dtOptions = {
       dom: 'Bfrtip',
-      pageLength: 15,
+      pageLength: 17,
       // Configure the buttons
       buttons: [],
       language: {

@@ -28,32 +28,32 @@
           <table>
             <tr>
               <td colspan="3">
-               <p><b> Razón Social:</b> <input type="text"></p>
+               <p>Razón Social: <b *ngIf="client">{{ client.razon }}</b></p>
               </td>
             </tr>
             <tr>
               <td colspan="3">
-                <p>Giro de la Instalación: <input type="text"></p>
+                <p>Giro de la Instalación: <b *ngIf="client">{{ client.giro }}</b></p>
               </td>
             </tr>
             <tr>
               <td colspan="3">
-                <p>Domicilio: <input type="text"></p>
+                <p>Domicilio: <b *ngIf="client">{{ client.calle }} {{ client.colonia }}</b></p>
               </td>
             </tr>
             <tr>
               <td>
-               <p> Mpo. o Delegación: <input type="text"></p>
+               <p> Mpo. o Delegación: <b *ngIf="client">{{ client.munic }}</b></p>
               </td>
               <td>
-                <p>Ciudad o Estado: <input type="text"></p>
+                <p>Ciudad o Estado: <b *ngIf="client">{{ client.estado }}</b></p>
               </td>
               <td>
-                <p>C.P: <input type="text"></p>
+                <p>C.P: <b *ngIf="client">{{ client.cp }}</b></p>
               </td>
             </tr>
           </table>
-  
+          <p>Verificación No.: <b *ngIf="client">{{ client.nocontrol }}/{{ client.anio }}</b></p><br>
           <table>
             <tr>
               <th>Resultados de Pruebas</th>
@@ -138,12 +138,25 @@
           </table>
   
           <p>NOTA: Es responsabilidad del solicitante realizar las pruebas requeridas por el PEC en el punto 6.6. El Gerente Técnicoy/o Gerente Técnico Susutituto solicita y revisa los resultados de dichas pruebas proporcionados por el solicitante, podrán registrarse en el formato FT-11 por el solicitante o por el verificador; o bien el solicitante podrá entregar los resultados de estas pruebas en sus propios documentos. En su caso, el verificador podrá comprobar el resultado de la resistencia eléctrica de electrodos artificiales y de la red de tierra, utilizando el medidor de resistencia de tierras y el procedimiento del propio medidor (instructivo guía IT-02)</p>
+
+          <p>Nombre y Firma del Responsable</p>
+
+          <p><b *ngIf="client">{{ client.nombreuv }}</b></p>
   
   
         </div>
-        <div class="no-print" id="printBtn" onclick="window.print()">
-          <img src="assets/save.png" alt="" width="75" height="75">
-        </div>
+        
+      </div>
+      <div>
+        <button class="volver_ no-print" (click)="goBack()">
+          Volver
+        </button>
+        <button class="imprimir_ no-print" onclick="window.print()">
+          Imprimir
+        </button>
+        <button class="guardar_ no-print">
+          Guardar
+        </button>
       </div>
     </section>
   </div>

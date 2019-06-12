@@ -20,12 +20,12 @@
             </tr>
             <tr>
               <td rowspan="3">
-                <p>No. UVSEIE 448-A <input type="text"></p>
-                <p>Fecha <input type="text"></p>
+                <p>No. UVSEIE 448 A-<b *ngIf="client">{{ client.nocontrol }}/{{ client.anio }}</b></p>
+                <p>Fecha: <b *ngIf="client">{{ client.dia }}/{{ client.mes }}/{{ client.anio }}</b></p>
               </td>
               <td rowspan="3">
-                <p>Cliente: <input type="text"></p>
-                <p>Domicilio: <textarea rows="2"></textarea></p>
+                  <p>Cliente: <b *ngIf="client">{{ client.razon }}</b></p>
+                  <p>Domicilio: <b *ngIf="client">{{ client.calle }} {{ client.colonia }}, {{client.munic}} {{client.estado}} C.P. {{client.cp}}.</b></p>
               </td>
               <td>NIVEL REV: <b>3</b></td>
             </tr>
@@ -63,11 +63,20 @@
           <p>EL CLIENTE FIJA LA FECHA DE CORRECCIÓN PARA CERRAR LOS INCUMPLIMIENTOS ENCONTRADOS EN EL PROYECTO E INSTALACIONES. <b>LA LEY LE CONCEDE 90 DIAS PARA
               CORREGIR LAS NO CONFORMIDADES.</b>CUANDO HAYA EFECTUADO TODAS LAS CORRECCIONES, FAVOR DE AVISAR PARA PROGRAMAR UNA NUEVA VISITA DE INSPECCION
           </p><p><b>IMPORTANTE: EL VERIFICADOR NO ES EL SUPERVISOR DE OBRA DEL SOLICITANTE</b></p>
-              <p>Verificador: Ing. Héctor Martínez Peña El Cliente: <input type="text"></p>
+              <p>Verificador: Ing. Héctor Martínez Peña El Cliente: <b *ngIf="client">{{ client.razon }}</b></p>
         </div>
-        <div class="no-print" id="printBtn" onclick="window.print()">
-          <img src="assets/save.png" alt="" width="75" height="75">
-        </div>
+        
       </div>
+      <div>
+          <button class="volver_ no-print" (click)="goBack()">
+            Volver
+          </button>
+          <button class="imprimir_ no-print" onclick="window.print()">
+            Imprimir
+          </button>
+          <button class="guardar_ no-print">
+            Guardar
+          </button>
+        </div>
     </section>
   </div>
