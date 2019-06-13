@@ -1,3 +1,80 @@
-<p>
-  ft10 works!
-</p>
+<app-navbar></app-navbar>
+<div class="app" *ngFor="let p of [1,2,3]; let i=index">
+  <section>
+    <div class="page-landscape">
+      <div class="inner">
+        <table class="table1_">
+          <tr>
+            <td rowspan="4" style="width: 25%;"><img src="assets/mt.png" style="height: 2cm;"></td>
+            <td rowspan="4" style="width: 25%;">
+              <h3><b>LISTA DE VERIFICACIÓN INSTALACIONES ELÉCTRICAS NOM-001-SEDE-2012</b></h3>
+              <p>VERIFICACIÓN No. UVSEIE 448 A-<b *ngIf="client">{{ client.nocontrol }}/{{ client.anio }}</b></p>
+              <p>FECHA: <b *ngIf="client">{{ client.dia }}/{{ client.mes }}/{{ client.anio }}</b></p>
+            </td>
+            <td colspan="3"><p>RAZÓN SOCIAL: <b *ngIf="client">{{ client.razon }}</b></p></td>
+          </tr>
+          <tr>
+            <td><p>TENSIÓN:<b *ngIf="client">{{ client.tension }} Tensión</b></p></td>
+            <td>CÓDIGO: <b>FT-10</b></td>
+            <td>EDICIÓN: <b>1</b></td>
+          </tr>
+          <tr>
+            <td rowspan="2"><p>CARGA INSTALADA: <b *ngIf="client">{{ client.cargai }} Kw</b></p></td>
+            <td rowspan="2">NIVEL REV: <b>3</b></td>
+            <td rowspan="2">VIGENCIA: <br><b>05-Dic-14</b></td>
+          </tr>
+        </table>
+        <table class="table3_">
+          <tr>
+            <th rowspan="2" class="cols_">Artículo, Sección, Inciso de la NOM a verificar</th>
+            <th rowspan="2" class="colmm">Texto de Referencia Requisitos generales a verificar</th>
+            <th rowspan="2" class="colsm_">Tipo de Verificación</th>
+            <th rowspan="2" style="width: 8cm;">Criterio de Aceptación o Rechazo</th>
+            <th rowspan="2" class="colm_">Observaciones de la verificación al Proyecto</th>
+            <th rowspan="2" class="colm_">Observaciones de la verificación en sitio</th>
+            <th colspan="2" class="cols_">Cumple</th>
+          </tr>
+          <tr>
+            <th class="colss_">SI</th>
+            <th class="colss_">NO</th>
+          </tr>
+        </table>
+        <table style="border-left: 0; border-top: 0; border-right: 0; font-size: 0.65em;">
+            <app-row *ngFor="let r of page0; let j=index;"
+                    [j]="j+(13*i)"
+                    [page]="f10">
+            </app-row>
+        </table>
+
+        <table style="position: absolute; bottom: 0; margin-bottom: 0;">
+          <tr>
+            <td>
+              <p>&#9632; Cumple</p>
+            </td>
+            <td>
+              <p>&#9632; No cumple</p>
+            </td>
+            <td>
+              <p>&#9633; No aplica</p>
+            </td>
+            <td>
+              <p>A: Análisis</p>
+            </td>
+            <td>
+              <p>D: Documental</p>
+            </td>
+            <td>
+              <p>O: Ocular</p>
+            </td>
+            <td>
+              <p>C: Comprobación</p>
+            </td>
+            <td>
+              <p>M: Medición</p>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </section>
+</div>

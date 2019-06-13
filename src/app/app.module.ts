@@ -30,6 +30,8 @@ import { Ft08incpeComponent } from './components/ft08incpe/ft08incpe.component';
 
 import { environment } from '../environments/environment';
 import { Ft10Component } from './components/ft10/ft10.component';
+import { PageComponent } from './components/ft10/page/page.component';
+import { RowComponent } from './components/ft10/row/row.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,9 @@ import { Ft10Component } from './components/ft10/ft10.component';
     Ft08incie1Component,
     Ft08incie2Component,
     Ft08incpeComponent,
-    Ft10Component
+    Ft10Component,
+    PageComponent,
+    RowComponent
   ],
   imports: [
     BrowserModule,
