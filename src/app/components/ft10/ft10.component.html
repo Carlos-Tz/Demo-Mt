@@ -1,5 +1,5 @@
 <app-navbar></app-navbar>
-<div class="app" *ngFor="let p of [1,2,3]; let i=index">
+<div class="app" *ngFor="let p of pages; let i=index">
   <section>
     <div class="page-landscape">
       <div class="inner">
@@ -24,24 +24,24 @@
             <td rowspan="2">VIGENCIA: <br><b>05-Dic-14</b></td>
           </tr>
         </table>
-        <table class="table3_">
+        <table class="table3_" style="margin-bottom: 0; border-bottom: none;">
           <tr>
-            <th rowspan="2" class="cols_">Artículo, Sección, Inciso de la NOM a verificar</th>
-            <th rowspan="2" class="colmm">Texto de Referencia Requisitos generales a verificar</th>
-            <th rowspan="2" class="colsm_">Tipo de Verificación</th>
-            <th rowspan="2" style="width: 8cm;">Criterio de Aceptación o Rechazo</th>
-            <th rowspan="2" class="colm_">Observaciones de la verificación al Proyecto</th>
-            <th rowspan="2" class="colm_">Observaciones de la verificación en sitio</th>
+            <th rowspan="2" class="cols_" style="border-bottom: none;">Artículo, Sección, Inciso de la NOM a verificar</th>
+            <th rowspan="2" class="colmm" style="border-bottom: none;">Texto de Referencia Requisitos generales a verificar</th>
+            <th rowspan="2" class="colsm_" style="border-bottom: none;">Tipo de Verificación</th>
+            <th rowspan="2" style="width: 8.1cm; border-bottom: none;">Criterio de Aceptación o Rechazo</th>
+            <th rowspan="2" class="colm_" style="border-bottom: none;">Observaciones de la verificación al Proyecto</th>
+            <th rowspan="2" class="colm_" style="border-bottom: none;">Observaciones de la verificación en sitio</th>
             <th colspan="2" class="cols_">Cumple</th>
           </tr>
           <tr>
-            <th class="colss_">SI</th>
-            <th class="colss_">NO</th>
+            <th class="colss_" style="border-bottom: none;">SI</th>
+            <th class="colss_" style="border-bottom: none;">NO</th>
           </tr>
         </table>
         <table style="border-left: 0; border-top: 0; border-right: 0; font-size: 0.65em;">
             <app-row *ngFor="let r of page0; let j=index;"
-                    [j]="j+(13*i)"
+                    [j]="j+(18*i)"
                     [page]="f10">
             </app-row>
         </table>
@@ -75,6 +75,14 @@
           </tr>
         </table>
       </div>
+    </div>
+    <div>
+      <button class="volver_ no-print" (click)="goBack()">
+        Volver
+      </button>
+      <button class="imprimir_ no-print" onclick="window.print()">
+        Imprimir
+      </button>  
     </div>
   </section>
 </div>

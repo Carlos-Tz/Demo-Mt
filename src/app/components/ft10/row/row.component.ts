@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { F10 } from 'src/app/models/f10';
 
 @Component({
   selector: 'app-row',
@@ -8,7 +9,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class RowComponent implements OnInit {
 
   @Input() public j: number;
-  @Input() public page: any;
+  @Input() public page: F10[];
   constructor() { }
 
   ngOnInit() {

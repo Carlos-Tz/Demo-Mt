@@ -1,0 +1,102 @@
+input[type="number"], input[type="text"] {
+    border-bottom: none !important;
+    height: 1em !important;
+    margin: 0 !important;
+    box-sizing: unset !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+  }
+  input:focus {
+    border-bottom-style: none;
+  }
+
+  td {
+    padding: 0 1mm !important;
+    border-radius: 0 !important;
+    border-collapse: collapse;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  #tab1{
+    border-left: 1px solid var(--text-color);
+    border-right: 1px solid var(--text-color);
+    border-top: 1px solid var(--text-color);
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+  }
+  
+  #tab2{
+    border-left: 1px solid var(--text-color);
+    border-right: 1px solid var(--text-color);
+    border-bottom: 1px solid var(--text-color);
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+  }
+  #tab3{
+    border-left: 1px solid var(--text-color);
+    border-right: 1px solid var(--text-color);
+  }
+
+  #tab1 td, #tab1 th, #tab2 td, #tab3 td{
+    height: 5mm;
+    border-bottom: 1px solid #bbb;
+  }
+  th {
+      background-color: #7c7c80;
+      font-size: 1.2em;
+      color: #fff;      
+  }
+
+  .line {
+    font-size: .8em;
+    margin: 2mm 2mm;
+  }
+  .line1 {
+    width: calc(100% - 4cm);
+  }
+  .line2 {
+    width: calc(100% - 3.3cm);
+  }
+  .col50 {
+    width: 50%;
+  }
+
+  input[type=number], select {
+    width: calc(100% - 5cm);
+  }
+
+
+  input[type="text"],input[type="number"] {
+    font-family: var(--font);
+    color: var(--input-text-color);
+    /* width: 100%; */
+    border: none;
+    padding: 0 5px;
+    outline: none; 
+    font-size: 1em;
+    /*text-align: left;*/
+    background: none;
+  }
+  /* input[type="number"]{
+    font-size: 1em;
+  } */
+  /* input {
+    font-family: var(--font);
+    color: var(--input-text-color);
+    width: 100%;
+    border: none;
+    padding: 0 5px;
+    outline: none; 
+    font-size: 1em;
+    text-align: center;
+    background: none;
+  } */
+  input[type=text].left-aligned { 
+    text-align: left; padding-left: .5em;
+  }
+  input[type=file] {
+    font-size: 0.6em;
+  }

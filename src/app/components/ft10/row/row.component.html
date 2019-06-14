@@ -1,18 +1,10 @@
-<tr>
-<td class="cols_">{{ page[j].nom }}</td>
-<td class="colmm">{{ page[j].tex }}</td>
-<td class="colsm_">{{ page[j].tip }}</td>
-<td class="colmm_">{{ page[j].cri }}</td>
-<td class="colm_">{{ page[j].obp }}</td>
-<td class="colm_">{{ page[j].obs }}</td>
-<td class="colss_"><span *ngIf="page[j].cum=='si'">&#9632;</span></td>
-<td class="colss_"><span *ngIf="page[j].cum=='no'">&#9632;</span></td>
+<tr *ngIf="page[j]">
+    <td class="cols_">{{ page[j].nom }}</td>
+    <td class="colmm">{{ page[j].tex }}</td>
+    <td class="colsm_">{{ page[j].tip }}</td>
+    <td class="colmm_">{{ page[j].cri }}</td>
+    <td class="colm_">{{ page[j].obp }}</td>
+    <td class="colm_">{{ page[j].obs }}</td>
+    <td class="colss_"><span *ngIf="page[j].cum=='si'">&#9632;</span></td>
+    <td class="colss_"><span *ngIf="page[j].cum=='no'">&#9632;</span></td>
 </tr>
-<!-- <td>{{ j }}</td>
-<td>col2</td>
-<td>ds</td>
-<td></td>
-<td></td>
-<td>dsdsds</td>
-<td></td>
-<td></td> -->

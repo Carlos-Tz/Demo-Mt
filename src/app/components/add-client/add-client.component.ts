@@ -16,6 +16,8 @@ export class AddClientComponent implements OnInit {
   public dia = '';
   public mes = '';
   public anio = '';
+  public razon = '';
+  public nombreuv = '';
   public clientForm: FormGroup;
   public dataList = [];
   constructor(

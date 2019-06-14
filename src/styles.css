@@ -17,7 +17,7 @@
     --background: #fafafa;
     --text-color: #111;
     --logo-width: 3.5cm;
-    --input-text-color: #494b4e;
+    --input-text-color: #313131;
     --head-color: #4369aa;
   }
   *,
@@ -193,4 +193,28 @@
   .guardar_c:disabled {
     background-color: #7c7c80;
   }
+
+  input[type=checkbox], input[type=radio] {
+    border: 1px solid #7c7c80;
+  /* padding: 0.5em;*/
+    padding: 0.4em;
+    max-width: 3mm;
+    -webkit-appearance: none;
+    margin-left: 0;
+    margin-right: 4mm;
+    margin-top: 1mm;
+  }
+input[type=checkbox]:checked ,input[type=radio]:checked{
+  background: #7c7c80;
+ /* background-size: 6px 8px;**/
+}
+
+input[type=checkbox]:focus,input[type=radio]:focus {
+  outline-color: transparent;
+}
   
+.sign{
+  align-content: center;
+  /* margin-left: 13mm; */
+  width: 250px;
+}

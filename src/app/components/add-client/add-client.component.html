@@ -4,87 +4,386 @@
     <div class="page">
       <div class="inner">
         <form [formGroup]="clientForm" (ngSubmit)="submitClientData()" novalidate autocomplete="off">
-        <p>Datos del Solicitante</p>
-        <p>Razón Social: <input type="text" formControlName="razon"></p>
-        <p>Giro: <input type="text" formControlName="giro"></p>
-        <p>No. de Control Interno: <input type="text" formControlName="nocontrol"></p>
-        <p>Nombre del responsable solicitante: <input type="text" formControlName="nombre"></p>
-        <p>Teléfono: <input type="text" formControlName="tel"></p>
-        <p>Correo electrónico: <input type="text" formControlName="correo"></p>
-        <p>Identificación: <input type="text" formControlName="id"></p>
-        <p>No de Id o Folio: <input type="text" formControlName="folio"></p>
-        <p>Fax: <input type="text" formControlName="fax"></p>
-        <p>RFC: <input type="text" formControlName="rfc"></p>
-        <p>Fecha Inicio: <input type="text"></p>
-        <!-- <p>Fecha Termino: <input type="date"></p> -->
-        <p>Calle y No.: <input type="text" formControlName="calle"></p>
-        <p>Colonia o Población: <input type="text" formControlName="colonia"></p>
-        <p>Municipio o Delegación: <input type="text" formControlName="munic"></p>
-        <p>Entidad Federativa: <input type="text" formControlName="estado"></p>
-        <p>C.P.: <input type="number" formControlName="cp"></p>
-        <p>Logo: <input type="file" accept="image/*"></p><br>
+          <h3>Nuevo Expediente</h3>
+          <table id="tab1">
+            <tr>
+              <th>
+                <span class="line">Datos del Solicitante </span>
+              </th>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td>
+                <span class="line">Razón Social: </span>
+                <input class="line1" type="text" formControlName="razon" placeholder="**" [(ngModel)]="razon">
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td>
+                <span class="line">Giro: </span>
+                <input class="line1" type="text" formControlName="giro" placeholder="**">
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td>
+                <span class="line">No. de Control Interno: </span>
+                <input class="line1" type="text" formControlName="nocontrol" placeholder="**">
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td>
+                <span class="line">Nombre del Responsable: </span>
+                <input class="line1" type="text" formControlName="nombre" placeholder="**">
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td class="col50">
+                <span class="line">Teléfono: </span>
+                <input class="line2" type="text" formControlName="tel">
+              </td>
+              <td class="col50">
+                <span class="line">Fax: </span>
+                <input class="line2" type="text" formControlName="fax">
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td class="col50">
+                <span class="line">Correo electrónico: </span>
+                <input class="line2" type="text" formControlName="correo">
+              </td>
+              <td class="col50">
+                <span class="line">RFC: </span>
+                <input class="line2" type="text" formControlName="rfc">
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td class="col50">
+                <span class="line">Identificación: </span>
+                <input class="line2" type="text" formControlName="id">
+              </td>
+              <td class="col50">
+                <span class="line">No de Id o Folio: </span>
+                <input class="line2" type="text" formControlName="folio">
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td class="col50">
+                <span class="line">Fecha Inicio: </span>
+                <input class="line2" type="text" value={{fecha}}>
+              </td>
+              <td class="col50">
+                <span class="line">Logo: </span>
+                <input class="line2" type="file" accept="image/*">
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td>
+                <span class="line">Calle y No.: </span>
+                <input class="line1" type="text" formControlName="calle">
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td>
+                <span class="line">Colonia o Población: </span>
+                <input class="line1" type="text" formControlName="colonia">
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td>
+                <span class="line">Municipio o Delegación: </span>
+                <input class="line1" type="text" formControlName="munic">
+              </td>
+            </tr>
+          </table>
+          <table id="tab2">
+            <tr>
+              <td class="col50">
+                <span class="line">Ciudad o Estado: </span>
+                <input class="line2" type="text" formControlName="estado">
+              </td>
+              <td class="col50">
+                <span class="line">C.P.: </span>
+                <input class="line2" type="number" formControlName="cp">
+              </td>
+            </tr>
+          </table>
 
-        <p>Datos del Servicio.</p>
-        <p>Tipo de Servicio: <input type="text" formControlName="tipos"></p>
-        <p>
-          Tensión:
-          <select name="tension" formControlName="tension">
-            <option value="Baja" selected >Baja</option>
-            <option value="Media">Media</option>
-            <option value="Alta">Alta</option>
-          </select>
-        </p>
-        <p>Planos: <input type="number" min="0" formControlName="planos"></p>
-        <p>Carga Instalada: <input type="number" step="0.01" min="0" formControlName="cargai"> Kw</p>
-        <p>Alcance de la Verificación: <input type="number" step="0.01" min="0" formControlName="alcance"> Kw</p>
-        <p>Factor de Demanda: <input type="number" min="0" max="100" formControlName="factor"> %</p>
-        <p>Carga Demandada: <input type="number" step="0.001" min="0" formControlName="cargadem"> Kw</p>
-        <p>Corriente Demandada: <input type="number" step="0.01" min="0" formControlName="corriente"> Amps. <input type="text" formControlName="volts"> V</p>
-        <p>Capacidad de Subestación: <input type="number" step="0.01" min="0" formControlName="sub"> kVA</p>
-        <p>Área electrificada: <input type="number" step="0.01" min="0" formControlName="area"> m<sup>2</sup></p>
-        <p>Costo: <input type="number" formControlName="costo" min="0"></p>
-        <p>Costo letra: <input type="text" formControlName="costol"></p>
-        <p>Tipo de instalación:
-          <select name="instal" formControlName="instal">
-            <option value="publica" selected >Concentración pública</option>
-            <option value="peligrosa">Área perligrosa</option>
-          </select>
-        </p>
-        <p>NOM-001-SEDE-2012 Instalaciones Eléctricas (utilización) <input type="checkbox" formControlName="nom1"></p>
-        <p>NOM-007-ENER-2014 Eficiencia energética en sistemas de alumbrado no residenciales. <input type="checkbox" formControlName="nom7"></p>
-        <p>NOM-013-ENER-2013 Eficiencia energética para sistemas de alumbrado en vialidades. <input type="checkbox" formControlName="nom13"></p>
-        <p>Revisión de planos de proyecto y memoria de cálculo. <input type="checkbox" formControlName="revp"></p>
-        <p>Verificación de subestación eléctrica. <input type="checkbox" formControlName="verfs"></p>
-        <p>Verificación de instalaciones en baja tensión. <input type="checkbox" formControlName="verfbt"></p>
-        <p>
-          Ambientes especiales:
-          <label>Si
-             <input type="radio" formControlName="ambien" value="si">
-              <!-- <input type="radio" [value]="si" formControlName="ambien"> -->
-          </label>
-          <label>No
-            <input type="radio" formControlName="ambien" value="no">
-              <!-- <input type="radio" [value]="no" formControlName="ambien"> -->
-          </label>
-        </p>
-        <p>
+          <br>
+          <table id="tab1">
+            <tr>
+              <th>
+                <span class="line">Datos del Servicio </span>
+              </th>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td>
+                <span class="line">Tipo de Servicio: </span>
+                <input class="line1" type="text" formControlName="tipos">
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td class="col50">
+                <span class="line">Tensión: </span>
+                <select name="tension" formControlName="tension">
+                  <option value="Baja" selected>Baja</option>
+                  <option value="Media">Media</option>
+                  <option value="Alta">Alta</option>
+                </select>
+              </td>
+              <td class="col50">
+                <span class="line">Planos: </span>
+                <input type="number" min="0" formControlName="planos">
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td class="col50">
+                <span class="line">Carga Instalada: </span>
+                <input type="number" step="0.01" min="0" formControlName="cargai" placeholder="Kw">
+              </td>
+              <td class="col50">
+                <span class="line">Alcance de la Verif.: </span>
+                <input type="number" step="0.01" min="0" formControlName="alcance" placeholder="Kw">
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td class="col50">
+                <span class="line">Factor de Demanda: </span>
+                <input type="number" min="0" max="100" formControlName="factor" placeholder="%">
+              </td>
+              <td class="col50">
+                <span class="line">Carga Demandada: </span>
+                <input type="number" step="0.001" min="0" formControlName="cargadem" placeholder="Kw">
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td class="col50">
+                <span class="line">Corriente Demandada: </span>
+                <input type="number" step="0.01" min="0" formControlName="corriente" placeholder="Amps">
+              </td>
+              <td class="col50">
+                <span class="line">Voltaje: </span>
+                <input type="text" formControlName="volts" placeholder="220/127 v">
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td class="col50">
+                <span class="line">Cap. de Subestación: </span>
+                <input type="number" step="0.01" min="0" formControlName="sub" placeholder="kVA">
+              </td>
+              <td class="col50">
+                <span class="line">Área electrificada: </span>
+                <input type="number" step="0.01" min="0" formControlName="area" placeholder="m2">
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td class="col50">
+                <span class="line">Costo: $ </span>
+                <input type="number" formControlName="costo" min="0">
+              </td>
+              <td class="col50">
+                <span class="line">Tipo de instalación: </span>
+                <select name="instal" formControlName="instal">
+                  <option value="publica" selected>Concentración pública</option>
+                  <option value="peligrosa">Área perligrosa</option>
+                </select>
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td>
+                <span class="line">Costo con letra: </span>
+                <input class="line1" type="text" formControlName="costol">
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td>
+                <span class="line">NOM-001-SEDE-2012 Instalaciones Eléctricas (utilización) </span>
+                <input type="checkbox" formControlName="nom1">
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td>
+                <span class="line">NOM-007-ENER-2014 Eficiencia energética en sistemas de alumbrado no residenciales.
+                </span>
+                <input type="checkbox" formControlName="nom7">
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td>
+                <span class="line">NOM-013-ENER-2013 Eficiencia energética para sistemas de alumbrado en vialidades.
+                </span>
+                <input type="checkbox" formControlName="nom13">
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td>
+                <span class="line">Revisión de planos de proyecto y memoria de cálculo. </span>
+                <input type="checkbox" formControlName="revp">
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td>
+                <span class="line">Verificación de subestación eléctrica. </span>
+                <input type="checkbox" formControlName="verfs">
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td>
+                <span class="line">Verificación de instalaciones en baja tensión. </span>
+                <input type="checkbox" formControlName="verfbt">
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td>
+                <span class="line">Ambientes especiales: </span>
+                <label><span class="line">Si</span>
+                  <input type="radio" formControlName="ambien" value="si">
+                </label>
+                <label><span class="line">No</span>
+                  <input type="radio" formControlName="ambien" value="no">
+                </label>
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td>
+                <span class="line">Memoria Técnica: </span>
+                <label><span class="line">Si</span>
+                  <input type="radio" value="si" formControlName="memo">
+                </label>
+                <label><span class="line">No</span>
+                  <input type="radio" value="no" formControlName="memo">
+                </label>
+              </td>
+            </tr>
+          </table>
+          <br>
+          <table id="tab1">
+            <tr>
+              <th>
+                <span class="line">Datos del Responsable de atender a la UVIE </span>
+              </th>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td>
+                <span class="line">Nombre: </span>
+                <input class="line1" type="text" formControlName="nombreuv" [(ngModel)]="nombreuv">
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td class="col50">
+                <span class="line">Identificación: </span>
+                <input type="text" formControlName="iduv">
+              </td>
+              <td class="col50">
+                <span class="line">No de Id o Folio: </span>
+                <input type="number" min="0" formControlName="foliouv">
+              </td>
+            </tr>
+          </table>
+          <br>
 
-          Memoria Técnica:
-          <label>Si
-              <input type="radio" value="si" formControlName="memo">
-          </label>
-         
-          <label>No
-              <input type="radio" value="no" formControlName="memo">
-          </label>
-        </p>
-        <br>
-        <p>Datos del responsable de atender a la UVIE tanto en proyecto como en sitio 7.2 III.4:</p>
-        <p>Nombre: <input type="text" formControlName="nombreuv"></p>
-        <p>Identificación: <input type="text" formControlName="iduv"></p>
-        <p>No de Id o Folio: <input type="text" formControlName="foliouv"></p>
-
-        <!-- <button type="submit" [disabled]="!clientForm.valid">Guardar</button> -->
+          <table style=" text-align:center; border:none;">
+            <tr>
+              <td style="padding-top: 2mm;">
+                <p class="line">"LA UNIDAD DE VERIFICACIÓN"</p>
+                <div class="sign">
+                  <div class="signature">
+                    <div id="contSign" onclick="btn_click()">
+                      <img src="" id="imgSign">
+                    </div>
+                  </div>
+                  <hr>
+                  <div>
+                    <p class="line">ING. HÉCTOR MARTÍNEZ PEÑA</p>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <p class="line">"EL SOLICITANTE"</p>
+                <div class="sign">
+                  <div class="signature">
+                    <div id="contSign" onclick="btn_click2()">
+                      <img src="" id="imgSign2">
+                    </div>
+                  </div>
+                  <hr>
+                  <div>
+                    <input style="width: 100%" type="text" formControlName="razon" [(ngModel)]="razon">
+                  </div>
+                </div>
+              </td>
+              <td>
+                <p class="line">"EL RESPONSABLE"</p>
+                <div class="sign">
+                  <div class="signature">
+                    <div id="contSign" onclick="btn_click2()">
+                      <img src="" id="imgSign2">
+                    </div>
+                  </div>
+                  <hr>
+                  <div>
+                    <input style="width: 100%" type="text" formControlName="nombreuv" [(ngModel)]="nombreuv">
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </table>
         </form>
       </div>
     </div>

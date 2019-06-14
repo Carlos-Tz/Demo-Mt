@@ -43,9 +43,9 @@ canvas {
   }
   
   #contSign,.signature{
-    text-align:center; width:270px; height: 80px;
+    text-align:center; width:250px; height: 80px;
   }
-  #imgSign{
+  #imgSign, #imgSign2{
     max-width: 100%;
     max-height: 100%;
   }
