@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { Client } from '../models/client';
 import { AngularFireDatabase, AngularFireList, AngularFireObject } from '@angular/fire/database';
 import { map } from 'rxjs/operators';
-//import { SurveyForm } from '../models/survey-form';
 import { Router } from '@angular/router';
+import { Fecha } from '../models/fecha';
+import { Signs } from '../models/signs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,51 +17,21 @@ export class ClientService {
   public client = {};
   constructor(private db: AngularFireDatabase, private router: Router) { }
 
-  AddClient(client: Client, fecha: string, dia: string, mes: string, anio: string) {
-    client.dia = dia;
-    client.mes = mes;
-    client.anio = anio;
-    client.fechai = fecha;
-    this.dataList.push(client/* {
-      client */
-      /* razon: client.razon,
-      giro: client.giro,
-      nocontrol: client.nocontrol,
-      nombre: client.nombre,
-      tel: client.tel,
-      correo: client.correo,
-      id: client.id,
-      folio: client.folio,
-      fax: client.fax,
-      rfc: client.rfc,
-      calle: client.calle,
-      colonia: client.colonia,
-      munic: client.municipio,
-      estado: client.estado,
-      cp: client.cp,
-      tipos: client.tiposerv,
-      tension: client.tension,
-      cargai: client.carga,
-
-      volts: client.volts,
-      costo: client.costo,
-      costol: client.costolet,
-      instal: client.tipoinst,
-      nom1: client.nom001,
-      nom7: client.nom007,
-      nom13: client.nom013,
-      revp: client.revision,
-      verfs: client.verfsub,
-      verfbt: client.verfbt,
-      ambien: client.ambient,
-      memo: client.memoria,
-      nombreuv: client.nombreuvie,
-      iduv: client.iduvie,
-      foliouv: client.foliouvie */
-    /* } */);
+  AddClient(client: Client, fecha: Fecha, signs: Signs, logo: string, costol: string) {
+    client.dia = fecha.dia;
+    client.mes = fecha.mes;
+    client.anio = fecha.anio;
+    client.fechai = fecha.fecha;
+    client.s1 = signs.s1;
+    client.s2 = signs.s2;
+    client.s3 = signs.s3;
+    client.date = Date.now();
+    client.logo = logo;
+    client.costol = costol;
+    this.dataList.push(client);
   }
 
-  GetClientsList(key: string) {
+ /*  GetClientsList(key: string) {
     this.clientsList = this.db.list('data/' + key + '/clients', ref =>
       ref.orderByChild('date')
     );
@@ -80,9 +51,9 @@ export class ClientService {
           return changes.map(c => ({key: c.payload.key, ...c.payload.val() }));
         })
       );
-  }
+  } */
 
-  /* GetList() {
+  /* GetList() {/////////////*     /
     this.dataList = this.db.list('data', ref =>
       ref.orderByChild('date').limitToLast(1)
     );

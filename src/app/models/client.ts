@@ -5,6 +5,9 @@ export interface Client {
     dia: string;
     mes: string;
     anio: string;
+    s1: string;
+    s2: string;
+    s3: string;
     fechaf: string;
     razon: string;
     giro: string;

@@ -26,18 +26,18 @@
             </tr>
           </table>
   
-          <p *ngIf="client"><b>{{ client.nombre }}</b></p>
+          <p *ngIf="client"><b style="text-transform: uppercase">{{ client.nombre }}</b></p>
           <p>Representante:</p>
-          <p *ngIf="client"><b>{{ client.razon }}</b></p><br>
+          <p *ngIf="client"><b style="text-transform: uppercase">{{ client.razon }}</b></p><br>
           <p>En respuesta a su amable solicitud de cotización, estoy poniendo a su consideración el presupuesto relativo a
             la
-            verificación de sus instalaciones eléctricas en baja tensión; conforme a la NOM-001-SEDE-2012, Instalaciones
-            eléctricas (utilización).</p><br>
+            verificación de sus instalaciones eléctricas en baja tensión; conforme a la <b>NOM-001-SEDE-2012, Instalaciones
+            eléctricas (utilización).</b></p><br>
   
-          <p>GENERALES:</p><br>
+          <p><b>GENERALES:</b></p><br>
   
-          <p>Razón social o nombre del cliente: <b *ngIf="client">{{ client.razon }}</b></p>
-          <p>Giro (SCIAN) o actividad empresarial: <b *ngIf="client">{{ client.giro }}</b></p>
+          <p>Razón social o nombre del cliente: <b *ngIf="client" style="text-transform: uppercase">{{ client.razon }}</b></p>
+          <p>Giro (SCIAN) o actividad empresarial: <b *ngIf="client" style="text-transform: uppercase">{{ client.giro }}</b></p>
           <p>Domicilio del servicio: <b *ngIf="client">{{ client.calle }} {{ client.colonia }}. {{ client.munic }} {{ client.estado }} {{ client.cp }}</b></p>
           <p>Capacidad total en subestación: <b *ngIf="client">{{ client.sub }}</b> kWA</p>
           <p>Carga total instalada: <b *ngIf="client">{{ client.cargai }}</b> kW </p>
@@ -47,7 +47,7 @@
             tensión y
             en lugares de concentración pública deben ser verificadas por una Unidad de Verificación de Instalaciones
             Eléctricas
-            aprobada por la Secretaría de Energía y acreditada por la Entidad Mexicana de Acreditación.</p><br>
+            <b>aprobada</b> por la Secretaría de Energía y <b>acreditada</b> por la Entidad Mexicana de Acreditación.</p><br>
   
           <p>Alcance de los servicios profesionales de esta Unidad de Verificación de Instalaciones Eléctricas.</p><br>
   
@@ -68,9 +68,9 @@
             caso de
             encontrar incumplimientos a la NOM, se entregara un informe técnico de los mismos (Informe de no conformidad).
             El
-            cliente firmara de aceptación este reporte y fijara fecha de corrección de las no conformidades. La ley le
+            cliente firmara de aceptación este reporte y fijara fecha de corrección de las no conformidades.<b> La ley le
             concede 90
-            días para corregirlas. SE CONSIDERAN 3 VISITAS A LA INSTALACIÓN.</p>
+            días para corregirlas. SE CONSIDERAN 3 VISITAS A LA INSTALACIÓN.</b></p>
           <p class="tab_"> 5. Se constatará la corrección de las no conformidades. (Cierre de las no conformidades)</p>
           <p class="tab_"> 6. Verificación de las pruebas indicadas en el PEC de la NOM-001-SEDE-2012. (Contratista
             entrega informe de
@@ -79,13 +79,13 @@
           <p class="tab_"> 7. Una vez que las instalaciones cumplan con la NOM-001-SEDE-2012, se entrega el dictamen de
             verificación.
           </p>
-          <p class="tab_"> 8. Cada Dictamen de verificación que la UVIE emita para instalaciones eléctricas que tengan
+          <p class="tab_"> <b>8. Cada Dictamen de verificación que la UVIE emita para instalaciones eléctricas que tengan
             áreas peligrosas
             (clasificadas) debe indicar la fecha limite para la próxima verificación de la instalación eléctrica en dichas
-            áreas
+            áreas</b>
           </p><br>
   
-          <p>El cliente debe proporcionar;</p><br>
+          <p><b>El cliente debe proporcionar;</b></p><br>
   
           <p class="tab_">1. Proyecto final y memoria completo en papel y/o en archivo electronico, firmado y con cedula
             profesional
@@ -96,15 +96,15 @@
             oficiales mexicanas y disposiciones legales aplicables</p>
           <p class="tab_">3. Lista de Cargas.</p>
           <p class="tab_">4. Solicitud de verificación de la instalación.</p>
-          <p class="tab_">5. El solicitante de la verificación debe presentar a la uvie el plano de las áraes peligrosas
+          <p class="tab_"><b>5. El solicitante de la verificación debe presentar a la uvie el plano de las áraes peligrosas
             (clasificadas)
             indicando los limites en vista de planta, cortes transversales y longitudinales, de forma que las
-            disposiciones contenidas en la nom, aplicables a cada a cada clasificación, puedan verificarse objetivamente
+            disposiciones contenidas en la nom, aplicables a cada a cada clasificación, puedan verificarse objetivamente.</b>
           </p>
-          <p class="tab_">6. El usuario o propietario solicitara a la UVIE la verificación periódica de las instalaciones
+          <p class="tab_"><b>6. El usuario o propietario solicitara a la UVIE la verificación periódica de las instalaciones
             eléctricas
             contenidas en áreas peligrosas (clasificadas), la que se crircunscribirá a los conceptos y alcance a que se
-            refiere el anexo B.</p><br>
+            refiere el anexo B.</b></p><br>
           <p class="footer_">Este documento hace las veces de contrato cuando ambas partes así lo consideren.En caso que
             “EL SOLICITANTE” en forma unilateral y sin causas imputables a “EL VERIFICADOR”, cancelará la verificación, no
             tendrá derecho a reclamar la devolución del anticipo o cubrirá el precio de lo ejecutado hasta el momento de
@@ -156,7 +156,7 @@
           <p class="tab_">9. RFC de la persona física o moral, que solicita la verificación.</p>
           <p class="tab_">10. Comprobante del domicilio de la instalación eléctrica.</p><br>
   
-          <p>Declaraciones y compromisos por parte del Gerente Técnico de la unidad de verificación:</p><br>
+          <p><b>Declaraciones y compromisos por parte del Gerente Técnico de la unidad de verificación:</b></p><br>
   
           <p>1.- Toda la información que proporcione el cliente se considera de carácter confidencial.</p>
           <p>2.- Durante el proceso de verificación, queda imposibilitado de proporcionar cualquier otro servicio al
@@ -176,18 +176,18 @@
           <p>8. La UVIE a través del SEDIVER generará y enviará el escrito para el informe trimestral de dictamenes de
             verificación e informe trimestral de dictamenes de verificación (anexo D).</p><br>
   
-          <p>El Costo: “EL SOLICITANTE” se obliga a pagar a “EL VERIFICADOR” por el servicio antes descrito la cantidad de $ <b *ngIf="client">{{ client.costo }}</b> + IVA, (<b *ngIf="client">{{ client.razonl }}</b> Pesos 00/100 M.N.), + IVA, a la entrega del Informe Técnico.
-            Tiempo de entrega: Si el proyecto e instalación cumplen con la NOM ,al termino de la instalación se entregara
+          <p><b>El Costo:</b> “EL SOLICITANTE” se obliga a pagar a “EL VERIFICADOR” por el servicio antes descrito la cantidad de $ <b *ngIf="client">{{ client.costo }}</b> <b> + IVA, (</b><b *ngIf="client">{{ client.costol }}</b> <b>Pesos 00/100 M.N.), + IVA, a la entrega del Informe Técnico.</b>
+            <b>Tiempo de entrega:</b> Si el proyecto e instalación cumplen con la NOM ,al termino de la instalación se entregara
             el dictamen.</p><br>
           
-          <table>
+          <table style="border: none;">
             <tr>
-              <td><p>Vigencia: 30 días naturales.</p></td>
-              <td><p>Forma de pago: Las actuales con la empresa.</p></td>
+              <td style="border: none;"><p><b>Vigencia:</b> 30 días naturales.</p></td>
+              <td style="border: none;"><p><b>Forma de pago:</b> Las actuales con la empresa.</p></td>
             </tr>
           </table>
   
-          <p style="text-align: center;">AVISO DE PRIVACIDAD PARA EL MANEJO DE DATOS CONFIDENCIALES</p>
+          <p style="text-align: center;"><b>AVISO DE PRIVACIDAD PARA EL MANEJO DE DATOS CONFIDENCIALES</b></p>
           <p>Su información personal proporcionada por este medio será́ utilizada para el servicio de verificación que ha
             solicitado, informarle sobre el avance y necesidades durante la prestación de los mismos, para evaluar la
             calidad del servicio que le brindamos y facturación.
@@ -198,40 +198,41 @@
           <p>Su información no se va a hacer de dominio público, excepto por la información que el cliente indique que
             está públicamente disponible, o cuando el acuerdo entre la UV y el cliente así lo indiquen (por ejemplo, con
             el fin de responder a las apelaciones)</p>
-          <p> Los mecanismos implementados para el ejercicio de dichos derechos son a través de la solicitud respectiva en
-            la dirección:</p><br>
+          <p><b> Los mecanismos implementados para el ejercicio de dichos derechos son a través de la solicitud respectiva en
+            la dirección:</b></p><br>
   
           <p>Sin más por el momento y en espera de poder brindarle nuestros servicios, quedamos en espera de su
             autorización.</p><br>
   
-            <table>
+            <table style="border: none;">
               <tr>
-                <td>
-                    <p>ATENTAMENTE</p>
-                    <div class="sign">
+                <td style="border: none;">
+                  <br>
+                    <p style="text-align: center;">ATENTAMENTE</p>
+                    <div class="sign" style="margin: 0 auto;">
                       <div class="signature">
-                          <div id="contSign" onclick = "btn_click()">
-                            <img src="" id="imgSign">
-                          </div>
+                        <div id="contSign">
+                          <img *ngIf="client" src="{{ client.s1 }}" id="imgSign">
+                        </div>
                       </div>
                       <hr>
-                      <div >
-                        <p>ING. HECTOR MARTINEZ PEÑA</p>
+                      <div>
+                        <p style="text-align: center;">ING. HÉCTOR MARTÍNEZ PEÑA</p>
                       </div>
                     </div>
                 </td>
-                <td>
-                    <p>SI AUTORIZAMOS</p>
-                    <p>EL PRESENTE PRESUPUESTO</p>
-                    <div class="sign">
+                <td style="border: none;">
+                    <p style="text-align: center;">SI AUTORIZAMOS</p>
+                    <p style="text-align: center;">EL PRESENTE PRESUPUESTO</p>
+                    <div class="sign" style="margin: 0 auto;">
                       <div class="signature">
-                          <div id="contSign2" onclick = "btn_click()">
-                            <img src="" id="imgSign2">
+                          <div id="contSign">
+                            <img *ngIf="client" src="{{ client.s2 }}" id="imgSign2">
                           </div>
                       </div>
                       <hr>
                       <div >
-                        <p *ngIf="client"><b>{{ client.razon }}</b></p>
+                        <p *ngIf="client" style="text-align: center;"><b style="text-transform: uppercase">{{ client.razon }}</b></p>
                       </div>
                     </div>
                 </td>

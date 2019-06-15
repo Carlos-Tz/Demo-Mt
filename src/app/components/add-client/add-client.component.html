@@ -84,11 +84,11 @@
             <tr>
               <td class="col50">
                 <span class="line">Fecha Inicio: </span>
-                <input class="line2" type="text" value={{fecha}}>
+                <input class="line2" type="text" value={{fecha.fecha}}>
               </td>
               <td class="col50">
                 <span class="line">Logo: </span>
-                <input class="line2" type="file" accept="image/*">
+                <input class="line2" type="file" accept="image/*" (change)="changeListener($event)">
               </td>
             </tr>
           </table>
@@ -213,7 +213,7 @@
             <tr>
               <td class="col50">
                 <span class="line">Costo: $ </span>
-                <input type="number" formControlName="costo" min="0">
+                <input type="number" formControlName="costo" min="0" (change)="costo($event.target.value)">
               </td>
               <td class="col50">
                 <span class="line">Tipo de instalación: </span>
@@ -228,7 +228,7 @@
             <tr>
               <td>
                 <span class="line">Costo con letra: </span>
-                <input class="line1" type="text" formControlName="costol">
+                <input class="line1" type="text" formControlName="costol" value={{costol}}>
               </td>
             </tr>
           </table>
@@ -340,12 +340,12 @@
 
           <table style=" text-align:center; border:none;">
             <tr>
-              <td style="padding-top: 2mm;">
+              <td>
                 <p class="line">"LA UNIDAD DE VERIFICACIÓN"</p>
                 <div class="sign">
                   <div class="signature">
                     <div id="contSign" onclick="btn_click()">
-                      <img src="" id="imgSign">
+                      <img src="" id="imgSign" (load)="imgChanged($event)">
                     </div>
                   </div>
                   <hr>
@@ -359,12 +359,12 @@
                 <div class="sign">
                   <div class="signature">
                     <div id="contSign" onclick="btn_click2()">
-                      <img src="" id="imgSign2">
+                      <img src="" id="imgSign2" (load)="imgChanged2($event)" >
                     </div>
                   </div>
                   <hr>
-                  <div>
-                    <input style="width: 100%" type="text" formControlName="razon" [(ngModel)]="razon">
+                  <div style="margin: 1.8mm;">
+                    <input style="width: 100%; font-size: 0.8em; text-transform: uppercase;" type="text" formControlName="razon" [(ngModel)]="razon">
                   </div>
                 </div>
               </td>
@@ -372,13 +372,13 @@
                 <p class="line">"EL RESPONSABLE"</p>
                 <div class="sign">
                   <div class="signature">
-                    <div id="contSign" onclick="btn_click2()">
-                      <img src="" id="imgSign2">
+                    <div id="contSign" onclick="btn_click3()">
+                      <img src="" id="imgSign3" (load)="imgChanged3($event)">
                     </div>
                   </div>
                   <hr>
-                  <div>
-                    <input style="width: 100%" type="text" formControlName="nombreuv" [(ngModel)]="nombreuv">
+                  <div style="margin: 1.9mm;">
+                    <input style="width: 100%; font-size: 0.8em; text-transform: uppercase;" type="text" formControlName="nombreuv" [(ngModel)]="nombreuv">
                   </div>
                 </div>
               </td>

@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { DataTablesModule } from 'angular-datatables';
+import { Ng2ImgMaxModule } from 'ng2-img-max';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -67,7 +68,8 @@ import { RowComponent } from './components/ft10/row/row.component';
     ToastrModule.forRoot(),
     ReactiveFormsModule,
     FormsModule,
-    DataTablesModule
+    DataTablesModule,
+    Ng2ImgMaxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

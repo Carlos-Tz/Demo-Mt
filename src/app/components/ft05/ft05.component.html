@@ -24,11 +24,11 @@
 
         <table>
           <tr>
-            <td style="width: 70%;">
-              <p>CLIENTE: <b *ngIf="client">{{ client.razon }}</b></p>
+            <td style="width: 70%; text-align: left;">
+              <p style="font-size: 0.8em;">CLIENTE: <b *ngIf="client">{{ client.razon }}</b></p>
             </td>
             <td>
-              <p>Verificación No: UVSEIE 448 A-<b *ngIf="client">{{ client.nocontrol }}/{{ client.anio }}</b></p>
+              <p style="font-size: 0.8em;">Verificación No: UVSEIE 448 A-<b *ngIf="client">{{ client.nocontrol }}/{{ client.anio }}</b></p>
             </td>
           </tr>
         </table>

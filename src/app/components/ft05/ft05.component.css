@@ -16,7 +16,7 @@ th {
     font-size: 0.7em;
 }
 .table3_ {
-    font-size: 0.65em;
+    font-size: 0.8em;
 }
 .table3_ .col1_ {
     width: 4cm;
@@ -33,4 +33,14 @@ th {
     vertical-align: middle;
     resize: none;
     overflow: hidden;
+}
+
+textarea {
+    width: 100%;
+    border: none;
+}
+
+td {
+    text-align: center;
+    padding: 2mm;
 }

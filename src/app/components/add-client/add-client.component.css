@@ -11,7 +11,7 @@ input[type="number"], input[type="text"] {
   }
 
   td {
-    padding: 0 1mm !important;
+    padding: 0 1mm;
     border-radius: 0 !important;
     border-collapse: collapse;
   }
@@ -76,7 +76,7 @@ input[type="number"], input[type="text"] {
     border: none;
     padding: 0 5px;
     outline: none; 
-    font-size: 1em;
+    font-size: 0.8em;
     /*text-align: left;*/
     background: none;
   }

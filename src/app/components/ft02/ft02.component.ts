@@ -38,7 +38,9 @@ export class Ft02Component implements OnInit {
     iduv: '',
     foliouv: '',
     fechai: '',
-    anio: ''
+    anio: '',
+    s2: '',
+    logo: ''
   };
 
   constructor(

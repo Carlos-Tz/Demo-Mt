@@ -25,7 +25,9 @@ export class Ft01Component implements OnInit {
     costol: '',
     dia: '',
     mes: '',
-    anio: ''
+    anio: '',
+    s1: '',
+    s2: ''
   };
   /* public client: Client = null; */
 

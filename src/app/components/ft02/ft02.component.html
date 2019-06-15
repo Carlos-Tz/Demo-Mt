@@ -1,110 +1,128 @@
 <app-navbar></app-navbar>
 <div class="app">
-    <section>
-      <div class="page">
-        <div class="inner">
-          <table>
+  <section>
+    <div class="page">
+      <div class="inner">
+        <table style="border: none;">
+          <tr>
+            <td style="border: none; width: 150px;">
+              <img *ngIf="client" style="width: 100%;" src="{{client.logo}}" alt="">
+            </td>
+            <td style="border: none;">
+              <p style="text-align: right;"><b *ngIf="client">{{ client.fechai }} </b></p>
+            </td>
+          </tr>
+        </table>
+
+        <p><b>Unidad de Verificación de Instalaciones Eléctricas.</b></p>
+        <p>Misiones M119, L 31, Fracc. Hacienda Ojo de Agua</p>
+        <p> Municipio de Tecamac, Estado de México, CP. 55770.</p><br>
+
+        <p><b>Ing. Héctor Martínez Peña.</b></p>
+        <p class="tab_"><b>Verificador UVSEIE 448 A-</b><b *ngIf="client">{{ client.nocontrol }}/{{ client.anio }}</b>
+        </p><br><br>
+        <p>Para cumplir con la Ley aplicable, por este conducto, SOLICITO a usted la Evaluación de la Conformidad,
+          Verificando y determinando el grado de cumplimiento, de la norma oficial mexicana <b>NOM-001-SEDE-2012,</b>
+          del
+          Proyecto y Construcción de la instalación eléctrica en <b *ngIf="client">{{ client.tension }}</b> tensión, de
+          <b *ngIf="client" style="text-transform: uppercase">{{ client.razon }}</b> propiedad de:</p>
+        <br>
+
+        <p class="tab_"><b>Nombre o razón social: </b><b *ngIf="client"
+            style="text-transform: uppercase">{{ client.razon }}</b></p>
+        <p class="tab_">RFC: <b *ngIf="client" style="text-transform: uppercase">{{ client.rfc }}</b></p>
+        <p class="tab_">Giro (SCIAN): <b *ngIf="client" style="text-transform: uppercase">{{ client.giro }}</b></p>
+        <p class="tab_">Ubicada en: <b *ngIf="client">{{ client.calle }} {{ client.colonia }}, {{ client.munic }}
+            {{ client.estado }} C.P. {{ client.cp }}</b></p><br>
+
+        <p>El objetivo de nuestra petición, es: <b *ngIf="client">{{ client.tipos }}</b></p>
+        <p>Con una carga instalada de: <b *ngIf="client">{{ client.cargai }}</b> kW </p>
+        <p>Alcance de la Verificación: <b *ngIf="client">{{ client.alcance }}</b> kW </p>
+        <p>Factor de Demanda: <b *ngIf="client">{{ client.factor }}</b> % Carga demandada:<b
+            *ngIf="client">{{ client.cargadem }}</b> kW </p>
+        <p>Corriente Demandada: <b *ngIf="client">{{ client.corriente }}</b> Amps. <b
+            *ngIf="client">{{ client.volts }}</b> V </p>
+        <p>Capacidad de subestación: <b *ngIf="client">{{ client.sub }}</b> kVA </p>
+        <p>Área electrificada: <b *ngIf="client">{{ client.area }}</b> m<sup>2</sup></p><br>
+
+        <p>El alcance de la Verificación, es: <b *ngIf="client">{{ client.tension }} tensión</b> por <b
+            *ngIf="client">{{ client.cargai }}</b> kW</p>
+        <p>Existen Áreas Clasificadas como peligrosas:
+          <b *ngIf="client"><span *ngIf="client.instal=='peligrosa'">SI</span>
+            <span *ngIf="client.instal=='publica'">NO</span></b> (cuando sea el caso anexar el plano de
+          clasificación de áreas 7.3).</p>
+        <p>Existen Locales con Ambientes Especiales:
+          <b *ngIf="client"><span *ngIf="client.ambien=='si'">SI</span>
+            <span *ngIf="client.ambien=='no'">NO</span></b></p><br>
+
+        <p><b>Anexamos la información de los aspectos técnicos específicos del proyecto eléctrico a verificar:</b></p>
+        <br>
+        <p class="tab_">1. Diagrama unifilar (7.1 y/o 7.2).</p>
+        <p class="tab_">2. Cuadro de Distribuciòn de cargas por circuito (7.2 II).</p>
+        <p class="tab_">3. Lista de principales materiales utilizados (7.2 IV).</p>
+        <p class="tab_">4. Lista de principales equipos utilizados (7.2 V).</p>
+        <p class="tab_">5. Croquis de localización del domicilio (7.2 VI).</p>
+        <p class="tab_">6. Lista de cargas (7.2 VII).</p><br>
+        <p><b>Datos del solicitante de la verificaciòn</b> (responsable de la instalación) <b>7.2 III.4:</b></p><br>
+
+        <p>Nombre: <b *ngIf="client" style="text-transform: uppercase">{{ client.nombre }}</b></p>
+        <p>Identificación: <b *ngIf="client">{{ client.id }}</b></p>
+        <p> No. de Identificación o Folio: <b *ngIf="client">{{ client.folio }}</b></p>
+
+
+      </div>
+
+    </div>
+    <div>
+      <button class="volver_ no-print" (click)="goBack()">
+        Volver
+      </button>
+      <button class="imprimir_ no-print" onclick="window.print()">
+        Imprimir
+      </button>
+    </div>
+  </section>
+</div>
+
+<div class="app">
+  <section>
+    <div class="page">
+      <div class="inner">        
+        <table style="border: none;">
             <tr>
-              <td>LOGO</td>
-              <td><p><b *ngIf="client">{{ client.fechai }} </b></p></td>
+              <td style="border: none; width: 150px;">
+                <img *ngIf="client" style="width: 100%;" src="{{client.logo}}" alt="">
+              </td>    
+              <td style="border: none;"></td>          
             </tr>
           </table>
-          
-          <p>Unidad de Verificación de Instalaciones Eléctricas.</p>
-          <p>Misiones M119, L 31, Fracc. Hacienda Ojo de Agua</p>
-          <p> Municipio de Tecamac, Estado de México, CP. 55770.</p><br>
-  
-          <p>Ing. Héctor Martínez Peña.</p>
-          <p class="tab_">Verificador UVSEIE 448 A-<b *ngIf="client">{{ client.nocontrol }}/{{ client.anio }}</b></p><br><br>
-          <p>Para cumplir con la Ley aplicable, por este conducto, SOLICITO a usted la Evaluación de la Conformidad,
-            Verificando y determinando el grado de cumplimiento, de la norma oficial mexicana NOM-001-SEDE-2012, del
-            Proyecto y Construcción de la instalación eléctrica en <b *ngIf="client">{{ client.tension }}</b> tensión, de <b *ngIf="client">{{ client.razon }}</b> propiedad de:</p>
-          <br>
-  
-          <p class="tab_">Nombre o razón social: <b *ngIf="client">{{ client.razon }}</b></p>
-          <p class="tab_">RFC: <b *ngIf="client">{{ client.rfc }}</b></p>
-          <p class="tab_">Giro (SCIAN): <b *ngIf="client">{{ client.giro }}</b></p>
-          <p class="tab_">Ubicada en: <b *ngIf="client">{{ client.calle }} {{ client.colonia }}, {{ client.munic }} {{ client.estado }} C.P. {{ client.cp }}</b></p><br>
-  
-          <p>El objetivo de nuestra petición, es: <b *ngIf="client">{{ client.tipos }}</b></p>
-          <p>Con una carga instalada de: <b *ngIf="client">{{ client.cargai }}</b> kW </p>
-          <p>Alcance de la Verificación: <b *ngIf="client">{{ client.alcance }}</b> kW </p>
-          <p>Factor de Demanda: <b *ngIf="client">{{ client.factor }}</b> % Carga demandada:<b *ngIf="client">{{ client.cargadem }}</b> kW </p>
-          <p>Corriente Demandada: <b *ngIf="client">{{ client.corriente }}</b> Amps. <b *ngIf="client">{{ client.volts }}</b> V </p>
-          <p>Capacidad de subestación: <b *ngIf="client">{{ client.sub }}</b> kVA </p>
-          <p>Área electrificada: <b *ngIf="client">{{ client.area }}</b> m<sup>2</sup></p><br>
-  
-          <p>El alcance de la Verificación, es: <b *ngIf="client">{{ client.tension }} tensión</b> por <b *ngIf="client">{{ client.cargai }}</b> kW</p>
-          <p>Existen Áreas Clasificadas como peligrosas: 
-            <b *ngIf="client"><span *ngIf="client.instal=='peligrosa'">SI</span>
-            <span *ngIf="client.instal=='publica'">NO</span></b> (cuando sea el caso anexar el plano de
-            clasificación de áreas 7.3).</p>
-          <p>Existen Locales con Ambientes Especiales: 
-            <b *ngIf="client"><span *ngIf="client.ambien=='si'">SI</span>
-              <span *ngIf="client.ambien=='no'">NO</span></b></p><br>
-  
-          <p>Anexamos la información de los aspectos técnicos específicos del proyecto eléctrico a verificar:</p><br>
-          <p class="tab_">1. Diagrama unifilar (7.1 y/o 7.2).</p>
-          <p class="tab_">2. Cuadro de Distribuciòn de cargas por circuito (7.2 II).</p>
-          <p class="tab_">3. Lista de principales materiales utilizados (7.2 IV).</p>
-          <p class="tab_">4. Lista de principales equipos utilizados (7.2 V).</p>
-          <p class="tab_">5. Croquis de localización del domicilio (7.2 VI).</p>
-          <p class="tab_">6. Lista de cargas (7.2 VII).</p><br>
-          <p>Datos del solicitante de la verificaciòn (responsable de la instalación) 7.2 III.4:</p><br>
-  
-          <p>Nombre: <b *ngIf="client">{{ client.nombre }}</b></p>
-          <p>Identificación: <b *ngIf="client">{{ client.id }}</b></p>
-          <p> No. de Identificación o Folio: <b *ngIf="client">{{ client.folio }}</b></p>
-  
-  
-        </div>
-        
-      </div>
-      <div>
-          <button class="volver_ no-print" (click)="goBack()">
-            Volver
-          </button>
-          <button class="imprimir_ no-print" onclick="window.print()">
-            Imprimir
-          </button>
-        </div>
-    </section>
-  </div>
-  
-  <div class="app">
-    <section>
-      <div class="page">
-        <div class="inner">
-            <table>
-                <tr>
-                  <td>LOGO</td>
-                </tr>
-              </table>
-          <p>Datos del responsable de atender a la UVIE tanto en proyecto como en sitio 7.2 III.4:</p><br>
-  
-          <p>Nombre: <b *ngIf="client">{{ client.nombreuv }}</b></p>
-          <p>Identificación: <b *ngIf="client">{{ client.iduv }}</b></p>
-          <p> No. de Identificación o Folio: <b *ngIf="client">{{ client.foliouv }}</b></p>
-  
-          <table>
-            <tr>
-              <td>
-                <p>ATENTAMENTE</p>
-                <div class="sign">
-                  <div class="signature">
-                    <div id="contSign" onclick="btn_click()">
-                      <img src="" id="imgSign">
-                    </div>
-                  </div>
-                  <hr>
-                  <div>
-                    <p><b *ngIf="client">{{ client.razon }}</b></p>
+
+        <p><b>Datos del responsable de atender a la UVIE tanto en proyecto como en sitio 7.2 III.4:</b></p><br>
+
+        <p>Nombre: <b *ngIf="client" style="text-transform: uppercase">{{ client.nombreuv }}</b></p>
+        <p>Identificación: <b *ngIf="client">{{ client.iduv }}</b></p>
+        <p> No. de Identificación o Folio: <b *ngIf="client">{{ client.foliouv }}</b></p>
+
+        <table style="border: none; margin-top: 2em;">
+          <tr>
+            <td style="border: none;">
+              <p style="text-align: center;">ATENTAMENTE</p>
+              <div class="sign" style="margin: 0 auto;">
+                <div class="signature">
+                  <div id="contSign">
+                    <img *ngIf="client" src="{{ client.s2 }}" id="imgSign2">
                   </div>
                 </div>
-              </td>
-            </tr>
-          </table>
-        </div>
+                <hr>
+                <div>
+                  <p *ngIf="client" style="text-align: center;"><b
+                      style="text-transform: uppercase">{{ client.razon }}</b></p>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
+</div>

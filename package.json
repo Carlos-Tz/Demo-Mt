@@ -1,6 +1,6 @@
 {
   "name": "mt",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -22,15 +22,18 @@
     "@angular/router": "~7.2.0",
     "ajv": "^6.10.0",
     "angular-datatables": "^7.0.0",
+    "blueimp-canvas-to-blob": "^3.14.0",
     "core-js": "^2.5.4",
     "datatables.net": "^1.10.19",
     "datatables.net-dt": "^1.10.19",
     "fecha": "^3.0.3",
     "firebase": "^6.1.1",
     "jquery": "^3.4.1",
+    "ng2-img-max": "^2.1.18",
     "ngx-toastr": "^10.0.4",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
+    "written-number": "^0.9.1",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
