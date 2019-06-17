@@ -32,7 +32,7 @@
             </td>
           </tr>
         </table>
-
+        <form [formGroup]="clientF" autocomplete="off">
         <table class="table3_">
           <tr>
             <th class="col1_">MEDIO DE RECEPCIÓN <p style="font-size: 0.7em;">(ELECTRONICO, COPIA EN PAPEL, ETC)</p>
@@ -42,42 +42,43 @@
             <th class="cols_">FECHA DE RECEPCIÓN</th>
           </tr>
           <tr>
-            <td><p>Electrónico</p></td>
-            <td><textarea rows="2"></textarea></td>
-            <td><textarea rows="2"></textarea></td>
-            <td><p *ngIf="client">{{ client.dia }}/{{ client.mes }}/{{ client.anio }}</p></td>
+            <td><textarea rows="2" formControlName="m1" [(ngModel)]="ft05.m1"></textarea></td>
+            <td><textarea rows="2" formControlName="t1" [(ngModel)]="ft05.t1"></textarea></td>
+            <td><textarea rows="2" formControlName="o1" [(ngModel)]="ft05.o1"></textarea></td>
+            <td><p>{{ client.dia }}/{{ client.mes }}/{{ client.anio }}</p></td>
           </tr>
           <tr>
-            <td><textarea rows="2"></textarea></td>
-            <td><textarea rows="2"></textarea></td>
-            <td><textarea rows="2"></textarea></td>
-            <td><textarea rows="2"></textarea></td>
-          </tr>
-          <tr>
-            <td><textarea rows="2"></textarea></td>
-            <td><textarea rows="2"></textarea></td>
-            <td><textarea rows="2"></textarea></td>
+            <td><textarea rows="2" formControlName="m2" [(ngModel)]="ft05.m2"></textarea></td>
+            <td><textarea rows="2" formControlName="t2" [(ngModel)]="ft05.t2"></textarea></td>
+            <td><textarea rows="2" formControlName="o2" [(ngModel)]="ft05.o2"></textarea></td>
             <td><textarea rows="2"></textarea></td>
           </tr>
           <tr>
-            <td><textarea rows="2"></textarea></td>
-            <td><textarea rows="2"></textarea></td>
-            <td><textarea rows="2"></textarea></td>
-            <td><textarea rows="2"></textarea></td>
-          </tr>
-          <tr>
-            <td><textarea rows="2"></textarea></td>
-            <td><textarea rows="2"></textarea></td>
-            <td><textarea rows="2"></textarea></td>
+            <td><textarea rows="2" formControlName="m3" [(ngModel)]="ft05.m3"></textarea></td>
+            <td><textarea rows="2" formControlName="t3" [(ngModel)]="ft05.t3"></textarea></td>
+            <td><textarea rows="2" formControlName="o3" [(ngModel)]="ft05.o3"></textarea></td>
             <td><textarea rows="2"></textarea></td>
           </tr>
           <tr>
+            <td><textarea rows="2" formControlName="m4" [(ngModel)]="ft05.m4"></textarea></td>
+            <td><textarea rows="2" formControlName="t4" [(ngModel)]="ft05.t4"></textarea></td>
+            <td><textarea rows="2" formControlName="o4" [(ngModel)]="ft05.o4"></textarea></td>
             <td><textarea rows="2"></textarea></td>
+          </tr>
+          <tr>
+            <td><textarea rows="2" formControlName="m5" [(ngModel)]="ft05.m5"></textarea></td>
+            <td><textarea rows="2" formControlName="t5" [(ngModel)]="ft05.t5"></textarea></td>
+            <td><textarea rows="2" formControlName="o5" [(ngModel)]="ft05.o5"></textarea></td>
             <td><textarea rows="2"></textarea></td>
-            <td><textarea rows="2"></textarea></td>
+          </tr>
+          <tr>
+            <td><textarea rows="2" formControlName="m6" [(ngModel)]="ft05.m6"></textarea></td>
+            <td><textarea rows="2" formControlName="t6" [(ngModel)]="ft05.t6"></textarea></td>
+            <td><textarea rows="2" formControlName="o6" [(ngModel)]="ft05.o6"></textarea></td>
             <td><textarea rows="2"></textarea></td>
           </tr>
         </table>
+        </form>
       </div>
     </div>
     <div>
@@ -87,7 +88,7 @@
       <button class="imprimir_ no-print" onclick="window.print()">
         Imprimir
       </button>
-      <button class="guardar_ no-print">
+      <button class="guardar_ no-print" (click)="submitClientData()">
         Guardar
       </button>
     </div>

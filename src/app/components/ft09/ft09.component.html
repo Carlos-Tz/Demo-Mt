@@ -1,4 +1,179 @@
 <app-navbar></app-navbar>
+<form [formGroup]="clientF" autocomplete="off">
+<div class="app">
+  <section>
+    <div class="page-landscape">
+      <div class="inner">
+        <table class="table1_">
+          <tr>
+            <td rowspan="5" style="width: 40%;"><img src="assets/mt.png" style="height: 2.5cm;"></td>
+            <td rowspan="5">
+              <h2><b>REGISTROS DE MATERIALES APROBADOS</b></h2>
+            </td>
+            <td style="padding-top: 3mm;">CÓDIGO: <b>FT-09</b></td>
+          </tr>
+          <tr>
+            <td>EDICIÓN: <b>1</b></td>
+          </tr>
+          <tr>
+            <td>NIVEL REV: <b>3</b></td>
+          </tr>
+          <tr>
+            <td rowspan="2">Vigente: <b>05-Dic-14</b></td>
+          </tr>
+        </table>
+
+        <table class="table3_">
+          <tr>
+            <th class="col1_">MATERIAL</th>
+            <th class="col2_">MARCA</th>
+            <th class="col1_">CERTIFICACIÓN ANCE</th>
+            <th class="cols_">NA</th>
+            <th class="colm_">CUMPLE</th>
+            <th class="colm_">NO CUMPLE</th>
+            <th>OBSERVACIONES</th>
+          </tr>
+          <tr>
+            <td><textarea rows="3" formControlName="mt1" [(ngModel)]="ft09.mt1"></textarea></td>
+            <td><textarea rows="3" formControlName="mc1" [(ngModel)]="ft09.mc1"></textarea></td>
+            <td><textarea rows="3" formControlName="c1" [(ngModel)]="ft09.c1"></textarea></td>
+            <td><input type="radio" formControlName="cu1"  value="na" [(ngModel)]="ft09.cu1"></td>
+            <td><input type="radio" formControlName="cu1"  value="si" [(ngModel)]="ft09.cu1"></td>
+            <td><input type="radio" formControlName="cu1"  value="no" [(ngModel)]="ft09.cu1"></td>
+            <td><textarea rows="3" formControlName="o1" [(ngModel)]="ft09.o1"></textarea></td>
+          </tr>
+          <tr>
+            <td><textarea rows="3" formControlName="mt2" [(ngModel)]="ft09.mt2"></textarea></td>
+            <td><textarea rows="3" formControlName="mc2" [(ngModel)]="ft09.mc2"></textarea></td>
+            <td><textarea rows="3" formControlName="c2" [(ngModel)]="ft09.c2"></textarea></td>
+            <td><input type="radio" formControlName="cu2"  value="na" [(ngModel)]="ft09.cu2"></td>
+            <td><input type="radio" formControlName="cu2"  value="si" [(ngModel)]="ft09.cu2"></td>
+            <td><input type="radio" formControlName="cu2"  value="no" [(ngModel)]="ft09.cu2"></td>
+            <td><textarea rows="3" formControlName="o2" [(ngModel)]="ft09.o2"></textarea></td>
+          </tr>
+          <tr>
+            <td><textarea rows="3" formControlName="mt3" [(ngModel)]="ft09.mt3"></textarea></td>
+            <td><textarea rows="3" formControlName="mc3" [(ngModel)]="ft09.mc3"></textarea></td>
+            <td><textarea rows="3" formControlName="c3" [(ngModel)]="ft09.c3"></textarea></td>
+            <td><input type="radio" formControlName="cu3"  value="na" [(ngModel)]="ft09.cu3"></td>
+            <td><input type="radio" formControlName="cu3"  value="si" [(ngModel)]="ft09.cu3"></td>
+            <td><input type="radio" formControlName="cu3"  value="no" [(ngModel)]="ft09.cu3"></td>
+            <td><textarea rows="3" formControlName="o3" [(ngModel)]="ft09.o3"></textarea></td>
+          </tr>
+          <tr>
+            <td><textarea rows="3" formControlName="mt4" [(ngModel)]="ft09.mt4"></textarea></td>
+            <td><textarea rows="3" formControlName="mc4" [(ngModel)]="ft09.mc4"></textarea></td>
+            <td><textarea rows="3" formControlName="c4" [(ngModel)]="ft09.c4"></textarea></td>
+            <td><input type="radio" formControlName="cu4"  value="na" [(ngModel)]="ft09.cu4"></td>
+            <td><input type="radio" formControlName="cu4"  value="si" [(ngModel)]="ft09.cu4"></td>
+            <td><input type="radio" formControlName="cu4"  value="no" [(ngModel)]="ft09.cu4"></td>
+            <td><textarea rows="3" formControlName="o4" [(ngModel)]="ft09.o4"></textarea></td>
+          </tr>
+          <tr>
+            <td><textarea rows="3" formControlName="mt5" [(ngModel)]="ft09.mt5"></textarea></td>
+            <td><textarea rows="3" formControlName="mc5" [(ngModel)]="ft09.mc5"></textarea></td>
+            <td><textarea rows="3" formControlName="c5" [(ngModel)]="ft09.c5"></textarea></td>
+            <td><input type="radio" formControlName="cu5"  value="na" [(ngModel)]="ft09.cu5"></td>
+            <td><input type="radio" formControlName="cu5"  value="si" [(ngModel)]="ft09.cu5"></td>
+            <td><input type="radio" formControlName="cu5"  value="no" [(ngModel)]="ft09.cu5"></td>
+            <td><textarea rows="3" formControlName="o5" [(ngModel)]="ft09.o5"></textarea></td>
+          </tr>
+          <tr>
+            <td><textarea rows="3" formControlName="mt6" [(ngModel)]="ft09.mt6"></textarea></td>
+            <td><textarea rows="3" formControlName="mc6" [(ngModel)]="ft09.mc6"></textarea></td>
+            <td><textarea rows="3" formControlName="c6" [(ngModel)]="ft09.c6"></textarea></td>
+            <td><input type="radio" formControlName="cu6"  value="na" [(ngModel)]="ft09.cu6"></td>
+            <td><input type="radio" formControlName="cu6"  value="si" [(ngModel)]="ft09.cu6"></td>
+            <td><input type="radio" formControlName="cu6"  value="no" [(ngModel)]="ft09.cu6"></td>
+            <td><textarea rows="3" formControlName="o6" [(ngModel)]="ft09.o6"></textarea></td>
+          </tr>
+          <tr>
+            <td><textarea rows="3" formControlName="mt7" [(ngModel)]="ft09.mt7"></textarea></td>
+            <td><textarea rows="3" formControlName="mc7" [(ngModel)]="ft09.mc7"></textarea></td>
+            <td><textarea rows="3" formControlName="c7" [(ngModel)]="ft09.c7"></textarea></td>
+            <td><input type="radio" formControlName="cu7"  value="na" [(ngModel)]="ft09.cu7"></td>
+            <td><input type="radio" formControlName="cu7"  value="si" [(ngModel)]="ft09.cu7"></td>
+            <td><input type="radio" formControlName="cu7"  value="no" [(ngModel)]="ft09.cu7"></td>
+            <td><textarea rows="3" formControlName="o7" [(ngModel)]="ft09.o7"></textarea></td>
+          </tr>
+          <tr>
+            <td><textarea rows="3" formControlName="mt8" [(ngModel)]="ft09.mt8"></textarea></td>
+            <td><textarea rows="3" formControlName="mc8" [(ngModel)]="ft09.mc8"></textarea></td>
+            <td><textarea rows="3" formControlName="c8" [(ngModel)]="ft09.c8"></textarea></td>
+            <td><input type="radio" formControlName="cu8"  value="na" [(ngModel)]="ft09.cu8"></td>
+            <td><input type="radio" formControlName="cu8"  value="si" [(ngModel)]="ft09.cu8"></td>
+            <td><input type="radio" formControlName="cu8"  value="no" [(ngModel)]="ft09.cu8"></td>
+            <td><textarea rows="3" formControlName="o8" [(ngModel)]="ft09.o8"></textarea></td>
+          </tr>
+          <tr>
+            <td><textarea rows="3" formControlName="mt9" [(ngModel)]="ft09.mt9"></textarea></td>
+            <td><textarea rows="3" formControlName="mc9" [(ngModel)]="ft09.mc9"></textarea></td>
+            <td><textarea rows="3" formControlName="c9" [(ngModel)]="ft09.c9"></textarea></td>
+            <td><input type="radio" formControlName="cu9"  value="na" [(ngModel)]="ft09.cu9"></td>
+            <td><input type="radio" formControlName="cu9"  value="si" [(ngModel)]="ft09.cu9"></td>
+            <td><input type="radio" formControlName="cu9"  value="no" [(ngModel)]="ft09.cu9"></td>
+            <td><textarea rows="3" formControlName="o9" [(ngModel)]="ft09.o9"></textarea></td>
+          </tr>
+          <tr>
+            <td><textarea rows="3" formControlName="mt10" [(ngModel)]="ft09.mt10"></textarea></td>
+            <td><textarea rows="3" formControlName="mc10" [(ngModel)]="ft09.mc10"></textarea></td>
+            <td><textarea rows="3" formControlName="c10" [(ngModel)]="ft09.c10"></textarea></td>
+            <td><input type="radio" formControlName="cu10" value="na"  [(ngModel)]="ft09.cu10"></td>
+            <td><input type="radio" formControlName="cu10" value="si"  [(ngModel)]="ft09.cu10"></td>
+            <td><input type="radio" formControlName="cu10" value="no"  [(ngModel)]="ft09.cu10"></td>
+            <td><textarea rows="3" formControlName="o10" [(ngModel)]="ft09.o10"></textarea></td>
+          </tr>
+          <tr>
+            <td><textarea rows="3" formControlName="mt11" [(ngModel)]="ft09.mt11"></textarea></td>
+            <td><textarea rows="3" formControlName="mc11" [(ngModel)]="ft09.mc11"></textarea></td>
+            <td><textarea rows="3" formControlName="c11" [(ngModel)]="ft09.c11"></textarea></td>
+            <td><input type="radio" formControlName="cu11" value="na"  [(ngModel)]="ft09.cu11"></td>
+            <td><input type="radio" formControlName="cu11" value="si"  [(ngModel)]="ft09.cu11"></td>
+            <td><input type="radio" formControlName="cu11" value="no"  [(ngModel)]="ft09.cu11"></td>
+            <td><textarea rows="3" formControlName="o11" [(ngModel)]="ft09.o11"></textarea></td>
+          </tr>
+          <tr>
+            <td><textarea rows="3" formControlName="mt12" [(ngModel)]="ft09.mt12"></textarea></td>
+            <td><textarea rows="3" formControlName="mc12" [(ngModel)]="ft09.mc12"></textarea></td>
+            <td><textarea rows="3" formControlName="c12" [(ngModel)]="ft09.c12"></textarea></td>
+            <td><input type="radio" formControlName="cu12" value="na"  [(ngModel)]="ft09.cu12"></td>
+            <td><input type="radio" formControlName="cu12" value="si"  [(ngModel)]="ft09.cu12"></td>
+            <td><input type="radio" formControlName="cu12" value="no"  [(ngModel)]="ft09.cu12"></td>
+            <td><textarea rows="3" formControlName="o12" [(ngModel)]="ft09.o12"></textarea></td>
+          </tr>
+          <tr>
+            <td><textarea rows="3" formControlName="mt13" [(ngModel)]="ft09.mt13"></textarea></td>
+            <td><textarea rows="3" formControlName="mc13" [(ngModel)]="ft09.mc13"></textarea></td>
+            <td><textarea rows="3" formControlName="c13" [(ngModel)]="ft09.c13"></textarea></td>
+            <td><input type="radio" formControlName="cu13" value="na"  [(ngModel)]="ft09.cu13"></td>
+            <td><input type="radio" formControlName="cu13" value="si"  [(ngModel)]="ft09.cu13"></td>
+            <td><input type="radio" formControlName="cu13" value="no"  [(ngModel)]="ft09.cu13"></td>
+            <td><textarea rows="3" formControlName="o13" [(ngModel)]="ft09.o13"></textarea></td>
+          </tr>
+        </table>
+        <div style="position: absolute; bottom: 0; font-size: 0.8em;">
+          <p>Verificación número: UVSEIE 448 A-<b *ngIf="client">{{ client.nocontrol }}/{{ client.anio }}</b></p>
+          <p>Fecha: <b *ngIf="client" style="margin-right: 3em;">{{ client.dia }}/{{ client.mes }}/{{ client.anio }}
+            </b> Verificador: Ing.
+            Héctor Martínez Peña</p>
+        </div>
+      </div>
+
+    </div>
+    <div>
+      <button class="volver_ no-print" (click)="goBack()">
+        Volver
+      </button>
+      <button class="imprimir_ no-print" onclick="window.print()">
+        Imprimir
+      </button>
+      <button class="guardar_ no-print" (click)="submitClientData()">
+        Guardar
+      </button>
+    </div>
+  </section>
+</div>
+
 <div class="app">
     <section>
       <div class="page-landscape">
@@ -33,28 +208,131 @@
               <th>OBSERVACIONES</th>
             </tr>
             <tr>
-              <td><textarea rows="2"></textarea></td>
-              <td><textarea rows="2"></textarea></td>
-              <td><textarea rows="2"></textarea></td>
-              <td><input type="checkbox"></td>
-              <td><input type="radio" name="mater-01"></td>
-              <td><input type="radio" name="mater-01"></td>
-              <td><textarea rows="2"></textarea></td>
+              <td><textarea rows="3" formControlName="mt14" [(ngModel)]="ft09.mt14"></textarea></td>
+              <td><textarea rows="3" formControlName="mc14" [(ngModel)]="ft09.mc14"></textarea></td>
+              <td><textarea rows="3" formControlName="c14" [(ngModel)]="ft09.c14"></textarea></td>
+              <td><input type="radio" formControlName="cu14"  value="na" [(ngModel)]="ft09.cu14"></td>
+              <td><input type="radio" formControlName="cu14"  value="si" [(ngModel)]="ft09.cu14"></td>
+              <td><input type="radio" formControlName="cu14"  value="no" [(ngModel)]="ft09.cu14"></td>
+              <td><textarea rows="3" formControlName="o14" [(ngModel)]="ft09.o14"></textarea></td>
             </tr>
             <tr>
-              <td><textarea rows="2"></textarea></td>
-              <td><textarea rows="2"></textarea></td>
-              <td><textarea rows="2"></textarea></td>
-              <td><input type="checkbox"></td>
-              <td><input type="radio" name="mater-02"></td>
-              <td><input type="radio" name="mater-02"></td>
-              <td><textarea rows="2"></textarea></td>
+              <td><textarea rows="3" formControlName="mt15" [(ngModel)]="ft09.mt15"></textarea></td>
+              <td><textarea rows="3" formControlName="mc15" [(ngModel)]="ft09.mc15"></textarea></td>
+              <td><textarea rows="3" formControlName="c15" [(ngModel)]="ft09.c15"></textarea></td>
+              <td><input type="radio" formControlName="cu15"  value="na" [(ngModel)]="ft09.cu15"></td>
+              <td><input type="radio" formControlName="cu15"  value="si" [(ngModel)]="ft09.cu15"></td>
+              <td><input type="radio" formControlName="cu15"  value="no" [(ngModel)]="ft09.cu15"></td>
+              <td><textarea rows="3" formControlName="o15" [(ngModel)]="ft09.o15"></textarea></td>
+            </tr>
+            <tr>
+              <td><textarea rows="3" formControlName="mt16" [(ngModel)]="ft09.mt16"></textarea></td>
+              <td><textarea rows="3" formControlName="mc16" [(ngModel)]="ft09.mc16"></textarea></td>
+              <td><textarea rows="3" formControlName="c16" [(ngModel)]="ft09.c16"></textarea></td>
+              <td><input type="radio" formControlName="cu16"  value="na" [(ngModel)]="ft09.cu16"></td>
+              <td><input type="radio" formControlName="cu16"  value="si" [(ngModel)]="ft09.cu16"></td>
+              <td><input type="radio" formControlName="cu16"  value="no" [(ngModel)]="ft09.cu16"></td>
+              <td><textarea rows="3" formControlName="o16" [(ngModel)]="ft09.o16"></textarea></td>
+            </tr>
+            <tr>
+              <td><textarea rows="3" formControlName="mt17" [(ngModel)]="ft09.mt17"></textarea></td>
+              <td><textarea rows="3" formControlName="mc17" [(ngModel)]="ft09.mc17"></textarea></td>
+              <td><textarea rows="3" formControlName="c17" [(ngModel)]="ft09.c17"></textarea></td>
+              <td><input type="radio" formControlName="cu17"  value="na" [(ngModel)]="ft09.cu17"></td>
+              <td><input type="radio" formControlName="cu17"  value="si" [(ngModel)]="ft09.cu17"></td>
+              <td><input type="radio" formControlName="cu17"  value="no" [(ngModel)]="ft09.cu17"></td>
+              <td><textarea rows="3" formControlName="o17" [(ngModel)]="ft09.o17"></textarea></td>
+            </tr>
+            <tr>
+              <td><textarea rows="3" formControlName="mt18" [(ngModel)]="ft09.mt18"></textarea></td>
+              <td><textarea rows="3" formControlName="mc18" [(ngModel)]="ft09.mc18"></textarea></td>
+              <td><textarea rows="3" formControlName="c18" [(ngModel)]="ft09.c18"></textarea></td>
+              <td><input type="radio" formControlName="cu18"  value="na" [(ngModel)]="ft09.cu18"></td>
+              <td><input type="radio" formControlName="cu18"  value="si" [(ngModel)]="ft09.cu18"></td>
+              <td><input type="radio" formControlName="cu18"  value="no" [(ngModel)]="ft09.cu18"></td>
+              <td><textarea rows="3" formControlName="o18" [(ngModel)]="ft09.o18"></textarea></td>
+            </tr>
+            <tr>
+              <td><textarea rows="3" formControlName="mt19" [(ngModel)]="ft09.mt19"></textarea></td>
+              <td><textarea rows="3" formControlName="mc19" [(ngModel)]="ft09.mc19"></textarea></td>
+              <td><textarea rows="3" formControlName="c19" [(ngModel)]="ft09.c19"></textarea></td>
+              <td><input type="radio" formControlName="cu19"  value="na" [(ngModel)]="ft09.cu19"></td>
+              <td><input type="radio" formControlName="cu19"  value="si" [(ngModel)]="ft09.cu19"></td>
+              <td><input type="radio" formControlName="cu19"  value="no" [(ngModel)]="ft09.cu19"></td>
+              <td><textarea rows="3" formControlName="o19" [(ngModel)]="ft09.o19"></textarea></td>
+            </tr>
+            <tr>
+              <td><textarea rows="3" formControlName="mt20" [(ngModel)]="ft09.mt20"></textarea></td>
+              <td><textarea rows="3" formControlName="mc20" [(ngModel)]="ft09.mc20"></textarea></td>
+              <td><textarea rows="3" formControlName="c20" [(ngModel)]="ft09.c20"></textarea></td>
+              <td><input type="radio" formControlName="cu20"  value="na" [(ngModel)]="ft09.cu20"></td>
+              <td><input type="radio" formControlName="cu20"  value="si" [(ngModel)]="ft09.cu20"></td>
+              <td><input type="radio" formControlName="cu20"  value="no" [(ngModel)]="ft09.cu20"></td>
+              <td><textarea rows="3" formControlName="o20" [(ngModel)]="ft09.o20"></textarea></td>
+            </tr>
+            <tr>
+              <td><textarea rows="3" formControlName="mt21" [(ngModel)]="ft09.mt21"></textarea></td>
+              <td><textarea rows="3" formControlName="mc21" [(ngModel)]="ft09.mc21"></textarea></td>
+              <td><textarea rows="3" formControlName="c21" [(ngModel)]="ft09.c21"></textarea></td>
+              <td><input type="radio" formControlName="cu21"  value="na" [(ngModel)]="ft09.cu21"></td>
+              <td><input type="radio" formControlName="cu21"  value="si" [(ngModel)]="ft09.cu21"></td>
+              <td><input type="radio" formControlName="cu21"  value="no" [(ngModel)]="ft09.cu21"></td>
+              <td><textarea rows="3" formControlName="o21" [(ngModel)]="ft09.o21"></textarea></td>
+            </tr>
+            <tr>
+              <td><textarea rows="3" formControlName="mt22" [(ngModel)]="ft09.mt22"></textarea></td>
+              <td><textarea rows="3" formControlName="mc22" [(ngModel)]="ft09.mc22"></textarea></td>
+              <td><textarea rows="3" formControlName="c22" [(ngModel)]="ft09.c22"></textarea></td>
+              <td><input type="radio" formControlName="cu22"  value="na" [(ngModel)]="ft09.cu22"></td>
+              <td><input type="radio" formControlName="cu22"  value="si" [(ngModel)]="ft09.cu22"></td>
+              <td><input type="radio" formControlName="cu22"  value="no" [(ngModel)]="ft09.cu22"></td>
+              <td><textarea rows="3" formControlName="o22" [(ngModel)]="ft09.o22"></textarea></td>
+            </tr>
+            <tr>
+              <td><textarea rows="3" formControlName="mt23" [(ngModel)]="ft09.mt23"></textarea></td>
+              <td><textarea rows="3" formControlName="mc23" [(ngModel)]="ft09.mc23"></textarea></td>
+              <td><textarea rows="3" formControlName="c23" [(ngModel)]="ft09.c23"></textarea></td>
+              <td><input type="radio" formControlName="cu23" value="na"  [(ngModel)]="ft09.cu23"></td>
+              <td><input type="radio" formControlName="cu23" value="si"  [(ngModel)]="ft09.cu23"></td>
+              <td><input type="radio" formControlName="cu23" value="no"  [(ngModel)]="ft09.cu23"></td>
+              <td><textarea rows="3" formControlName="o23" [(ngModel)]="ft09.o23"></textarea></td>
+            </tr>
+            <tr>
+              <td><textarea rows="3" formControlName="mt24" [(ngModel)]="ft09.mt24"></textarea></td>
+              <td><textarea rows="3" formControlName="mc24" [(ngModel)]="ft09.mc24"></textarea></td>
+              <td><textarea rows="3" formControlName="c24" [(ngModel)]="ft09.c24"></textarea></td>
+              <td><input type="radio" formControlName="cu24" value="na"  [(ngModel)]="ft09.cu24"></td>
+              <td><input type="radio" formControlName="cu24" value="si"  [(ngModel)]="ft09.cu24"></td>
+              <td><input type="radio" formControlName="cu24" value="no"  [(ngModel)]="ft09.cu24"></td>
+              <td><textarea rows="3" formControlName="o24" [(ngModel)]="ft09.o24"></textarea></td>
+            </tr>
+            <tr>
+              <td><textarea rows="3" formControlName="mt25" [(ngModel)]="ft09.mt25"></textarea></td>
+              <td><textarea rows="3" formControlName="mc25" [(ngModel)]="ft09.mc25"></textarea></td>
+              <td><textarea rows="3" formControlName="c25" [(ngModel)]="ft09.c25"></textarea></td>
+              <td><input type="radio" formControlName="cu25" value="na"  [(ngModel)]="ft09.cu25"></td>
+              <td><input type="radio" formControlName="cu25" value="si"  [(ngModel)]="ft09.cu25"></td>
+              <td><input type="radio" formControlName="cu25" value="no"  [(ngModel)]="ft09.cu25"></td>
+              <td><textarea rows="3" formControlName="o25" [(ngModel)]="ft09.o25"></textarea></td>
+            </tr>
+            <tr>
+              <td><textarea rows="3" formControlName="mt26" [(ngModel)]="ft09.mt26"></textarea></td>
+              <td><textarea rows="3" formControlName="mc26" [(ngModel)]="ft09.mc26"></textarea></td>
+              <td><textarea rows="3" formControlName="c26" [(ngModel)]="ft09.c26"></textarea></td>
+              <td><input type="radio" formControlName="cu26" value="na"  [(ngModel)]="ft09.cu26"></td>
+              <td><input type="radio" formControlName="cu26" value="si"  [(ngModel)]="ft09.cu26"></td>
+              <td><input type="radio" formControlName="cu26" value="no"  [(ngModel)]="ft09.cu26"></td>
+              <td><textarea rows="3" formControlName="o26" [(ngModel)]="ft09.o26"></textarea></td>
             </tr>
           </table>
-          <p>Verificación número: UVSEIE 448 A-<b *ngIf="client">{{ client.nocontrol }}/{{ client.anio }}</b><p>
-          <p>Fecha: <b *ngIf="client">{{ client.dia }}/{{ client.mes }}/{{ client.anio }} </b> Verificador: Ing. Héctor Martínez Peña</p>
+          <div style="position: absolute; bottom: 0; font-size: 0.8em;">
+            <p>Verificación número: UVSEIE 448 A-<b *ngIf="client">{{ client.nocontrol }}/{{ client.anio }}</b></p>
+            <p>Fecha: <b *ngIf="client" style="margin-right: 3em;">{{ client.dia }}/{{ client.mes }}/{{ client.anio }}
+              </b> Verificador: Ing.
+              Héctor Martínez Peña</p>
+          </div>
         </div>
-        
+  
       </div>
       <div>
         <button class="volver_ no-print" (click)="goBack()">
@@ -63,9 +341,11 @@
         <button class="imprimir_ no-print" onclick="window.print()">
           Imprimir
         </button>
-        <button class="guardar_ no-print">
+        <button class="guardar_ no-print" (click)="submitClientData()">
           Guardar
         </button>
       </div>
     </section>
   </div>
+
+</form>

@@ -5,6 +5,14 @@ import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { Fecha } from '../models/fecha';
 import { Signs } from '../models/signs';
+import { F05 } from '../models/f05';
+import { F06 } from '../models/f06';
+import { F07 } from '../models/f07';
+import { F09 } from '../models/f09';
+import { F11 } from '../models/f11';
+import { F081 } from '../models/f081';
+/* import { F082 } from '../models/f082';
+import { F08E } from '../models/f08-e'; */
 
 @Injectable({
   providedIn: 'root'
@@ -69,22 +77,47 @@ export class ClientService {
 
   getCurrentData(key: string) {
     this.clientObject = this.db.object('data/' + key);
-    //console.log(this.clientObject);
     return this.clientObject;
   }
 
-  /* UpdateSurvey(surveyF: SurveyForm) {
-    this.dataList.push({
-      p1: surveyF.p1,
-      p2: surveyF.p2,
-      p3: surveyF.p3,
-      p4: surveyF.p4,
-      p5: surveyF.p5,
-      p6: surveyF.p6,
-      p7: surveyF.p7,
-      p8: surveyF.p8,
-      p9: surveyF.p9,
-      date: Date.now()
-    });
+
+  UpdateFt05(f05: F05, key: string) {
+    this.db.object('data/' + key)
+    .update({ ft05: f05 });
+  }
+
+  UpdateFt06(f06: F06, key: string) {
+    this.db.object('data/' + key)
+    .update({ ft06: f06 });
+  }
+
+  UpdateFt07(f07: F07, key: string) {
+    this.db.object('data/' + key)
+    .update({ ft07: f07 });
+  }
+
+  UpdateFt09(f09: F09, key: string) {
+    this.db.object('data/' + key)
+    .update({ ft09: f09 });
+  }
+
+  UpdateFt11(f11: F11, key: string) {
+    this.db.object('data/' + key)
+    .update({ ft11: f11 });
+  }
+
+  UpdateFt08INCIE1(f08: F081, key: string) {
+    this.db.object('data/' + key)
+    .update({ ft08i1: f08 });
+  }
+
+  /* UpdateFt08INCIE2(f08: F082, key: string) {
+    this.db.object('data/' + key)
+    .update({ ft08i2: f08 });
   } */
+
+  UpdateFt08INCPE(f08: F081, key: string) {
+    this.db.object('data/' + key)
+    .update({ ft08ie: f08 });
+  }
 }

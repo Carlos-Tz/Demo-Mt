@@ -1,8 +1,9 @@
 <app-navbar></app-navbar>
 <div class="app">
-    <section>
-      <div class="page-landscape">
-        <div class="inner">
+  <section>
+    <div class="page-landscape">
+      <div class="inner">
+        <form [formGroup]="clientF" autocomplete="off">
           <table class="table1_">
             <tr>
               <td rowspan="5" style="width: 30%;"><img src="assets/mt.png" style="height: 2.5cm;"></td>
@@ -10,8 +11,10 @@
                 <h2><b>INFORME DE NO COMFORMIDAD</b></h2>
               </td>
               <td rowspan="2">
-                <p>Proyecto <input type="checkbox"> Memorias Técnicas Descriptivas <input type="checkbox"></p>
-                <p>Instalación en Sitio <input type="checkbox"> Pruebas <input type="checkbox"></p>
+                <p>Proyecto <input type="checkbox" formControlName="p" [(ngModel)]="ft081.p"> Memorias Técnicas
+                  Descriptivas <input type="checkbox" formControlName="me" [(ngModel)]="ft081.me"></p>
+                <p>Instalación en Sitio <input type="checkbox" formControlName="in" [(ngModel)]="ft081.in"> Pruebas
+                  <input type="checkbox" formControlName="pr" [(ngModel)]="ft081.pr"></p>
               </td>
               <td style="padding-top: 3mm;">CÓDIGO: <b>FT-08</b></td>
             </tr>
@@ -20,12 +23,13 @@
             </tr>
             <tr>
               <td rowspan="3">
-                <p>No. UVSEIE 448 A-<b *ngIf="client">{{ client.nocontrol }}/{{ client.anio }}</b></p>                
+                <p>No. UVSEIE 448 A-<b *ngIf="client">{{ client.nocontrol }}/{{ client.anio }}</b></p>
                 <p>Fecha: <b *ngIf="client">{{ client.dia }}/{{ client.mes }}/{{ client.anio }}</b></p>
               </td>
               <td rowspan="3">
                 <p>Cliente: <b *ngIf="client">{{ client.razon }}</b></p>
-                <p>Domicilio: <b *ngIf="client">{{ client.calle }} {{ client.colonia }}, {{client.munic}} {{client.estado}} C.P. {{client.cp}}.</b></p>
+                <p>Domicilio: <b *ngIf="client">{{ client.calle }} {{ client.colonia }}, {{client.munic}}
+                    {{client.estado}} C.P. {{client.cp}}.</b></p>
               </td>
               <td>NIVEL REV: <b>3</b></td>
             </tr>
@@ -33,50 +37,90 @@
               <td rowspan="2">Vigente: <b>05-Dic-14</b></td>
             </tr>
           </table>
-  
+
           <table class="table3_">
             <tr>
               <th class="col1_">No</th>
               <th class="col2_">Descripción de No Conformidades</th>
               <th class="col3_">No Conforme con la(s) seccion(es) de la NOM</th>
               <th class="cols_">Fecha de revisión</th>
-              <th>Acciones Correctivas <p>(Por el Cliente)</p></th>
+              <th>Acciones Correctivas <p>(Por el Cliente)</p>
+              </th>
               <th class="cols_">Fecha de solución</th>
             </tr>
             <tr>
-              <td><textarea rows="2"></textarea></td>
-              <td><textarea rows="2"></textarea></td>
-              <td><textarea rows="2"></textarea></td>
-              <td><textarea rows="2"></textarea></td>
-              <td><textarea rows="2"></textarea></td>
-              <td><textarea rows="2"></textarea></td>
+              <td style="text-align: center;"><input type="number" formControlName="n1" [(ngModel)]="ft081.n1"></td>
+              <td><textarea rows="3" formControlName="d1" [(ngModel)]="ft081.d1"></textarea></td>
+              <td><textarea rows="3" formControlName="nc1" [(ngModel)]="ft081.nc1"></textarea></td>
+              <td><textarea rows="3" formControlName="fr1" [(ngModel)]="ft081.fr1"></textarea></td>
+              <td><textarea rows="3" formControlName="a1" [(ngModel)]="ft081.a1"></textarea></td>
+              <td><textarea rows="3" formControlName="fs1" [(ngModel)]="ft081.fs1"></textarea></td>
             </tr>
             <tr>
-              <td><textarea rows="2"></textarea></td>
-              <td><textarea rows="2"></textarea></td>
-              <td><textarea rows="2"></textarea></td>
-              <td><textarea rows="2"></textarea></td>
-              <td><textarea rows="2"></textarea></td>
-              <td><textarea rows="2"></textarea></td>
+              <td style="text-align: center;"><input type="number" formControlName="n2" [(ngModel)]="ft081.n2"></td>
+              <td><textarea rows="3" formControlName="d2" [(ngModel)]="ft081.d2"></textarea></td>
+              <td><textarea rows="3" formControlName="nc2" [(ngModel)]="ft081.nc2"></textarea></td>
+              <td><textarea rows="3" formControlName="fr2" [(ngModel)]="ft081.fr2"></textarea></td>
+              <td><textarea rows="3" formControlName="a2" [(ngModel)]="ft081.a2"></textarea></td>
+              <td><textarea rows="3" formControlName="fs2" [(ngModel)]="ft081.fs2"></textarea></td>
+            </tr>
+            <tr>
+              <td style="text-align: center;"><input type="number" formControlName="n3" [(ngModel)]="ft081.n3"></td>
+              <td><textarea rows="3" formControlName="d3" [(ngModel)]="ft081.d3"></textarea></td>
+              <td><textarea rows="3" formControlName="nc3" [(ngModel)]="ft081.nc3"></textarea></td>
+              <td><textarea rows="3" formControlName="fr3" [(ngModel)]="ft081.fr3"></textarea></td>
+              <td><textarea rows="3" formControlName="a3" [(ngModel)]="ft081.a3"></textarea></td>
+              <td><textarea rows="3" formControlName="fs3" [(ngModel)]="ft081.fs3"></textarea></td>
+            </tr>
+            <tr>
+              <td style="text-align: center;"><input type="number" formControlName="n4" [(ngModel)]="ft081.n4"></td>
+              <td><textarea rows="3" formControlName="d4" [(ngModel)]="ft081.d4"></textarea></td>
+              <td><textarea rows="3" formControlName="nc4" [(ngModel)]="ft081.nc4"></textarea></td>
+              <td><textarea rows="3" formControlName="fr4" [(ngModel)]="ft081.fr4"></textarea></td>
+              <td><textarea rows="3" formControlName="a4" [(ngModel)]="ft081.a4"></textarea></td>
+              <td><textarea rows="3" formControlName="fs4" [(ngModel)]="ft081.fs4"></textarea></td>
+            </tr>
+            <tr>
+              <td style="text-align: center;"><input type="number" formControlName="n5" [(ngModel)]="ft081.n5"></td>
+              <td><textarea rows="3" formControlName="d5" [(ngModel)]="ft081.d5"></textarea></td>
+              <td><textarea rows="3" formControlName="nc5" [(ngModel)]="ft081.nc5"></textarea></td>
+              <td><textarea rows="3" formControlName="fr5" [(ngModel)]="ft081.fr5"></textarea></td>
+              <td><textarea rows="3" formControlName="a5" [(ngModel)]="ft081.a5"></textarea></td>
+              <td><textarea rows="3" formControlName="fs5" [(ngModel)]="ft081.fs5"></textarea></td>
+            </tr>
+            <tr>
+              <td style="text-align: center;"><input type="number" formControlName="n6" [(ngModel)]="ft081.n6"></td>
+              <td><textarea rows="3" formControlName="d6" [(ngModel)]="ft081.d6"></textarea></td>
+              <td><textarea rows="3" formControlName="nc6" [(ngModel)]="ft081.nc6"></textarea></td>
+              <td><textarea rows="3" formControlName="fr6" [(ngModel)]="ft081.fr6"></textarea></td>
+              <td><textarea rows="3" formControlName="a6" [(ngModel)]="ft081.a6"></textarea></td>
+              <td><textarea rows="3" formControlName="fs6" [(ngModel)]="ft081.fs6"></textarea></td>
             </tr>
           </table>
-          <p>EL CLIENTE FIJA LA FECHA DE CORRECCIÓN PARA CERRAR LOS INCUMPLIMIENTOS ENCONTRADOS EN EL PROYECTO E INSTALACIONES. <b>LA LEY LE CONCEDE 90 DIAS PARA
-              CORREGIR LAS NO CONFORMIDADES.</b>CUANDO HAYA EFECTUADO TODAS LAS CORRECCIONES, FAVOR DE AVISAR PARA PROGRAMAR UNA NUEVA VISITA DE INSPECCION
-          </p><p><b>IMPORTANTE: EL VERIFICADOR NO ES EL SUPERVISOR DE OBRA DEL SOLICITANTE</b></p>
-              <p>Verificador: Ing. Héctor Martínez Peña El Cliente: <b *ngIf="client">{{ client.razon }}</b></p>
-        </div>
-        
+          <div style="position: absolute; bottom: 0; ">
+          <p style="font-size: 0.7em;">EL CLIENTE FIJA LA FECHA DE CORRECCIÓN PARA CERRAR LOS INCUMPLIMIENTOS ENCONTRADOS EN EL PROYECTO E
+            INSTALACIONES. <b>LA LEY LE CONCEDE 90 DIAS PARA
+              CORREGIR LAS NO CONFORMIDADES.</b>CUANDO HAYA EFECTUADO TODAS LAS CORRECCIONES, FAVOR DE AVISAR PARA
+            PROGRAMAR UNA NUEVA VISITA DE INSPECCION
+          </p>
+          <p style="font-size: 0.7em;"><b>IMPORTANTE: EL VERIFICADOR NO ES EL SUPERVISOR DE OBRA DEL SOLICITANTE</b></p> <br>
+          <p style="font-size: 0.8em;">Verificador: <b style="margin-right: 6em;">Ing. Héctor Martínez Peña</b> El Cliente: <b style="text-transform: uppercase;" *ngIf="client">{{ client.razon }}</b></p>
+          </div>
+
+        </form>
       </div>
-      <div>
-          <button class="volver_ no-print" (click)="goBack()">
-            Volver
-          </button>
-          <button class="imprimir_ no-print" onclick="window.print()">
-            Imprimir
-          </button>
-          <button class="guardar_ no-print">
-            Guardar
-          </button>
-        </div>
-    </section>
-  </div>
+
+    </div>
+    <div>
+      <button class="volver_ no-print" (click)="goBack()">
+        Volver
+      </button>
+      <button class="imprimir_ no-print" onclick="window.print()">
+        Imprimir
+      </button>
+      <button class="guardar_ no-print" (click)="submitClientData()">
+        Guardar
+      </button>
+    </div>
+  </section>
+</div>

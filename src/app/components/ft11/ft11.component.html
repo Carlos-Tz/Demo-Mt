@@ -1,162 +1,220 @@
 <app-navbar></app-navbar>
 <div class="app">
-    <section>
-      <div class="page">
-        <div class="inner">
-          <table class="table1_">
-            <tr>
-              <td rowspan="5" style="width: 43%;"><img src="assets/mt.png" style="height: 2.5cm;"></td>
-              <td rowspan="5" style="width: 32%;">
-                <h2>
-                  <b>INFORME DE PRUEBAS REQUERIDAS EN EL PUNTO 6.6 PEC</b>
-                </h2>
-  
-              </td>
-              <td style="padding-top: 3mm;">CÓDIGO: <b>FT-11</b></td>
-            </tr>
-            <tr>
-              <td>EDICIÓN: <b>1</b></td>
-            </tr>
-            <tr>
-              <td>N. REVISIÓN: <b>3</b></td>
-            </tr>
-            <tr>
-              <td rowspan="2">Vigente a partir de: <br><b>05-Dic-14</b></td>
-            </tr>
-          </table>
-  
-          <table>
-            <tr>
-              <td colspan="3">
-               <p>Razón Social: <b *ngIf="client">{{ client.razon }}</b></p>
-              </td>
-            </tr>
-            <tr>
-              <td colspan="3">
-                <p>Giro de la Instalación: <b *ngIf="client">{{ client.giro }}</b></p>
-              </td>
-            </tr>
-            <tr>
-              <td colspan="3">
-                <p>Domicilio: <b *ngIf="client">{{ client.calle }} {{ client.colonia }}</b></p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-               <p> Mpo. o Delegación: <b *ngIf="client">{{ client.munic }}</b></p>
-              </td>
-              <td>
-                <p>Ciudad o Estado: <b *ngIf="client">{{ client.estado }}</b></p>
-              </td>
-              <td>
-                <p>C.P: <b *ngIf="client">{{ client.cp }}</b></p>
-              </td>
-            </tr>
-          </table>
-          <p>Verificación No.: <b *ngIf="client">{{ client.nocontrol }}/{{ client.anio }}</b></p><br>
-          <table>
-            <tr>
-              <th>Resultados de Pruebas</th>
-            </tr>
-            <tr>
-              <td>
-                <p>Prueba: Resistencia de aislamiento de conductores</p>
-                <p>Resultado: <input type="text">
-                  <label for="resultado-si">Conforme</label>
-                  <input type="radio" name="resultado" id="resultado-si">
-                  <label for="resultado">No Conforme</label>
-                  <input type="radio" name="resultado" id="resultado-no">
-                </p>
-                <p>Equipo utilizado: <input type="text"> Fecha de ejecución: <input type="text"></p>
-                <p>Parámetro: NOM-001-SEDE-2012 (Sección 110-7). En la instalación eléctrica o parte de ella si los
-                  conductores están libres de corto circuitos se acepta. Se rechaza en caso de haber corto circuitos.</p>
-              </td>
-            </tr>
-            <tr>
-                <td>
-                  <p>Prueba: Continuidad eléctrica de envolventes y canalizaciones metálicas</p>
-                  <p>Resultado: <input type="text">
-                    <label for="resultado-si">Conforme</label>
-                    <input type="radio" name="resultado" id="resultado-si">
-                    <label for="resultado">No Conforme</label>
-                    <input type="radio" name="resultado" id="resultado-no">
-                  </p>
-                  <p>Equipo utilizado: <input type="text"> Fecha de ejecución: <input type="text"></p>
-                  <p>Parámetro: Conforme a lo establecido en la norma NOM-001-SEDE-2012 (Sección 300-10).</p>
-                </td>
-              </tr>
-              <tr>
-                  <td>
-                    <p>Prueba: Resistencia de electrodos artificiales y de red de tierras</p>
-                    <p>Resultado del electrodo: <input type="text">
-                      <label for="resultado-si">Conforme</label>
-                      <input type="radio" name="resultado" id="resultado-si">
-                      <label for="resultado">No Conforme</label>
-                      <input type="radio" name="resultado" id="resultado-no">
-                    </p>
-                    <p>Resultado de puesta a tierra del sistema: <input type="text"></p>
-                    <p>Equipo utilizado: <input type="text"> Fecha de ejecución: <input type="text"></p>
-                    <p>Parámetro: Conforme a lo establecido en la norma NOM-001-SEDE- 2012 (Sección 921-25, a) y b), para subestaciones.</p>
-                    <table style="margin: 0 10mm 0 18mm; width: 70%;">
-                      <tr>
-                        <td><p>Resistencia (&#937;)</p></td>
-                        <td><p>Tensión eléctrica máxima (kV)</p></td>
-                        <td><p>Capacidad máxima (kVA)</p></td>
-                      </tr>
-                      <tr>
-                          <td><p>5</p></td>
-                          <td><p>mayor a 35.0</p></td>
-                          <td><p>mayor a 250</p></td>
-                        </tr>
-                        <tr>
-                        <td><p>10</p></td>
-                        <td><p>35.0</p></td>
-                        <td><p>mayor a 250</p></td>
-                      </tr>
-                      <tr>
-                          <td><p>25</p></td>
-                          <td><p>35.0</p></td>
-                          <td><p>250</p></td>
-                        </tr>
-                    </table>
-                    <p class="tab_">25 ó menos, para casas habitación, comercios, oficinas o locales considerados de concentración pública (sección 250-50 de la norma NOM-001-SEDE-2012).</p>
+  <section>
+    <div class="page">
+      <div class="inner">
+        <table class="table1_">
+          <tr>
+            <td rowspan="5" style="width: 43%;"><img src="assets/mt.png" style="height: 2.5cm;"></td>
+            <td rowspan="5" style="width: 32%;">
+              <h2>
+                <b>INFORME DE PRUEBAS REQUERIDAS EN EL PUNTO 6.6 PEC</b>
+              </h2>
+
+            </td>
+            <td style="padding-top: 3mm;">CÓDIGO: <b>FT-11</b></td>
+          </tr>
+          <tr>
+            <td>EDICIÓN: <b>1</b></td>
+          </tr>
+          <tr>
+            <td>N. REVISIÓN: <b>3</b></td>
+          </tr>
+          <tr>
+            <td rowspan="2">Vigente a partir de: <br><b>05-Dic-14</b></td>
+          </tr>
+        </table>
+
+        <table>
+          <tr>
+            <td colspan="3">
+              <p>Razón Social: <b *ngIf="client" style="text-transform: uppercase;">{{ client.razon }}</b></p>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="3">
+              <p>Giro de la Instalación: <b *ngIf="client" style="text-transform: uppercase;">{{ client.giro }}</b></p>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="3">
+              <p>Domicilio: <b *ngIf="client">{{ client.calle }} {{ client.colonia }}</b></p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p> Mpo. o Delegación: <b *ngIf="client">{{ client.munic }}</b></p>
+            </td>
+            <td>
+              <p>Ciudad o Estado: <b *ngIf="client">{{ client.estado }}</b></p>
+            </td>
+            <td>
+              <p>C.P: <b *ngIf="client">{{ client.cp }}</b></p>
+            </td>
+          </tr>
+        </table>
+        <p style="text-align: right;">Verificación No.: <b *ngIf="client">{{ client.nocontrol }}/{{ client.anio }}</b>
+        </p><br>
+        <form [formGroup]="clientF" autocomplete="off">
+        <table>
+          <tr>
+            <th style="font-size: 0.9em; background-color: #c6c6ca;">Resultados de Pruebas</th>
+          </tr>
+          <tr>
+            <td>
+              <p>Prueba: <b>Resistencia de aislamiento de conductores</b></p>
+              <p>Resultado: <input type="text" formControlName="r1" [(ngModel)]="ft11.r1">
+                <b style="margin-left: 10em;">Conforme</b>
+                <input type="radio" formControlName="c1"  value="si" [(ngModel)]="ft11.c1">
+                <b>No Conforme</b>
+                <input type="radio" formControlName="c1"  value="no" [(ngModel)]="ft11.c1">
+              </p>
+              <p>Equipo utilizado: <input type="text" style="margin-right: 6em;" formControlName="e1" [(ngModel)]="ft11.e1"> Fecha de ejecución: <input
+                  type="text"></p>
+              <p><b>Parámetro:</b> NOM-001-SEDE-2012 (Sección 110-7). En la instalación eléctrica o parte de ella si los
+                conductores están libres de corto circuitos se acepta. Se rechaza en caso de haber corto circuitos.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>Prueba: <b>Continuidad eléctrica de envolventes y canalizaciones metálicas</b></p>
+              <p>Resultado: <input type="text"  formControlName="r2" [(ngModel)]="ft11.r2">
+                <b style="margin-left: 10em;">Conforme</b>
+                <input type="radio"  formControlName="c2"  value="si" [(ngModel)]="ft11.c2">
+                <b>No Conforme</b>
+                <input type="radio" formControlName="c2"  value="no" [(ngModel)]="ft11.c2">
+              </p>
+              <p>Equipo utilizado: <input type="text" style="margin-right: 6em;" formControlName="e2" [(ngModel)]="ft11.e2"> Fecha de ejecución: <input
+                  type="text"></p>
+              <p><b>Parámetro:</b> Conforme a lo establecido en la norma NOM-001-SEDE-2012 (Sección 300-10).</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>Prueba: <b>Resistencia de electrodos artificiales y de red de tierras</b></p>
+              <p>Resultado del electrodo: <input type="text" formControlName="r3" [(ngModel)]="ft11.r3">
+                <b style="margin-left: 4.5em;">Conforme</b>
+                <input type="radio"  formControlName="c3"  value="si" [(ngModel)]="ft11.c3">
+                <b>No Conforme</b>
+                <input type="radio" formControlName="c3"  value="no" [(ngModel)]="ft11.c3">
+              </p>
+              <p>Resultado de puesta a tierra del sistema: <input type="text" formControlName="r3a" [(ngModel)]="ft11.r3a"></p>
+              <p>Equipo utilizado: <input type="text" style="margin-right: 6em;" formControlName="e3" [(ngModel)]="ft11.e3"> Fecha de ejecución: <input
+                  type="text"></p>
+              <p><b>Parámetro:</b> Conforme a lo establecido en la norma NOM-001-SEDE- 2012 (Sección 921-25, a) y b),
+                para subestaciones.</p>
+              <table style="margin: 0 10mm 0 18mm; width: 70%; border: none;">
+                <tr>
+                  <td style="text-align: right; border: none;">
+                    <p>Resistencia (&#937;)</p>
+                  </td>
+                  <td style="text-align: right; border: none;">
+                    <p>Tensión eléctrica máxima (kV)</p>
+                  </td>
+                  <td style="text-align: right; border: none;">
+                    <p>Capacidad máxima (kVA)</p>
                   </td>
                 </tr>
                 <tr>
-                    <td>
-                      <p>Prueba: Polaridad de conexiones en los receptáculos</p>
-                      <p>Resultado: <input type="text">
-                        <label for="resultado-si">Conforme</label>
-                        <input type="radio" name="resultado" id="resultado-si">
-                        <label for="resultado">No Conforme</label>
-                        <input type="radio" name="resultado" id="resultado-no">
-                      </p>
-                      <p>Inspección ocular <input type="text"> Fecha de ejecución: <input type="text"></p>
-                      <p>Parámetro: Conforme a lo establecido en la norma NOM-001-SEDE-2012 (Sección 200-11). No debe conectarse a ninguna Terminal o cable algún conductor puesto a tierra que pueda invertir la polaridad diseñada.</p>
-                    </td>
-                  </tr>
-          </table>
-  
-          <p>NOTA: Es responsabilidad del solicitante realizar las pruebas requeridas por el PEC en el punto 6.6. El Gerente Técnicoy/o Gerente Técnico Susutituto solicita y revisa los resultados de dichas pruebas proporcionados por el solicitante, podrán registrarse en el formato FT-11 por el solicitante o por el verificador; o bien el solicitante podrá entregar los resultados de estas pruebas en sus propios documentos. En su caso, el verificador podrá comprobar el resultado de la resistencia eléctrica de electrodos artificiales y de la red de tierra, utilizando el medidor de resistencia de tierras y el procedimiento del propio medidor (instructivo guía IT-02)</p>
+                  <td style="text-align: right; border: none;">
+                    <p>5</p>
+                  </td>
+                  <td style="text-align: right; border: none;">
+                    <p>mayor a 35.0</p>
+                  </td>
+                  <td style="text-align: right; border: none;">
+                    <p>mayor a 250</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align: right; border: none;">
+                    <p>10</p>
+                  </td>
+                  <td style="text-align: right; border: none;">
+                    <p>35.0</p>
+                  </td>
+                  <td style="text-align: right; border: none;">
+                    <p>mayor a 250</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align: right; border: none;">
+                    <p>25</p>
+                  </td>
+                  <td style="text-align: right; border: none;">
+                    <p>35.0</p>
+                  </td>
+                  <td style="text-align: right; border: none;">
+                    <p>250</p>
+                  </td>
+                </tr>
+              </table>
+              <p class="tab_">25 ó menos, para casas habitación, comercios, oficinas o locales considerados de
+                concentración pública (sección 250-50 de la norma NOM-001-SEDE-2012).</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>Prueba: <b>Polaridad de conexiones en los receptáculos</b></p>
+              <p>Resultado: <input type="text" formControlName="r4" [(ngModel)]="ft11.r4">
+                <b style="margin-left: 10em;">Conforme</b>
+                <input type="radio"  formControlName="c4"  value="si" [(ngModel)]="ft11.c4">
+                <b>No Conforme</b>
+                <input type="radio" formControlName="c4"  value="no" [(ngModel)]="ft11.c4">
+              </p>
+              <p>Inspección ocular: <input type="text" style="margin-right: 6em;" formControlName="e4" [(ngModel)]="ft11.e4"> Fecha de ejecución: <input
+                  type="text"></p>
+              <p><b>Parámetro:</b> Conforme a lo establecido en la norma NOM-001-SEDE-2012 (Sección 200-11). No debe
+                conectarse a ninguna Terminal o cable algún conductor puesto a tierra que pueda invertir la polaridad
+                diseñada.</p>
+            </td>
+          </tr>
+        </table>
 
-          <p>Nombre y Firma del Responsable</p>
+        </form>
+        <p style="font-size: 0.65em;">NOTA: Es responsabilidad del solicitante realizar las pruebas requeridas por el
+          PEC en el punto 6.6. El Gerente Técnicoy/o Gerente Técnico Susutituto solicita y revisa los resultados de
+          dichas pruebas proporcionados por el solicitante, podrán registrarse en el formato FT-11 por el solicitante o
+          por el verificador; o bien el solicitante podrá entregar los resultados de estas pruebas en sus propios
+          documentos. En su caso, el verificador podrá comprobar el resultado de la resistencia eléctrica de electrodos
+          artificiales y de la red de tierra, utilizando el medidor de resistencia de tierras y el procedimiento del
+          propio medidor (instructivo guía IT-02)</p>
 
-          <p><b *ngIf="client">{{ client.nombreuv }}</b></p>
-  
-  
-        </div>
-        
+
+        <table style="border: none; margin-top: 2em;">
+          <tr>
+            <td style="border: none;">
+              <p style="text-align: center;">Nombre y Firma del Responsable</p>
+              <div class="sign" style="margin: 0 auto;">
+                <div class="signature">
+                  <div id="contSign">
+                    <img *ngIf="client" src="{{ client.s2 }}" id="imgSign2">
+                  </div>
+                </div>
+                <hr>
+                <div>
+                  <p *ngIf="client" style="text-align: center;"><b
+                      style="text-transform: uppercase">{{ client.nombreuv }}</b></p>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+
+
       </div>
-      <div>
-        <button class="volver_ no-print" (click)="goBack()">
-          Volver
-        </button>
-        <button class="imprimir_ no-print" onclick="window.print()">
-          Imprimir
-        </button>
-        <button class="guardar_ no-print">
-          Guardar
-        </button>
-      </div>
-    </section>
-  </div>
+
+    </div>
+    <div>
+      <button class="volver_ no-print" (click)="goBack()">
+        Volver
+      </button>
+      <button class="imprimir_ no-print" onclick="window.print()">
+        Imprimir
+      </button>
+      <button class="guardar_ no-print" (click)="submitClientData()">
+        Guardar
+      </button>
+    </div>
+  </section>
+</div>
