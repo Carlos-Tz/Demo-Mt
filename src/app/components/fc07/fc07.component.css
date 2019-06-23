@@ -10,7 +10,9 @@ table, th, td {
 th {
     background-color: #aaa;
 }
-
+.table2_ td, .table2_1 td {
+    padding: 1mm;   
+}
 .table1_ {
     text-align: center;
     font-size: 0.7em;
@@ -18,6 +20,9 @@ th {
 .table2_ input[type=text], .table2_1 input[type=text] {
     width: 70%;
     margin: auto;
+}
+.table3_ input[type=radio] {
+    margin: 0 0 0 2.3mm !important;
 }
 .table2_ textarea, .table2_1 textarea {
     width: 100%;
@@ -53,4 +58,9 @@ th {
     vertical-align: middle;
     resize: none;
     overflow: hidden;
+    text-align: center;
+    font-size: 1.2em;
+}
+.table3_ p {
+    padding: 0 1mm;
 }

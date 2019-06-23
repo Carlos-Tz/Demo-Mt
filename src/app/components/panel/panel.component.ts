@@ -19,6 +19,7 @@ export class PanelComponent implements OnInit {
     this.dtOptions = {
       dom: 'Bfrtip',
       pageLength: 17,
+      order: [[ 0, 'desc' ]],
       // Configure the buttons
       buttons: [],
       language: {

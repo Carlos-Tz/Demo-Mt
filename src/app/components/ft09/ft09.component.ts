@@ -164,7 +164,7 @@ export class Ft09Component implements OnInit {
     this.key = this.actRoute.snapshot.paramMap.get('key');
     if (this.clientApi.clientObject) {
       this.clientApi.clientObject.valueChanges().subscribe(data => {
-        this.client = data;
+        this.client = data.datos;
         if (data.ft09) {
           this.ft09 = data.ft09;
         }

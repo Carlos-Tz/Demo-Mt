@@ -60,7 +60,7 @@ export class Ft05Component implements OnInit {
     this.key = this.actRoute.snapshot.paramMap.get('key');
     if (this.clientApi.clientObject) {
       this.clientApi.clientObject.valueChanges().subscribe(data => {
-        this.client = data;
+        this.client = data.datos;
         if (data.ft05) {
           this.ft05 = data.ft05;
         }

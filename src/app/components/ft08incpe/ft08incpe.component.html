@@ -27,7 +27,7 @@
               <p>Fecha: <b *ngIf="client">{{ client.dia }}/{{ client.mes }}/{{ client.anio }}</b></p>
             </td>
             <td rowspan="3">
-              <p>Cliente: <b *ngIf="client">{{ client.razon }}</b></p>
+              <p>Cliente: <b *ngIf="client" style="text-transform: uppercase;">{{ client.razon }}</b></p>
               <p>Domicilio: <b *ngIf="client">{{ client.calle }} {{ client.colonia }}, {{client.munic}}
                   {{client.estado}} C.P. {{client.cp}}.</b></p>
             </td>

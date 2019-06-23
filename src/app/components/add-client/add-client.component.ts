@@ -66,6 +66,7 @@ export class AddClientComponent implements OnInit {
       id: [''],
       folio: [''],
       fax: [''],
+      pedido: [''],
       rfc: [''],
       calle: [''],
       colonia: [''],

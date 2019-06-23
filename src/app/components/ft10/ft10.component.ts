@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { ClientService } from 'src/app/services/client.service';
+import { F10 } from 'src/app/models/f10';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-ft10',
@@ -18,7 +20,9 @@ export class Ft10Component implements OnInit {
     anio: ''
   };
   public pages: number[];
+  public ft10List: F10[];
   public len = 1;
+  public key = '';
   public f10 = [
     {
       id: 1,
@@ -1385,19 +1389,36 @@ export class Ft10Component implements OnInit {
 
   constructor(
     private clientApi: ClientService,
-    private location: Location
+    private location: Location,
+    private actRoute: ActivatedRoute
   ) { }
 
   ngOnInit() {
+    this.key = this.actRoute.snapshot.paramMap.get('key');
     if (this.clientApi.clientObject) {
       this.clientApi.clientObject.valueChanges().subscribe(data => {
-        this.client = data;
+        this.client = data.datos;
+        /* if (data.ft10) {
+          for (const i in data.ft10) {
+            this.ft10List.push(data.ft10[i] as F10);
+          }
+          this.len = Math.ceil((this.ft10List.length) / 18);
+          this.pages = this.page0.slice(0, this.len);
+        } */
       });
     }
-    this.len = Math.ceil((this.f10.length) / 18);
-    this.pages = this.page0.slice(0, this.len);
-    console.log(this.len);
-    console.log(this.pages);
+    this.clientApi.Getf10(this.key).snapshotChanges().subscribe(re => {
+      this.ft10List = [];
+      re.forEach(item => {
+        const surv = item.payload.toJSON();
+        surv['$key'] = item.key;
+        this.ft10List.push(surv as F10);
+      });
+     //this.data_ = true;
+      this.len = Math.ceil((this.ft10List.length) / 18);
+      this.pages = this.page0.slice(0, this.len);
+     // console.log(this.ft10List[1]);
+    });
   }
 
   goBack = () => {

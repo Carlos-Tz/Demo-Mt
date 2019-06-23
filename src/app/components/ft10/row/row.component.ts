@@ -8,11 +8,12 @@ import { F10 } from 'src/app/models/f10';
 })
 export class RowComponent implements OnInit {
 
-  @Input() public j: number;
-  @Input() public page: F10[];
+  @Input() public key: string;
+  @Input() public row: F10;
   constructor() { }
 
   ngOnInit() {
+   // console.log(this.row);
   }
 
 }

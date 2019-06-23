@@ -80,7 +80,7 @@ export class Ft08incpeComponent implements OnInit {
     this.key = this.actRoute.snapshot.paramMap.get('key');
     if (this.clientApi.clientObject) {
       this.clientApi.clientObject.valueChanges().subscribe(data => {
-        this.client = data;
+        this.client = data.datos;
         if (data.ft08ie) {
           this.ft08e = data.ft08ie;
         }

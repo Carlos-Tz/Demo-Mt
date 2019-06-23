@@ -33,6 +33,8 @@ import { environment } from '../environments/environment';
 import { Ft10Component } from './components/ft10/ft10.component';
 import { PageComponent } from './components/ft10/page/page.component';
 import { RowComponent } from './components/ft10/row/row.component';
+import { EditFt10Component } from './components/edit-ft10/edit-ft10.component';
+import { EditClientComponent } from './components/edit-client/edit-client.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +59,9 @@ import { RowComponent } from './components/ft10/row/row.component';
     Ft08incpeComponent,
     Ft10Component,
     PageComponent,
-    RowComponent
+    RowComponent,
+    EditFt10Component,
+    EditClientComponent
   ],
   imports: [
     BrowserModule,

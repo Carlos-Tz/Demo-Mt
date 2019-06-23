@@ -1,0 +1,100 @@
+<app-navbar></app-navbar>
+<div class="app">
+  <section>
+    <div class="page-landscape-mid">
+      <div class="inner">
+        <h4 *ngIf="ft10Row" style="text-align: center;">Editando {{ ft10Row.nom }}</h4> <br>
+        <table class="table3_" style="margin-bottom: 0; border-bottom: none;">
+          <tr>
+            <th rowspan="2" class="cols_" style="border-bottom: none;">Artículo, Sección, Inciso de la NOM a verificar
+            </th>
+            <th rowspan="2" class="colmm" style="border-bottom: none;">Texto de Referencia Requisitos generales a
+              verificar</th>
+            <th rowspan="2" class="colsm_" style="border-bottom: none;">Tipo de Verificación</th>
+            <th rowspan="2" style="width: 8.1cm; border-bottom: none;">Criterio de Aceptación o Rechazo</th>
+            <th rowspan="2" class="colm_" style="border-bottom: none;">Observaciones de la verificación al Proyecto</th>
+            <th rowspan="2" class="colm_" style="border-bottom: none;">Observaciones de la verificación en sitio</th>
+            <th colspan="2" class="cols_">Cumple</th>
+          </tr>
+          <tr>
+            <th class="colss_" style="border-bottom: none; font-size: 1em;">SI</th>
+            <th class="colss_" style="border-bottom: none; font-size: 1em;">NO</th>
+          </tr>
+        </table>
+        
+        <table *ngIf="ft10Row" style="font-size: 0.75em;">
+            <tr>
+            <td colspan="8" style="text-align: center; font-size: 1.1em;">
+                <b>Actualizar Artículo</b>
+            </td>
+          </tr>
+          <tr>
+            <td class="cols_">{{ ft10Row.nom }}</td>
+            <td class="colmm">{{ ft10Row.tex }}</td>
+            <td class="colsm_">{{ ft10Row.tip }}</td>
+            <td class="colmm_">{{ ft10Row.cri }}</td>
+            <td class="colm_"><textarea rows="3" [(ngModel)]="ft10Row.obp"></textarea></td>
+            <td class="colm_"><textarea rows="3" [(ngModel)]="ft10Row.obs"></textarea></td>
+            <td class="colss_"><input type="radio" name="urow" value="si" [(ngModel)]="ft10Row.cum"></td>
+            <td class="colss_"><input type="radio" name="urow" value="no" [(ngModel)]="ft10Row.cum"></td>
+          </tr>
+          <tr>
+            <td colspan="8" style="text-align: center; font-size: 1.1em;">
+              <b>Nuevo Artículo</b>
+            </td>
+          </tr>
+          <tr>
+            <td class="cols_"><textarea rows="3" [(ngModel)]="newft10Row.nom"></textarea></td>
+            <td class="colmm"><textarea rows="3" [(ngModel)]="newft10Row.tex"></textarea></td>
+            <td class="colsm_"><textarea rows="3" [(ngModel)]="newft10Row.tip"></textarea></td>
+            <td class="colmm_"><textarea rows="3" [(ngModel)]="newft10Row.cri"></textarea></td>
+            <td class="colm_"><textarea rows="3" [(ngModel)]="newft10Row.obp"></textarea></td>
+            <td class="colm_"><textarea rows="3" [(ngModel)]="newft10Row.obs"></textarea></td>
+            <td class="colss_"><input type="radio" name="nrow" value="si" [(ngModel)]="newft10Row.cum"></td>
+            <td class="colss_"><input type="radio" name="nrow" value="no" [(ngModel)]="newft10Row.cum"></td>
+          </tr>
+        </table>
+
+        <table style="position: absolute; bottom: 0; margin-bottom: 0; font-size: 0.8em;">
+            <tr>
+              <td>
+                <p>&#9632; Cumple</p>
+              </td>
+              <td>
+                <p>&#9632; No cumple</p>
+              </td>
+              <td>
+                <p>&#9633; No aplica</p>
+              </td>
+              <td>
+                <p>A: Análisis</p>
+              </td>
+              <td>
+                <p>D: Documental</p>
+              </td>
+              <td>
+                <p>O: Ocular</p>
+              </td>
+              <td>
+                <p>C: Comprobación</p>
+              </td>
+              <td>
+                <p>M: Medición</p>
+              </td>
+            </tr>
+          </table>
+      </div>
+    </div>
+    <div>
+      <button class="volver_ no-print" (click)="goBack()">
+        Volver
+      </button>
+      <!-- <button class="imprimir_ no-print" onclick="window.print()">
+        Imprimir
+      </button> -->
+      <button class="imprimir_ no-print" (click)="submitClientData()">
+        Guardar
+      </button>
+    </div>
+  </section>
+</div>

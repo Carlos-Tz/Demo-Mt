@@ -18,12 +18,11 @@ import { CaratulaComponent } from './components/caratula/caratula.component';
 import { AddClientComponent } from './components/add-client/add-client.component';
 import { ClientComponent } from './components/client/client.component';
 import { Ft10Component } from './components/ft10/ft10.component';
+import { EditFt10Component } from './components/edit-ft10/edit-ft10.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/', pathMatch: 'full'},
-  {path: '', component: CaratulaComponent},
-  {path: 'portrait', component: PagePortraitComponent},
-  {path: 'landscape', component: PageLandscapeComponent},
+  {path: '', component: PanelComponent},
   {path: 'ft-01/:key', component: Ft01Component},
   {path: 'fc-07/:key', component: Fc07Component},
   {path: 'ft-02/:key', component: Ft02Component},
@@ -35,6 +34,7 @@ const routes: Routes = [
   {path: 'ft-08INCPE/:key', component: Ft08incpeComponent},
   {path: 'ft-11/:key', component: Ft11Component},
   {path: 'ft-10/:key', component: Ft10Component},
+  {path: 'ft-10/:key/:key2', component: EditFt10Component},
   {path: 'ft-06/:key', component: Ft06Component},
   {path: 'panel', component: PanelComponent},
   {path: 'nuevo', component: AddClientComponent},

@@ -57,7 +57,7 @@ export class Ft11Component implements OnInit {
     this.key = this.actRoute.snapshot.paramMap.get('key');
     if (this.clientApi.clientObject) {
       this.clientApi.clientObject.valueChanges().subscribe(data => {
-        this.client = data;
+        this.client = data.datos;
         if (data.ft11) {
           this.ft11 = data.ft11;
         }

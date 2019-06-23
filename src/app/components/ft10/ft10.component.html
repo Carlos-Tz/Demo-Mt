@@ -11,10 +11,10 @@
               <p>VERIFICACIÓN No. UVSEIE 448 A-<b *ngIf="client">{{ client.nocontrol }}/{{ client.anio }}</b></p>
               <p>FECHA: <b *ngIf="client">{{ client.dia }}/{{ client.mes }}/{{ client.anio }}</b></p>
             </td>
-            <td colspan="3"><p>RAZÓN SOCIAL: <b *ngIf="client">{{ client.razon }}</b></p></td>
+            <td colspan="3"><p>RAZÓN SOCIAL: <b *ngIf="client" style="text-transform: uppercase;">{{ client.razon }}</b></p></td>
           </tr>
           <tr>
-            <td><p>TENSIÓN:<b *ngIf="client">{{ client.tension }} Tensión</b></p></td>
+            <td><p>TENSIÓN: <b *ngIf="client">{{ client.tension }} Tensión</b></p></td>
             <td>CÓDIGO: <b>FT-10</b></td>
             <td>EDICIÓN: <b>1</b></td>
           </tr>
@@ -41,12 +41,12 @@
         </table>
         <table style="border-left: 0; border-top: 0; border-right: 0; font-size: 0.65em;">
             <app-row *ngFor="let r of page0; let j=index;"
-                    [j]="j+(18*i)"
-                    [page]="f10">
+                    [key]="key"
+                    [row]="ft10List[j+(18*i)]">
             </app-row>
         </table>
 
-        <table style="position: absolute; bottom: 0; margin-bottom: 0;">
+        <table style="position: absolute; bottom: 0; margin-bottom: 0; font-size: 0.8em;">
           <tr>
             <td>
               <p>&#9632; Cumple</p>

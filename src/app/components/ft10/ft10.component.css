@@ -10,7 +10,9 @@ table, th, td {
 th {
     background-color: #aaa;
 }
-
+td {
+    padding: 1mm 0.8mm;
+}
 .table1_ {
     text-align: center;
     font-size: 0.7em;

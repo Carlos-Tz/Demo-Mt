@@ -7,6 +7,7 @@
                 <table *ngIf="data_" datatable [dtOptions]="dtOptions" class="row-border hover">
                     <thead>
                         <tr>
+                            <th>Fecha</th>
                             <th>Razón Social</th>
                             <th>No. de Control Interno</th>
                             <th>Giro</th>
@@ -16,10 +17,11 @@
                     </thead>
                     <tbody>
                         <tr *ngFor="let client of dataList;let i=index; " [routerLink]="['/cliente/', client.$key]" style="cursor: pointer;">
-                            <td>{{client.razon}}</td>
-                            <td>{{client.nocontrol}}</td>
-                            <td>{{client.giro}}</td>
-                            <td>{{client.nombre}}</td>
+                            <td>{{client.datos.dia}}/{{client.datos.mes}}/{{client.datos.anio}}</td>
+                            <td>{{client.datos.razon}}</td>
+                            <td>{{client.datos.nocontrol}}</td>
+                            <td>{{client.datos.giro}}</td>
+                            <td>{{client.datos.nombre}}</td>
                             <!-- <td><a [routerLink]="['/cliente/', client.$key]">+</a></td> -->
                         </tr>
                     </tbody>

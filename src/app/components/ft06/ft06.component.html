@@ -1,334 +1,924 @@
 <app-navbar></app-navbar>
+<form [formGroup]="clientF" autocomplete="off">
 <div class="app">
-    <section>
-      <div class="page-landscape">
-        <div class="inner">
-          <table class="table1_">
-            <tr>
-              <td rowspan="4" style="width: 25%;"><img src="assets/mt.png" style="height: 2cm;"></td>
-              <td rowspan="4" style="width: 25%;">
-                <h3><b>LISTA DE VERIFICACIÓN PROYECTO ELECTRICO NOM-001-SEDE-2012</b></h3>
-                <p>VERIFICACIÓN No. UVSEIE 448 A-<b *ngIf="client">{{ client.nocontrol }}/{{ client.anio }}</b></p>
-                <p>FECHA: <b *ngIf="client">{{ client.dia }}/{{ client.mes }}/{{ client.anio }}</b></p>
-              </td>
-              <td colspan="3"><p>RAZÓN SOCIAL: <b *ngIf="client">{{ client.razon }}</b></p></td>
-            </tr>
-            <tr>
-              <td><p>TENSIÓN:<b *ngIf="client">{{ client.tension }} Tensión</b></p></td>
-              <td>CÓDIGO: <b>FT-06</b></td>
-              <td>EDICIÓN: <b>1</b></td>
-            </tr>
-            <tr>
-              <td></td>
-            </tr>
-            <tr>
-              <td rowspan="2"><p>CARGA INSTALADA: <b *ngIf="client">{{ client.cargai }} Kw</b></p></td>
-              <td rowspan="2">NIVEL REV: <b>3</b></td>
-              <td rowspan="2">VIGENCIA: <br><b>05-Dic-14</b></td>
-            </tr>
-          </table>
-  
-          <table class="table3_">
-            <tr>
-              <th rowspan="2" class="cols_">NOM Referencia</th>
-              <th rowspan="2">Texto de Referencia (Requisitos Generales a Verificar)</th>
-              <th rowspan="2" class="colsm_">Tipo de Verificación</th>
-              <th rowspan="2" class="colm_">Criterio de Aceptación o Rechazo</th>
-              <th rowspan="2" class="colm_">Observaciones de la verificación al Proyecto</th>
-              <th rowspan="2" class="colm_">Observaciones de la verificación en sitio</th>
-              <th colspan="2" class="colsm_">Cumple</th>
-            </tr>
-            <tr>
-              <th>SI</th>
-              <th>NO</th>
-            </tr>
-            <tr>
-              <td colspan="8">
-                <p><b>Para instalaciones eléctricas con carga instalada menor a 100 KW</b></p>
-                <p>Las instalaciones eléctricas que teniendo esta carga, cuenten con áreas peligrosa (clasificadas), le
-                  aplica lo indicado en el punto 6.2 del PEC</p>
-              </td>
-            </tr>
-            <tr>
-              <td></td>
-              <td>
-                <p>Se recibe el Proyecto Eléctrico correspondiente.</p>
-              </td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>
-                <p>PEC 7.1</p>
-              </td>
-              <td>
-                <p>El proyecto esta integrado por un diagrama unifilar.</p>
-              </td>
-              <td>
-                <p>D</p>
-              </td>
-              <td>
-                <p>Contenga información de todos los circuitos</p>
-              </td>
-              <td><textarea rows="2"></textarea></td>
-              <td><textarea rows="2"></textarea></td>
-              <td><input type="radio" name="ft-06-1"></td>
-              <td><input type="radio" name="ft-06-1"></td>
-            </tr>
-            <tr>
-              <td>
-                <p>PEC 7.1</p>
-              </td>
-              <td>
-                <p>Relación de cargas.</p>
-              </td>
-              <td>
-                <p>D</p>
-              </td>
-              <td>
-                <p>Se acepta si se hay una relación de cargas.</p>
-              </td>
-              <td><textarea rows="2"></textarea></td>
-              <td><textarea rows="2"></textarea></td>
-              <td><input type="radio" name="ft-06-2"></td>
-              <td><input type="radio" name="ft-06-2"></td>
-            </tr>
-            <tr>
-              <td>
-                <p>PEC 7.1</p>
-              </td>
-              <td>
-                <p>Lista de los principales materiales y equipos utilizados de manera general incluida la lnformación de
-                  Transformadores cuando aplique, documentoque compruebe que están aprobados y cumplen con las normas
-                  oficiales mexicanas y disposiciones legales aplicables</p>
-              </td>
-              <td>
-                <p>D</p>
-              </td>
-              <td>
-                <p>Se acepta si hay una lista de materialesy un documento de certificación del TR</p>
-              </td>
-              <td><textarea rows="2"></textarea></td>
-              <td><textarea rows="2"></textarea></td>
-              <td><input type="radio" name="ft-06-3"></td>
-              <td><input type="radio" name="ft-06-3"></td>
-            </tr>
-            <tr>
-              <td>
-                <p>NOM-001-SEDE-2012
-                  215-5,
-                  310-10c)</p>
-              </td>
-              <td>
-                <p>¿El diagrama de alimentadores muestra los detalles de los circuitos alimentadores, superficie en m2 del
-                  edificio, carga total conectada, factores de demanda, carga calculada, el tipo tamaño nominal y longitud
-                  de los conductores y caída de tensión de cada circuito derivado,alimentador,tipo de aislamiento?</p>
-              </td>
-              <td>
-                <p>D</p>
-              </td>
-              <td>
-                <p>Se acepta si cumple con el 215-5</p>
-              </td>
-              <td><textarea rows="2"></textarea></td>
-              <td><textarea rows="2"></textarea></td>
-              <td><input type="radio" name="ft-06-4"></td>
-              <td><input type="radio" name="ft-06-4"></td>
-            </tr>
-            <tr>
-              <td>
-                <p>PEC 7.2</p>
-              </td>
-              <td colspan="7">
-                <p><b>Para instalaciones eléctricas con carga instalada igual o mayor a 100 kW.</b></p>
-              </td>
-            </tr>
-            <tr>
-              <td>PEC 7.2.I, 215-5</td>
-              <td>
-                <p>El Diagrama unifilar debe contener:</p>
-              </td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>
-                <p>PEC 7.2.I.1</p>
-              </td>
-              <td>
-                <p>Características de la acometida.</p>
-              </td>
-              <td>
-                <p>D</p>
-              </td>
-              <td>
-                <p>Se acepta si se define dichas características.</p>
-              </td>
-              <td><textarea rows="2"></textarea></td>
-              <td><textarea rows="2"></textarea></td>
-              <td><input type="radio" name="ft-06-5"></td>
-              <td><input type="radio" name="ft-06-5"></td>
-            </tr>
-            <tr>
-              <td>
-                <p>PEC 7.2.I.2</p>
-              </td>
-              <td>
-                <p>Características de la subestación.</p>
-              </td>
-              <td>
-                <p>D</p>
-              </td>
-              <td>
-                <p>Se acepta si define las características de la subestación.</p>
-              </td>
-              <td><textarea rows="2"></textarea></td>
-              <td><textarea rows="2"></textarea></td>
-              <td><input type="radio" name="ft-06-6"></td>
-              <td><input type="radio" name="ft-06-6"></td>
-            </tr>
-            <tr>
-              <td>
-                <p>PEC 7.2.I.3,
-                  210-19 nota 4,
-                  310-8c)</p>
-              </td>
-              <td>
-                <p>Características de los alimentadores hasta los centros de carga, tableros de fuerza, alumbrado, entre
-                  otros, indicando en cada caso el tamaño (calibre) de los conductores (conductores activos, neutro y de
-                  puesta a tierra), la longitud y la corriente en amperes, (%e, canalización,tipo de aislamiento.)</p>
-              </td>
-              <td>
-                <p>D</p>
-              </td>
-              <td>
-                <p>Se acepta si se indican las características de los alimentadores.</p>
-              </td>
-              <td><textarea rows="2"></textarea></td>
-              <td><textarea rows="2"></textarea></td>
-              <td><input type="radio" name="ft-06-7"></td>
-              <td><input type="radio" name="ft-06-7"></td>
-            </tr>
-            <tr>
-              <td>
-                <p>PEC 7.2.I.4,
-                  110-9</p>
-              </td>
-              <td>
-                <p>Tipo de los dispositivos de interrupción, capacidad interruptiva e intervalo de ajuste de cada una de
-                  las protecciones de los alimentadores.</p>
-              </td>
-              <td>
-                <p>D</p>
-              </td>
-              <td>
-                <p>Se acepta si se indican los tipos, sus ajustes y capacidades de interrupción.</p>
-              </td>
-              <td><textarea rows="2"></textarea></td>
-              <td><textarea rows="2"></textarea></td>
-              <td><input type="radio" name="ft-06-8"></td>
-              <td><input type="radio" name="ft-06-8"></td>
-            </tr>
-            <tr>
-              <td>PEC 7.2.II</td>
-              <td>
-                <p>Cuadro de distribución de cargas por circuito, el cual debe contener:</p>
-              </td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-                <td>
-                  <p>PEC 7.2.II.1</p>
-                </td>
-                <td>
-                  <p>Circuito de alumbrado y luminarias.</p>
-                </td>
-                <td>
-                  <p>D</p>
-                </td>
-                <td>
-                  <p>Se acepta si se indican los circuitos.</p>
-                </td>
-                <td><textarea rows="2"></textarea></td>
-                <td><textarea rows="2"></textarea></td>
-                <td><input type="radio" name="ft-06-9"></td>
-                <td><input type="radio" name="ft-06-9"></td>
-              </tr>
-              <tr>
-              <td>
-                <p>PEC 7.2.II.2</p>
-              </td>
-              <td>
-                <p>Número de circuitos, número de lámparas, receptáculos, dispositivos eléctricos por cada circuito, fase o fases a que va conectado el circuito, carga en watts o VA y corriente en amperes de cada circuito, tamaño (calibre) de los conductores, protección contra sobre corriente por cada circuito y el desbalanceo entre fases expresado en por ciento.</p>
-              </td>
-              <td>
-                <p>D</p>
-              </td>
-              <td>
-                <p>Se acepta si se indican todas las características indicadas.</p>
-              </td>
-              <td><textarea rows="2"></textarea></td>
-              <td><textarea rows="2"></textarea></td>
-              <td><input type="radio" name="ft-06-10"></td>
-              <td><input type="radio" name="ft-06-10"></td>
-            </tr>
-  
-          </table>
-  
-          <table>
-            <tr>
-              <td>
-                <p>&#9632; Cumple</p>
-              </td>
-              <td>
-                <p>&#9632; No cumple</p>
-              </td>
-              <td>
-                <p>&#9633; No aplica</p>
-              </td>
-              <td>
-                <p>A: Análisis</p>
-              </td>
-              <td>
-                <p>D: Documental</p>
-              </td>
-              <td>
-                <p>O: Ocular</p>
-              </td>
-              <td>
-                <p>C: Comprobación</p>
-              </td>
-              <td>
-                <p>M: Medición</p>
-              </td>
-            </tr>
-          </table>
-        </div>
-        
+  <section>
+    <div class="page-landscape">
+      <div class="inner">
+        <table class="table1_">
+          <tr>
+            <td rowspan="4" style="width: 25%;"><img src="assets/mt.png" style="height: 2cm;"></td>
+            <td rowspan="4" style="width: 25%;">
+              <h3><b>LISTA DE VERIFICACIÓN PROYECTO ELECTRICO NOM-001-SEDE-2012</b></h3>
+              <p>VERIFICACIÓN No. UVSEIE 448 A-<b *ngIf="client">{{ client.nocontrol }}/{{ client.anio }}</b></p>
+              <p>FECHA: <b *ngIf="client">{{ client.dia }}/{{ client.mes }}/{{ client.anio }}</b></p>
+            </td>
+            <td colspan="3">
+              <p>RAZÓN SOCIAL: <b *ngIf="client" style="text-transform: uppercase;">{{ client.razon }}</b></p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>TENSIÓN: <b *ngIf="client">{{ client.tension }} Tensión</b></p>
+            </td>
+            <td>CÓDIGO: <b>FT-06</b></td>
+            <td>EDICIÓN: <b>1</b></td>
+          </tr>
+          <tr>
+            <td rowspan="2">
+              <p>CARGA INSTALADA: <b *ngIf="client">{{ client.cargai }} Kw</b></p>
+            </td>
+            <td rowspan="2">NIVEL REV: <b>3</b></td>
+            <td rowspan="2">VIGENCIA: <br><b>05-Dic-14</b></td>
+          </tr>
+        </table>
+
+        <table class="table3_">
+          <tr>
+            <th rowspan="2" class="cols_">NOM Referencia</th>
+            <th rowspan="2">Texto de Referencia (Requisitos Generales a Verificar)</th>
+            <th rowspan="2" class="colsm_">Tipo de Verificación</th>
+            <th rowspan="2" class="colm_">Criterio de Aceptación o Rechazo</th>
+            <th rowspan="2" class="colm_">Observaciones de la verificación al Proyecto</th>
+            <th rowspan="2" class="colm_">Observaciones de la verificación en sitio</th>
+            <th colspan="2" class="colsm_">Cumple</th>
+          </tr>
+          <tr>
+            <th>SI</th>
+            <th>NO</th>
+          </tr>
+          <tr>
+            <td colspan="8" style="text-align: center;">
+              <p><b>Para instalaciones eléctricas con carga instalada menor a 100 KW</b></p>
+              <p>Las instalaciones eléctricas que teniendo esta carga, cuenten con áreas peligrosa (clasificadas), le
+                aplica lo indicado en el punto 6.2 del PEC</p>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <p>Se recibe el Proyecto Eléctrico correspondiente.</p>
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>
+              <p>PEC 7.1</p>
+            </td>
+            <td>
+              <p>El proyecto esta integrado por un diagrama unifilar.</p>
+            </td>
+            <td style="text-align:center;">
+              <p>D</p>
+            </td>
+            <td>
+              <p>Contenga información de todos los circuitos</p>
+            </td>
+            <td><textarea rows="2" formControlName="o1" [(ngModel)]="ft06.o1"></textarea></td>
+            <td><textarea rows="2" formControlName="os1" [(ngModel)]="ft06.os1"></textarea></td>
+            <td><input type="radio" formControlName="c1" value="si"  [(ngModel)]="ft06.c1"></td>
+            <td><input type="radio" formControlName="c1" value="no"  [(ngModel)]="ft06.c1"></td>
+          </tr>
+          <tr>
+            <td>
+              <p>PEC 7.1</p>
+            </td>
+            <td>
+              <p>Relación de cargas.</p>
+            </td>
+            <td style="text-align:center;">
+              <p>D</p>
+            </td>
+            <td>
+              <p>Se acepta si se hay una relación de cargas.</p>
+            </td>
+            <td><textarea rows="2" formControlName="o2" [(ngModel)]="ft06.o2"></textarea></td>
+            <td><textarea rows="2" formControlName="os2" [(ngModel)]="ft06.os2"></textarea></td>
+            <td><input type="radio" formControlName="c2" value="si"  [(ngModel)]="ft06.c2"></td>
+            <td><input type="radio" formControlName="c2" value="no"  [(ngModel)]="ft06.c2"></td>
+          </tr>
+          <tr>
+            <td>
+              <p><b>PEC 7.1</b></p>
+            </td>
+            <td>
+              <p><b>Lista de los principales materiales y equipos utilizados de manera general incluida la lnformación de
+                Transformadores cuando aplique, documentoque compruebe que están aprobados y cumplen con las normas
+                oficiales mexicanas y disposiciones legales aplicables.</b></p>
+            </td>
+            <td style="text-align:center;">
+              <p><b>D</b></p>
+            </td>
+            <td>
+              <p><b>Se acepta si hay una lista de materialesy un documento de certificación del TR.</b></p>
+            </td>
+            <td><textarea rows="2" formControlName="o3" [(ngModel)]="ft06.o3"></textarea></td>
+            <td><textarea rows="2" formControlName="os3" [(ngModel)]="ft06.os3"></textarea></td>
+            <td><input type="radio" formControlName="c3" value="si"  [(ngModel)]="ft06.c3"></td>
+            <td><input type="radio" formControlName="c3" value="no"  [(ngModel)]="ft06.c3"></td>
+          </tr>
+          <tr>
+            <td>
+              <p>NOM-001-SEDE-2012
+                215-5,
+                310-10c)</p>
+            </td>
+            <td>
+              <p>¿El diagrama de alimentadores muestra los detalles de los circuitos alimentadores, superficie en m2 del
+                edificio, carga total conectada, factores de demanda, carga calculada, el tipo tamaño nominal y longitud
+                de los conductores y caída de tensión de cada circuito derivado,alimentador,tipo de aislamiento?</p>
+            </td>
+            <td style="text-align:center;">
+              <p>D</p>
+            </td>
+            <td>
+              <p>Se acepta si cumple con el 215-5</p>
+            </td>
+            <td><textarea rows="2" formControlName="o4" [(ngModel)]="ft06.o4"></textarea></td>
+            <td><textarea rows="2" formControlName="os4" [(ngModel)]="ft06.os4"></textarea></td>
+            <td><input type="radio" formControlName="c4" value="si"  [(ngModel)]="ft06.c4"></td>
+            <td><input type="radio" formControlName="c4" value="no"  [(ngModel)]="ft06.c4"></td>
+          </tr>
+          <tr>
+            <td>
+              <p><b>PEC 7.2</b></p>
+            </td>
+            <td colspan="7" style="text-align: center;">
+              <p><b>Para instalaciones eléctricas con carga instalada igual o mayor a 100 kW.</b></p>
+            </td>
+          </tr>
+          <tr>
+            <td><b>PEC 7.2.I, 215-5</b></td>
+            <td>
+              <p><b>El Diagrama unifilar debe contener:</b></p>
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>
+              <p>PEC 7.2.I.1</p>
+            </td>
+            <td>
+              <p>Características de la acometida.</p>
+            </td>
+            <td style="text-align:center;">
+              <p>D</p>
+            </td>
+            <td>
+              <p>Se acepta si se define dichas características.</p>
+            </td>
+            <td><textarea rows="2" formControlName="o5" [(ngModel)]="ft06.o5"></textarea></td>
+            <td><textarea rows="2" formControlName="os5" [(ngModel)]="ft06.os5"></textarea></td>
+            <td><input type="radio" formControlName="c5" value="si"  [(ngModel)]="ft06.c5"></td>
+            <td><input type="radio" formControlName="c5" value="no"  [(ngModel)]="ft06.c5"></td>
+          </tr>
+          <tr>
+            <td>
+              <p>PEC 7.2.I.2</p>
+            </td>
+            <td>
+              <p>Características de la subestación.</p>
+            </td>
+            <td style="text-align:center;">
+              <p>D</p>
+            </td>
+            <td>
+              <p>Se acepta si define las características de la subestación.</p>
+            </td>
+            <td><textarea rows="2" formControlName="o6" [(ngModel)]="ft06.o6"></textarea></td>
+            <td><textarea rows="2" formControlName="os6" [(ngModel)]="ft06.os6"></textarea></td>
+            <td><input type="radio" formControlName="c6" value="si"  [(ngModel)]="ft06.c6"></td>
+            <td><input type="radio" formControlName="c6" value="no"  [(ngModel)]="ft06.c6"></td>
+          </tr>
+          <tr>
+            <td>
+              <p>PEC 7.2.I.3,
+                210-19 nota 4,
+                310-8c)</p>
+            </td>
+            <td>
+              <p>Características de los alimentadores hasta los centros de carga, tableros de fuerza, alumbrado, entre
+                otros, indicando en cada caso el tamaño (calibre) de los conductores (conductores activos, neutro y de
+                puesta a tierra), la longitud y la corriente en amperes, (%e, canalización,tipo de aislamiento.)</p>
+            </td>
+            <td style="text-align:center;">
+              <p>D</p>
+            </td>
+            <td>
+              <p>Se acepta si se indican las características de los alimentadores.</p>
+            </td>
+            <td><textarea rows="2" formControlName="o7" [(ngModel)]="ft06.o7"></textarea></td>
+            <td><textarea rows="2" formControlName="os7" [(ngModel)]="ft06.os7"></textarea></td>
+            <td><input type="radio" formControlName="c7" value="si"  [(ngModel)]="ft06.c7"></td>
+            <td><input type="radio" formControlName="c7" value="no"  [(ngModel)]="ft06.c7"></td>
+          </tr>
+          <tr>
+            <td>
+              <p>PEC 7.2.I.4,
+                110-9</p>
+            </td>
+            <td>
+              <p>Tipo de los dispositivos de interrupción, capacidad interruptiva e intervalo de ajuste de cada una de
+                las protecciones de los alimentadores.</p>
+            </td>
+            <td style="text-align:center;">
+              <p>D</p>
+            </td>
+            <td>
+              <p>Se acepta si se indican los tipos, sus ajustes y capacidades de interrupción.</p>
+            </td>
+            <td><textarea rows="2" formControlName="o8" [(ngModel)]="ft06.o8"></textarea></td>
+            <td><textarea rows="2" formControlName="os8" [(ngModel)]="ft06.os8"></textarea></td>
+            <td><input type="radio" formControlName="c8" value="si"  [(ngModel)]="ft06.c8"></td>
+            <td><input type="radio" formControlName="c8" value="no"  [(ngModel)]="ft06.c8"></td>
+          </tr>
+          <tr>
+            <td><b>PEC 7.2.II</b></td>
+            <td>
+              <p><b>Cuadro de distribución de cargas por circuito, el cual debe contener:</b></p>
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>
+              <p>PEC 7.2.II.1</p>
+            </td>
+            <td>
+              <p>Circuito de alumbrado y luminarias.</p>
+            </td>
+            <td style="text-align:center;">
+              <p>D</p>
+            </td>
+            <td>
+              <p>Se acepta si se indican los circuitos.</p>
+            </td>
+            <td><textarea rows="2" formControlName="o9" [(ngModel)]="ft06.o9"></textarea></td>
+            <td><textarea rows="2" formControlName="os9" [(ngModel)]="ft06.os9"></textarea></td>
+            <td><input type="radio" formControlName="c9" value="si"  [(ngModel)]="ft06.c9"></td>
+            <td><input type="radio" formControlName="c9" value="no"  [(ngModel)]="ft06.c9"></td>
+          </tr>
+          <tr>
+            <td>
+              <p>PEC 7.2.II.2</p>
+            </td>
+            <td>
+              <p>Número de circuitos, número de lámparas, receptáculos, dispositivos eléctricos por cada circuito, fase
+                o fases a que va conectado el circuito, carga en watts o VA y corriente en amperes de cada circuito,
+                tamaño (calibre) de los conductores, protección contra sobre corriente por cada circuito y el
+                desbalanceo entre fases expresado en por ciento.</p>
+            </td>
+            <td style="text-align:center;">
+              <p>D</p>
+            </td>
+            <td>
+              <p>Se acepta si se indican todas las características indicadas.</p>
+            </td>
+            <td><textarea rows="2" formControlName="o10" [(ngModel)]="ft06.o10"></textarea></td>
+            <td><textarea rows="2" formControlName="os10" [(ngModel)]="ft06.os10"></textarea></td>
+            <td><input type="radio" formControlName="c10" value="si"  [(ngModel)]="ft06.c10"></td>
+            <td><input type="radio" formControlName="c10" value="no"  [(ngModel)]="ft06.c10"></td>
+          </tr>
+
+        </table>
+
+        <table style="position: absolute; bottom: 0; font-size: 0.8em; margin-bottom:0;">
+          <tr>
+            <td>
+              <p>&#9632; Cumple</p>
+            </td>
+            <td>
+              <p>&#9632; No cumple</p>
+            </td>
+            <td>
+              <p>&#9633; No aplica</p>
+            </td>
+            <td>
+              <p>A: Análisis</p>
+            </td>
+            <td>
+              <p>D: Documental</p>
+            </td>
+            <td>
+              <p>O: Ocular</p>
+            </td>
+            <td>
+              <p>C: Comprobación</p>
+            </td>
+            <td>
+              <p>M: Medición</p>
+            </td>
+          </tr>
+        </table>
       </div>
-      <div>
-          <button class="volver_ no-print" (click)="goBack()">
-            Volver
-          </button>
-          <button class="imprimir_ no-print" onclick="window.print()">
-            Imprimir
-          </button>
-          <button class="guardar_ no-print">
-            Guardar
-          </button>
-        </div>
-    </section>
-  </div>
+
+    </div>
+    <div>
+      <button class="volver_ no-print" (click)="goBack()">
+        Volver
+      </button>
+      <button class="imprimir_ no-print" onclick="window.print()">
+        Imprimir
+      </button>
+      <button class="guardar_ no-print" (click)="submitClientData()">
+        Guardar
+      </button>
+    </div>
+  </section>
+
+  <section>
+    <div class="page-landscape">
+      <div class="inner">
+        <table class="table1_">
+          <tr>
+            <td rowspan="4" style="width: 25%;"><img src="assets/mt.png" style="height: 2cm;"></td>
+            <td rowspan="4" style="width: 25%;">
+              <h3><b>LISTA DE VERIFICACIÓN PROYECTO ELECTRICO NOM-001-SEDE-2012</b></h3>
+              <p>VERIFICACIÓN No. UVSEIE 448 A-<b *ngIf="client">{{ client.nocontrol }}/{{ client.anio }}</b></p>
+              <p>FECHA: <b *ngIf="client">{{ client.dia }}/{{ client.mes }}/{{ client.anio }}</b></p>
+            </td>
+            <td colspan="3">
+              <p>RAZÓN SOCIAL: <b *ngIf="client">{{ client.razon }}</b></p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>TENSIÓN: <b *ngIf="client">{{ client.tension }} Tensión</b></p>
+            </td>
+            <td>CÓDIGO: <b>FT-06</b></td>
+            <td>EDICIÓN: <b>1</b></td>
+          </tr>
+          <tr>
+            <td rowspan="2">
+              <p>CARGA INSTALADA: <b *ngIf="client">{{ client.cargai }} Kw</b></p>
+            </td>
+            <td rowspan="2">NIVEL REV: <b>3</b></td>
+            <td rowspan="2">VIGENCIA: <br><b>05-Dic-14</b></td>
+          </tr>
+        </table>
+
+        <table class="table3_">
+          <tr>
+            <th rowspan="2" class="cols_">NOM Referencia</th>
+            <th rowspan="2">Texto de Referencia (Requisitos Generales a Verificar)</th>
+            <th rowspan="2" class="colsm_">Tipo de Verificación</th>
+            <th rowspan="2" class="colm_">Criterio de Aceptación o Rechazo</th>
+            <th rowspan="2" class="colm_">Observaciones de la verificación al Proyecto</th>
+            <th rowspan="2" class="colm_">Observaciones de la verificación en sitio</th>
+            <th colspan="2" class="colsm_">Cumple</th>
+          </tr>
+          <tr>
+            <th>SI</th>
+            <th>NO</th>
+          </tr>
+          <tr>
+            <td>
+              <p>PEC 7.2.II.3</p>
+            </td>
+            <td>
+              <p>Fuerza, circuitos, fases a que va conectado el circuito, características de los motores o aparatos y
+                sus dispositivos de protección y control, carga en watts o VA y corriente en amperes de cada circuito,
+                tamaño (calibre) de los conductores y el resumen de cargas indicando el desbalanceo entre fases
+                expresado en por ciento.</p>
+            </td>
+            <td style="text-align:center;">
+              <p>D</p>
+            </td>
+            <td>
+              <p>Se acepta si se indican todas las características indicadas.</p>
+            </td>
+            <td><textarea rows="2" formControlName="o11" [(ngModel)]="ft06.o11"></textarea></td>
+            <td><textarea rows="2" formControlName="os11" [(ngModel)]="ft06.os11"></textarea></td>
+            <td><input type="radio" formControlName="c11" value="si"  [(ngModel)]="ft06.c11"></td>
+            <td><input type="radio" formControlName="c11" value="no"  [(ngModel)]="ft06.c11"></td>
+          </tr>
+          <tr>
+            <td>
+              <p><b>PEC 7.2.III</b></p>
+            </td>
+            <td>
+              <p><b>Plano eléctrico el cual debe contener:</b></p>
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>
+              <p>PEC 7.2.III.1</p>
+            </td>
+            <td>
+              <p>Escala mínima de 1:100. La altura mínima de la letra o caracteres debe ser de 2mm.</p>
+            </td>
+            <td style="text-align:center;">
+              <p>D</p>
+            </td>
+            <td>
+              <p>Se acepta si se entrega en archivo electrónico.</p>
+            </td>
+            <td><textarea rows="2" formControlName="o12" [(ngModel)]="ft06.o12"></textarea></td>
+            <td><textarea rows="2" formControlName="os12" [(ngModel)]="ft06.os12"></textarea></td>
+            <td><input type="radio" formControlName="c12" value="si"  [(ngModel)]="ft06.c12"></td>
+            <td><input type="radio" formControlName="c12" value="no"  [(ngModel)]="ft06.c12"></td>
+          </tr>
+          <tr>
+            <td>
+              <p>PEC 7.2.III.2</p>
+            </td>
+            <td>
+              <p>Utilizar el Sistema General de Unidades de Medida, de acuerdo con la Norma NOM-008-SCFI vigente y en
+                todas sus leyendas en idioma español.</p>
+            </td>
+            <td style="text-align:center;">
+              <p>D</p>
+            </td>
+            <td>
+              <p>Se acepta aunque sea en otro idioma, siempre y cuando también traiga el español.</p>
+            </td>
+            <td><textarea rows="2" formControlName="o13" [(ngModel)]="ft06.o13"></textarea></td>
+            <td><textarea rows="2" formControlName="os13" [(ngModel)]="ft06.os13"></textarea></td>
+            <td><input type="radio" formControlName="c13" value="si"  [(ngModel)]="ft06.c13"></td>
+            <td><input type="radio" formControlName="c13" value="no"  [(ngModel)]="ft06.c13"></td>
+          </tr>
+          <tr>
+            <td>
+              <p>PEC 7.2.III.3</p>
+            </td>
+            <td>
+              <p>Contener los datos relativos a las instalaciones eléctricas, ser claros e incluir la información para
+                su correcta interpretación de manera que permita construir la instalación. Pueden indicarse notas
+                aclaratorias a los puntos que el proyectista considere necesarios.</p>
+            </td>
+            <td style="text-align:center;">
+              <p>D</p>
+            </td>
+            <td>
+              <p>Se acepta si se cuenta con notas aclaratorias y dibujos típicos de detalle referente al proyecto
+                eléctrico que faciliten la instalación.</p>
+            </td>
+            <td><textarea rows="2" formControlName="o14" [(ngModel)]="ft06.o14"></textarea></td>
+            <td><textarea rows="2" formControlName="os14" [(ngModel)]="ft06.os14"></textarea></td>
+            <td><input type="radio" formControlName="c14" value="si"  [(ngModel)]="ft06.c14"></td>
+            <td><input type="radio" formControlName="c14" value="no"  [(ngModel)]="ft06.c14"></td>
+          </tr>
+          <tr>
+            <td>PEC 7.2.III.4</td>
+            <td>
+              <p>Incluir la información mínima siguiente: <b>a) </b>Nombre o razón social del cliente del servicio.
+                <b>b) </b>Domicilio (calle y número, colonia, código postal, delegación o población, municipio y
+                entidad). <b>c) </b>Uso al que se vaya a destinar la instalación ( giro o actividad). <b>d) </b>Nombre,
+                número de cédula profesional y firma del responsable del proyecto. <b>e) </b>Fecha de elaboración del
+                proyecto.</p>
+            </td>
+            <td style="text-align:center;">
+              <p>D</p>
+            </td>
+            <td>
+              <p>Se acepta si cumple con todos los requisitos.</p>
+            </td>
+            <td><textarea rows="2" formControlName="o15" [(ngModel)]="ft06.o15"></textarea></td>
+            <td><textarea rows="2" formControlName="os15" [(ngModel)]="ft06.os15"></textarea></td>
+            <td><input type="radio" formControlName="c15" value="si"  [(ngModel)]="ft06.c15"></td>
+            <td><input type="radio" formControlName="c15" value="no"  [(ngModel)]="ft06.c15"></td>
+          </tr>
+          <tr>
+            <td>
+              <p>PEC 7.2.III.5</p>
+            </td>
+            <td>
+              <p>Los planos eléctricos de planta y elevación, deben incluir lo siguiente:</p>
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>
+              <p>PEC 7.2.III.5.a)</p>
+            </td>
+            <td>
+              <p><b>a) </b>Localización del punto de la acometida, del interruptor general y del equipo principal
+                incluyendo el tablero o tableros generales de distribución.</p>
+            </td>
+            <td style="text-align:center;">
+              <p>D</p>
+            </td>
+            <td>
+              <p>Se acepta si se indican cuando existan.</p>
+            </td>
+            <td><textarea rows="2" formControlName="o16" [(ngModel)]="ft06.o16"></textarea></td>
+            <td><textarea rows="2" formControlName="os16" [(ngModel)]="ft06.os16"></textarea></td>
+            <td><input type="radio" formControlName="c16" value="si"  [(ngModel)]="ft06.c16"></td>
+            <td><input type="radio" formControlName="c16" value="no"  [(ngModel)]="ft06.c16"></td>
+          </tr>
+          <tr>
+            <td>
+              <p>PEC 7.2.III.5.b)</p>
+            </td>
+            <td>
+              <p><b>b) </b>Localización de centros de control de motores, tableros de fuerza, de alumbrado y
+                receptáculos.</p>
+            </td>
+            <td style="text-align:center;">
+              <p>D</p>
+            </td>
+            <td>
+              <p>Se acepta si se indican cuando existan.</p>
+            </td>
+            <td><textarea rows="2" formControlName="o17" [(ngModel)]="ft06.o17"></textarea></td>
+            <td><textarea rows="2" formControlName="os17" [(ngModel)]="ft06.os17"></textarea></td>
+            <td><input type="radio" formControlName="c17" value="si"  [(ngModel)]="ft06.c17"></td>
+            <td><input type="radio" formControlName="c17" value="no"  [(ngModel)]="ft06.c17"></td>
+          </tr>
+          <tr>
+            <td>
+              <p>PEC 7.2.III.5.c)</p>
+            </td>
+            <td>
+              <p><b>c) </b>Trayectoria de alimentadores y circuitos derivados, tanto de fuerza como de alumbrado,
+                identificando cada circuito, e indicando su tamaño y canalización, localización de motores y equipos
+                alimentados por los circuitos derivados, localización de los controladores y sus medios de desconexión,
+                localización de receptáculos y unidades de alumbrado con sus controladores, identificando las cargas con
+                su circuito y tablero correspondiente.</p>
+            </td>
+            <td style="text-align:center;">
+              <p>D</p>
+            </td>
+            <td>
+              <p>Se acepta si se indican todas las características indicadas.</p>
+            </td>
+            <td><textarea rows="2" formControlName="o18" [(ngModel)]="ft06.o18"></textarea></td>
+            <td><textarea rows="2" formControlName="os18" [(ngModel)]="ft06.os18"></textarea></td>
+            <td><input type="radio" formControlName="c18" value="si"  [(ngModel)]="ft06.c18"></td>
+            <td><input type="radio" formControlName="c18" value="no"  [(ngModel)]="ft06.c18"></td>
+          </tr>
+          <tr>
+            <td>
+              <p>PEC 7.2.III.5.d)</p>
+            </td>
+            <td>
+              <p><b>d) </b>Localización, en su caso, de áreas peligrosas indicando su clasificación de acuerdo con la
+                NOM.</p>
+            </td>
+            <td style="text-align:center;">
+              <p>D</p>
+            </td>
+            <td>
+              <p>Se acepta si se identifican tales áreas.</p>
+            </td>
+            <td><textarea rows="2" formControlName="o19" [(ngModel)]="ft06.o19"></textarea></td>
+            <td><textarea rows="2" formControlName="os19" [(ngModel)]="ft06.os19"></textarea></td>
+            <td><input type="radio" formControlName="c19" value="si"  [(ngModel)]="ft06.c19"></td>
+            <td><input type="radio" formControlName="c19" value="no"  [(ngModel)]="ft06.c19"></td>
+          </tr>
+          <tr>
+            <td>
+              <p>PEC 7.2.IV 110-2</p>
+            </td>
+            <td>
+              <p>Lista de los principales materiales y equipos utilizados de manera general, incluida la información de
+                los transformadores cuando aplique, documento que compruebe que están aprobados y cumplen con las normas
+                oficiales mexicanas y disposiciones legales aplicables.</p>
+            </td>
+            <td style="text-align:center;">
+              <p>D</p>
+            </td>
+            <td>
+              <p>Se acepta si hay una lista de materiales y un documento de certificación del TR.</p>
+            </td>
+            <td><textarea rows="2" formControlName="o20" [(ngModel)]="ft06.o20"></textarea></td>
+            <td><textarea rows="2" formControlName="os20" [(ngModel)]="ft06.os20"></textarea></td>
+            <td><input type="radio" formControlName="c20" value="si"  [(ngModel)]="ft06.c20"></td>
+            <td><input type="radio" formControlName="c20" value="no"  [(ngModel)]="ft06.c20"></td>
+          </tr>
+
+        </table>
+
+        <table style="position: absolute; bottom: 0; font-size: 0.8em; margin-bottom:0;">
+          <tr>
+            <td>
+              <p>&#9632; Cumple</p>
+            </td>
+            <td>
+              <p>&#9632; No cumple</p>
+            </td>
+            <td>
+              <p>&#9633; No aplica</p>
+            </td>
+            <td>
+              <p>A: Análisis</p>
+            </td>
+            <td>
+              <p>D: Documental</p>
+            </td>
+            <td>
+              <p>O: Ocular</p>
+            </td>
+            <td>
+              <p>C: Comprobación</p>
+            </td>
+            <td>
+              <p>M: Medición</p>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="page-landscape">
+      <div class="inner">
+        <table class="table1_">
+          <tr>
+            <td rowspan="4" style="width: 25%;"><img src="assets/mt.png" style="height: 2cm;"></td>
+            <td rowspan="4" style="width: 25%;">
+              <h3><b>LISTA DE VERIFICACIÓN PROYECTO ELECTRICO NOM-001-SEDE-2012</b></h3>
+              <p>VERIFICACIÓN No. UVSEIE 448 A-<b *ngIf="client">{{ client.nocontrol }}/{{ client.anio }}</b></p>
+              <p>FECHA: <b *ngIf="client">{{ client.dia }}/{{ client.mes }}/{{ client.anio }}</b></p>
+            </td>
+            <td colspan="3">
+              <p>RAZÓN SOCIAL: <b *ngIf="client">{{ client.razon }}</b></p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>TENSIÓN: <b *ngIf="client">{{ client.tension }} Tensión</b></p>
+            </td>
+            <td>CÓDIGO: <b>FT-06</b></td>
+            <td>EDICIÓN: <b>1</b></td>
+          </tr>
+          <tr>
+            <td rowspan="2">
+              <p>CARGA INSTALADA: <b *ngIf="client">{{ client.cargai }} Kw</b></p>
+            </td>
+            <td rowspan="2">NIVEL REV: <b>3</b></td>
+            <td rowspan="2">VIGENCIA: <br><b>05-Dic-14</b></td>
+          </tr>
+        </table>
+
+        <table class="table3_">
+          <tr>
+            <th rowspan="2" class="cols_">NOM Referencia</th>
+            <th rowspan="2">Texto de Referencia (Requisitos Generales a Verificar)</th>
+            <th rowspan="2" class="colsm_">Tipo de Verificación</th>
+            <th rowspan="2" class="colm_">Criterio de Aceptación o Rechazo</th>
+            <th rowspan="2" class="colm_">Observaciones de la verificación al Proyecto</th>
+            <th rowspan="2" class="colm_">Observaciones de la verificación en sitio</th>
+            <th colspan="2" class="colsm_">Cumple</th>
+          </tr>
+          <tr>
+            <th>SI</th>
+            <th>NO</th>
+          </tr>          
+          <tr>
+            <td>
+              <p>PEC 7.2.V 110-2</p>
+            </td>
+            <td>
+              <p>Lista de los principales materiales y equipos utilizados de manera general, incluida la información de
+                los transformadores cuando aplique, documento que compruebe que están aprobados y cumplen con las normas
+                oficiales mexicanas y disposiciones legales aplicables.</p>
+            </td>
+            <td style="text-align:center;">
+              <p>D</p>
+            </td>
+            <td>
+              <p>Se acepta si hay una lista de materiales y un documento de certificación del TR.</p>
+            </td>
+            <td><textarea rows="2" formControlName="o21" [(ngModel)]="ft06.o21"></textarea></td>
+            <td><textarea rows="2" formControlName="os21" [(ngModel)]="ft06.os21"></textarea></td>
+            <td><input type="radio" formControlName="c21" value="si"  [(ngModel)]="ft06.c21"></td>
+            <td><input type="radio" formControlName="c21" value="no"  [(ngModel)]="ft06.c21"></td>
+          </tr>
+          <tr>
+            <td>
+              <p>PEC 7.2.VI</p>
+            </td>
+            <td>
+              <p>Croquis de localización, indicando el domicilio donde se ubica la instalación.</p>
+            </td>
+            <td style="text-align:center;">
+              <p>D</p>
+            </td>
+            <td>
+              <p>Se acepta si esta el croquis de localización.</p>
+            </td>
+            <td><textarea rows="2" formControlName="o22" [(ngModel)]="ft06.o22"></textarea></td>
+            <td><textarea rows="2" formControlName="os22" [(ngModel)]="ft06.os22"></textarea></td>
+            <td><input type="radio" formControlName="c22" value="si"  [(ngModel)]="ft06.c22"></td>
+            <td><input type="radio" formControlName="c22" value="no"  [(ngModel)]="ft06.c22"></td>
+          </tr>
+          <tr>
+            <td>
+              <p>PEC 7.2.VII</p>
+            </td>
+            <td>
+              <p>Memoria técnica, la cual debe contener, de manera enunciativa y no limitativa:</p>
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>
+              <p>PEC 7.2.VII.1</p>
+            </td>
+            <td>
+              <p>Los cálculos de corriente de corto circuito trifásico para la adecuada selección de la capacidad interruptiva de las protecciones de la instalación.</p>
+            </td>
+            <td style="text-align:center;">
+              <p>D</p>
+            </td>
+            <td>
+              <p>Se acepta si cuenta con dicho cálculo.</p>
+            </td>
+            <td><textarea rows="2" formControlName="o23" [(ngModel)]="ft06.o23"></textarea></td>
+            <td><textarea rows="2" formControlName="os23" [(ngModel)]="ft06.os23"></textarea></td>
+            <td><input type="radio" formControlName="c23" value="si"  [(ngModel)]="ft06.c23"></td>
+            <td><input type="radio" formControlName="c23" value="no"  [(ngModel)]="ft06.c23"></td>
+          </tr>
+          <tr>
+            <td>PEC 7.2.VII.2</td>
+            <td>
+              <p>Los cálculos de corriente de falla de fase a tierra (monofásico y bifásico), para el diseño de la malla de tierra de la subestación eléctrica.</p>
+            </td>
+            <td style="text-align:center;">
+              <p>D</p>
+            </td>
+            <td>
+              <p>Se acepta si cuenta con dicho cálculo.</p>
+            </td>
+            <td><textarea rows="2" formControlName="o24" [(ngModel)]="ft06.o24"></textarea></td>
+            <td><textarea rows="2" formControlName="os24" [(ngModel)]="ft06.os24"></textarea></td>
+            <td><input type="radio" formControlName="c24" value="si"  [(ngModel)]="ft06.c24"></td>
+            <td><input type="radio" formControlName="c24" value="no"  [(ngModel)]="ft06.c24"></td>
+          </tr>
+          <tr>
+            <td>
+              <p>PEC 7.2.VII.3</p>
+            </td>
+            <td>
+              <p>Los cálculos correspondientes a la malla de tierra (incluyendo la resistividad del terreno) para subestaciones considerando las tensiones de paso, contacto, su resistencia a tierra, así como la selección del tamaño (calibre) del conductor, longitud del conductor de la malla y la selección de los electrodos. <b>Nota- </b>En los casos en que el neutro sea corrido no se requieren los cálculos de la malla de tierra.</p>
+            </td>
+            <td style="text-align:center;">
+              <p>D</p>
+            </td>
+            <td>
+              <p>Se acepta si cuenta con dicho cálculo.</p>
+            </td>
+            <td><textarea rows="2" formControlName="o25" [(ngModel)]="ft06.o25"></textarea></td>
+            <td><textarea rows="2" formControlName="os25" [(ngModel)]="ft06.os25"></textarea></td>
+            <td><input type="radio" formControlName="c25" value="si"  [(ngModel)]="ft06.c25"></td>
+            <td><input type="radio" formControlName="c25" value="no"  [(ngModel)]="ft06.c25"></td>
+          </tr>
+          <tr>
+            <td>
+              <p>PEC 7.2.VII.4</p>
+            </td>
+            <td>
+              <p>Los cálculos de caída de tensión en alimentadores y circuitos derivados.</p>
+            </td>
+            <td style="text-align:center;">
+              <p>D</p>
+            </td>
+            <td>
+              <p>Se acepta si cuenta con dicho cálculo.</p>
+            </td>
+            <td><textarea rows="2" formControlName="o26" [(ngModel)]="ft06.o26"></textarea></td>
+            <td><textarea rows="2" formControlName="os26" [(ngModel)]="ft06.os26"></textarea></td>
+            <td><input type="radio" formControlName="c26" value="si"  [(ngModel)]="ft06.c26"></td>
+            <td><input type="radio" formControlName="c26" value="no"  [(ngModel)]="ft06.c26"></td>
+          </tr>
+          <tr>
+            <td>
+              <p>PEC 7.3</p>
+            </td>
+            <td>
+              <p>Las áreas en donde pueda existir peligro o riesgo de incendio o explosión debido a la presencia y manejo de gases o vapores inflamables, líquidos inflamables, polvos combustibles o fibras inflamables dispersas en el aire, deben estar indicadas en el proyecto conforme a lo dispuesto en la NOM.</p>
+            </td>
+            <td style="text-align:center;">
+              <p>D</p>
+            </td>
+            <td>
+              <p>Se acepta si se identifican tales áreas.</p>
+            </td>
+            <td><textarea rows="2" formControlName="o27" [(ngModel)]="ft06.o27"></textarea></td>
+            <td><textarea rows="2" formControlName="os27" [(ngModel)]="ft06.os27"></textarea></td>
+            <td><input type="radio" formControlName="c27" value="si"  [(ngModel)]="ft06.c27"></td>
+            <td><input type="radio" formControlName="c27" value="no"  [(ngModel)]="ft06.c27"></td>
+          </tr>
+          <tr>
+            <td>
+              <p>PEC 7.3</p>
+            </td>
+            <td>
+              <p>El solicitante de la verificación debe presentar a la UV el plano de las áreas peligrosas (clasificadas) indicando los límites en vistas de planta y cortes transversales y longitudinales, de forma que las disposiciones contenidas en la NOM, aplicables a cada clasificación, puedan verificarse objetivamente. La clasificación de las áreas debe hacerse por personas clasificadas, baja la responsabilidad del solicitante de la verificación teniendo en cuenta la información contenida de la NOM y en otras disposiciones legales aplicables.</p>
+            </td>
+            <td style="text-align:center;">
+              <p>D</p>
+            </td>
+            <td>
+              <p>Se acepta si se identifican tales áreas en corte y elevación.</p>
+            </td>
+            <td><textarea rows="2" formControlName="o28" [(ngModel)]="ft06.o28"></textarea></td>
+            <td><textarea rows="2" formControlName="os28" [(ngModel)]="ft06.os28"></textarea></td>
+            <td><input type="radio" formControlName="c28" value="si"  [(ngModel)]="ft06.c28"></td>
+            <td><input type="radio" formControlName="c28" value="no"  [(ngModel)]="ft06.c28"></td>
+          </tr>
+          <tr>
+            <td>
+              <p>PEC 7.3</p>
+            </td>
+            <td>
+              <p>Cada dictamen de verificación que la UNIE expida para instalaciones eléctricas que contenga áreas peligrosas (clasificadas) deben indicar la fecha para la próxima verificación de la instalación eléctrica de dichas áreas, para que el usuario o propietario de la instalación la solicite a una UVIE, la cual circunscribirá a los conceptos y alcances a que se refiere el anexo "B".</p>
+            </td>
+            <td style="text-align:center;">
+              <p>D</p>
+            </td>
+            <td>
+              <p>Se acepta cuando este señalada la fecha de la verificación periódica.</p>
+            </td>
+            <td><textarea rows="2" formControlName="o29" [(ngModel)]="ft06.o29"></textarea></td>
+            <td><textarea rows="2" formControlName="os29" [(ngModel)]="ft06.os29"></textarea></td>
+            <td><input type="radio" formControlName="c29" value="si"  [(ngModel)]="ft06.c29"></td>
+            <td><input type="radio" formControlName="c29" value="no"  [(ngModel)]="ft06.c29"></td>
+          </tr>
+          <tr>
+            <td>
+              <p>PEC 7.3</p>
+            </td>
+            <td>
+              <p>Si las instalaciones eléctricas que tiene áreas peligrosas (clasificadas) cumplen con lo establecido en la NOM, la UVIE expedirá un dictamen de verificación, el cual se entregara al solicitante de la verificación, quien lo conservará y deberá estar a disposición de la Autoridad competente u otra dependencia o entidad pública que lo solicite conforme a sus atribuciones.</p>
+            </td>
+            <td style="text-align:center;">
+              <p>D</p>
+            </td>
+            <td>
+              <p>El informe trimestral debe tener este señalamiento.</p>
+            </td>
+            <td><textarea rows="2" formControlName="o30" [(ngModel)]="ft06.o30"></textarea></td>
+            <td><textarea rows="2" formControlName="os30" [(ngModel)]="ft06.os30"></textarea></td>
+            <td><input type="radio" formControlName="c30" value="si"  [(ngModel)]="ft06.c30"></td>
+            <td><input type="radio" formControlName="c30" value="no"  [(ngModel)]="ft06.c30"></td>
+          </tr>
+
+        </table>
+
+        <table style="position: absolute; bottom: 0; font-size: 0.8em; margin-bottom:0;">
+          <tr>
+            <td>
+              <p>&#9632; Cumple</p>
+            </td>
+            <td>
+              <p>&#9632; No cumple</p>
+            </td>
+            <td>
+              <p>&#9633; No aplica</p>
+            </td>
+            <td>
+              <p>A: Análisis</p>
+            </td>
+            <td>
+              <p>D: Documental</p>
+            </td>
+            <td>
+              <p>O: Ocular</p>
+            </td>
+            <td>
+              <p>C: Comprobación</p>
+            </td>
+            <td>
+              <p>M: Medición</p>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+    </div>
+  </section>
+</div>
+</form>

@@ -62,6 +62,16 @@
     margin: 0 auto;
     box-shadow: 1px 5px 15px #707070;
   }
+  .page-landscape-mid {
+    position: relative;
+    width: var(--page-height);
+    min-width: var(--page-height);
+    height: 10cm;
+    min-height: 10cm;
+    background: var(--page-color);
+    margin: 0 auto;
+    box-shadow: 1px 5px 15px #707070;
+  }
   .mini-page{
     /* position: relative; */
     width: var(--mini-page-width);
@@ -82,9 +92,9 @@
     text-align: center;
     color: #008000;
   }
-  .page:first-of-type, .page-landscape:first-of-type { margin-top: var(--margin-first-page); }
-  .page:last-of-type, .page-landscape:last-of-type { margin-bottom: var(--margin-last-page); }
-  .page > .inner, .page-landscape > .inner, .mini-page > .inner {
+  .page:first-of-type, .page-landscape:first-of-type, .page-landscape-mid:first-of-type { margin-top: var(--margin-first-page); }
+  .page:last-of-type, .page-landscape:last-of-type, .page-landscape-mid:first-of-type { margin-bottom: var(--margin-last-page); }
+  .page > .inner, .page-landscape > .inner, .mini-page > .inner, .page-landscape-mid > .inner {
     position: relative;
     width: var(--page-inner-width);
     height: var(--page-inner-height);

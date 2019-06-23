@@ -21,10 +21,12 @@ export class ClientComponent implements OnInit {
   ngOnInit() {
     this.key = this.actRouter.snapshot.paramMap.get('key');
     this.clientApi.getCurrentData(this.key).valueChanges().subscribe(data => {
-      this.clientData = data;
-      //console.log(this.clientData);
-     // this.client = data.clients[key2];
-     // console.log(this.survey.question1);
+      this.clientData = data.datos;
+      if (!data.ft10) {
+        console.log('Sin datos en ft10');
+        this.clientApi.Getf10(this.key);
+        this.clientApi.addft10();
+      }
     });
   }
 

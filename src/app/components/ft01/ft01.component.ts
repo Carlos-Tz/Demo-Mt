@@ -29,7 +29,6 @@ export class Ft01Component implements OnInit {
     s1: '',
     s2: ''
   };
-  /* public client: Client = null; */
 
   constructor(
     private clientApi: ClientService,
@@ -39,12 +38,7 @@ export class Ft01Component implements OnInit {
   ngOnInit() {
     if (this.clientApi.clientObject) {
       this.clientApi.clientObject.valueChanges().subscribe(data => {
-        this.client = data;
-        /* if (this.client) {
-          console.log('ok', this.client);
-        } else {
-          console.log('Sin expediente');
-        } */
+        this.client = data.datos;
       });
     }
   }

@@ -51,7 +51,7 @@ export class Ft02Component implements OnInit {
   ngOnInit() {
     if (this.clientApi.clientObject) {
       this.clientApi.clientObject.valueChanges().subscribe(data => {
-        this.client = data;
+        this.client = data.datos;
       });
     }
   }
