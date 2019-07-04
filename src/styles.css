@@ -200,7 +200,7 @@
     box-shadow: 1px 3px 5px #707070;
   }
 
-  .guardar_c:disabled {
+  .guardar_c:disabled, .imprimir_:disabled {
     background-color: #7c7c80;
   }
 

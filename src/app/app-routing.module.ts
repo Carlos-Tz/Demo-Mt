@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PagePortraitComponent } from './components/page-portrait/page-portrait.component';
-import { PageLandscapeComponent } from './components/page-landscape/page-landscape.component';
 import { PanelComponent } from './components/panel/panel.component';
 import { Ft01Component } from './components/ft01/ft01.component';
 import { Fc07Component } from './components/fc07/fc07.component';
@@ -19,6 +17,7 @@ import { AddClientComponent } from './components/add-client/add-client.component
 import { ClientComponent } from './components/client/client.component';
 import { Ft10Component } from './components/ft10/ft10.component';
 import { EditFt10Component } from './components/edit-ft10/edit-ft10.component';
+import { EditClientComponent } from './components/edit-client/edit-client.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/', pathMatch: 'full'},
@@ -39,6 +38,7 @@ const routes: Routes = [
   {path: 'panel', component: PanelComponent},
   {path: 'nuevo', component: AddClientComponent},
   {path: 'cliente/:key', component: ClientComponent},
+  {path: 'edit-client/:key', component: EditClientComponent},
   {path: 'caratula/:key', component: CaratulaComponent},
 ];
 

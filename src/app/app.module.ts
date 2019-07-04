@@ -10,8 +10,6 @@ import { Ng2ImgMaxModule } from 'ng2-img-max';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PagePortraitComponent } from './components/page-portrait/page-portrait.component';
-import { PageLandscapeComponent } from './components/page-landscape/page-landscape.component';
 import { CaratulaComponent } from './components/caratula/caratula.component';
 import { PanelComponent } from './components/panel/panel.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -31,7 +29,6 @@ import { Ft08incpeComponent } from './components/ft08incpe/ft08incpe.component';
 
 import { environment } from '../environments/environment';
 import { Ft10Component } from './components/ft10/ft10.component';
-import { PageComponent } from './components/ft10/page/page.component';
 import { RowComponent } from './components/ft10/row/row.component';
 import { EditFt10Component } from './components/edit-ft10/edit-ft10.component';
 import { EditClientComponent } from './components/edit-client/edit-client.component';
@@ -39,8 +36,6 @@ import { EditClientComponent } from './components/edit-client/edit-client.compon
 @NgModule({
   declarations: [
     AppComponent,
-    PagePortraitComponent,
-    PageLandscapeComponent,
     CaratulaComponent,
     PanelComponent,
     NavbarComponent,
@@ -58,7 +53,6 @@ import { EditClientComponent } from './components/edit-client/edit-client.compon
     Ft08incie2Component,
     Ft08incpeComponent,
     Ft10Component,
-    PageComponent,
     RowComponent,
     EditFt10Component,
     EditClientComponent

@@ -23,7 +23,7 @@ export class ClientComponent implements OnInit {
     this.clientApi.getCurrentData(this.key).valueChanges().subscribe(data => {
       this.clientData = data.datos;
       if (!data.ft10) {
-        console.log('Sin datos en ft10');
+        //console.log('Sin datos en ft10');
         this.clientApi.Getf10(this.key);
         this.clientApi.addft10();
       }

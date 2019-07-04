@@ -35,7 +35,7 @@ export class ClientService {
       cri: '',
       obp: '',
       obs: '',
-      cum: 'si'
+      cum: ''
     }, {
       id: 2,
       nom: '110-2',
@@ -1438,7 +1438,7 @@ export class ClientService {
   }
 
   addft10() {
-    this.f11.forEach(item => {
+    this.f10.forEach(item => {
      this.ft10List.push(item as F10);
      //console.log(item);
     });
@@ -1449,7 +1449,7 @@ export class ClientService {
   }
 
   updateRowFt10(f10: F10) {
-    this.f10Object.update({ obp: f10.obp, obs: f10.obs, cum: f10.cum });
+    this.f10Object.update({ nom: f10.nom, tex: f10.tex, tip: f10.tip, cri: f10.cri, obp: f10.obp, obs: f10.obs, cum: f10.cum });
   }
 
    Getf10(key: string) {
@@ -1457,6 +1457,11 @@ export class ClientService {
       ref.orderByChild('id')
     );
     return this.ft10List;
+  }
+
+  updateClient(datos: Datos, key: string) {
+    this.db.object('data/' + key)
+    .update({datos});
   }
 
   /* Getft10List(key: string) {

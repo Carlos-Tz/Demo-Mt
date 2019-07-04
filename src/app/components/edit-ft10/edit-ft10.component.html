@@ -29,10 +29,10 @@
             </td>
           </tr>
           <tr>
-            <td class="cols_">{{ ft10Row.nom }}</td>
-            <td class="colmm">{{ ft10Row.tex }}</td>
-            <td class="colsm_">{{ ft10Row.tip }}</td>
-            <td class="colmm_">{{ ft10Row.cri }}</td>
+            <td class="cols_"><textarea rows="3" [(ngModel)]="ft10Row.nom"></textarea></td>
+            <td class="colmm"><textarea rows="3" [(ngModel)]="ft10Row.tex"></textarea></td>
+            <td class="colsm_"><textarea rows="3" [(ngModel)]="ft10Row.tip"></textarea></td>
+            <td class="colmm_"><textarea rows="3" [(ngModel)]="ft10Row.cri"></textarea></td>
             <td class="colm_"><textarea rows="3" [(ngModel)]="ft10Row.obp"></textarea></td>
             <td class="colm_"><textarea rows="3" [(ngModel)]="ft10Row.obs"></textarea></td>
             <td class="colss_"><input type="radio" name="urow" value="si" [(ngModel)]="ft10Row.cum"></td>
