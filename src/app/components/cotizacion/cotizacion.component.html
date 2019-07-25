@@ -1,0 +1,156 @@
+<app-navbar></app-navbar>
+<div class="app">
+  <section>
+    <div class="page">
+      <div class="inner">
+        <form [formGroup]="clientForm" (ngSubmit)="submitClientData()" novalidate autocomplete="off">
+          <h3 style="text-align: center;">Nueva Cotización</h3>
+          <table id="tab1">
+            <tr>
+              <th>
+                <span class="line">Datos del Solicitante </span>
+              </th>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td>
+                <span class="line">Razón Social: </span>
+                <input class="line1" type="text" formControlName="razon" placeholder="**" autofocus tabindex="0" class="focusNext">
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td>
+                <span class="line">Giro: </span>
+                <input class="line1" type="text" formControlName="giro" placeholder="**" tabindex="1" class="focusNext">
+              </td>
+            </tr>
+          </table>          
+          <table id="tab3">
+            <tr>
+              <td>
+                <span class="line">Nombre del Representante: </span>
+                <input class="line3" type="text" formControlName="nombre" placeholder="**" tabindex="2" class="focusNext">
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td>
+                <span class="line">Fecha de inicio: </span>
+                <input class="line1" type="date" formControlName="fechai" placeholder="**" tabindex="3" class="focusNext">
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td class="col50">
+                <span class="line">Teléfono: </span>
+                <input class="line2" type="text" formControlName="tel" tabindex="4" class="focusNext">
+              </td>
+              <td class="col50">
+                <span class="line">Correo electrónico: </span>
+                <input class="line2" type="text" formControlName="correo" tabindex="5" class="focusNext">
+              </td>
+            </tr>
+          </table>  
+          <table id="tab3">
+            <tr>
+              <td>
+                <span class="line">Calle y No.: </span>
+                <input class="line1" type="text" formControlName="calle" tabindex="6" class="focusNext">
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td>
+                <span class="line">Colonia o Población: </span>
+                <input class="line1" type="text" formControlName="colonia" tabindex="7" class="focusNext">
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td>
+                <span class="line">Municipio o Delegación: </span>
+                <input class="line1" type="text" formControlName="munic" tabindex="8" class="focusNext">
+              </td>
+            </tr>
+          </table>
+          <table id="tab2">
+            <tr>
+              <td class="col50">
+                <span class="line">Ciudad o Estado: </span>
+                <input class="line2" type="text" formControlName="estado" tabindex="9" class="focusNext">
+              </td>
+              <td class="col50">
+                <span class="line">C.P.: </span>
+                <input class="line2" type="number" formControlName="cp" tabindex="10" class="focusNext">
+              </td>
+            </tr>
+          </table>
+          <table id="tab1">
+            <tr>
+              <th>
+                <span class="line">Datos del Servicio </span>
+              </th>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td>
+                <span class="line">Tipo de Servicio: </span>
+                <input class="line1" type="text" formControlName="tipos" tabindex="11" class="focusNext">
+              </td>
+            </tr>
+          </table>   
+          <table id="tab3">
+            <tr>
+              <td class="col50">
+                <span class="line">Carga Instalada: </span>
+                <input type="number" step="0.01" min="0" formControlName="cargai" placeholder="Kw" tabindex="12" class="focusNext">
+              </td>
+              <td class="col50">
+                <span class="line">Cap. de Subestación: </span>
+                <input type="number" step="0.01" min="0" formControlName="sub" placeholder="kVA" tabindex="13" class="focusNext">
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td>
+                <span class="line">Costo: $ </span>
+                <input type="number" formControlName="costo" min="0" (change)="costo($event.target.value)" tabindex="14" class="focusNext">
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td>
+                <span class="line">Costo con letra: </span>
+                <input class="line1" type="text" formControlName="costol" value={{costol}}>
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td>
+                <span class="line">Nombre del Responsable de la UVIE: </span>
+                <input class="line3" type="text" formControlName="nombreuv" tabindex="15" class="focusNext">
+              </td>
+            </tr>
+          </table>
+          <br>
+        </form>
+      </div>
+    </div>
+    <div>
+      <button class="guardar_c no-print" (click)="submitClientData()" [disabled]="!clientForm.valid">
+        Guardar
+      </button>
+    </div>
+  </section>
+</div>

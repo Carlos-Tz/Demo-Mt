@@ -15,4 +15,5 @@ export interface F07 {
     c14: string;
     c15: string;
     c16: string;
+    c17: string;
 }

@@ -1,0 +1,44 @@
+section {
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+    margin: 0 !important;
+    /*background-color: green;*/
+   /* background-color: rgba(0, 255, 0, 0.8);*/
+    background-color: #006600;
+}
+.main-content {
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+    /*height: 100%;*
+    top: 0;
+    bottom: 0;*
+    align-content: center;*/
+    /*margin: 0 auto;*/
+    background-color: #fff;
+ /*    vertical-align: middle; */
+   /* padding: auto 0;*/
+    /* -webkit-clip-path: polygon(3% 0, 100% 0, 70% 100%, 0% 100%);
+    clip-path: polygon(3% 0, 100% 0, 70% 100%, 0% 100%); */
+    -webkit-clip-path: polygon(3% 0, 100% 0, 70% 100%, 0 100%, 0 15%);
+    clip-path: polygon(3% 0, 100% 0, 70% 100%, 0 100%, 0 15%);
+}
+
+table {
+    width: 60%;
+    margin: 0 auto;
+    padding-top: 5rem;
+  /* margin: auto;*/
+}
+td {
+    text-align: center;
+}
+span img {
+    width: 5rem;
+    cursor: pointer;
+}
+p {
+    font-size: 1.3em;
+    cursor: pointer;
+}

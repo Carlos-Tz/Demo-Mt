@@ -1,8 +1,17 @@
 export interface Datos {
     date: number;
     fechai: string;
+    fft02: string;
+    fft03: string;
+    fft05: string;
+    fft06: string;
+    fft09: string;
+    fft10: string;
+    fft11: string;
+    ffc07: string;
     dia: string;
     mes: string;
+    mesl: string;
     anio: string;
     s1: string;
     s2: string;
@@ -24,7 +33,7 @@ export interface Datos {
     estado: string;
     cp: number;
     logo: string;
-    planos: number;
+    planos: string;
     tipos: string;
     tension: string;
     cargai: number;
@@ -47,7 +56,11 @@ export interface Datos {
     ambien: string;
     memo: string;
     nombreuv: string;
+    cargouv: string;
     iduv: string;
     foliouv: string;
     pedido: number;
+    fpago: string;
+    vigencia: string;
+    intro: string;
 }

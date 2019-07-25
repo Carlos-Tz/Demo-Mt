@@ -1,13 +1,13 @@
 <app-navbar></app-navbar>
 <div class="app">
     <section>
-        <div class="page-landscape">
-            <div class="inner">
+        <!-- <div class="page-landscape">
+            <div class="inner"> -->
                 <h2>Expedientes.</h2>
                 <table *ngIf="data_" datatable [dtOptions]="dtOptions" class="row-border hover">
                     <thead>
                         <tr>
-                            <th>Fecha</th>
+                            <th>Fecha aaaa-mm-dd</th>
                             <th>Razón Social</th>
                             <th>No. de Control Interno</th>
                             <th>Giro</th>
@@ -17,7 +17,8 @@
                     </thead>
                     <tbody>
                         <tr *ngFor="let client of dataList;let i=index; " [routerLink]="['/cliente/', client.$key]" style="cursor: pointer;">
-                            <td>{{client.datos.dia}}/{{client.datos.mes}}/{{client.datos.anio}}</td>
+                            <!-- <td>{{client.datos.dia}}-{{client.datos.mes}}-{{client.datos.anio}}</td> -->
+                            <td>{{client.datos.fechai}}</td>
                             <td>{{client.datos.razon}}</td>
                             <td>{{client.datos.nocontrol}}</td>
                             <td>{{client.datos.giro}}</td>
@@ -26,7 +27,30 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
-        </div>
+                <table *ngIf="data_2" datatable [dtOptions]="dtOptions" class="row-border hover">
+                    <thead>
+                        <tr>
+                            <th>Fecha aaaa-mm-dd</th>
+                            <th>Razón Social</th>
+                            <th>No. de Control Interno</th>
+                            <th>Giro</th>
+                            <th>Responsable</th>
+                            <!-- <th>Más...</th> -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let client of dataList;let i=index; " [routerLink]="['/cliente/', client.id]" style="cursor: pointer;">
+                            <td>{{client.datos.fechai}}</td>
+                            <!-- <td>{{client.datos.dia}}/{{client.datos.mes}}/{{client.datos.anio}}</td> -->
+                            <td>{{client.datos.razon}}</td>
+                            <td>{{client.datos.nocontrol}}</td>
+                            <td>{{client.datos.giro}}</td>
+                            <td>{{client.datos.nombre}}</td>
+                            <!-- <td><a [routerLink]="['/cliente/', client.$key]">+</a></td> -->
+                        </tr>
+                    </tbody>
+                </table>
+            <!-- </div>
+        </div> -->
     </section>
 </div>

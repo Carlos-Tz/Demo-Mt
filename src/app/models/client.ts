@@ -1,6 +1,9 @@
+import { Datos } from './datos';
+
 export interface Client {
     $key: string;
-    datos: object;
+    id: string;
+    datos: Datos;
     ft05: object;
     ft08i1: object;
     ft08i2: object;

@@ -40,11 +40,11 @@
             <td rowspan="2" colspan="2" class="r_b">
               <p>Responsable: <b *ngIf="client" style="text-transform: uppercase;">{{ client.nombre }}</b></p>
             </td>
-            <td colspan="2">Fecha:</td>
+            <td colspan="2">Fecha: <b *ngIf="client">{{ ff.d }}/{{ month }}/{{ ff.a }}</b></td>
           </tr>
           <tr>
-            <td class="r_b">Inicio: <b *ngIf="client">{{ client.dia }}/{{ client.mes }}/{{ client.anio }}</b></td>
-            <td class="r_b">Termino: <input type="text"></td>
+            <td class="r_b">Inicio: <b *ngIf="client">{{ client.dia }}/{{ month1 }}/{{ client.anio }}</b></td>
+            <td class="r_b">Termino: <b *ngIf="client">{{ fff.d }}/{{ monthf }}/{{ fff.a }}</b></td>
           </tr>
         </table>
         <table class="table2_1" style="border-top: none;">
@@ -91,7 +91,7 @@
           </tr>
         </table>
 
-        <form [formGroup]="clientF" autocomplete="off">
+        <!-- <form [formGroup]="clientF" autocomplete="off"> -->
         <table class="table3_">
           <tr>
             <th rowspan="2" class="fecha_">Fecha</th>
@@ -109,87 +109,87 @@
             <th>NO</th>
           </tr>
           <tr>
-            <td><textarea name="" id="" rows="2"></textarea></td>
+            <td><p *ngIf="client">{{ client.dia }}/{{ month1 }}/{{ client.anio }} {{ ff3.d }}/{{ month3 }}/{{ ff3.a }}</p></td>
             <td>
               <p>Formato de cotización FT-01 o Contrato FT-03</p>
             </td>
-            <td><input type="radio" formControlName="c1" value="si"  [(ngModel)]="fc07.c1"></td>
-            <td><input type="radio" formControlName="c1" value="no"  [(ngModel)]="fc07.c1"></td>
+            <td><input type="radio" name="c1" value="si"  [(ngModel)]="fc07.c1"></td>
+            <td><input type="radio" name="c1" value="no"  [(ngModel)]="fc07.c1"></td>
             <td>
               <p>¿Contiene las firmas y nombres del Gerente Técnico y del cliente?</p>
               <p>¿Se le informa al cliente las normas aplicables?</p>
               <p>¿Establece el alcance especifico de la verificación?</p>
               <p>¿Indica el número de control del servicio?</p>
             </td>
-            <td><textarea name="" id="" rows="2"></textarea></td>
+            <td></td>
             <td>
               <p>Acta de evaluación de la conformidad instalaciones FT-07</p>
             </td>
-            <td><input type="radio" formControlName="c2" value="si"  [(ngModel)]="fc07.c2"></td>
-            <td><input type="radio" formControlName="c2" value="no"  [(ngModel)]="fc07.c2"></td>
+            <td><input type="radio" name="c2" value="si"  [(ngModel)]="fc07.c2"></td>
+            <td><input type="radio" name="c2" value="no"  [(ngModel)]="fc07.c2"></td>
           </tr>
           <tr>
-            <td><textarea name="" id="" rows="2"></textarea></td>
+            <td><p>{{ ff2.d }}/{{ month2 }}/{{ ff2.a }}</p></td>
             <td>
               <p>Solicitud de verificación FT-02</p>
             </td>
-            <td><input type="radio" formControlName="c3" value="si"  [(ngModel)]="fc07.c3"></td>
-            <td><input type="radio" formControlName="c3" value="no"  [(ngModel)]="fc07.c3"></td>
+            <td><input type="radio" name="c3" value="si"  [(ngModel)]="fc07.c3"></td>
+            <td><input type="radio" name="c3" value="no"  [(ngModel)]="fc07.c3"></td>
             <td>
               <p>¿Contiene la firma del cliente?</p>
               <p>¿Especifica las normas a verificar?</p>
               <p>¿Indica la descripción de la instalación?</p>
             </td>
-            <td><textarea name="" id="" rows="2"></textarea></td>
+            <td><p>{{ ff10.d }}/{{ month10 }}/{{ ff10.a }}</p></td>
             <td>
               <p>Lista de verificación de Revisión de Instalaciones eléctricas FT-10</p>
             </td>
-            <td><input type="radio" formControlName="c4" value="si"  [(ngModel)]="fc07.c4"></td>
-            <td><input type="radio" formControlName="c4" value="no"  [(ngModel)]="fc07.c4"></td>
+            <td><input type="radio" name="c4" value="si"  [(ngModel)]="fc07.c4"></td>
+            <td><input type="radio" name="c4" value="no"  [(ngModel)]="fc07.c4"></td>
           </tr>
           <tr>
-            <td><textarea name="" id="" rows="2"></textarea></td>
+            <td><p>{{ ff5.d }}/{{ month5 }}/{{ ff5.a }}</p></td>
             <td>
               <p>Documentos usuario FT-05</p>
             </td>
-            <td><input type="radio" formControlName="c5" value="si"  [(ngModel)]="fc07.c5"></td>
-            <td><input type="radio" formControlName="c5" value="no"  [(ngModel)]="fc07.c5"></td>
+            <td><input type="radio" name="c5" value="si"  [(ngModel)]="fc07.c5"></td>
+            <td><input type="radio" name="c5" value="no"  [(ngModel)]="fc07.c5"></td>
             <td>
               <p>Proyecto completo incluida la memoria técnica</p>
             </td>
-            <td><textarea name="" id="" rows="2"></textarea></td>
+            <td></td>
             <td>
               <p>Informe de no conformidad de instalaciones FT-08</p>
             </td>
-            <td><input type="radio" formControlName="c6" value="si"  [(ngModel)]="fc07.c6"></td>
-            <td><input type="radio" formControlName="c6" value="no"  [(ngModel)]="fc07.c6"></td>
+            <td><input type="radio" name="c6" value="si"  [(ngModel)]="fc07.c6"></td>
+            <td><input type="radio" name="c6" value="no"  [(ngModel)]="fc07.c6"></td>
           </tr>
           <tr>
-            <td><textarea name="" id="" rows="2"></textarea></td>
+            <td></td>
             <td>
               <p>Reporte Técnico de proyecto FT-15</p>
             </td>
-            <td><input type="radio" formControlName="c7" value="si"  [(ngModel)]="fc07.c7"></td>
-            <td><input type="radio" formControlName="c7" value="no"  [(ngModel)]="fc07.c7"></td>
+            <td><input type="radio" name="c7" value="si"  [(ngModel)]="fc07.c7"></td>
+            <td><input type="radio" name="c7" value="no"  [(ngModel)]="fc07.c7"></td>
             <td>
               <p>¿Contiene código, las firma del Gerente Técnico, cliente y testigos?</p>
               <p>¿Describe las actividades realizadas en la revisión proyecto y/o visita a la instalación?</p>
               <p>¿Se llenan todos los campos incluyendo ámbito,circunstancias,hora de inicio y termino?</p>
             </td>
-            <td><textarea name="" id="" rows="2"></textarea></td>
+            <td></td>
             <td>
               <p>Acta de evaluación de la conformidad instalaciones FT-07</p>
             </td>
-            <td><input type="radio" formControlName="c8" value="si"  [(ngModel)]="fc07.c8"></td>
-            <td><input type="radio" formControlName="c8" value="no"  [(ngModel)]="fc07.c8"></td>
+            <td><input type="radio" name="c8" value="si"  [(ngModel)]="fc07.c8"></td>
+            <td><input type="radio" name="c8" value="no"  [(ngModel)]="fc07.c8"></td>
           </tr>
           <tr>
-            <td><textarea name="" id="" rows="2"></textarea></td>
+            <td><p>{{ ff6.d }}/{{ month6 }}/{{ ff6.a }}</p></td>
             <td>
               <p>Lista de verificación del Proyecto eléctrico FT-06</p>
             </td>
-            <td><input type="radio" formControlName="c9" value="si"  [(ngModel)]="fc07.c9"></td>
-            <td><input type="radio" formControlName="c9" value="no"  [(ngModel)]="fc07.c9"></td>
+            <td><input type="radio" name="c9" value="si"  [(ngModel)]="fc07.c9"></td>
+            <td><input type="radio" name="c9" value="no"  [(ngModel)]="fc07.c9"></td>
             <td>
               <p>¿Los planos y memorias o diagramas cumplen con el PEC y y artículos aplicables de la NOM?</p>
               <p>¿Cuentan con código, firma y cedula profesional del proyectista para cargas mayores a 100 kw?</p>
@@ -198,90 +198,90 @@
               <p>¿Las listas contienen las secciones aplicables de la NOM, la fecha de revisión se llenan los espacios?
               </p>
             </td>
-            <td><textarea name="" id="" rows="2"></textarea></td>
+            <td></td>
             <td>
               <p>Informe de cierre de no conformidades de instalaciones FT-08</p>
             </td>
-            <td><input type="radio" formControlName="c10" value="si"  [(ngModel)]="fc07.c10"></td>
-            <td><input type="radio" formControlName="c10" value="no"  [(ngModel)]="fc07.c10"></td>
+            <td><input type="radio" name="c10" value="si"  [(ngModel)]="fc07.c10"></td>
+            <td><input type="radio" name="c10" value="no"  [(ngModel)]="fc07.c10"></td>
           </tr>
           <tr>
-            <td><textarea name="" id="" rows="2"></textarea></td>
+            <td></td>
             <td>
               <p>Informe de no conformidad de proyecto FT-08</p>
             </td>
-            <td><input type="radio" formControlName="c11" value="si"  [(ngModel)]="fc07.c11"></td>
-            <td><input type="radio" formControlName="c11" value="no"  [(ngModel)]="fc07.c11"></td>
+            <td><input type="radio" name="c11" value="si"  [(ngModel)]="fc07.c11"></td>
+            <td><input type="radio" name="c11" value="no"  [(ngModel)]="fc07.c11"></td>
             <td>
               <p>¿Los incumplimientos hallados en proyecto y/o instalación ¿están anotados en este informe?</p>
               <p>¿Contiene la firma del Gerente Técnico y del cliente?</p>
               <p>¿Contiene el articulo, sección o inciso de la norma?</p>
               <p>Indica la etapa, código</p>
             </td>
-            <td><textarea name="" id="" rows="2"></textarea></td>
+            <td><p>{{ ff11.d }}/{{ month11 }}/{{ ff11.a }}</p></td>
             <td>
-              <p>Informe de pruebas requeridas en el punto 6.6 PEC FT-117</p>
+              <p>Informe de pruebas requeridas en el punto 6.6 PEC FT-11</p>
             </td>
-            <td><input type="radio" formControlName="c12" value="si"  [(ngModel)]="fc07.c12"></td>
-            <td><input type="radio" formControlName="c12" value="no"  [(ngModel)]="fc07.c12"></td>
+            <td><input type="radio" name="c12" value="si"  [(ngModel)]="fc07.c12"></td>
+            <td><input type="radio" name="c12" value="no"  [(ngModel)]="fc07.c12"></td>
           </tr>
           <tr>
-            <td><textarea name="" id="" rows="2"></textarea></td>
+            <td></td>
             <td>
               <p>Reporte Técnico de proyecto FT-15</p>
             </td>
-            <td><input type="radio" formControlName="c13" value="si"  [(ngModel)]="fc07.c13"></td>
-            <td><input type="radio" formControlName="c13" value="no"  [(ngModel)]="fc07.c13"></td>
+            <td><input type="radio" name="c13" value="si"  [(ngModel)]="fc07.c13"></td>
+            <td><input type="radio" name="c13" value="no"  [(ngModel)]="fc07.c13"></td>
             <td>
               <p>¿Contiene código, las firma del Gerente Técnico, cliente y testigos?</p>
               <p>¿Describe las actividades realizadas en la revisión proyecto y/o visita a la instalación?</p>
               <p>¿Se llenan todos los campos incluyendo ámbito,circunstancias,hora de inicio y termino?</p>
             </td>
-            <td><textarea name="" id="" rows="2"></textarea></td>
+            <td><p>{{ ff9.d }}/{{ month9 }}/{{ ff9.a }}</p></td>
             <td>
               <p>Registro de materiales aprobados FT-09</p>
             </td>
-            <td><input type="radio" formControlName="c14" value="si"  [(ngModel)]="fc07.c14"></td>
-            <td><input type="radio" formControlName="c14" value="no"  [(ngModel)]="fc07.c14"></td>
+            <td><input type="radio" name="c14" value="si"  [(ngModel)]="fc07.c14"></td>
+            <td><input type="radio" name="c14" value="no"  [(ngModel)]="fc07.c14"></td>
           </tr>
           <tr>
-            <td><textarea name="" id="" rows="2"></textarea></td>
+            <td></td>
             <td>
               <p>Informe de cierre de no conformidad de proyecto FT-08</p>
             </td>
-            <td><input type="radio" formControlName="c15" value="si"  [(ngModel)]="fc07.c15"></td>
-            <td><input type="radio" formControlName="c15" value="no"  [(ngModel)]="fc07.c15"></td>
+            <td><input type="radio" name="c15" value="si"  [(ngModel)]="fc07.c15"></td>
+            <td><input type="radio" name="c15" value="no"  [(ngModel)]="fc07.c15"></td>
             <td>
               <p>¿El cliente corrigio los incumplimientos hallados en proyecto y/o instalación?</p>
               <p>¿Contiene la evidencia del cierre y firma del Gerente Técnico y cliente?</p>
               <p>¿Contiene el articulo, sección o inciso de la norma?</p>
               <p>¿Hace referencia al informe de incumplimientos py/inst entregado con anterioridad?</p>
             </td>
-            <td><textarea name="" id="" rows="2"></textarea></td>
+            <td></td>
             <td>
               <p>Dictamen de Verificación de la NOM-001-SEDE-2012 FT-12</p>
             </td>
-            <td><input type="radio" formControlName="c16" value="si"  [(ngModel)]="fc07.c16"></td>
-            <td><input type="radio" formControlName="c16" value="no"  [(ngModel)]="fc07.c16"></td>
+            <td><input type="radio" name="c16" value="si"  [(ngModel)]="fc07.c16"></td>
+            <td><input type="radio" name="c16" value="no"  [(ngModel)]="fc07.c16"></td>
           </tr>
           <tr>
             <td></td>
             <td colspan="4">
               No. de Dictamen:
               <p style="padding-left: 15em; margin-bottom: 1em;">
-                <b style="padding: 0.5em 4em; border: 1px solid #000;">UVSEIE 448 A-<span *ngIf="client">{{ client.nocontrol }}/{{ client.anio }}</span> </b>
+                <b style="padding: 0.5em 4em; border: 1px solid #000;">UVSEIE 448-A-<span *ngIf="client">{{ client.nocontrol }}/{{ ff.a }}</span> </b>
                 <b style="padding: 0.5em 4em; border: 1px solid #000; margin-left:0.5em;"> NOM-001-SEDE-2012</b>
               </p>
             </td>
-            <td><textarea name="" id="" rows="2"></textarea></td>
+            <td></td>
             <td>
               <p>Portada de dictamen FT-13</p>
             </td>
-            <td><input type="radio" name="fc-ft-13" id=""></td>
-            <td><input type="radio" name="fc-ft-13" id=""></td>
+            <td><input type="radio" name="c17" value="si" [(ngModel)]="fc07.c17"></td>
+            <td><input type="radio" name="c17" value="no" [(ngModel)]="fc07.c17"></td>
           </tr>
         </table>
-        </form>
+        <!-- </form> -->
       </div>
 
     </div>

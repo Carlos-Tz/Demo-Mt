@@ -13,11 +13,20 @@ import { ActivatedRoute } from '@angular/router';
 export class Ft09Component implements OnInit {
   public clientF: FormGroup;
   public key = '';
+  public month = '';
   public client: {
     nocontrol: '',
     anio: '',
     mes: '',
-    dia: ''
+    dia: '',
+    nombreuv: '',
+    fft09: '',
+    cargouv: ''
+  };
+  public ff = {
+    a: '',
+    m: '',
+    d: ''
   };
   public ft09 = {
     mt1: '',
@@ -165,6 +174,10 @@ export class Ft09Component implements OnInit {
     if (this.clientApi.clientObject) {
       this.clientApi.clientObject.valueChanges().subscribe(data => {
         this.client = data.datos;
+        if (this.client.fft09) {
+          this.ff = this.clientApi.splitDate(this.client.fft09);
+          this.month = this.clientApi.monthToRoman(this.ff.m);
+        }
         if (data.ft09) {
           this.ft09 = data.ft09;
         }

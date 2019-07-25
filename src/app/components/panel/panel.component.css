@@ -1,0 +1,20 @@
+table {
+    border: 1px solid #555;
+    border-radius: 5px;
+    margin: 1em 0;
+}
+table thead tr {
+    background-color: #7c7c80;
+}
+section {
+    margin: 2em 3em;
+}
+/* input {
+    border-radius: 2px;
+    height: 1cm;
+} */
+/* .dataTables_wrapper .dataTables_filter input {
+    border-radius: 2px !important;
+    height: 1cm !important;
+    margin-bottom: 1em;
+} */

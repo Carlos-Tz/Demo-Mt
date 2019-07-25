@@ -8,8 +8,8 @@
             <td rowspan="4" style="width: 25%;"><img src="assets/mt.png" style="height: 2cm;"></td>
             <td rowspan="4" style="width: 25%;">
               <h3><b>LISTA DE VERIFICACIÓN INSTALACIONES ELÉCTRICAS NOM-001-SEDE-2012</b></h3>
-              <p>VERIFICACIÓN No. UVSEIE 448 A-<b *ngIf="client">{{ client.nocontrol }}/{{ client.anio }}</b></p>
-              <p>FECHA: <b *ngIf="client">{{ client.dia }}/{{ client.mes }}/{{ client.anio }}</b></p>
+              <p>VERIFICACIÓN No. UVSEIE 448 A-<b *ngIf="client">{{ client.nocontrol }}/{{ ff.a }}</b></p>
+              <p>FECHA: <b *ngIf="client">{{ ff.d }}/{{ month }}/{{ ff.a }}</b></p>
             </td>
             <td colspan="3"><p>RAZÓN SOCIAL: <b *ngIf="client" style="text-transform: uppercase;">{{ client.razon }}</b></p></td>
           </tr>
@@ -42,7 +42,7 @@
         <table style="border-left: 0; border-top: 0; border-right: 0; font-size: 0.65em;">
             <app-row *ngFor="let r of page0; let j=index;"
                     [key]="key"
-                    [row]="ft10List[j+(18*i)]">
+                    [row]="ft10List[j+(17*i)]">
             </app-row>
         </table>
 

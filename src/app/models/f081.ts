@@ -1,8 +1,6 @@
 export interface F081 {
-    p: boolean;
-    me: boolean;
-    in: boolean;
-    pr: boolean;
+    tipo: string;
+    desc: string;
     n1: number;
     n2: number;
     n3: number;

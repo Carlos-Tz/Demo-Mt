@@ -19,7 +19,13 @@ export class Ft05Component implements OnInit {
     nocontrol: '',
     anio: '',
     mes: '',
-    dia: ''
+    dia: '',
+    fft05: ''
+  };
+  public ff = {
+    d: '',
+    m: '',
+    a: ''
   };
   public ft05 = {
     m1: '',
@@ -61,6 +67,9 @@ export class Ft05Component implements OnInit {
     if (this.clientApi.clientObject) {
       this.clientApi.clientObject.valueChanges().subscribe(data => {
         this.client = data.datos;
+        if (this.client.fft05) {
+          this.ff = this.clientApi.splitDate(this.client.fft05);
+        }
         if (data.ft05) {
           this.ft05 = data.ft05;
         }

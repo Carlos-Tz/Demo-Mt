@@ -27,11 +27,11 @@
         </table>
 
 
-        <p style="text-align: right;">No. de Control: <b *ngIf="client">{{ client.nocontrol }}/{{ client.anio }}</b></p>
+        <p style="text-align: right;">No. de Control: <b *ngIf="client">{{ client.nocontrol }}/{{ ff.a }}</b></p>
         <br>
 
         <p>CONTRATO DE PRESTACIÓN DE SERVICIOS PROFESIONALES QUE celebran, por una parte MT INGENIERIA S.A. DE C.V.
-          representada por el Ing. Héctor Martínez Peña a quien se denominará en lo sucesivo como “LA UNIDAD DE
+          representada por el <b *ngIf="client" style="text-transform: uppercase">{{ client.nombreuv }}</b> a quien se denominará en lo sucesivo como “LA UNIDAD DE
           VERIFICACIÓN”; por la otra <b *ngIf="client" style="text-transform: uppercase">{{ client.razon }}</b> representada por <b
             *ngIf="client" style="text-transform: uppercase">{{ client.nombre }}</b>, quien en lo sucesivo se
           denominará como “EL SOLICITANTE”, los cuales firman para manifestar estar de acuerdo y dar validez al presente
@@ -81,27 +81,18 @@
         <p>2.- ALCANCE.- “LA UNIDAD DE VERIFICACIÓN” realizará los servicios relacionados con la verificación, con el
           propósito de comprobar el cumplimiento de las siguientes Normas Oficiales Mexicanas, según el caso:</p><br>
 
-        <p><b>NOM-001-SEDE-2012</b> Instalaciones Eléctricas (utilización). <b *ngIf="client"> ( <span *ngIf="client.nom1"> X </span> )</b></p>
-        <p><b>NOM-007-ENER-2014</b> Eficiencia energética en sistemas de alumbrado no residenciales. <b *ngIf="client"> ( <span *ngIf="client.nom7"> X </span> )</b></p>
-        <p><b>NOM-013-ENER-2013</b> Eficiencia energética para sistemas de alumbrado en vialidades. <b *ngIf="client"> ( <span *ngIf="client.nom13"> X </span> )</b></p>
+        <p><b>NOM-001-SEDE-2012</b> Instalaciones Eléctricas (utilización). <input type="checkbox" [(ngModel)]="ft03.nom1"></p>
+        <p><b>NOM-007-ENER-2014</b> Eficiencia energética en sistemas de alumbrado no residenciales. <input type="checkbox" [(ngModel)]="ft03.nom7"></p>
+        <p><b>NOM-013-ENER-2013</b> Eficiencia energética para sistemas de alumbrado en vialidades. <input type="checkbox" [(ngModel)]="ft03.nom13"></p>
         <p style="position: absolute; bottom: 0; right: 2em;">Pág. 1 de 2</p>
 
 
       </div>
 
     </div>
-    <div>
-      <button class="volver_ no-print" (click)="goBack()">
-        Volver
-      </button>
-      <button class="imprimir_ no-print" onclick="window.print()">
-        Imprimir
-      </button>
-    </div>
+    
   </section>
-</div>
 
-<div class="app">
   <section>
     <div class="page">
       <div class="inner">
@@ -128,13 +119,14 @@
           </tr>
         </table>
         <p>El alcance de la Verificación comprende:</p>
-        <p>1.- Revisión de planos de proyecto y memoria de cálculo. <b *ngIf="client"> ( <span *ngIf="client.revp"> X </span> )</b></p>
+        <p>1.- Revisión de planos de proyecto y memoria de cálculo. <input type="checkbox" [(ngModel)]="ft03.revp"></p>
         <p>2.- Verificación de acometida en:</p>
-        <p class="tab_">Baja tensión <b *ngIf="client"> ( <span *ngIf="client.tension=='Baja'"> X </span> )</b></p>
-        <p class="tab_">Media tensión <b *ngIf="client"> ( <span *ngIf="client.tension=='Media'"> X </span> )</b></p>
-        <p class="tab_">Alta tensión <b *ngIf="client"> ( <span *ngIf="client.tension=='Alta'"> X </span> )</b></p>
-        <p>3.- Verificación de subestación eléctrica. <b *ngIf="client"> ( <span *ngIf="client.verfs"> X </span> )</b></p>
-        <p>4.- Verificación de instalaciones en baja tensión. <b *ngIf="client"> ( <span *ngIf="client.verfbt"> X </span> )</b></p><br>
+        <!-- <p class="tab_">Baja tensión <b *ngIf="client"> ( <span *ngIf="client.tension=='Baja'"> X </span> )</b></p> -->
+        <p class="tab_">Baja tensión <b *ngIf="client"> [ <span *ngIf="client.tension=='Baja'"> X </span> ]</b></p>
+        <p class="tab_">Media tensión <b *ngIf="client"> [ <span *ngIf="client.tension=='Media'"> X </span> ]</b></p>
+        <p class="tab_">Alta tensión <b *ngIf="client"> [ <span *ngIf="client.tension=='Alta'"> X </span> ]</b></p>
+        <p>3.- Verificación de subestación eléctrica. <input type="checkbox" [(ngModel)]="ft03.vers"></p>
+        <p>4.- Verificación de instalaciones en baja tensión. <input type="checkbox" [(ngModel)]="ft03.veri"></p><br>
 
         <p>3.- “EL SOLICITANTE” se obliga, a acatar las observaciones documentadas en las Normas Oficiales Mexicanas,
           que hiciere en todo momento “LA UNIDAD DE VERIFICACIÓN”, que por escrito éste último comunicará en forma
@@ -171,7 +163,7 @@
         <p>15.- La unidad de verificación y el personal no existen conflictos de intereses, ausencia de perjuicios
           neutralidad, equidad, actitud abierta.</p><br>
 
-        <p>Dado por duplicado en la Ciudad de México, a <b *ngIf="client">{{ client.fechai }}</b>.</p><br>
+        <p>Dado por duplicado en la ciudad de Metepec Estado de México, a los {{ ff.d }} dias del mes de {{ mes }} del año 20{{ ff.a }}.</p><br>
 
         <table style="border: none;">
           <tr>
@@ -179,14 +171,13 @@
               <p style="text-align: center;">"EL SOLICITANTE"</p>
               <div class="sign" style="margin: 0 auto;">
                 <div class="signature">
-                  <div id="contSign">
-                    <img *ngIf="client" src="{{ client.s2 }}" id="imgSign2">
+                  <div id="contSign" onclick = "btn_click2()">
+                    <img *ngIf="client" src="{{ ft03.s2 }}" id="imgSign2" (load)="imgChanged2($event)">
                   </div>
                 </div>
                 <hr>
                 <div>
-                  <p *ngIf="client" style="text-align: center;"><b
-                      style="text-transform: uppercase">{{ client.razon }}</b></p>
+                  <p *ngIf="client" style="text-align: center;"><b style="text-transform: uppercase">{{ client.razon }}</b></p>
 
                 </div>
               </div>
@@ -195,13 +186,13 @@
               <p style="text-align: center;">"LAUNIDAD DE VERIFICACIÓN"</p>
               <div class="sign" style="margin: 0 auto;">
                 <div class="signature">
-                  <div id="contSign">
-                    <img *ngIf="client" src="{{ client.s1 }}" id="imgSign">
+                  <div id="contSign" onclick = "btn_click()">
+                    <img *ngIf="client" src="{{ ft03.s1 }}" id="imgSign" (load)="imgChanged($event)">
                   </div>
                 </div>
                 <hr>
                 <div>
-                  <p style="text-align: center;">ING. HÉCTOR MARTÍNEZ PEÑA</p>
+                  <p *ngIf="client" style="text-align: center;"><b style="text-transform: uppercase">{{ client.nombreuv }}</b></p>
                 </div>
               </div>
             </td>
@@ -212,4 +203,15 @@
       </div>
     </div>
   </section>
+  <div>
+      <button class="volver_ no-print" (click)="goBack()">
+        Volver
+      </button>
+      <button class="imprimir_ no-print" onclick="window.print()">
+        Imprimir
+      </button>
+      <button class="guardar_ no-print" (click)="submitClientData()">
+      Guardar
+      </button>
+    </div>
 </div>

@@ -9,8 +9,8 @@
             <td rowspan="4" style="width: 25%;"><img src="assets/mt.png" style="height: 2cm;"></td>
             <td rowspan="4" style="width: 25%;">
               <h3><b>LISTA DE VERIFICACIÓN PROYECTO ELECTRICO NOM-001-SEDE-2012</b></h3>
-              <p>VERIFICACIÓN No. UVSEIE 448 A-<b *ngIf="client">{{ client.nocontrol }}/{{ client.anio }}</b></p>
-              <p>FECHA: <b *ngIf="client">{{ client.dia }}/{{ client.mes }}/{{ client.anio }}</b></p>
+              <p>VERIFICACIÓN No. UVSEIE 448-A-<b *ngIf="client">{{ client.nocontrol }}/{{ ff.a }}</b></p>
+              <p>FECHA: <b *ngIf="client">{{ ff.d }}/{{ month }}/{{ ff.a }}</b></p>
             </td>
             <td colspan="3">
               <p>RAZÓN SOCIAL: <b *ngIf="client" style="text-transform: uppercase;">{{ client.razon }}</b></p>
@@ -326,17 +326,6 @@
       </div>
 
     </div>
-    <div>
-      <button class="volver_ no-print" (click)="goBack()">
-        Volver
-      </button>
-      <button class="imprimir_ no-print" onclick="window.print()">
-        Imprimir
-      </button>
-      <button class="guardar_ no-print" (click)="submitClientData()">
-        Guardar
-      </button>
-    </div>
   </section>
 
   <section>
@@ -347,11 +336,11 @@
             <td rowspan="4" style="width: 25%;"><img src="assets/mt.png" style="height: 2cm;"></td>
             <td rowspan="4" style="width: 25%;">
               <h3><b>LISTA DE VERIFICACIÓN PROYECTO ELECTRICO NOM-001-SEDE-2012</b></h3>
-              <p>VERIFICACIÓN No. UVSEIE 448 A-<b *ngIf="client">{{ client.nocontrol }}/{{ client.anio }}</b></p>
-              <p>FECHA: <b *ngIf="client">{{ client.dia }}/{{ client.mes }}/{{ client.anio }}</b></p>
+              <p>VERIFICACIÓN No. UVSEIE 448-A-<b *ngIf="client">{{ client.nocontrol }}/{{ ff.a }}</b></p>
+              <p>FECHA: <b *ngIf="client">{{ ff.d }}/{{ month }}/{{ ff.a }}</b></p>
             </td>
             <td colspan="3">
-              <p>RAZÓN SOCIAL: <b *ngIf="client">{{ client.razon }}</b></p>
+              <p>RAZÓN SOCIAL: <b *ngIf="client" style="text-transform: uppercase;">{{ client.razon }}</b></p>
             </td>
           </tr>
           <tr>
@@ -654,11 +643,11 @@
             <td rowspan="4" style="width: 25%;"><img src="assets/mt.png" style="height: 2cm;"></td>
             <td rowspan="4" style="width: 25%;">
               <h3><b>LISTA DE VERIFICACIÓN PROYECTO ELECTRICO NOM-001-SEDE-2012</b></h3>
-              <p>VERIFICACIÓN No. UVSEIE 448 A-<b *ngIf="client">{{ client.nocontrol }}/{{ client.anio }}</b></p>
-              <p>FECHA: <b *ngIf="client">{{ client.dia }}/{{ client.mes }}/{{ client.anio }}</b></p>
+              <p>VERIFICACIÓN No. UVSEIE 448-A-<b *ngIf="client">{{ client.nocontrol }}/{{ ff.a }}</b></p>
+              <p>FECHA: <b *ngIf="client">{{ ff.d }}/{{ month }}/{{ ff.a }}</b></p>
             </td>
             <td colspan="3">
-              <p>RAZÓN SOCIAL: <b *ngIf="client">{{ client.razon }}</b></p>
+              <p>RAZÓN SOCIAL: <b *ngIf="client" style="text-transform: uppercase;">{{ client.razon }}</b></p>
             </td>
           </tr>
           <tr>
@@ -920,5 +909,16 @@
 
     </div>
   </section>
+  <div>
+      <button class="volver_ no-print" (click)="goBack()">
+        Volver
+      </button>
+      <button class="imprimir_ no-print" onclick="window.print()">
+        Imprimir
+      </button>
+      <button class="guardar_ no-print" (click)="submitClientData()">
+        Guardar
+      </button>
+    </div>
 </div>
 </form>

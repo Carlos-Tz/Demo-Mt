@@ -53,9 +53,9 @@
             </td>
           </tr>
         </table>
-        <p style="text-align: right;">Verificación No.: <b *ngIf="client">{{ client.nocontrol }}/{{ client.anio }}</b>
+        <p style="text-align: right;">Verificación No.: <b *ngIf="client">{{ client.nocontrol }}/{{ ff.a }}</b>
         </p><br>
-        <form [formGroup]="clientF" autocomplete="off">
+       <!--  <form [formGroup]="clientF" autocomplete="off"> -->
         <table>
           <tr>
             <th style="font-size: 0.9em; background-color: #c6c6ca;">Resultados de Pruebas</th>
@@ -63,14 +63,13 @@
           <tr>
             <td>
               <p>Prueba: <b>Resistencia de aislamiento de conductores</b></p>
-              <p>Resultado: <input type="text" formControlName="r1" [(ngModel)]="ft11.r1">
+              <p>Resultado: <input type="text" [(ngModel)]="ft11.r1">
                 <b style="margin-left: 10em;">Conforme</b>
-                <input type="radio" formControlName="c1"  value="si" [(ngModel)]="ft11.c1">
+                <input type="radio" name="c1" value="si" [(ngModel)]="ft11.c1">
                 <b>No Conforme</b>
-                <input type="radio" formControlName="c1"  value="no" [(ngModel)]="ft11.c1">
+                <input type="radio" name="c1" value="no" [(ngModel)]="ft11.c1">
               </p>
-              <p>Equipo utilizado: <input type="text" style="margin-right: 6em;" formControlName="e1" [(ngModel)]="ft11.e1"> Fecha de ejecución: <input
-                  type="text"></p>
+              <p>Equipo utilizado: <input type="text" style="margin-right: 6em;" [(ngModel)]="ft11.e1"> Fecha de ejecución: <input type="date" [(ngModel)]="ft11.f1"></p>
               <p><b>Parámetro:</b> NOM-001-SEDE-2012 (Sección 110-7). En la instalación eléctrica o parte de ella si los
                 conductores están libres de corto circuitos se acepta. Se rechaza en caso de haber corto circuitos.</p>
             </td>
@@ -78,29 +77,27 @@
           <tr>
             <td>
               <p>Prueba: <b>Continuidad eléctrica de envolventes y canalizaciones metálicas</b></p>
-              <p>Resultado: <input type="text"  formControlName="r2" [(ngModel)]="ft11.r2">
+              <p>Resultado: <input type="text"  [(ngModel)]="ft11.r2">
                 <b style="margin-left: 10em;">Conforme</b>
-                <input type="radio"  formControlName="c2"  value="si" [(ngModel)]="ft11.c2">
+                <input type="radio"  name="c2" value="si" [(ngModel)]="ft11.c2">
                 <b>No Conforme</b>
-                <input type="radio" formControlName="c2"  value="no" [(ngModel)]="ft11.c2">
+                <input type="radio" name="c2" value="no" [(ngModel)]="ft11.c2">
               </p>
-              <p>Equipo utilizado: <input type="text" style="margin-right: 6em;" formControlName="e2" [(ngModel)]="ft11.e2"> Fecha de ejecución: <input
-                  type="text"></p>
+              <p>Equipo utilizado: <input type="text" style="margin-right: 6em;" [(ngModel)]="ft11.e2"> Fecha de ejecución: <input type="date" [(ngModel)]="ft11.f2"></p>
               <p><b>Parámetro:</b> Conforme a lo establecido en la norma NOM-001-SEDE-2012 (Sección 300-10).</p>
             </td>
           </tr>
           <tr>
             <td>
               <p>Prueba: <b>Resistencia de electrodos artificiales y de red de tierras</b></p>
-              <p>Resultado del electrodo: <input type="text" formControlName="r3" [(ngModel)]="ft11.r3">
+              <p>Resultado del electrodo: <input type="text" [(ngModel)]="ft11.r3">
                 <b style="margin-left: 4.5em;">Conforme</b>
-                <input type="radio"  formControlName="c3"  value="si" [(ngModel)]="ft11.c3">
+                <input type="radio" name="c3"  value="si" [(ngModel)]="ft11.c3">
                 <b>No Conforme</b>
-                <input type="radio" formControlName="c3"  value="no" [(ngModel)]="ft11.c3">
+                <input type="radio" name="c3" value="no" [(ngModel)]="ft11.c3">
               </p>
-              <p>Resultado de puesta a tierra del sistema: <input type="text" formControlName="r3a" [(ngModel)]="ft11.r3a"></p>
-              <p>Equipo utilizado: <input type="text" style="margin-right: 6em;" formControlName="e3" [(ngModel)]="ft11.e3"> Fecha de ejecución: <input
-                  type="text"></p>
+              <p>Resultado de puesta a tierra del sistema: <input type="text"  [(ngModel)]="ft11.r3a"></p>
+              <p>Equipo utilizado: <input type="text" style="margin-right: 6em;" [(ngModel)]="ft11.e3"> Fecha de ejecución: <input type="date" [(ngModel)]="ft11.f3"></p>
               <p><b>Parámetro:</b> Conforme a lo establecido en la norma NOM-001-SEDE- 2012 (Sección 921-25, a) y b),
                 para subestaciones.</p>
               <table style="margin: 0 10mm 0 18mm; width: 70%; border: none;">
@@ -156,14 +153,13 @@
           <tr>
             <td>
               <p>Prueba: <b>Polaridad de conexiones en los receptáculos</b></p>
-              <p>Resultado: <input type="text" formControlName="r4" [(ngModel)]="ft11.r4">
+              <p>Resultado: <input type="text" [(ngModel)]="ft11.r4">
                 <b style="margin-left: 10em;">Conforme</b>
-                <input type="radio"  formControlName="c4"  value="si" [(ngModel)]="ft11.c4">
+                <input type="radio" name="c4"  value="si" [(ngModel)]="ft11.c4">
                 <b>No Conforme</b>
-                <input type="radio" formControlName="c4"  value="no" [(ngModel)]="ft11.c4">
+                <input type="radio" name="c4" value="no" [(ngModel)]="ft11.c4">
               </p>
-              <p>Inspección ocular: <input type="text" style="margin-right: 6em;" formControlName="e4" [(ngModel)]="ft11.e4"> Fecha de ejecución: <input
-                  type="text"></p>
+              <p>Inspección ocular: <input type="text" style="margin-right: 6em;" [(ngModel)]="ft11.e4"> Fecha de ejecución: <input type="date" [(ngModel)]="ft11.f4"></p>
               <p><b>Parámetro:</b> Conforme a lo establecido en la norma NOM-001-SEDE-2012 (Sección 200-11). No debe
                 conectarse a ninguna Terminal o cable algún conductor puesto a tierra que pueda invertir la polaridad
                 diseñada.</p>
@@ -171,7 +167,7 @@
           </tr>
         </table>
 
-        </form>
+        <!-- </form> -->
         <p style="font-size: 0.65em;">NOTA: Es responsabilidad del solicitante realizar las pruebas requeridas por el
           PEC en el punto 6.6. El Gerente Técnicoy/o Gerente Técnico Susutituto solicita y revisa los resultados de
           dichas pruebas proporcionados por el solicitante, podrán registrarse en el formato FT-11 por el solicitante o
@@ -187,8 +183,8 @@
               <p style="text-align: center;">Nombre y Firma del Responsable</p>
               <div class="sign" style="margin: 0 auto;">
                 <div class="signature">
-                  <div id="contSign">
-                    <img *ngIf="client" src="{{ client.s3 }}" id="imgSign2">
+                  <div id="contSign" onclick = "btn_click()">
+                    <img *ngIf="client" src="{{ ft11.s1 }}" id="imgSign" (load)="imgChanged($event)">
                   </div>
                 </div>
                 <hr>

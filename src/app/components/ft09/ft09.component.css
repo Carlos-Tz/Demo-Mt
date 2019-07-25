@@ -41,8 +41,9 @@ th {
     resize: none;
     overflow: hidden;
     border: none;    
-    font-size: 1.3em;
+    font-size: 1.1em;
     text-align: center;
+    font-family: 'Times New Roman', Times, serif;
 }
 .table3_ input[type=radio] {
     margin: 0 auto;

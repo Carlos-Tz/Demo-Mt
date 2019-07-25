@@ -33,6 +33,11 @@ th {
     vertical-align: middle;
     resize: none;
     overflow: hidden;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+}
+input[type=date] {
+    border: none;
 }
 
 textarea {

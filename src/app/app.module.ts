@@ -32,6 +32,10 @@ import { Ft10Component } from './components/ft10/ft10.component';
 import { RowComponent } from './components/ft10/row/row.component';
 import { EditFt10Component } from './components/edit-ft10/edit-ft10.component';
 import { EditClientComponent } from './components/edit-client/edit-client.component';
+import { MainComponent } from './components/main/main.component';
+import { CotizacionComponent } from './components/cotizacion/cotizacion.component';
+import { Ft07Component } from './components/ft07/ft07.component';
+import { EditCotizacionComponent } from './components/edit-cotizacion/edit-cotizacion.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +59,11 @@ import { EditClientComponent } from './components/edit-client/edit-client.compon
     Ft10Component,
     RowComponent,
     EditFt10Component,
-    EditClientComponent
+    EditClientComponent,
+    MainComponent,
+    CotizacionComponent,
+    Ft07Component,
+    EditCotizacionComponent
   ],
   imports: [
     BrowserModule,

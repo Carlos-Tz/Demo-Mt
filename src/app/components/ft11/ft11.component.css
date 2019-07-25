@@ -21,6 +21,11 @@ input[type=text] {
     border-top: none;
     border-right: none;
     border-left: none;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1em;
+}
+input[type=date] {
+    border: none;
 }
 p {
     font-size: 0.75em;

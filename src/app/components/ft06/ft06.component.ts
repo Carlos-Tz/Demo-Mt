@@ -20,8 +20,15 @@ export class Ft06Component implements OnInit {
     cargai: '',
     dia: '',
     mes: '',
-    anio: ''
+    anio: '',
+    fft06: ''
   };
+  public ff = {
+    d: '',
+    m: '',
+    a: ''
+  };
+  public month = '';
   public ft06 = {
     o1: '',
     o2: '',
@@ -128,6 +135,10 @@ export class Ft06Component implements OnInit {
     if (this.clientApi.clientObject) {
       this.clientApi.clientObject.valueChanges().subscribe(data => {
         this.client = data.datos;
+        if (this.client.fft06) {
+          this.ff = this.clientApi.splitDate(this.client.fft06);
+          this.month = this.clientApi.monthToRoman(this.ff.m);
+        }
         if (data.ft06) {
           this.ft06 = data.ft06;
         }

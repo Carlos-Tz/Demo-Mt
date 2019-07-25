@@ -11,8 +11,13 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./ft11.component.css']
 })
 export class Ft11Component implements OnInit {
-   public clientF: FormGroup;
+  // public clientF: FormGroup;
   public key = '';
+  public ff = {
+    a: '',
+    m: '',
+    d: ''
+  };
   public client: {
     razon: '',
     nocontrol: '',
@@ -23,7 +28,8 @@ export class Ft11Component implements OnInit {
     cp: '',
     giro: '',
     nombreuv: '',
-    anio: ''
+    anio: '',
+    fft11: ''
   };
   public ft11 = {
     r1: '',
@@ -42,7 +48,8 @@ export class Ft11Component implements OnInit {
     f1: '',
     f2: '',
     f3: '',
-    f4: ''
+    f4: '',
+    s1: ''
   };
 
   constructor(
@@ -58,19 +65,22 @@ export class Ft11Component implements OnInit {
     if (this.clientApi.clientObject) {
       this.clientApi.clientObject.valueChanges().subscribe(data => {
         this.client = data.datos;
+        if (this.client.fft11) {
+          this.ff = this.clientApi.splitDate(this.client.fft11);
+        }
         if (data.ft11) {
           this.ft11 = data.ft11;
         }
       });
     }
-    this.form();
+   // this.form();
   }
 
   goBack = () => {
     this.location.back();
   }
 
-  form() {
+  /* form() {
     this.clientF = this.fb.group({
       r1: [''],
       r2: [''],
@@ -88,12 +98,17 @@ export class Ft11Component implements OnInit {
       f1: [''],
       f2: [''],
       f3: [''],
-      f4: ['']
+      f4: [''],
+      s1: ['']
     });
-  }
+  } */
 
   submitClientData = () => {
-    this.clientApi.UpdateFt11(this.clientF.value, this.key);
+    this.clientApi.UpdateFt11(this.ft11, this.key);
     this.toastr.success('Actualizado!');
+  }
+
+  imgChanged($event) {
+    this.ft11.s1 = $event.target.src;
   }
 }

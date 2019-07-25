@@ -2,7 +2,7 @@
 .menu_ {
     height: 60px;
     display: flex;
-    box-shadow: 0 1px 30px rgba(150, 150, 150, .8);
+    box-shadow: 0 1px 20px rgba(150, 150, 150, .8);
     min-width: 21.59cm;
     background-color: var(--page-color);
     line-height: 40px;
@@ -16,8 +16,9 @@
   .brand-logo_ .logo_ {height: 100%;}
   .nav-wrapper_ {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    /* justify-content: space-between; */
+    justify-content: center;
+    /* align-items: center; */
     width: 100%;
   }
   .menu-items_ {
@@ -77,6 +78,6 @@
     fill: #7c7c80;
   }
   .tspan_ {
-    fill: #008000;
+    fill: #006600;
   }
   

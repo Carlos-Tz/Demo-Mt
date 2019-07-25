@@ -10,7 +10,7 @@
                 <h2>
                   <b>COTIZACIÓN</b>
                 </h2>
-                <h4>Fecha: <b *ngIf="client">{{ client.dia }}/{{ client.mes }}/{{ client.anio }} </b>Ref. MTI <b *ngIf="client">{{ client.dia }}/{{ client.mes }}/{{ client.anio }} </b></h4>
+                <h4>Fecha: <b *ngIf="client">{{ client.dia }}/{{ month }}/{{ client.anio }} </b>Ref. MTI <b *ngIf="client">{{ client.dia }}/{{ month }}/{{ client.anio }}-10 </b></h4>
   
               </td>
               <td style="padding-top: 3mm;">CÓDIGO: <b>FT-01</b></td>
@@ -26,13 +26,10 @@
             </tr>
           </table>
   
-          <p *ngIf="client"><b style="text-transform: uppercase">{{ client.nombre }}</b></p>
-          <p>Representante:</p>
-          <p *ngIf="client"><b style="text-transform: uppercase">{{ client.razon }}</b></p><br>
-          <p>En respuesta a su amable solicitud de cotización, estoy poniendo a su consideración el presupuesto relativo a
-            la
-            verificación de sus instalaciones eléctricas en baja tensión; conforme a la <b>NOM-001-SEDE-2012, Instalaciones
-            eléctricas (utilización).</b></p><br>
+          <p>Representante: <b *ngIf="client" style="text-transform: uppercase">{{ client.nombre }}</b></p>          
+          <p>Teléfono: <b *ngIf="client">{{ client.tel }}</b></p>
+          <p>Correo: <b *ngIf="client">{{ client.correo }}</b></p><br>
+          <textarea [(ngModel)]="client.intro" rows="3" style="margin-bottom: 0.5em;"></textarea>
   
           <p><b>GENERALES:</b></p><br>
   
@@ -87,24 +84,17 @@
   
           <p><b>El cliente debe proporcionar;</b></p><br>
   
-          <p class="tab_">1. Proyecto final y memoria completo en papel y/o en archivo electronico, firmado y con cedula
-            profesional
-            del proyectista, indispensable el diagrama unifilar que cumple con el PEC.</p>
-          <p class="tab_">2. Evidencia de aprobación de materiales y equipos,incluida la información de los
-            transformadores, cuando
-            aplique, adjuntando los documentos que comprueben que están debidamente aprobados y cumplen con las normas
-            oficiales mexicanas y disposiciones legales aplicables</p>
-          <p class="tab_">3. Lista de Cargas.</p>
-          <p class="tab_">4. Solicitud de verificación de la instalación.</p>
-          <p class="tab_"><b>5. El solicitante de la verificación debe presentar a la uvie el plano de las áraes peligrosas
-            (clasificadas)
-            indicando los limites en vista de planta, cortes transversales y longitudinales, de forma que las
-            disposiciones contenidas en la nom, aplicables a cada a cada clasificación, puedan verificarse objetivamente.</b>
-          </p>
-          <p class="tab_"><b>6. El usuario o propietario solicitara a la UVIE la verificación periódica de las instalaciones
-            eléctricas
-            contenidas en áreas peligrosas (clasificadas), la que se crircunscribirá a los conceptos y alcance a que se
-            refiere el anexo B.</b></p><br>
+          <p class="tab_">1. Solicitud de verificación de la instalación.</p>
+          <p class="tab_">2. Identificaciòn oficial (IFE, Cartilla, Cedula Porfesional,Pasaporte o CURP) del representante
+              del solicitante de la verifcaciòn y de la persona que atenderá la verificación.</p>
+          <p class="tab_">3. RFC de la persona física o moral, que solicita la verificación.</p>
+          <p class="tab_">4. Comprobante del domicilio de la instalación eléctrica.</p>
+          <p class="tab_">5. Lista de los principales materiales utilizados en la instalación.</p>
+          <p class="tab_">6. Lista de las principales cargas instaladas.</p>
+          <p class="tab_">7. Diagrama unifilar general de la instalación.</p>
+          <p class="tab_">8. Cuadro de cargas generales de la instalación.</p>
+          <p class="tab_">9. Plano eléctrico de planta (lay-out) de la disposición de equipos.</p>
+          
           <p class="footer_">Este documento hace las veces de contrato cuando ambas partes así lo consideren.En caso que
             “EL SOLICITANTE” en forma unilateral y sin causas imputables a “EL VERIFICADOR”, cancelará la verificación, no
             tendrá derecho a reclamar la devolución del anticipo o cubrirá el precio de lo ejecutado hasta el momento de
@@ -112,19 +102,9 @@
             presente instrumento, “EL SOLICITANTE” Tendrá derecho a rescindirlo</p>
   
         </div>        
-      </div>
-      <div>
-        <button class="volver_ no-print" (click)="goBack()">
-          Volver
-        </button>
-        <button class="imprimir_ no-print" onclick="window.print()">
-          Imprimir
-        </button>  
-      </div>
+      </div>      
     </section>
-  </div>
   
-  <div class="app">
     <section>
       <div class="page">
         <div class="inner">
@@ -135,7 +115,7 @@
                 <h2>
                   <b>COTIZACIÓN</b>
                 </h2>
-                <h4>Fecha: <b *ngIf="client">{{ client.dia }}/{{ client.mes }}/{{ client.anio }} </b>Ref. MTI <b *ngIf="client">{{ client.dia }}/{{ client.mes }}/{{ client.anio }} </b></h4>
+                <h4>Fecha: <b *ngIf="client">{{ client.dia }}/{{ month }}/{{ client.anio }} </b>Ref. MTI <b *ngIf="client">{{ client.dia }}/{{ month }}/{{ client.anio }}-10 </b></h4>
   
               </td>
               <td style="padding-top: 3mm;">CÓDIGO: <b>FT-01</b></td>
@@ -150,12 +130,14 @@
               <td rowspan="2">Vigente a partir de: <br><b>17-Nov-17</b></td>
             </tr>
           </table>
-          <p class="tab_">7. Informe de las pruebas solicitadas en el PEC vigente y realizadas por el contratista.</p>
-          <p class="tab_">8. dentificaciòn oficial (IFE, Cartilla, Cedula Porfesional,Pasaporte o CURP) del representante
-            del solicitante de la verifcaciòn y de la persona que atenderá la verificación.</p>
-          <p class="tab_">9. RFC de la persona física o moral, que solicita la verificación.</p>
-          <p class="tab_">10. Comprobante del domicilio de la instalación eléctrica.</p><br>
-  
+          <p class="tab_">10. Plano general de tierras.</p>
+          <p class="tab_">11. Las pruebas exigidas en el numeral 6.6 del PEC vigente:
+              Continuidad eléctrica de envolventes y canalizaciones metálicas, resistencia de electrodos artificiales y de la red de puesta a tierra, polaridad de las conexiones en los contactos.</p>
+          <p class="tab_">12. Proyecto de las celdas solares.</p>
+          
+          
+          
+          <br>
           <p><b>Declaraciones y compromisos por parte del Gerente Técnico de la unidad de verificación:</b></p><br>
   
           <p>1.- Toda la información que proporcione el cliente se considera de carácter confidencial.</p>
@@ -178,14 +160,17 @@
   
           <p><b>El Costo:</b> “EL SOLICITANTE” se obliga a pagar a “EL VERIFICADOR” por el servicio antes descrito la cantidad de $ <b *ngIf="client">{{ client.costo }}</b> <b> + IVA, (</b><b *ngIf="client">{{ client.costol }}</b> <b> Pesos 00/100 M.N.), + IVA, a la entrega del Informe Técnico.</b>
             <b>Tiempo de entrega:</b> Si el proyecto e instalación cumplen con la NOM ,al termino de la instalación se entregara
-            el dictamen.</p><br>
+            el dictamen.</p>
+            <p><b>Vigencia: </b><input type="text" [(ngModel)]="client.vigencia"></p>
+            <p><b>Forma de pago: </b></p><textarea rows="2" [(ngModel)]="client.fpago"></textarea>
+            <br>
           
-          <table style="border: none;">
+          <!-- <table style="border: none;">
             <tr>
-              <td style="border: none;"><p><b>Vigencia:</b> 30 días naturales.</p></td>
-              <td style="border: none;"><p><b>Forma de pago:</b> Las actuales con la empresa.</p></td>
+              <td style="border: none;"><p><b>Vigencia: </b><input type="text" [(ngModel)]="client.vigencia"></p></td>
+              <td style="border: none;"><b>Forma de pago: </b><textarea rows="2" [(ngModel)]="client.fpago"></textarea></td>
             </tr>
-          </table>
+          </table> -->
   
           <p style="text-align: center;"><b>AVISO DE PRIVACIDAD PARA EL MANEJO DE DATOS CONFIDENCIALES</b></p>
           <p>Su información personal proporcionada por este medio será́ utilizada para el servicio de verificación que ha
@@ -211,13 +196,13 @@
                     <p style="text-align: center;">ATENTAMENTE</p>
                     <div class="sign" style="margin: 0 auto;">
                       <div class="signature">
-                        <div id="contSign">
-                          <img *ngIf="client" src="{{ client.s1 }}" id="imgSign">
+                        <div id="contSign" onclick = "btn_click()">
+                          <img *ngIf="client" src="{{ client.s1 }}" id="imgSign" (load)="imgChanged($event)">
                         </div>
                       </div>
                       <hr>
                       <div>
-                        <p style="text-align: center;">ING. HÉCTOR MARTÍNEZ PEÑA</p>
+                        <p style="text-align: center;"><b style="text-transform: uppercase">{{ client.nombreuv }}</b></p>
                       </div>
                     </div>
                 </td>
@@ -226,8 +211,8 @@
                     <p style="text-align: center;">EL PRESENTE PRESUPUESTO</p>
                     <div class="sign" style="margin: 0 auto;">
                       <div class="signature">
-                          <div id="contSign">
-                            <img *ngIf="client" src="{{ client.s2 }}" id="imgSign2">
+                          <div id="contSign" onclick = "btn_click2()">
+                            <img *ngIf="client" src="{{ client.s2 }}" id="imgSign2" (load)="imgChanged2($event)">
                           </div>
                       </div>
                       <hr>
@@ -249,4 +234,15 @@
         </div>
       </div>
     </section>
+    <div>
+      <button class="volver_ no-print" (click)="goBack()">
+        Volver
+      </button>
+      <button class="imprimir_ no-print" onclick="window.print()">
+        Imprimir
+      </button>  
+      <button class="guardar_ no-print" (click)="submitClientData()">
+          Guardar
+      </button>
+    </div>
   </div>

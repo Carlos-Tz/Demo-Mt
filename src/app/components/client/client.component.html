@@ -1,91 +1,181 @@
 <app-navbar></app-navbar>
 <div class="app">
-    <section>
-      <div class="page-landscape">
-        <div class="inner">
-          <p style="text-align: center;">Razón Social: <b *ngIf="clientData">{{ clientData.razon }}</b></p>
-          <div class="mini-content">
-              <div class="mini-page" [routerLink]="['/caratula/', key]">
-                <div class="inner">
-                  <p style="font-size: 1.2em;">CARÁTULA</p>
-                </div>
-              </div>
-            <div class="mini-page" [routerLink]="['/ft-01/', key]">
-              <div class="inner">
-                <p>FT-01</p>
-              </div>
-            </div>
-            <div class="mini-page" [routerLink]="['/ft-02/', key]">
-              <div class="inner">
-                <p>FT-02</p>
-              </div>
-            </div>
-            <div class="mini-page" [routerLink]="['/ft-03/', key]">
-              <div class="inner">
-                <p>FT-03</p>
-              </div>
-            </div>
-            <div class="mini-page" [routerLink]="['/ft-05/', key]">
-              <div class="inner">
-                <p>FT-05</p>
-              </div>
-            </div>
-            
-          </div>
-          <div class="mini-content" >
-              <div class="mini-page" [routerLink]="['/ft-06/', key]">
-                <div class="inner">
-                  <p>FT-06</p>
-                </div>
-              </div>
-            <div class="mini-page" [routerLink]="['/fc-07/', key]">
-              <div class="inner">
-                <p>FC-07</p>
-              </div>
-            </div>
-            <div class="mini-page" [routerLink]="['/ft-08INCIE1/', key]">
-              <div class="inner">
-                <p>FT-08<br>INCIE1</p>
-              </div>
-            </div>
-            <div class="mini-page" [routerLink]="['/ft-08INCIE2/', key]">
-              <div class="inner">
-                <p>FT-08<br>INCIE2</p>
-              </div>
-            </div>
-            <div class="mini-page" [routerLink]="['/ft-08INCPE/', key]">
-              <div class="inner">
-                <p>FT-08<br>INCPE</p>
-              </div>
-            </div>
-           
-          </div>
-          <div class="mini-content">
-              <div class="mini-page" [routerLink]="['/ft-09/', key]">
-                <div class="inner">
-                  <p>FT-09</p>
-                </div>
-              </div>
-            <div class="mini-page" [routerLink]="['/ft-10/', key]">
-              <div class="inner">
-                <p>FT-10</p>
-              </div>
-            </div>
-            <div class="mini-page" [routerLink]="['/ft-11/', key]">
-              <div class="inner">
-                <p>FT-11</p>
-              </div>
-            </div>
-          </div>
+  <section>
+    <!-- <div class="page-landscape">
+        <div class="inner"> -->
+    
+    <div class="mini-content" *ngIf="clientData">
+      <div class="forms">
+        <div class="mini-page" style="height: 2cm;" [ngClass]="{'green':clientData.razon, 'gray':!clientData.razon}">
+            <p>CARÁTULA</p>
+            <table>
+              <tr>
+                <td><p style="text-transform: uppercase;">Razón Social: <b>{{ clientData.razon }}</b></p></td>
+                <td class="rigth_">
+                  <img src="assets/eye.svg" [routerLink]="['/caratula/', key]">
+                </td>
+              </tr>
+            </table>            
+        </div>
+        <div class="mini-page"  [ngClass]="{'green':clientData.fechai, 'gray':!clientData.fechai}">
+            <p>FT-01 COTIZACIÓN</p>
+            <table>
+              <tr>
+                <td><img src="assets/save.svg" (click)="updateFi()"></td>
+                <td>Fecha: <input type="date" [(ngModel)]="clientData.fechai"></td>
+                <td class="rigth_">
+                  <img src="assets/edit.svg" [routerLink]="['/edit-coti/', key]">
+                  <img src="assets/eye.svg" [routerLink]="['/ft-01/', key]">
+                </td>
+              </tr>
+            </table>
+        </div>
+        <div class="mini-page" [ngClass]="{'green':clientData.fft02, 'gray':!clientData.fft02}">
+            <p>FT-02 SOLICITUD DE VERIFICACIÓN</p>
+            <table>
+              <tr>
+                <td><img src="assets/save.svg" (click)="updateFt02()"></td>
+                <td>Fecha: <input type="date" [(ngModel)]="clientData.fft02"></td>
+                <td class="rigth_"><img src="assets/eye.svg" [routerLink]="['/ft-02/', key]"></td>
+              </tr>
+            </table>
+        </div>
+        <div class="mini-page" [ngClass]="{'green':clientData.fft03, 'gray':!clientData.fft03}">
+            <p>FT-03 CONTRATO</p>
+             <table>
+              <tr>
+                <td><img src="assets/save.svg" (click)="updateFt03()"></td>
+                <td>Fecha: <input type="date" [(ngModel)]="clientData.fft03"></td>
+                <td class="rigth_"><img src="assets/eye.svg" [routerLink]="['/ft-03/', key]"></td>
+              </tr>
+            </table>
+        </div>
+        <div class="mini-page" [ngClass]="{'green':clientData.fft05, 'gray':!clientData.fft05}">
+            <p>FT-05 DOCUMENTOS DEL USUARIO</p>
+             <table>
+              <tr>
+                <td><img src="assets/save.svg" (click)="updateFt05()"></td>
+                <td>Fecha: <input type="date" [(ngModel)]="clientData.fft05"></td>
+                <td class="rigth_"><img src="assets/eye.svg" [routerLink]="['/ft-05/', key]"></td>
+              </tr>
+            </table>
+        </div>
+        <div class="mini-page" [ngClass]="{'green':clientData.fft06, 'gray':!clientData.fft06}">
+            <p>FT-06 LISTA DE VERIFICACIÓN PROYECTO</p>
+             <table>
+              <tr>
+                <td><img src="assets/save.svg" (click)="updateFt06()"></td>
+                <td>Fecha: <input type="date" [(ngModel)]="clientData.fft06"></td>
+                <td class="rigth_"><img src="assets/eye.svg" [routerLink]="['/ft-06/', key]"></td>
+              </tr>
+            </table>
+        </div>
+        <!-- <div class="mini-page" >
+            <p>FT-07 ACTA DE EVALUACIÓN DE LA CONFORMIDAD</p>
+             <table>
+              <tr>
+                <td><img src="assets/save.svg"></td>
+                <td>Fecha: <input type="date"></td>
+                <td class="rigth_"><img src="assets/eye.svg" [routerLink]="['/ft-07/', key]"></td>
+              </tr>
+            </table>
+        </div> -->
+        <div class="mini-page" [ngClass]="{'green':clientData.fft09, 'gray':!clientData.fft09}">
+            <p>FT-09 REGISTRO DE MATERIALES APROBADOS</p>
+             <table>
+              <tr>
+                <td><img src="assets/save.svg" (click)="updateFt09()"></td>
+                <td>Fecha: <input type="date" [(ngModel)]="clientData.fft09"></td>
+                <td class="rigth_"><img src="assets/eye.svg" [routerLink]="['/ft-09/', key]"></td>
+              </tr>
+            </table>
+        </div>
+        <div class="mini-page" [ngClass]="{'green':clientData.fft10, 'gray':!clientData.fft10}">
+            <p>FT-10 LISTA DE VERIFICACIÓN INSTALACIONES</p>
+             <table>
+              <tr>
+                <td><img src="assets/save.svg" (click)="updateFt10()"></td>
+                <td>Fecha: <input type="date" [(ngModel)]="clientData.fft10"></td>
+                <td class="rigth_"><img src="assets/eye.svg" [routerLink]="['/ft-10/', key]"></td>
+              </tr>
+            </table>
+        </div>
+        <div class="mini-page" [ngClass]="{'green':clientData.fft11, 'gray':!clientData.fft11}">
+            <p>FT-11 INFORME DE PRUEBAS</p>
+            <table>
+                <tr>
+                  <td><img src="assets/save.svg" (click)="updateFt11()"></td>
+                  <td>Fecha: <input type="date" [(ngModel)]="clientData.fft11"></td>
+                  <td class="rigth_"><img src="assets/eye.svg" [routerLink]="['/ft-11/', key]"></td>
+                </tr>
+              </table>
+        </div>
+        <div class="mini-page" [ngClass]="{'green':clientData.ffc07, 'gray':!clientData.ffc07}">
+            <p>FC-07 SUPERVISION DE EXPEDIENTE</p>
+             <table>
+              <tr>
+                <td><img src="assets/save.svg" (click)="updateFc07()"></td>
+                <td>Fecha: <input type="date" [(ngModel)]="clientData.ffc07"></td>
+                <td class="rigth_"><img src="assets/eye.svg" [routerLink]="['/fc-07/', key]"></td>
+              </tr>
+            </table>
         </div>
       </div>
-      <div>
-        <button class="volver_ no-print" (click)="goBack()">
-          Volver
-        </button>
-        <button class="imprimir_ no-print" [routerLink]="['/edit-client/', key]">
-        Editar
-      </button>
+      <div class="incpe">
+        <div class="mini-page">
+          <p>FT-08</p>
+          <table>
+            <tr>
+              <td>
+                Nuevo Informe FT-08 
+                <select name="n-ft08"[(ngModel)]="newF.tipo">
+                  <option value="INCPE">INCPE</option>
+                  <option value="INCIE">INCIE</option>
+                </select>
+                Fecha: <input type="date" [(ngModel)]="newF.fecha">
+              </td>
+              <td class="rigth_">
+                <img src="assets/add_.svg" (click)="addForm()">
+                <img src="assets/eye.svg" [routerLink]="['/ft-08INCIE1/', key]">
+              </td>
+            </tr>
+          </table>
         </div>
-    </section>
+      </div>
+      <div class="incie">
+
+      </div>
+
+
+    </div>
+    <!-- <div class="mini-content">
+      
+      <div class="mini-page" [routerLink]="['/ft-08INCIE1/', key]">
+        <div class="inner">
+          <p>FT-08<br>INCIE1</p>
+        </div>
+      </div>
+      <div class="mini-page" [routerLink]="['/ft-08INCIE2/', key]">
+        <div class="inner">
+          <p>FT-08<br>INCIE2</p>
+        </div>
+      </div>
+      <div class="mini-page" [routerLink]="['/ft-08INCPE/', key]">
+        <div class="inner">
+          <p>FT-08<br>INCPE</p>
+        </div>
+      </div>
+
+    </div> -->
+    
+    
+  </section>
+  <div>
+    <button class="volver_ no-print" (click)="goBack()">
+      Volver
+    </button>
+    <button class="imprimir_ no-print" [routerLink]="['/edit-client/', key]">
+      Editar
+    </button>
   </div>
+</div>

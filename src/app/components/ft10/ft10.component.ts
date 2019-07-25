@@ -17,13 +17,20 @@ export class Ft10Component implements OnInit {
     cargai: '',
     dia: '',
     mes: '',
-    anio: ''
+    anio: '',
+    fft10: ''
   };
+  public ff = {
+    a: '',
+    m: '',
+    d: ''
+  };
+  public month = '';
   public pages: number[];
   public ft10List: F10[];
   public len = 1;
   public key = '';
-  public page0 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18];
+  public page0 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
 
   constructor(
     private clientApi: ClientService,
@@ -36,6 +43,10 @@ export class Ft10Component implements OnInit {
     if (this.clientApi.clientObject) {
       this.clientApi.clientObject.valueChanges().subscribe(data => {
         this.client = data.datos;
+        if (this.client.fft10) {
+          this.ff = this.clientApi.splitDate(this.client.fft10);
+          this.month = this.clientApi.monthToRoman(this.ff.m);
+        }
         /* if (data.ft10) {
           for (const i in data.ft10) {
             this.ft10List.push(data.ft10[i] as F10);
@@ -52,8 +63,8 @@ export class Ft10Component implements OnInit {
         surv['$key'] = item.key;
         this.ft10List.push(surv as F10);
       });
-     //this.data_ = true;
-      this.len = Math.ceil((this.ft10List.length) / 18);
+     // this.data_ = true;
+      this.len = Math.ceil((this.ft10List.length) / 17);
       this.pages = this.page0.slice(0, this.len);
      // console.log(this.ft10List[1]);
     });

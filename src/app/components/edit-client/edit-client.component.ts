@@ -37,7 +37,7 @@ export class EditClientComponent implements OnInit {
     cp: null,
     tipos: '',
     tension: null,
-    planos: null,
+    planos: '',
     cargai: null,
     alcance: null,
     factor: null,
@@ -63,18 +63,29 @@ export class EditClientComponent implements OnInit {
     logo: '',
     dia: '',
     mes: '',
+    mesl: '',
     anio: '',
     s1: '',
     s2: '',
     s3: '',
     fechai: '',
     date: null,
-    fechaf: ''
+    fechaf: '',
+    fft02: '',
+    fft03: '',
+    fft05: '',
+    fft06: '',
+    fft09: '',
+    fft10: '',
+    fft11: '',
+    ffc07: '',
+    fpago: '',
+    vigencia: '',
+    intro: '',
+    cargouv: ''
   };
   uploadedImage: Blob;
   public logo = '';
-  /* public razon = '';
-  public nombreuv = ''; */
   /* public fecha = {
     fecha: '',
     dia: '',
@@ -113,7 +124,7 @@ export class EditClientComponent implements OnInit {
         this.clientApi.addft10();
       } */
     });
-    //this.clientApi.GetDataList();
+    // this.clientApi.GetDataList();
     this.cForm();
   }
 
@@ -162,7 +173,7 @@ export class EditClientComponent implements OnInit {
       foliouv: ['']
     });
   }
-  /* 
+  /*
     ResetForm() {
       this.clientForm.reset();
     } */
@@ -172,21 +183,21 @@ export class EditClientComponent implements OnInit {
     this.clientApi.updateClient(this.datos, this.key);
     this.toastr.success('Actualizado!');
     // this.ResetForm();
-    this.router.navigate(['/panel']);
+   // this.router.navigate(['/panel']);
   }
 
   imgChanged($event) {
-    //this.signs.s1 = $event.target.src;
+    // this.signs.s1 = $event.target.src;
     this.datos.s1 = $event.target.src;
   }
 
   imgChanged2($event) {
-    //this.signs.s2 = $event.target.src;
+    // this.signs.s2 = $event.target.src;
     this.datos.s2 = $event.target.src;
   }
 
   imgChanged3($event) {
-    //this.signs.s3 = $event.target.src;
+    // this.signs.s3 = $event.target.src;
     this.datos.s3 = $event.target.src;
   }
 
@@ -202,7 +213,7 @@ export class EditClientComponent implements OnInit {
         const myReader: FileReader = new FileReader();
         myReader.readAsDataURL(this.uploadedImage);
         myReader.onload = (e) => {
-          //this.logo = <string>myReader.result;
+          // this.logo = <string>myReader.result;
           this.datos.logo = <string>myReader.result;
           this.toastr.success('Logo cargado correctamente!');
         };

@@ -16,4 +16,5 @@ export interface F11 {
     f2: string;
     f3: string;
     f4: string;
+    s1: string;
 }

@@ -8,6 +8,7 @@ import { ClientService } from 'src/app/services/client.service';
 import { Ng2ImgMaxService } from 'ng2-img-max';
 import { DomSanitizer } from '@angular/platform-browser';
 import * as num from 'written-number';
+import { OfflineOnlineService } from 'src/app/services/offline-online.service';
 
 @Component({
   selector: 'app-add-client',
@@ -43,7 +44,8 @@ export class AddClientComponent implements OnInit {
     private ng2ImgMax: Ng2ImgMaxService,
     public fb: FormBuilder,
     public sanitizer: DomSanitizer,
-    private router: Router
+    private router: Router,
+    private readonly offlineOnlineService: OfflineOnlineService
   ) { }
 
   ngOnInit() {
@@ -51,7 +53,9 @@ export class AddClientComponent implements OnInit {
     this.fecha.mes = fechaObj.format(new Date(), 'MMMM');
     this.fecha.anio = fechaObj.format(new Date(), 'YY');
     this.fecha.fecha = fechaObj.format(new Date(), 'D [de] MMM [del] YYYY');
-    this.clientApi.GetDataList();
+    if (this.offlineOnlineService.isOnline) {
+      this.clientApi.GetDataList();
+    }
     this.cForm();
   }
 
@@ -106,7 +110,7 @@ export class AddClientComponent implements OnInit {
   }
 
   submitClientData = () => {
-    this.clientApi.AddClient(this.clientForm.value, this.fecha, this.signs, this.logo, this.costol);
+   // this.clientApi.AddClient(this.clientForm.value, this.fecha, this.signs, this.logo, this.costol);
     this.toastr.success('Guardado!');
     this.ResetForm();
     this.router.navigate(['/panel']);

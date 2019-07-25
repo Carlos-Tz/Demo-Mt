@@ -13,6 +13,11 @@ import { F11 } from '../models/f11';
 import { F081 } from '../models/f081';
 import { Datos } from '../models/datos';
 import { F10 } from '../models/f10';
+import { OfflineOnlineService } from './offline-online.service';
+import { UUID } from 'angular2-uuid';
+import Dexie from 'dexie';
+import { F02 } from '../models/f02';
+import { F03 } from '../models/f03';
 /* import { F082 } from '../models/f082';
 import { F08E } from '../models/f08-e'; */
 
@@ -20,7 +25,10 @@ import { F08E } from '../models/f08-e'; */
   providedIn: 'root'
 })
 export class ClientService {
-  //public clientsList: AngularFireList<any>;
+  private localDb: any;
+  public dataOffline: Client[] = [];
+  public clientOffline: Client;
+  // public clientsList: AngularFireList<any>;
   public dataList: AngularFireList<any>;
   public ft10List: AngularFireList<any>;
   public ft10: F10[];
@@ -104,6 +112,7 @@ export class ClientService {
       nom: '110-14 a ) 110-14 b) 110-14 c )',
       tex: 'Conexiones eléctricas terminales y empalmes Limitaciones de temperatura',
       tip: 'O',
+      // tslint:disable-next-line: max-line-length
       cri: 'Los conductores esta conectados con dispositivos adecuados El conductor no excede la temperatura de operación de terminales del equipo',
       obp: '',
       obs: '',
@@ -113,6 +122,7 @@ export class ClientService {
       nom: '110-16',
       tex: 'Señales de advertencia contra arco eléctrico',
       tip: '',
+      // tslint:disable-next-line: max-line-length
       cri: 'Los tableros de distribución, tableros de control industrial, envolventes para medidores enchufables y centros de control de motores, deben estar marcados para advertir del peligro potencial de arco eléctrico',
       obp: '',
       obs: '',
@@ -167,6 +177,7 @@ export class ClientService {
       nom: '210-5',
       tex: 'Identificación de los circuitos derivados',
       tip: 'O',
+      // tslint:disable-next-line: max-line-length
       cri: 'El conductor de puesto a tierra es blanco y el de puesta a tierra es desnudo y verde, las fases de color diferente, como, azul, negra, roja',
       obp: '',
       obs: '',
@@ -273,8 +284,10 @@ export class ClientService {
     }, {
       id: 28,
       nom: '225-10 225-20 225-22',
+      // tslint:disable-next-line: max-line-length
       tex: 'Alambrado de los edificios Protección mecánica de los conductores Canalizaciones sobre las superficies externas de las construcciones',
       tip: 'O',
+      // tslint:disable-next-line: max-line-length
       cri: 'Se permiten diferentes métodos de alambrado que protejan a los conductores contras daño mecánico, en exterior deben ser herméticas a la lluvia',
       obp: '',
       obs: '',
@@ -320,6 +333,7 @@ export class ClientService {
       nom: '230-24 230-26 230-27',
       tex: 'Libramientos Punto de sujeción Medios de sujeción',
       tip: 'O',
+      // tslint:disable-next-line: max-line-length
       cri: 'Entre los conductores de acometida existen distancias adecuadas de seguridad y no son fácilmente accesibles. Están firmemente sujetos',
       obp: '',
       obs: '',
@@ -356,6 +370,7 @@ export class ClientService {
       nom: '230-24 230-208 230-66',
       tex: 'Espacio de trabajo Requisitos de protección contra sobrecorriente Marcado',
       tip: 'O',
+      // tslint:disable-next-line: max-line-length
       cri: 'Existe espacio de trabajo alrededor del equipo de acometida. El interruptor tiene la capacidad interruptiva adecuada. El equipo está aprobado',
       obp: '',
       obs: '',
@@ -491,6 +506,7 @@ export class ClientService {
       nom: '250-50',
       tex: 'Sistema de electrodos de puesta a tierra',
       tip: 'O',
+      // tslint:disable-next-line: max-line-length
       cri: 'La tubería de agua y estructura metálica del edificio son electrodos y electrodos prefabricados pueden usarse en el sistema de electrodos y deben interconectarse entre si, los diferentes sistemas de tierra deben conectarse entre si',
       obp: '',
       obs: '',
@@ -527,6 +543,7 @@ export class ClientService {
       nom: '250-64',
       tex: 'Instalación del conductor del electrodo de puesta a tierra.',
       tip: 'O',
+      // tslint:disable-next-line: max-line-length
       cri: 'Los conductores de puesta a tierra están firmemente sujetos, protegidos y asegurados contra daño físico, son eléctricamente continuos y están conectados con materiales aprobados',
       obp: '',
       obs: '',
@@ -563,6 +580,7 @@ export class ClientService {
       nom: '250-168',
       tex: 'Puente de unión del sistema corriente continua',
       tip: 'O',
+      // tslint:disable-next-line: max-line-length
       cri: 'Existe un puente de unión principal, sin empalmes, que conecta al conductor de puesta a tierra de equipo y el envolvente del medio de desconexión de la acometida al conductor puesto a tierra del sistema',
       obp: '',
       obs: '',
@@ -579,6 +597,7 @@ export class ClientService {
     }, {
       id: 62,
       nom: '250-28 d) 1) 250-24 c)',
+      // tslint:disable-next-line: max-line-length
       tex: 'Puente de unión principal y puente de unión del sistema. Tamaño nominal. Conductor puesto a tierra llevado al equipo de acometida',
       tip: 'O',
       cri: 'Verificar que el calibre del conductor de puesta a tierra del electrodo, en la acometida este de acuerdo a la tabla 250-66',
@@ -590,6 +609,7 @@ export class ClientService {
       nom: '250-30',
       tex: 'Pues a tierra de sistemas de CA derivados separados',
       tip: 'O',
+      // tslint:disable-next-line: max-line-length
       cri: 'Revisar que los sistemas derivados independientemente tengan electrodos de puesta a tierra, conductores de electrodos de puesta a tierra y puentes de conexión equipotencial adecuados',
       obp: '',
       obs: '',
@@ -624,8 +644,10 @@ export class ClientService {
     }, {
       id: 67,
       nom: '250-96 250-28 348-60 350-60',
+      // tslint:disable-next-line: max-line-length
       tex: 'Unión con otras envolventes. Puente de unión principal y del puente de unión del sistema. Tubo conduit metálico flexible Puesta a tierra y unión. Tubo conduit flexible metálico y no metálico',
       tip: 'O',
+      // tslint:disable-next-line: max-line-length
       cri: 'Verificar que las partes metálicas no conductoras estén conectadas a tierra con accesorios adecuados y aprobados, que los cables de puesta a tierra del electrodo y del equipo sean de cobre y de acuerdo a las tablas 250-66 y 250-122',
       obp: '',
       obs: '',
@@ -644,6 +666,7 @@ export class ClientService {
       nom: '250-142',
       tex: 'Uso del conductor de puesto a tierra del circuito para puesta a tierra de equipos',
       tip: 'O',
+      // tslint:disable-next-line: max-line-length
       cri: 'Lado suministro: se permite utilizar el conductor puesto a tierra como conductor de puesta a tierra Lado de la carga: no se permite utilizar el conductor puesto a tierra como conductor de puesta a tierra',
       obp: '',
       obs: '',
@@ -698,6 +721,7 @@ export class ClientService {
       nom: '300-3 2)',
       tex: 'Conductores de puesta a tierra y de unión',
       tip: 'O',
+      // tslint:disable-next-line: max-line-length
       cri: 'Se permitirá que los conductores de puesta atierra de equipos estén instalados afuera de la canalización o del ensamble de cable, si están de acuerdo con las disposiciones de 250-130 c)',
       obp: '',
       obs: '',
@@ -716,6 +740,7 @@ export class ClientService {
       nom: '300-11',
       tex: 'Aseguramiento y soportes.',
       tip: 'O',
+      // tslint:disable-next-line: max-line-length
       cri: 'Las canalizaciones, cajas, gabinetes, cables y accesorios están firmemente sujetos y soportadas en su lugar , no se usan como medios de soporte',
       obp: '',
       obs: '',
@@ -770,6 +795,7 @@ export class ClientService {
       nom: '300-21',
       tex: 'Propagación de fuego o de productos de la combustión',
       tip: 'O',
+      // tslint:disable-next-line: max-line-length
       cri: 'Las aberturas alrededor de los elementos eléctricos que pasan a través de paredes, pisos o techos resistentes al fuego están protegidas contra el fuego por métodos adecuados',
       obp: '',
       obs: '',
@@ -788,6 +814,7 @@ export class ClientService {
       nom: '392-18',
       tex: 'Instalación de charolas portacables',
       tip: 'O',
+      // tslint:disable-next-line: max-line-length
       cri: 'El sistema esta instalado de manera completa, no están instalados cables de mas de 600 v con otros de menor voltaje, están separadas 60 cm de otras tuberías de servicios',
       obp: '',
       obs: '',
@@ -797,6 +824,7 @@ export class ClientService {
       nom: '392-60',
       tex: 'Puesta a tierra y Unión',
       tip: 'O',
+      // tslint:disable-next-line: max-line-length
       cri: 'Está provista de un conductor de puesta a tierra en toda la longitud de la charola y este esta conectado a la misma cada 15 m con un accesorio compatible con el material de la charola',
       obp: '',
       obs: '',
@@ -806,6 +834,7 @@ export class ClientService {
       nom: '392-30',
       tex: 'Sujeción y soporte',
       tip: 'O',
+      // tslint:disable-next-line: max-line-length
       cri: 'Los empalmes no sobresalen los rieles laterales; los cables o sus conjuntos están fijos firmemente, los cables del 4 al 4/0 están colocados en una sola capa;',
       obp: '',
       obs: '',
@@ -815,6 +844,7 @@ export class ClientService {
       nom: '392-22',
       tex: 'Número de cables multiconductores de 2000 v nominales o menos en soportes tipo charola portacables',
       tip: 'O',
+      // tslint:disable-next-line: max-line-length
       cri: 'La suma de los diámetros de todos los cables no supera el ancho de la charola para cables de 4/0 o mayores; para cables menores a 4/0 la suma de las áreas no debe superar la superficie máxima permisible en la tabla 318-9. Ver las demás condiciones',
       obp: '',
       obs: '',
@@ -833,6 +863,7 @@ export class ClientService {
       nom: '392-22 c)',
       tex: 'Número de cables de media tensión y tipo MC de (más de 2000 volts) en charolas portacables',
       tip: 'O',
+      // tslint:disable-next-line: max-line-length
       cri: 'Cables mono-conductores en grupos de tres, cuatro están instalados en una sola capa y la suma de los diámetros de los cables agrupados no exceden el ancho de la charola',
       obp: '',
       obs: '',
@@ -887,6 +918,7 @@ export class ClientService {
       nom: '358-24 358-26',
       tex: 'Dobleces Número de curvas',
       tip: 'O',
+      // tslint:disable-next-line: max-line-length
       cri: 'En las curvas el tubo no ha sufrido daños. El radio de curvatura esta hecho de acuerdo a la tabla 2 capitulo 10. No existen mas de 4 dobleces de un cuadrante de (360ª en total)',
       obp: '',
       obs: '',
@@ -1022,6 +1054,7 @@ export class ClientService {
       nom: '312-3',
       tex: 'Posición en las paredes',
       tip: 'O',
+      // tslint:disable-next-line: max-line-length
       cri: 'El borde no está metido mas de 6.35 mm por debajo de la superficie, los gabinetes instalados están a nivel de la superficie, o sobresalen de la misma',
       obp: '',
       obs: '',
@@ -1031,6 +1064,7 @@ export class ClientService {
       nom: '312-4',
       tex: 'Reparación de las superficies no combustibles',
       tip: 'O',
+      // tslint:disable-next-line: max-line-length
       cri: 'Las superficeis no combustibles que estén dañadas o incompletas se deben reparar para que no queden espacios abiertos ni separaciones mayores a 3 mm en el borde del gabinete o la caja de desconexión.',
       obp: '',
       obs: '',
@@ -1056,6 +1090,7 @@ export class ClientService {
     }, {
       id: 115,
       nom: '312-8',
+      // tslint:disable-next-line: max-line-length
       tex: 'Envolventes para interruptores y dispositivos de protección contra sobrecorriente con empalmes, derivaciones y conductores de paso de alimentación',
       tip: 'O',
       cri: 'No se utilizan como cajas de empalme',
@@ -1148,6 +1183,7 @@ export class ClientService {
       nom: '408-3 408-3 a) 1)',
       tex: 'Soportes e instalación de las barras colectoras y de los conductores Ubicación',
       tip: 'O',
+      // tslint:disable-next-line: max-line-length
       cri: 'No están sujetos a daño físico. No hay sobre-calentamiento. Tienen puente de unión. Las terminales son accesibles. Las fases están arregladas ABC del frente hacia atrás, de arriba hacia abajo o de izquierda a derecha. Hay suficiente espacio de trabajo',
       obp: '',
       obs: '',
@@ -1337,6 +1373,7 @@ export class ClientService {
       nom: '440 – 4 a) b) c)',
       tex: 'Placa de datos de moto-compresores herméticos de refrigeración y equipos',
       tip: 'O',
+      // tslint:disable-next-line: max-line-length
       cri: 'La unidad cuenta con una placa de datos que identifica las características eléctricas del motor. Existe una protección contra corto circuito y sobrecarga. La capacidad del circuito derivado se selección con la corriente eléctrica de carga nominal de placa',
       obp: '',
       obs: '',
@@ -1346,6 +1383,7 @@ export class ClientService {
       nom: '440-12 a)',
       tex: 'Medios de desconexión. Capacidad nominal y capacidad de interrupción. Moto-compresor hermético de refrigeración',
       tip: 'O, A',
+      // tslint:disable-next-line: max-line-length
       cri: 'El tamaño del controlador fue seleccionado en función de la corriente eléctrica del rotor bloqueado. Tablas 430-251A o 430-251B',
       obp: '',
       obs: '',
@@ -1355,6 +1393,7 @@ export class ClientService {
       nom: '440-21 al 440-22',
       tex: 'Protección de los circuitos derivados contra cortocircuito y falla a tierra. Requisitos generales. Aplicación y selección',
       tip: 'O, A',
+      // tslint:disable-next-line: max-line-length
       cri: 'Están establecidos los requisitos para los dispositivos de protección contra sobre-corrientes debidas a corto circuito y falla a tierra. Soportan la corriente de arranque del motor y tiene un ajuste no mayor al 175% de la corriente eléctrica nominal',
       obp: '',
       obs: '',
@@ -1382,14 +1421,15 @@ export class ClientService {
       nom: '440-60 al 440-65',
       tex: 'Requisitos para acondicionadores de aire para habitación',
       tip: 'O',
+      // tslint:disable-next-line: max-line-length
       cri: 'Los conductores, toma corrientes, cordones y dispositivos de sobre-corriente para acondicionadores de aire de habitación están dimensionados apropiadamente.',
       obp: '',
       obs: '',
       cum: ''
     }
   ];
-  //public currentD = '';
- // public client = {};
+  // public currentD = '';
+  // public client = {};
   public f11 = [
     {
       id: 1,
@@ -1420,27 +1460,72 @@ export class ClientService {
       cum: ''
     }
   ];
-  constructor(private db: AngularFireDatabase, private router: Router) { }
+  constructor(
+    private db: AngularFireDatabase,
+    private router: Router,
+    private readonly offlineOnlineService: OfflineOnlineService
+  ) {
+    this.registerToEvents(offlineOnlineService);
+    this.createDatabase();
+  }
 
-  AddClient(datos: Datos, fecha: Fecha, signs: Signs, logo: string, costol: string) {    
-    datos.dia = fecha.dia;
-    datos.mes = fecha.mes;
-    datos.anio = fecha.anio;
-    datos.fechai = fecha.fecha;
-    datos.s1 = signs.s1;
-    datos.s2 = signs.s2;
-    datos.s3 = signs.s3;
+  AddClient(datos: Datos, costol: string) {
+    const f = this.splitDate(datos.fechai);
+    // const ff = datos.fechai.split('-');
+    datos.dia = f.d;
+    datos.mes = f.m;
+    datos.anio = f.a;
     datos.date = Date.now();
-    datos.logo = logo;
     datos.costol = costol;
-    let nClient = { datos };
-    this.dataList.push(nClient as Client);
+    const nClient = { datos };
+
+    if (!this.offlineOnlineService.isOnline) {  // Offline
+      this.addClientOffline(nClient as Client);
+    } else {
+      this.dataList.push(nClient as Client);  // Online
+    }
+  }
+  splitDate(date: string): any {
+    if (date) {
+      const dd = date.split('-');
+      return {
+        d: dd[2],
+        m: dd[1],
+        a: dd[0].substring(2)
+      };
+    } else {
+      return {
+        d: '',
+        m: '',
+        a: ''
+      };
+    }
+  }
+
+  monthToRoman(mes: string) {
+    let m = '';
+    switch (mes) {
+      case '01': m = 'I'; break;
+      case '02': m = 'II'; break;
+      case '03': m = 'III'; break;
+      case '04': m = 'IV'; break;
+      case '05': m = 'V'; break;
+      case '06': m = 'VI'; break;
+      case '07': m = 'VII'; break;
+      case '08': m = 'VIII'; break;
+      case '09': m = 'IX'; break;
+      case '10': m = 'X'; break;
+      case '11': m = 'XI'; break;
+      case '12': m = 'XII'; break;
+      default: m = ''; break;
+    }
+    return m;
   }
 
   addft10() {
     this.f10.forEach(item => {
-     this.ft10List.push(item as F10);
-     //console.log(item);
+      this.ft10List.push(item as F10);
+      // console.log(item);
     });
   }
 
@@ -1452,7 +1537,7 @@ export class ClientService {
     this.f10Object.update({ nom: f10.nom, tex: f10.tex, tip: f10.tip, cri: f10.cri, obp: f10.obp, obs: f10.obs, cum: f10.cum });
   }
 
-   Getf10(key: string) {
+  Getf10(key: string) {
     this.ft10List = this.db.list('data/' + key + '/ft10', ref =>
       ref.orderByChild('id')
     );
@@ -1461,61 +1546,9 @@ export class ClientService {
 
   updateClient(datos: Datos, key: string) {
     this.db.object('data/' + key)
-    .update({datos});
+      .update({ datos });
   }
 
-  /* Getft10List(key: string) {
-    this.clientApi.GetDataList().snapshotChanges().subscribe(re => {
-      this.dataList = [];
-      re.forEach(item => {
-        const surv = item.payload.toJSON();
-        surv['$key'] = item.key;
-        this.dataList.push(surv as Client);
-      });
-      this.data_ = true;
-    });
-
-    this.ft10List = this.db.list('data/' + key + '/ft10', ref =>
-      ref.orderByChild('id')
-    );
-    this.ft10List.snapshotChanges().subscribe(re => {
-      this.ft10 = [];
-      re.forEach(it => {
-        const f = it.payload.toJSON();
-      });
-    });
-    return this.ft10List;
-  } */
-
- /*  GetClientsList(key: string) {
-    this.clientsList = this.db.list('data/' + key + '/clients', ref =>
-      ref.orderByChild('date')
-    );
-    return this.clientsList;
-  }
-
-  getOneClient(key: string, key2: string) {
-    this.clientObject = this.db.object('data/' + key + '/clients' + key2);
-    return this.clientObject;
-  }
-
-  getAll(key: string) {
-    return this.db.list('data/' + key + '/clients')
-      .snapshotChanges()
-      .pipe(
-        map(changes => {
-          return changes.map(c => ({key: c.payload.key, ...c.payload.val() }));
-        })
-      );
-  } */
-
-  /* GetList() {/////////////*     /
-    this.dataList = this.db.list('data', ref =>
-      ref.orderByChild('date').limitToLast(1)
-    );
-    return this.dataList;
-  }
- */
   GetDataList() {
     this.dataList = this.db.list('data', ref =>
       ref.orderByChild('date')
@@ -1533,34 +1566,49 @@ export class ClientService {
     return this.f10Object;
   }
 
+  UpdateFt01(ft01: any, key: string) {
+    this.db.object('data/' + key + '/datos/')
+      .update({ s1: ft01.s1, s2: ft01.s2, fpago: ft01.fpago, vigencia: ft01.vigencia, intro: ft01.intro });
+  }
+
+  UpdateFt02(f02: F02, key: string) {
+    this.db.object('data/' + key)
+      .update({ ft02: f02 });
+  }
+
+  UpdateFt03(f03: F03, key: string) {
+    this.db.object('data/' + key)
+      .update({ ft03: f03 });
+  }
+
   UpdateFt05(f05: F05, key: string) {
     this.db.object('data/' + key)
-    .update({ ft05: f05 });
+      .update({ ft05: f05 });
   }
 
   UpdateFt06(f06: F06, key: string) {
     this.db.object('data/' + key)
-    .update({ ft06: f06 });
+      .update({ ft06: f06 });
   }
 
   UpdateFc07(f07: F07, key: string) {
     this.db.object('data/' + key)
-    .update({ fc07: f07 });
+      .update({ fc07: f07 });
   }
 
   UpdateFt09(f09: F09, key: string) {
     this.db.object('data/' + key)
-    .update({ ft09: f09 });
+      .update({ ft09: f09 });
   }
 
   UpdateFt11(f11: F11, key: string) {
     this.db.object('data/' + key)
-    .update({ ft11: f11 });
+      .update({ ft11: f11 });
   }
 
   UpdateFt08INCIE1(f08: F081, key: string) {
     this.db.object('data/' + key)
-    .update({ ft08i1: f08 });
+      .update({ ft08i1: f08 });
   }
 
   /* UpdateFt08INCIE2(f08: F082, key: string) {
@@ -1570,6 +1618,114 @@ export class ClientService {
 
   UpdateFt08INCPE(f08: F081, key: string) {
     this.db.object('data/' + key)
-    .update({ ft08ie: f08 });
+      .update({ ft08ie: f08 });
   }
+
+  /** Update form dates */
+  upfi(f: string, key: string) {
+    const dd = this.splitDate(f);
+    this.db.object('data/' + key + '/datos/')
+      .update({ fechai: f, dia: dd.d, mes: dd.m, anio: dd.a });
+  }
+  upf02(f: string, key: string) {
+    this.db.object('data/' + key + '/datos/')
+      .update({ fft02: f });
+  }
+  upf03(f: string, key: string) {
+    this.db.object('data/' + key + '/datos/')
+      .update({ fft03: f });
+  }
+  upf05(f: string, key: string) {
+    this.db.object('data/' + key + '/datos/')
+      .update({ fft05: f });
+  }
+  upf06(f: string, key: string) {
+    this.db.object('data/' + key + '/datos/')
+      .update({ fft06: f });
+  }
+  upf09(f: string, key: string) {
+    this.db.object('data/' + key + '/datos/')
+      .update({ fft09: f });
+  }
+  upf10(f: string, key: string) {
+    this.db.object('data/' + key + '/datos/')
+      .update({ fft10: f });
+  }
+  upf11(f: string, key: string) {
+    this.db.object('data/' + key + '/datos/')
+      .update({ fft11: f });
+  }
+  upfc07(f: string, key: string) {
+    this.db.object('data/' + key + '/datos/')
+      .update({ ffc07: f });
+  }
+
+  /** IndexedDB Offline */
+
+  private registerToEvents(onlineOfflineService: OfflineOnlineService) {
+    onlineOfflineService.connectionChanged.subscribe(online => {
+      if (online) {
+        console.log('went online');
+        console.log('sending all stored items');
+        this.sendItemsFromIndexedDb();
+      } else {
+        console.log('went offline, storing in indexdb');
+      }
+    });
+  }
+
+  private createDatabase() {
+    this.localDb = new Dexie('LocalDB');
+    this.localDb.version(1).stores({
+      clients: 'id'
+    });
+  }
+
+  private addToIndexedDb(client: Client) {
+    this.localDb.clients
+      .add(client)
+      .then(async () => {
+        const allItems: Client[] = await this.localDb.clients.toArray();
+        console.log('saved in DB, DB is now', allItems);
+      })
+      .catch(e => {
+        alert('Error: ' + (e.stack || e));
+      });
+  }
+
+  private async sendItemsFromIndexedDb() {
+    this.GetDataList();
+    const allItems: Client[] = await this.localDb.clients.toArray();
+    allItems.forEach((item: Client) => {
+      this.localDb.clients.delete(item.id).then(() => {
+        this.dataList.push(item);
+        console.log(`item ${item.id} sent and deleted locally`);
+      });
+    });
+  }
+
+  addClientOffline(client: Client) {
+    client.id = UUID.UUID();
+    this.addToIndexedDb(client);
+  }
+
+  public async getDataOffline() {
+    this.dataOffline = await this.localDb.clients.toArray();
+  }
+
+  public getClientOffline(id: string) {
+    this.localDb.clients
+    .get(id)
+    .then(async (client) => {
+      console.log('got it!!' + client.datos.razon);
+      this.clientOffline = client;
+    })
+    .catch(e => {
+      alert('Error: ' + (e.stack || e));
+    });
+  }
+    // if (!this.offlineOnlineService.isOnline) {
+   // }  else {
+     // this.api.AddTodo(client);
+    // }
 }

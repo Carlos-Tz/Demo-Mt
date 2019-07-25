@@ -26,3 +26,16 @@ p {
     position: absolute;
     bottom: 0;
 }
+textarea {
+    width: 100%;
+    font-size: 0.8em;
+    font-family: 'Times New Roman', Times, serif;
+    border: none;
+    resize: none;
+}
+input {
+    border: none;
+    font-size: 1em;
+    font-family: 'Times New Roman', Times, serif;
+    width: calc(100% - 2cm);
+}

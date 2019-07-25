@@ -18,10 +18,14 @@ import { ClientComponent } from './components/client/client.component';
 import { Ft10Component } from './components/ft10/ft10.component';
 import { EditFt10Component } from './components/edit-ft10/edit-ft10.component';
 import { EditClientComponent } from './components/edit-client/edit-client.component';
+import { MainComponent } from './components/main/main.component';
+import { CotizacionComponent } from './components/cotizacion/cotizacion.component';
+import { Ft07Component } from './components/ft07/ft07.component';
+import { EditCotizacionComponent } from './components/edit-cotizacion/edit-cotizacion.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/', pathMatch: 'full'},
-  {path: '', component: PanelComponent},
+  {path: '', component: MainComponent},
   {path: 'ft-01/:key', component: Ft01Component},
   {path: 'fc-07/:key', component: Fc07Component},
   {path: 'ft-02/:key', component: Ft02Component},
@@ -35,10 +39,13 @@ const routes: Routes = [
   {path: 'ft-10/:key', component: Ft10Component},
   {path: 'ft-10/:key/:key2', component: EditFt10Component},
   {path: 'ft-06/:key', component: Ft06Component},
+  {path: 'ft-07/:key', component: Ft07Component},
   {path: 'panel', component: PanelComponent},
-  {path: 'nuevo', component: AddClientComponent},
+  /* {path: 'nuevo', component: AddClientComponent}, */
+  {path: 'nuevo', component: CotizacionComponent},
   {path: 'cliente/:key', component: ClientComponent},
   {path: 'edit-client/:key', component: EditClientComponent},
+  {path: 'edit-coti/:key', component: EditCotizacionComponent},
   {path: 'caratula/:key', component: CaratulaComponent},
 ];
 

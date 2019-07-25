@@ -9,7 +9,7 @@
               <img *ngIf="client" style="width: 100%;" src="{{client.logo}}" alt="">
             </td>
             <td style="border: none;">
-              <p style="text-align: right;"><b *ngIf="client">{{ client.fechai }} </b></p>
+              <p style="text-align: right;"><b *ngIf="client">{{ ff.d }}-{{ mes }}-20{{ ff.a }}</b></p>
             </td>
           </tr>
         </table>
@@ -18,14 +18,15 @@
         <p>Misiones M119, L 31, Fracc. Hacienda Ojo de Agua</p>
         <p> Municipio de Tecamac, Estado de México, CP. 55770.</p><br>
 
-        <p><b>Ing. Héctor Martínez Peña.</b></p>
-        <p class="tab_"><b>Verificador UVSEIE 448 A-</b><b *ngIf="client">{{ client.nocontrol }}/{{ client.anio }}</b>
+        <p><b *ngIf="client">{{ client.nombreuv }}</b></p>
+        <p class="tab_"><b *ngIf="client">{{ client.cargouv }} </b><b>448 A-</b><b
+            *ngIf="client">{{ client.nocontrol }}/{{ ff.a }}</b>
         </p><br><br>
         <p>Para cumplir con la Ley aplicable, por este conducto, SOLICITO a usted la Evaluación de la Conformidad,
           Verificando y determinando el grado de cumplimiento, de la norma oficial mexicana <b>NOM-001-SEDE-2012,</b>
           del
-          Proyecto y Construcción de la instalación eléctrica en <b *ngIf="client">{{ client.tension }}</b> tensión, de
-          <b *ngIf="client" style="text-transform: uppercase">{{ client.razon }}</b> propiedad de:</p>
+          Proyecto y Construcción de la instalación eléctrica en <b *ngIf="client">{{ client.tension }}</b> tensión, de:
+        </p>
         <br>
 
         <p class="tab_"><b>Nombre o razón social: </b><b *ngIf="client"
@@ -35,7 +36,6 @@
         <p class="tab_">Ubicada en: <b *ngIf="client">{{ client.calle }} {{ client.colonia }}, {{ client.munic }}
             {{ client.estado }} C.P. {{ client.cp }}</b></p><br>
 
-        <p>El objetivo de nuestra petición, es: <b *ngIf="client">{{ client.tipos }}</b></p>
         <p>Con una carga instalada de: <b *ngIf="client">{{ client.cargai }}</b> kW </p>
         <p>Alcance de la Verificación: <b *ngIf="client">{{ client.alcance }}</b> kW </p>
         <p>Factor de Demanda: <b *ngIf="client">{{ client.factor }}</b> % Carga demandada:<b
@@ -43,65 +43,64 @@
         <p>Corriente Demandada: <b *ngIf="client">{{ client.corriente }}</b> Amps. <b
             *ngIf="client">{{ client.volts }}</b> V </p>
         <p>Capacidad de subestación: <b *ngIf="client">{{ client.sub }}</b> kVA </p>
-        <p>Área electrificada: <b *ngIf="client">{{ client.area }}</b> m<sup>2</sup></p><br>
-
-        <p>El alcance de la Verificación, es: <b *ngIf="client">{{ client.tension }} tensión</b> por <b
-            *ngIf="client">{{ client.cargai }}</b> kW</p>
+        <p>Área electrificada: <b *ngIf="client">{{ client.area }}</b> m<sup>2</sup></p>
         <p>Existen Áreas Clasificadas como peligrosas:
           <b *ngIf="client"><span *ngIf="client.instal=='peligrosa'">SI</span>
             <span *ngIf="client.instal=='publica'">NO</span></b> (cuando sea el caso anexar el plano de
           clasificación de áreas 7.3).</p>
         <p>Existen Locales con Ambientes Especiales:
           <b *ngIf="client"><span *ngIf="client.ambien=='si'">SI</span>
-            <span *ngIf="client.ambien=='no'">NO</span></b></p><br>
+            <span *ngIf="client.ambien=='no'">NO</span></b></p>
+
+        <p>El objetivo de nuestra petición, es: <input type="text" [(ngModel)]="ft02.obj"></p>
+        <p>El alcance de la Verificación, es: <input type="text" [(ngModel)]="ft02.alcan"></p><br>
 
         <p><b>Anexamos la información de los aspectos técnicos específicos del proyecto eléctrico a verificar:</b></p>
         <br>
-        <p class="tab_">1. Diagrama unifilar (7.1 y/o 7.2).</p>
-        <p class="tab_">2. Cuadro de Distribuciòn de cargas por circuito (7.2 II).</p>
-        <p class="tab_">3. Lista de principales materiales utilizados (7.2 IV).</p>
-        <p class="tab_">4. Lista de principales equipos utilizados (7.2 V).</p>
-        <p class="tab_">5. Croquis de localización del domicilio (7.2 VI).</p>
-        <p class="tab_">6. Lista de cargas (7.2 VII).</p><br>
-        <p><b>Datos del solicitante de la verificaciòn</b> (responsable de la instalación) <b>7.2 III.4:</b></p><br>
-
-        <p>Nombre: <b *ngIf="client" style="text-transform: uppercase">{{ client.nombre }}</b></p>
-        <p>Identificación: <b *ngIf="client">{{ client.id }}</b></p>
-        <p> No. de Identificación o Folio: <b *ngIf="client">{{ client.folio }}</b></p>
-
+        <p class="tab_"><input type="text" [(ngModel)]="ft02.anx1"></p>
+        <p class="tab_"><input type="text" [(ngModel)]="ft02.anx2"></p>
+        <p class="tab_"><input type="text" [(ngModel)]="ft02.anx3"></p>
+        <p class="tab_"><input type="text" [(ngModel)]="ft02.anx4"></p>
+        <p class="tab_"><input type="text" [(ngModel)]="ft02.anx5"></p>
+        <p class="tab_"><input type="text" [(ngModel)]="ft02.anx6"></p><br>
 
       </div>
 
     </div>
-    <div>
-      <button class="volver_ no-print" (click)="goBack()">
-        Volver
-      </button>
-      <button class="imprimir_ no-print" onclick="window.print()">
-        Imprimir
-      </button>
-    </div>
   </section>
-</div>
 
-<div class="app">
+
   <section>
     <div class="page">
-      <div class="inner">        
+      <div class="inner">
         <table style="border: none;">
-            <tr>
-              <td style="border: none; width: 150px;">
-                <img *ngIf="client" style="width: 100%;" src="{{client.logo}}" alt="">
-              </td>    
-              <td style="border: none;"></td>          
-            </tr>
-          </table>
+          <tr>
+            <td style="border: none; width: 150px;">
+              <img *ngIf="client" style="width: 100%;" src="{{client.logo}}" alt="">
+            </td>
+            <td style="border: none;"></td>
+          </tr>
+        </table>
+
+        <p><b>Datos del solicitante de la verificaciòn</b> (responsable de la instalación) <b>7.2 III.4:</b></p><br>
+
+        <p>Nombre: <input type="text" [(ngModel)]="ft02.snom"></p>
+        <p>Identificación: <input type="text" [(ngModel)]="ft02.sid"></p>
+        <p>No. de Identificación o Folio: <input type="text" [(ngModel)]="ft02.sfol"></p>
+        <p>Domicilio: <input type="text" [(ngModel)]="ft02.sdom"></p>
+        <p>CURP: <input type="text" [(ngModel)]="ft02.scur"></p>
+        <p>Tel. Cel: <input type="text" [(ngModel)]="ft02.scel"></p>
+        <p>Correo Electrónico: <input type="text" [(ngModel)]="ft02.scor"></p><br>
 
         <p><b>Datos del responsable de atender a la UVIE tanto en proyecto como en sitio 7.2 III.4:</b></p><br>
 
-        <p>Nombre: <b *ngIf="client" style="text-transform: uppercase">{{ client.nombreuv }}</b></p>
-        <p>Identificación: <b *ngIf="client">{{ client.iduv }}</b></p>
-        <p> No. de Identificación o Folio: <b *ngIf="client">{{ client.foliouv }}</b></p>
+        <p>Nombre: <input type="text" [(ngModel)]="ft02.rnom"></p>
+        <p>Identificación: <input type="text" [(ngModel)]="ft02.rid"></p>
+        <p>No. de Identificación o Folio: <input type="text" [(ngModel)]="ft02.rfol"></p>
+        <p>Domicilio: <input type="text" [(ngModel)]="ft02.rdom"></p>
+        <p>CURP: <input type="text" [(ngModel)]="ft02.rcur"></p>
+        <p>Tel. Cel: <input type="text" [(ngModel)]="ft02.rcel"></p>
+        <p>Correo Electrónico: <input type="text" [(ngModel)]="ft02.rcor"></p>
 
         <table style="border: none; margin-top: 2em;">
           <tr>
@@ -109,8 +108,8 @@
               <p style="text-align: center;">ATENTAMENTE</p>
               <div class="sign" style="margin: 0 auto;">
                 <div class="signature">
-                  <div id="contSign">
-                    <img *ngIf="client" src="{{ client.s2 }}" id="imgSign2">
+                  <div id="contSign" onclick = "btn_click2()">
+                    <img *ngIf="client" src="{{ ft02.s2 }}" id="imgSign2" (load)="imgChanged2($event)">
                   </div>
                 </div>
                 <hr>
@@ -125,4 +124,15 @@
       </div>
     </div>
   </section>
+  <div>
+    <button class="volver_ no-print" (click)="goBack()">
+      Volver
+    </button>
+    <button class="imprimir_ no-print" onclick="window.print()">
+      Imprimir
+    </button>
+    <button class="guardar_ no-print" (click)="submitClientData()">
+      Guardar
+  </button>
+  </div>
 </div>

@@ -6,13 +6,11 @@ table {
 table, th, td {
     border: solid 1px black;
 }
-.table1_ {
-    text-align: center;
-    font-size: 0.7em;
-    height: 2.5cm;
-}
-.table1_ input {
-    width: 1.5cm;
+input {
+    width: 15cm;
+    border: none;
+    font-size: 1em;
+    font-family: 'Times New Roman', Times, serif;
 }
 p {
     font-size: 0.8em;

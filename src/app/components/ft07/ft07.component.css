@@ -1,0 +1,47 @@
+table {
+    width: 100%;    
+    border-collapse: collapse;
+    margin-bottom: 0.2em;
+    border: solid 1px black;
+}
+.table1_ td {
+    border: solid 1px black;
+}
+.table1_ {
+    text-align: center;
+    font-size: 0.7em;
+    height: 2.5cm;
+    margin-bottom: 1.5em;
+}
+.table2_ input {
+    width: calc(100% - 6cm);
+}
+input[type=radio] {
+    margin-left: 0.5em;
+    margin-right: 3em;
+}
+input[type=text] {
+    border-bottom: 1px solid #999;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    width: 2cm;
+    padding: 0 1.5mm;
+}
+textarea {
+    width: 100%;
+    border: none;
+    resize: none;
+    padding: 1.5mm;
+}
+p {
+    font-size: 0.75em;
+    text-align: justify;
+    margin: 1.7mm 2mm;
+}
+.tab_ {
+    padding-left: 7mm;
+}
+.footer_ {
+    font-size: 0.7em;
+}

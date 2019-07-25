@@ -1,0 +1,248 @@
+<app-navbar></app-navbar>
+<div class="app">
+  <form [formGroup]="clientF" autocomplete="off">
+    <section>
+      <div class="page">
+        <div class="inner">
+          <table class="table1_">
+            <tr>
+              <td rowspan="5" style="width: 43%;"><img src="assets/mt.png" style="height: 2.5cm;"></td>
+              <td rowspan="5" style="width: 32%;">
+                <h2>
+                  <b>ACTA DE EVALUACIÓN DE LA CONFORMIDAD</b>
+                </h2>
+
+              </td>
+              <td style="padding-top: 3mm;">CÓDIGO: <b>FT-07</b></td>
+            </tr>
+            <tr>
+              <td>EDICIÓN: <b>1</b></td>
+            </tr>
+            <tr>
+              <td>N. REVISIÓN: <b>3</b></td>
+            </tr>
+            <tr>
+              <td rowspan="2">Vigente a partir de: <br><b>05-Dic-14</b></td>
+            </tr>
+          </table>
+
+          <p>DATOS DEL SOLICITANTE DE LA VERIFICACIÓN:</p>
+          <p style="text-align: right;">Verificación No.: <b *ngIf="client">{{ client.nocontrol }}/{{ client.anio }}</b>
+          </p>
+          <table>
+            <tr>
+              <td>
+                <p>NOMBRE, DENOMINACIÓN O RAZÓN SOCIAL DEL SOLICITANTE:</p>
+                <p> <b *ngIf="client" style="text-transform: uppercase;">{{ client.razon }}</b></p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>ACTIVIDAD: <b *ngIf="client" style="text-transform: uppercase;">{{ client.giro }}</b></p>
+              </td>
+            </tr>
+          </table>
+          <table>
+            <tr>
+              <td colspan="2">
+                <p>DOMICILIO DE LA INSTALACIÓN ELÉCTRICA:</p>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <p>CALLE O AVENIDA: <b *ngIf="client">{{ client.calle }}</b></p>
+              </td>
+            </tr>
+            <tr>
+            <tr>
+              <td colspan="2">
+                <p>COLONIA O POBLACIÓN: <b *ngIf="client">{{ client.colonia }}</b></p>
+              </td>
+            </tr>
+            <tr>
+            <tr>
+              <td colspan="2">
+                <p>MUNICIPIO O DELEGACIÓN: <b *ngIf="client">{{ client.munic }}</b></p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>CIUDAD O ESTADO: <b *ngIf="client">{{ client.estado }}</b></p>
+              </td>
+              <td>
+                <p>C.P: <b *ngIf="client">{{ client.cp }}</b></p>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <p>TELÉFONO: <b *ngIf="client">{{ client.tel }}</b></p>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <p>CORREO ELECTRÓNICO: <b *ngIf="client">{{ client.correo }}</b></p>
+              </td>
+            </tr>
+          </table>
+          <table>
+            <tr>
+              <td>
+                <p>NOMBRE Y CARGO DE LA PERSONA QUE ATENDIÓ LA VISITA DE VERIFICACIÓN:</p>
+                <textarea rows="3"></textarea>
+              </td>
+            </tr>
+          </table>
+
+          <br>
+          <p>DATOS DE LA VISITA DE VERIFICACIÓN:</p>
+          <table>
+            <tr>
+              <td>
+                <p>OBJETO DE LA VISITA DE VERIFICACIÓN</p>
+                <textarea rows="4"></textarea>
+              </td>
+            </tr>
+          </table>
+          <table>
+            <tr>
+              <td>
+                <p>FECHA DE LA VISITA DE VERIFICACIÓN DIA: <input type="text"> MES: <input type="text"> AÑO: <input
+                    type="text"></p>
+                <p>HORA DE INICIO: <input type="text"> HORA DE TERMINO: <input type="text"></p>
+              </td>
+            </tr>
+          </table>
+          <table>
+            <tr>
+              <td>
+                <p>DESARROLLO DE LA VISITA DE VERIFICACIÓN: </p>
+                <p>Circunstancias en las que se efectúa la verificación</p>
+                <textarea rows="11"></textarea>
+              </td>
+            </tr>
+          </table>
+        </div>
+
+      </div>
+
+    </section>
+
+    <section>
+      <div class="page">
+        <div class="inner">
+          <table class="table1_">
+            <tr>
+              <td rowspan="5" style="width: 43%;"><img src="assets/mt.png" style="height: 2.5cm;"></td>
+              <td rowspan="5" style="width: 32%;">
+                <h2>
+                  <b>ACTA DE EVALUACIÓN DE LA CONFORMIDAD</b>
+                </h2>
+
+              </td>
+              <td style="padding-top: 3mm;">CÓDIGO: <b>FT-07</b></td>
+            </tr>
+            <tr>
+              <td>EDICIÓN: <b>1</b></td>
+            </tr>
+            <tr>
+              <td>N. REVISIÓN: <b>3</b></td>
+            </tr>
+            <tr>
+              <td rowspan="2">Vigente a partir de: <br><b>05-Dic-14</b></td>
+            </tr>
+          </table>
+          <table>
+              <tr>
+                <td>
+                  <p>No Conformidades Encontradas:</p>
+                  <textarea rows="4"></textarea>
+                </td>
+              </tr>
+            </table>
+            <table>
+              <tr>
+                <td>
+                  <p>OBSERVACIONES DE LA PERSONA QUE ATENDIO LA VISITA DE VERIFICACIÓN:</p>
+                  <textarea rows="3"></textarea>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>Acciones realizadas y documentación ofrecida con respecto a lo asentado en el desarrollo de la visita de verificación:</p>
+                  <textarea rows="2"></textarea>
+                </td>
+              </tr>
+            </table>
+            <p>FIRMAS DE LOS QUE INTERVINIERON EN LA DILIGENCIA</p>
+            <table>
+              <tr>
+                <td>
+                  <p>Unidad de verificación de Instalaciones Eléctricas: <b *ngIf="client" style="text-transform: uppercase;">{{ client.nombreuv }}</b></p>
+                  <p>No. Registro: <b>UVSEIE 448-A-{{ client.nocontrol }}/{{ client.anio }}</b></p>
+                </td>
+                <td>
+                  Firma
+                </td>
+              </tr>              
+            </table>
+             <table class="table2_">
+              <tr>
+                <td>
+                  <p>Datos de la persona que atendió la visita</p>
+                  <p>Nombre: <input type="text"></p>
+                  <p>Identificación: <input type="text"></p>
+                  <p>Número o folio de la identificación: <input type="text"></p>
+                  <p>Expedida por: <input type="text"></p>
+                  <p>Dirección: <input type="text"></p>
+                </td>
+                <td>
+                  Firma
+                </td>
+              </tr>
+            </table>
+             <table class="table2_">
+                <tr>
+                  <td>
+                    <p>Datos del Testigo</p>
+                    <p>Nombre: <input type="text"></p>
+                    <p>Identificación: <input type="text"></p>
+                    <p>Número o folio de la identificación: <input type="text"></p>
+                    <p>Expedida por: <input type="text"></p>
+                    <p>Dirección: <input type="text"></p>
+                  </td>
+                  <td>
+                    Firma
+                  </td>
+                </tr>
+              </table>
+               <table class="table2_">
+              <tr>
+                <td>
+                  <p>Datos del Testigo</p>
+                  <p>Nombre: <input type="text"></p>
+                  <p>Identificación: <input type="text"></p>
+                  <p>Número o folio de la identificación: <input type="text"></p>
+                  <p>Expedida por: <input type="text"></p>
+                  <p>Dirección: <input type="text"></p>
+                </td>
+                <td>
+                  Firma
+                </td>
+              </tr>
+            </table>
+        </div>
+      </div>
+    </section>
+  </form>
+  <div>
+    <button class="volver_ no-print" (click)="goBack()">
+      Volver
+    </button>
+    <button class="imprimir_ no-print" onclick="window.print()">
+      Imprimir
+    </button>
+    <button class="guardar_ no-print" (click)="submitClientData()">
+      Guardar
+    </button>
+  </div>
+</div>

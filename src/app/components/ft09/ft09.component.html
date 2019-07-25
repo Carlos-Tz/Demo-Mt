@@ -141,21 +141,11 @@
             <td><input type="radio" formControlName="cu12" value="no"  [(ngModel)]="ft09.cu12"></td>
             <td><textarea rows="3" formControlName="o12" [(ngModel)]="ft09.o12"></textarea></td>
           </tr>
-          <tr>
-            <td><textarea rows="3" formControlName="mt13" [(ngModel)]="ft09.mt13"></textarea></td>
-            <td><textarea rows="3" formControlName="mc13" [(ngModel)]="ft09.mc13"></textarea></td>
-            <td><textarea rows="3" formControlName="c13" [(ngModel)]="ft09.c13"></textarea></td>
-            <td><input type="radio" formControlName="cu13" value="na"  [(ngModel)]="ft09.cu13"></td>
-            <td><input type="radio" formControlName="cu13" value="si"  [(ngModel)]="ft09.cu13"></td>
-            <td><input type="radio" formControlName="cu13" value="no"  [(ngModel)]="ft09.cu13"></td>
-            <td><textarea rows="3" formControlName="o13" [(ngModel)]="ft09.o13"></textarea></td>
-          </tr>
+          
         </table>
         <div style="position: absolute; bottom: 0; font-size: 0.8em;">
-          <p>Verificación número: UVSEIE 448 A-<b *ngIf="client">{{ client.nocontrol }}/{{ client.anio }}</b></p>
-          <p>Fecha: <b *ngIf="client" style="margin-right: 3em;">{{ client.dia }}/{{ client.mes }}/{{ client.anio }}
-            </b> Verificador: Ing.
-            Héctor Martínez Peña</p>
+          <p>Verificación número: UVSEIE 448-A-<b *ngIf="client">{{ client.nocontrol }}/{{ ff.a }}</b></p>
+          <p>Fecha: <b *ngIf="client" style="margin-right: 3em;">{{ ff.d }}/{{ month }}/{{ ff.a }} </b><b *ngIf="client">{{ client.cargouv }}: </b>        <b *ngIf="client"> {{ client.nombreuv }}</b></p>
         </div>
       </div>
 
@@ -206,6 +196,15 @@
               <th class="colm_">CUMPLE</th>
               <th class="colm_">NO CUMPLE</th>
               <th>OBSERVACIONES</th>
+            </tr>
+            <tr>
+              <td><textarea rows="3" formControlName="mt13" [(ngModel)]="ft09.mt13"></textarea></td>
+              <td><textarea rows="3" formControlName="mc13" [(ngModel)]="ft09.mc13"></textarea></td>
+              <td><textarea rows="3" formControlName="c13" [(ngModel)]="ft09.c13"></textarea></td>
+              <td><input type="radio" formControlName="cu13" value="na"  [(ngModel)]="ft09.cu13"></td>
+              <td><input type="radio" formControlName="cu13" value="si"  [(ngModel)]="ft09.cu13"></td>
+              <td><input type="radio" formControlName="cu13" value="no"  [(ngModel)]="ft09.cu13"></td>
+              <td><textarea rows="3" formControlName="o13" [(ngModel)]="ft09.o13"></textarea></td>
             </tr>
             <tr>
               <td><textarea rows="3" formControlName="mt14" [(ngModel)]="ft09.mt14"></textarea></td>
@@ -306,7 +305,7 @@
               <td><input type="radio" formControlName="cu24" value="no"  [(ngModel)]="ft09.cu24"></td>
               <td><textarea rows="3" formControlName="o24" [(ngModel)]="ft09.o24"></textarea></td>
             </tr>
-            <tr>
+            <!-- <tr>
               <td><textarea rows="3" formControlName="mt25" [(ngModel)]="ft09.mt25"></textarea></td>
               <td><textarea rows="3" formControlName="mc25" [(ngModel)]="ft09.mc25"></textarea></td>
               <td><textarea rows="3" formControlName="c25" [(ngModel)]="ft09.c25"></textarea></td>
@@ -323,13 +322,11 @@
               <td><input type="radio" formControlName="cu26" value="si"  [(ngModel)]="ft09.cu26"></td>
               <td><input type="radio" formControlName="cu26" value="no"  [(ngModel)]="ft09.cu26"></td>
               <td><textarea rows="3" formControlName="o26" [(ngModel)]="ft09.o26"></textarea></td>
-            </tr>
+            </tr> -->
           </table>
           <div style="position: absolute; bottom: 0; font-size: 0.8em;">
-            <p>Verificación número: UVSEIE 448 A-<b *ngIf="client">{{ client.nocontrol }}/{{ client.anio }}</b></p>
-            <p>Fecha: <b *ngIf="client" style="margin-right: 3em;">{{ client.dia }}/{{ client.mes }}/{{ client.anio }}
-              </b> Verificador: Ing.
-              Héctor Martínez Peña</p>
+            <p>Verificación número: UVSEIE 448-A-<b *ngIf="client">{{ client.nocontrol }}/{{ ff.a }}</b></p>
+            <p>Fecha: <b *ngIf="client" style="margin-right: 3em;">{{ ff.d }}/{{ month }}/{{ ff.a }} </b><b *ngIf="client">{{ client.cargouv }}: </b>        <b *ngIf="client"> {{ client.nombreuv }}</b></p>
           </div>
         </div>
   

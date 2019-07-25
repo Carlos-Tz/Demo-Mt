@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./ft08incie1.component.css']
 })
 export class Ft08incie1Component implements OnInit {
-  public clientF: FormGroup;
+  // public clientF: FormGroup;
   public key = '';
   public client: {
     razon: '',
@@ -23,19 +23,19 @@ export class Ft08incie1Component implements OnInit {
     cp: '',
     anio: '',
     mes: '',
-    dia: ''
+    dia: '',
+    nombreuv: '',
+    cargouv: ''
   };
   public ft081 = {
-    p: '',
-    me: '',
-    in: '',
-    pr: '',
-    n1: '',
-    n2: '',
-    n3: '',
-    n4: '',
-    n5: '',
-    n6: '',
+    tipo: '',
+    desc: '',
+    n1: null,
+    n2: null,
+    n3: null,
+    n4: null,
+    n5: null,
+    n6: null,
     d1: '',
     d2: '',
     d3: '',
@@ -69,10 +69,10 @@ export class Ft08incie1Component implements OnInit {
   };
 
   constructor(
-    private toastr: ToastrService,
     private clientApi: ClientService,
     private location: Location,
     private fb: FormBuilder,
+    private toastr: ToastrService,
     private actRoute: ActivatedRoute
   ) { }
 
@@ -81,19 +81,23 @@ export class Ft08incie1Component implements OnInit {
     if (this.clientApi.clientObject) {
       this.clientApi.clientObject.valueChanges().subscribe(data => {
         this.client = data.datos;
+        /* if (this.client.fft03) {
+          this.ff = this.clientApi.splitDate(this.client.fft03);
+          this.mes = this.monthToName(this.ff.m);
+        } */
         if (data.ft08i1) {
           this.ft081 = data.ft08i1;
         }
       });
     }
-    this.form();
+   // this.form();
   }
 
   goBack = () => {
     this.location.back();
   }
 
-  form() {
+  /* form() {
     this.clientF = this.fb.group({
       p: [''],
       me: [''],
@@ -136,10 +140,10 @@ export class Ft08incie1Component implements OnInit {
       fs5: [''],
       fs6: ['']
     });
-  }
+  } */
 
   submitClientData = () => {
-    this.clientApi.UpdateFt08INCIE1(this.clientF.value, this.key);
+    this.clientApi.UpdateFt08INCIE1(this.ft081, this.key);
     this.toastr.success('Actualizado!');
   }
 }

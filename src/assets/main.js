@@ -94,3 +94,20 @@ function resizeCanvas3() {
 window.addEventListener("resize", resizeCanvas);
 window.addEventListener("resize2", resizeCanvas2);
 window.addEventListener("resize3", resizeCanvas3);
+
+document.addEventListener('keypress', function(evt) {
+    if (evt.key !== 'Enter') {
+      return;
+    }
+  
+    let element = evt.target;
+    if (!element.classList.contains('focusNext')) {
+      return;
+    }
+    let tabIndex = element.tabIndex + 1;
+    var next = document.querySelector('[tabindex="'+tabIndex+'"]');
+    if (next) {
+      next.focus();
+      event.preventDefault();
+    }
+  });
