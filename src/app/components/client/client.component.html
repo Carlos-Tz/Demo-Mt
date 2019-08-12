@@ -122,25 +122,81 @@
         </div>
       </div>
       <div class="incpe">
-        <div class="mini-page">
-          <p>FT-08</p>
+        <div class="mini-page"  style="height: 2cm;">
+          <p>NUEVO FORMATO</p>
           <table>
             <tr>
               <td>
-                Nuevo Informe FT-08 
-                <select name="n-ft08"[(ngModel)]="newF.tipo">
-                  <option value="INCPE">INCPE</option>
-                  <option value="INCIE">INCIE</option>
+              Tipo: 
+                <select name="n-ft08" [(ngModel)]="newF.tipo">
+                  <option value="PEC">FT-08 INCPE</option>
+                  <option value="NOM">FT-08 INCIE</option>
+                  <option value="RTPE">FT-15 RTPE</option>
+                  <option value="AECIE">FT-07 AECIE</option>
                 </select>
                 Fecha: <input type="date" [(ngModel)]="newF.fecha">
               </td>
               <td class="rigth_">
                 <img src="assets/add_.svg" (click)="addForm()">
-                <img src="assets/eye.svg" [routerLink]="['/ft-08INCIE1/', key]">
+                <!-- <img src="assets/eye.svg" [routerLink]="['/ft-081/', key]"> -->
               </td>
             </tr>
           </table>
         </div>
+        <div *ngFor="let ft of ft81List; let i=index;" class="mini-page"  [ngClass]="{'green':ft.fecha, 'gray':!ft.fecha}">
+            <p> FT-08 INCIE{{ ft.id_ }}</p>
+            <table>
+              <tr>
+                <td><img src="assets/save.svg" (click)="updateFt81(ft, key)"></td>
+                <td>Fecha: <input type="date" [(ngModel)]="ft.fecha"></td>
+                <td class="rigth_">                  
+                  <img *ngIf="!off" src="assets/eye.svg" [routerLink]="['/ft-081/', key, ft.$key, ft.tipo]" >
+                  <img *ngIf="off" src="assets/eye.svg" [routerLink]="['/ft-081/', key, ft.id, ft.tipo]" >
+                </td>
+              </tr>
+            </table>
+        </div>
+        <div *ngFor="let ft of ft82List; let i=index;" class="mini-page"  [ngClass]="{'green':ft.fecha, 'gray':!ft.fecha}">
+          <p>FT-08 INCPE{{ ft.id_ }}</p>
+          <table>
+            <tr>
+              <td><img src="assets/save.svg" (click)="updateFt82(ft, key)"></td>
+              <td>Fecha: <input type="date" [(ngModel)]="ft.fecha"></td>
+              <td class="rigth_">                  
+                <img *ngIf="!off" src="assets/eye.svg" [routerLink]="['/ft-081/', key, ft.$key, ft.tipo]">
+                <img *ngIf="off" src="assets/eye.svg" [routerLink]="['/ft-081/', key, ft.id, ft.tipo]">
+              </td>
+            </tr>
+          </table>
+      </div>
+      <div *ngIf="ft07List">
+      <div *ngFor="let ft of ft07List; let i=index;" class="mini-page"  [ngClass]="{'green':ft.fecha, 'gray':!ft.fecha}">
+        <p>FT-07 AECIE{{ ft.id_ }}</p>
+        <table>
+          <tr>
+            <td><img src="assets/save.svg" (click)="updateFt07(ft, key)"></td>
+            <td>Fecha: <input type="date" [(ngModel)]="ft.fecha"></td>
+            <td class="rigth_">                  
+              <img *ngIf="!off" src="assets/eye.svg" [routerLink]="['/ft-07/', key, ft.$key, ft.tipo]">
+              <img *ngIf="off" src="assets/eye.svg" [routerLink]="['/ft-07/', key, ft.id, ft.tipo]">
+            </td>
+          </tr>
+        </table>
+    </div>
+      </div>
+    <div *ngFor="let ft of ft15List; let i=index;" class="mini-page"  [ngClass]="{'green':ft.fecha, 'gray':!ft.fecha}">
+      <p>FT-15 RTPE{{ ft.id_ }}</p>
+      <table>
+        <tr>
+          <td><img src="assets/save.svg" (click)="updateFt15(ft, key)"></td>
+          <td>Fecha: <input type="date" [(ngModel)]="ft.fecha"></td>
+          <td class="rigth_">                  
+            <img *ngIf="!off" src="assets/eye.svg" [routerLink]="['/ft-07/', key, ft.$key, ft.tipo]">
+            <img *ngIf="off" src="assets/eye.svg" [routerLink]="['/ft-07/', key, ft.id, ft.tipo]">
+          </td>
+        </tr>
+      </table>
+  </div>
       </div>
       <div class="incie">
 
@@ -148,26 +204,6 @@
 
 
     </div>
-    <!-- <div class="mini-content">
-      
-      <div class="mini-page" [routerLink]="['/ft-08INCIE1/', key]">
-        <div class="inner">
-          <p>FT-08<br>INCIE1</p>
-        </div>
-      </div>
-      <div class="mini-page" [routerLink]="['/ft-08INCIE2/', key]">
-        <div class="inner">
-          <p>FT-08<br>INCIE2</p>
-        </div>
-      </div>
-      <div class="mini-page" [routerLink]="['/ft-08INCPE/', key]">
-        <div class="inner">
-          <p>FT-08<br>INCPE</p>
-        </div>
-      </div>
-
-    </div> -->
-    
     
   </section>
   <div>

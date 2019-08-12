@@ -5,6 +5,7 @@ import { Location } from '@angular/common';
 import { Datos } from 'src/app/models/datos';
 import { ToastrService } from 'ngx-toastr';
 import { ActivatedRoute } from '@angular/router';
+import { OfflineOnlineService } from 'src/app/services/offline-online.service';
 
 @Component({
   selector: 'app-ft01',
@@ -46,19 +47,35 @@ export class Ft01Component implements OnInit {
     private clientApi: ClientService,
     private location: Location,
     private toastr: ToastrService,
-    private actRoute: ActivatedRoute
+    private actRoute: ActivatedRoute,
+    private readonly offlineOnlineService: OfflineOnlineService
   ) { }
 
   ngOnInit() {
     this.key = this.actRoute.snapshot.paramMap.get('key');
-    if (this.clientApi.clientObject) {
-      this.clientApi.clientObject.valueChanges().subscribe(data => {
-        this.client = data.datos;
+    if (this.offlineOnlineService.isOnline) {
+      if (this.clientApi.clientObject) {
+        this.clientApi.clientObject.valueChanges().subscribe(data => {
+          this.client = data.datos;
+          this.month = this.clientApi.monthToRoman(this.client.mes);
+          if (!this.client.fpago) { this.client.fpago = 'Las actuales con la empresa.'; }
+          if (!this.client.vigencia) { this.client.vigencia = '30 días naturales.'; }
+          // tslint:disable-next-line: max-line-length
+          if (!this.client.intro) { this.client.intro = '   En respuesta a su amable solicitud de cotización, estoy poniendo a su consideración el presupuesto relativo a la verificación de sus instalaciones eléctricas en baja tensión; conforme a la NOM-001-SEDE-2012, Instalaciones eléctricas (utilización).'; }
+        });
+      }
+    } else {
+      this.clientApi.localDb.clients
+      .get(this.key).then(async (client) => {
+        this.client = client.datos;
         this.month = this.clientApi.monthToRoman(this.client.mes);
-        if (!this.client.fpago) { this.client.fpago = 'Las actuales con la empresa.'; }
-        if (!this.client.vigencia) { this.client.vigencia = '30 días naturales.'; }
-        // tslint:disable-next-line: max-line-length
-        if (!this.client.intro) { this.client.intro = 'En respuesta a su amable solicitud de cotización, estoy poniendo a su consideración el presupuesto relativo a la verificación de sus instalaciones eléctricas en baja tensión; conforme a la NOM-001-SEDE-2012, Instalaciones eléctricas (utilización).'; }
+          if (!this.client.fpago) { this.client.fpago = 'Las actuales con la empresa.'; }
+          if (!this.client.vigencia) { this.client.vigencia = '30 días naturales.'; }
+          // tslint:disable-next-line: max-line-length
+          if (!this.client.intro) { this.client.intro = '   En respuesta a su amable solicitud de cotización, estoy poniendo a su consideración el presupuesto relativo a la verificación de sus instalaciones eléctricas en baja tensión; conforme a la NOM-001-SEDE-2012, Instalaciones eléctricas (utilización).'; }
+      })
+      .catch(e => {
+        this.toastr.warning('Intentalo de nuevo!!');
       });
     }
   }

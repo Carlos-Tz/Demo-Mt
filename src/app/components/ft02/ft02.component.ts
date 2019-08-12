@@ -4,6 +4,7 @@ import { ClientService } from 'src/app/services/client.service';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { OfflineOnlineService } from 'src/app/services/offline-online.service';
 
 @Component({
   selector: 'app-ft02',
@@ -69,6 +70,7 @@ export class Ft02Component implements OnInit {
     scur: '',
     scel: '',
     scor: '',
+    rnom: '',
     rid: '',
     rfol: '',
     rdom: '',
@@ -82,20 +84,42 @@ export class Ft02Component implements OnInit {
     private clientApi: ClientService,
     private location: Location,
     private toastr: ToastrService,
-    private actRoute: ActivatedRoute
+    private actRoute: ActivatedRoute,
+    private readonly offlineOnlineService: OfflineOnlineService
   ) { }
 
   ngOnInit() {
     this.key = this.actRoute.snapshot.paramMap.get('key');
-    if (this.clientApi.clientObject) {
-      this.clientApi.clientObject.valueChanges().subscribe(data => {
-        this.client = data.datos;
+    if (this.offlineOnlineService.isOnline) {
+      if (this.clientApi.clientObject) {
+        this.clientApi.clientObject.valueChanges().subscribe(data => {
+          this.client = data.datos;
+          if (this.client.fft02) {
+            this.ff = this.clientApi.splitDate(this.client.fft02);
+            this.mes = this.monthToName(this.ff.m);
+          }
+          if (data.ft02) {
+            this.ft02 = data.ft02;
+          } else {
+            this.ft02.anx1 = '1. Diagrama unifilar (7.1 y/o 7.2).';
+            this.ft02.anx2 = '2. Cuadro de Distribuciòn de cargas por circuito (7.2 II).';
+            this.ft02.anx3 = '3. Lista de principales materiales utilizados (7.2 IV).';
+            this.ft02.anx4 = '4. Lista de principales equipos utilizados (7.2 V).';
+            this.ft02.anx5 = '5. Croquis de localización del domicilio (7.2 VI).';
+            this.ft02.anx6 = '6. Lista de cargas (7.2 VII).';
+          }
+        });
+      }
+    } else {
+      this.clientApi.localDb.clients
+      .get(this.key).then(async (client) => {
+        this.client = client.datos;
         if (this.client.fft02) {
           this.ff = this.clientApi.splitDate(this.client.fft02);
           this.mes = this.monthToName(this.ff.m);
         }
-        if (data.ft02) {
-          this.ft02 = data.ft02;
+        if (client.ft02) {
+          this.ft02 = client.ft02;
         } else {
           this.ft02.anx1 = '1. Diagrama unifilar (7.1 y/o 7.2).';
           this.ft02.anx2 = '2. Cuadro de Distribuciòn de cargas por circuito (7.2 II).';
@@ -104,6 +128,9 @@ export class Ft02Component implements OnInit {
           this.ft02.anx5 = '5. Croquis de localización del domicilio (7.2 VI).';
           this.ft02.anx6 = '6. Lista de cargas (7.2 VII).';
         }
+      })
+      .catch(e => {
+        this.toastr.warning('Intentalo de nuevo!!');
       });
     }
   }

@@ -3,8 +3,8 @@ import { Client } from '../models/client';
 import { AngularFireDatabase, AngularFireList, AngularFireObject } from '@angular/fire/database';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
-import { Fecha } from '../models/fecha';
-import { Signs } from '../models/signs';
+// import { Fecha } from '../models/fecha';
+// import { Signs } from '../models/signs';
 import { F05 } from '../models/f05';
 import { F06 } from '../models/f06';
 import { F07 } from '../models/f07';
@@ -18,25 +18,30 @@ import { UUID } from 'angular2-uuid';
 import Dexie from 'dexie';
 import { F02 } from '../models/f02';
 import { F03 } from '../models/f03';
-/* import { F082 } from '../models/f082';
-import { F08E } from '../models/f08-e'; */
+import { Ft7 } from '../models/ft7';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ClientService {
-  private localDb: any;
+  public localDb: any;
   public dataOffline: Client[] = [];
   public clientOffline: Client;
   // public clientsList: AngularFireList<any>;
   public dataList: AngularFireList<any>;
   public ft10List: AngularFireList<any>;
+  public ft81List: AngularFireList<any>;
+  public ft82List: AngularFireList<any>;
+  public ft07List: AngularFireList<any>;
+  public ft15List: AngularFireList<any>;
   public ft10: F10[];
   public clientObject: AngularFireObject<any>;
   public f10Object: AngularFireObject<any>;
+  public f81Object: AngularFireObject<any>;
+  public f07Object: AngularFireObject<any>;
   public f10 = [
     {
-      id: 1,
+      id_: 1,
       nom: '',
       tex: '110 Requisitos generales',
       tip: '',
@@ -45,7 +50,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 2,
+      id_: 2,
       nom: '110-2',
       tex: 'Aprobación',
       tip: 'O',
@@ -54,7 +59,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 3,
+      id_: 3,
       nom: '110-3 b)',
       tex: 'Evaluación, identificación, instalación y uso del equipo',
       tip: '',
@@ -63,7 +68,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 4,
+      id_: 4,
       nom: '110-7',
       tex: 'Integridad de aislamiento',
       tip: 'O,M',
@@ -72,7 +77,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 5,
+      id_: 5,
       nom: '110-9',
       tex: 'Corriente de interrupción',
       tip: 'O',
@@ -81,7 +86,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 6,
+      id_: 6,
       nom: '110-12',
       tex: 'Ejecución mecánica de los trabajos',
       tip: 'O',
@@ -90,7 +95,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 7,
+      id_: 7,
       nom: '10-12 a )',
       tex: 'Aberturas no utilizadas',
       tip: 'O',
@@ -99,7 +104,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 8,
+      id_: 8,
       nom: '110-13',
       tex: 'Montaje y enfriamiento del equipo',
       tip: 'O',
@@ -108,7 +113,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 9,
+      id_: 9,
       nom: '110-14 a ) 110-14 b) 110-14 c )',
       tex: 'Conexiones eléctricas terminales y empalmes Limitaciones de temperatura',
       tip: 'O',
@@ -118,7 +123,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 10,
+      id_: 10,
       nom: '110-16',
       tex: 'Señales de advertencia contra arco eléctrico',
       tip: '',
@@ -128,7 +133,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 11,
+      id_: 11,
       nom: '110-26',
       tex: 'Espacio de trabajo',
       tip: 'O',
@@ -137,7 +142,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 12,
+      id_: 12,
       nom: '110-22',
       tex: 'Identificación de los medios de desconexión',
       tip: 'O',
@@ -146,7 +151,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 13,
+      id_: 13,
       nom: '110-31',
       tex: 'Envolventes de las instalaciones eléctricas',
       tip: '',
@@ -155,7 +160,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 14,
+      id_: 14,
       nom: '',
       tex: '210 Circuitos derivados',
       tip: '',
@@ -164,7 +169,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 15,
+      id_: 15,
       nom: '210-3',
       tex: 'Clasificación',
       tip: 'O',
@@ -173,7 +178,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 16,
+      id_: 16,
       nom: '210-5',
       tex: 'Identificación de los circuitos derivados',
       tip: 'O',
@@ -183,7 +188,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 17,
+      id_: 17,
       nom: '210-19 210-20',
       tex: 'Conductores tamaño nominal Protección contra sobre-corriente',
       tip: 'O',
@@ -192,7 +197,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 18,
+      id_: 18,
       nom: '210-21 210-24',
       tex: 'Dispositivos de salida Requisitos de los circuitos derivados- resumen',
       tip: 'O',
@@ -201,7 +206,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 19,
+      id_: 19,
       nom: '220-12',
       tex: 'Cargas de alumbrado para lugares especificos',
       tip: 'O',
@@ -210,7 +215,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 20,
+      id_: 20,
       nom: '210-23',
       tex: 'Cargas permisibles',
       tip: 'D',
@@ -219,7 +224,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 21,
+      id_: 21,
       nom: '',
       tex: '215 Alimentadores',
       tip: '',
@@ -228,7 +233,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 22,
+      id_: 22,
       nom: '215-2',
       tex: 'Capacidad nominal y tamaño mínimo del conductor',
       tip: 'O',
@@ -237,7 +242,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 23,
+      id_: 23,
       nom: '215-3 220-12',
       tex: 'Protección contra sobre-corriente Capacidad de conducción de corriente',
       tip: 'O',
@@ -246,7 +251,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 24,
+      id_: 24,
       nom: '220-12 220-61',
       tex: 'Capacidad de conducción de corriente Carga del neutro del alimentador',
       tip: 'D',
@@ -255,7 +260,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 25,
+      id_: 25,
       nom: '215-5',
       tex: 'Diagrama Unifilar de Alimentadores',
       tip: 'O',
@@ -264,7 +269,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 26,
+      id_: 26,
       nom: '215-10 230-95',
       tex: 'Protección a tierra Protección del equipo contra falla a tierra',
       tip: 'O',
@@ -273,7 +278,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 27,
+      id_: 27,
       nom: '',
       tex: '225 Circuitos Derivados y Alimentadores Exteriores',
       tip: '',
@@ -282,7 +287,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 28,
+      id_: 28,
       nom: '225-10 225-20 225-22',
       // tslint:disable-next-line: max-line-length
       tex: 'Alambrado de los edificios Protección mecánica de los conductores Canalizaciones sobre las superficies externas de las construcciones',
@@ -293,7 +298,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 29,
+      id_: 29,
       nom: '225-15 225-18',
       tex: 'Soporte sobre edificios Libramiento para conductores y cables aéreos',
       tip: 'O',
@@ -302,7 +307,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 30,
+      id_: 30,
       nom: '240-4 240-21 240-21 b) 1)',
       tex: 'Protección de los conductores Ubicación en el circuito Derivaciones no mayores a 3.0 m de largo',
       tip: 'O',
@@ -311,7 +316,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 31,
+      id_: 31,
       nom: '',
       tex: '230 Acometidas',
       tip: '',
@@ -320,7 +325,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 32,
+      id_: 32,
       nom: '230-8',
       tex: 'Aplicado de Selladores en las canalizaciones',
       tip: 'O',
@@ -329,7 +334,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 33,
+      id_: 33,
       nom: '230-24 230-26 230-27',
       tex: 'Libramientos Punto de sujeción Medios de sujeción',
       tip: 'O',
@@ -339,7 +344,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 34,
+      id_: 34,
       nom: '230-32 230-50 a)',
       tex: 'Protección contra daños Protección contra daño físico en acometidas subterráneos',
       tip: 'O',
@@ -348,7 +353,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 35,
+      id_: 35,
       nom: '230-23 230-31 230-42',
       tex: 'Tamaño y ampacidad del conductor',
       tip: 'O',
@@ -357,7 +362,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 36,
+      id_: 36,
       nom: '230-82 250-24 b)',
       tex: 'Equipo conectado en el lado línea del medio de desconexión de los conductores de recepción del suministro',
       tip: 'O',
@@ -366,7 +371,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 37,
+      id_: 37,
       nom: '230-24 230-208 230-66',
       tex: 'Espacio de trabajo Requisitos de protección contra sobrecorriente Marcado',
       tip: 'O',
@@ -376,7 +381,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 38,
+      id_: 38,
       nom: '230-79 230-80',
       tex: 'Capacidad del equipo de desconexión Capacidades combinadas de los medios de desconexión',
       tip: 'O',
@@ -385,7 +390,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 39,
+      id_: 39,
       nom: '',
       tex: '240 Protección contra Sobrecorriente',
       tip: '',
@@ -394,7 +399,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 40,
+      id_: 40,
       nom: '240-4',
       tex: 'Protección de los conductores',
       tip: 'O',
@@ -403,7 +408,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 41,
+      id_: 41,
       nom: '240-12',
       tex: 'Coordinación del sistema eléctrico',
       tip: 'O',
@@ -412,7 +417,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 42,
+      id_: 42,
       nom: '240-15',
       tex: 'Conductores de fase',
       tip: 'O',
@@ -421,7 +426,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 43,
+      id_: 43,
       nom: '240-21',
       tex: 'Ubicación en el circuito',
       tip: 'O',
@@ -430,7 +435,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 44,
+      id_: 44,
       nom: '240-30 a)',
       tex: 'Protección contra daño físico',
       tip: 'O',
@@ -439,7 +444,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 45,
+      id_: 45,
       nom: '240-83 c)',
       tex: 'Valor nominal de interrupción',
       tip: 'O',
@@ -448,7 +453,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 46,
+      id_: 46,
       nom: '240-90',
       tex: 'General',
       tip: 'O',
@@ -457,7 +462,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 47,
+      id_: 47,
       nom: '240-100',
       tex: 'Alimentadores y circuitos derivados',
       tip: 'O',
@@ -466,7 +471,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 48,
+      id_: 48,
       nom: '',
       tex: '250 Puesta a tierra Conexión equipotencial de la acometida',
       tip: '',
@@ -475,7 +480,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 49,
+      id_: 49,
       nom: '250-24',
       tex: 'Puesta a tierra de sistemas de corriente alterna alimentados por una acometida',
       tip: 'O',
@@ -484,7 +489,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 50,
+      id_: 50,
       nom: '250-28',
       tex: 'Puente unión principal y puente de unión del sistema',
       tip: 'O',
@@ -493,7 +498,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 51,
+      id_: 51,
       nom: '250-80 250-92',
       tex: 'Canalizaciones y envolventes de acometida. Unión de equipos de acometidas',
       tip: 'O',
@@ -502,7 +507,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 52,
+      id_: 52,
       nom: '250-50',
       tex: 'Sistema de electrodos de puesta a tierra',
       tip: 'O',
@@ -512,7 +517,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 53,
+      id_: 53,
       nom: '250-53',
       tex: 'Instalación del sistema de electrodo de puesta a tierra',
       tip: 'O',
@@ -521,7 +526,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 54,
+      id_: 54,
       nom: '250-66',
       tex: 'Tamaño del conductor del electrodo de puesta atierra de corriente alterna',
       tip: 'O, D',
@@ -530,7 +535,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 55,
+      id_: 55,
       nom: '',
       tex: '250 Puesta a tierra Conexión equipotencial de la acometida',
       tip: '',
@@ -539,7 +544,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 56,
+      id_: 56,
       nom: '250-64',
       tex: 'Instalación del conductor del electrodo de puesta a tierra.',
       tip: 'O',
@@ -549,7 +554,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 57,
+      id_: 57,
       nom: '250-68',
       tex: 'Conexión del conductor del electrodo de puesta a tierra y del puente de unión',
       tip: 'O',
@@ -558,7 +563,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 58,
+      id_: 58,
       nom: '250-70',
       tex: 'Métodos de conexión del conductor de puesta a tierra y de unión a los electrodos',
       tip: 'O',
@@ -567,7 +572,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 59,
+      id_: 59,
       nom: '250-52',
       tex: 'Electrodos de puesta a tierra',
       tip: 'O',
@@ -576,7 +581,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 60,
+      id_: 60,
       nom: '250-168',
       tex: 'Puente de unión del sistema corriente continua',
       tip: 'O',
@@ -586,7 +591,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 61,
+      id_: 61,
       nom: '250-92 b) 250-102',
       tex: 'Método de unión en la acometida Conductores y puente del equipo',
       tip: 'O',
@@ -595,7 +600,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 62,
+      id_: 62,
       nom: '250-28 d) 1) 250-24 c)',
       // tslint:disable-next-line: max-line-length
       tex: 'Puente de unión principal y puente de unión del sistema. Tamaño nominal. Conductor puesto a tierra llevado al equipo de acometida',
@@ -605,7 +610,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 63,
+      id_: 63,
       nom: '250-30',
       tex: 'Pues a tierra de sistemas de CA derivados separados',
       tip: 'O',
@@ -615,7 +620,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 64,
+      id_: 64,
       nom: '',
       tex: '250 Puesta a tierra Conexión equipotencial de equipos',
       tip: '',
@@ -624,7 +629,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 65,
+      id_: 65,
       nom: '250-118',
       tex: 'Tipos de conductores de puesta a tierra de equipos',
       tip: 'O',
@@ -633,7 +638,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 66,
+      id_: 66,
       nom: '250-146',
       tex: 'Conexión de la terminal de puesta a tierra del contacto a la caja',
       tip: 'O',
@@ -642,7 +647,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 67,
+      id_: 67,
       nom: '250-96 250-28 348-60 350-60',
       // tslint:disable-next-line: max-line-length
       tex: 'Unión con otras envolventes. Puente de unión principal y del puente de unión del sistema. Tubo conduit metálico flexible Puesta a tierra y unión. Tubo conduit flexible metálico y no metálico',
@@ -653,7 +658,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 68,
+      id_: 68,
       nom: '408-40',
       tex: 'Puesta a tierra de los tableros de alumbrado y control',
       tip: 'O',
@@ -662,7 +667,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 69,
+      id_: 69,
       nom: '250-142',
       tex: 'Uso del conductor de puesto a tierra del circuito para puesta a tierra de equipos',
       tip: 'O',
@@ -672,7 +677,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 70,
+      id_: 70,
       nom: '250-146 406-3 d)',
       tex: 'Conexión de la terminal de puesta a tierra del contacto a la caja Contactos con puesta a tierra aislada',
       tip: '',
@@ -681,7 +686,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 71,
+      id_: 71,
       nom: '',
       tex: '300 Métodos de Alambrado',
       tip: '',
@@ -690,7 +695,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 72,
+      id_: 72,
       nom: '300-3 a), b) y c) 1) 2)',
       tex: 'Conductores',
       tip: 'O',
@@ -699,7 +704,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 73,
+      id_: 73,
       nom: '300-4',
       tex: 'Protección contra daño físico',
       tip: 'O',
@@ -708,7 +713,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 74,
+      id_: 74,
       nom: '300-4 g)',
       tex: 'Accesorios aislados',
       tip: 'O',
@@ -717,7 +722,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 75,
+      id_: 75,
       nom: '300-3 2)',
       tex: 'Conductores de puesta a tierra y de unión',
       tip: 'O',
@@ -727,7 +732,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 76,
+      id_: 76,
       nom: '300-10',
       tex: 'Continuidad eléctrica de las canalizaciones y envolventes metálicas',
       tip: 'O',
@@ -736,7 +741,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 77,
+      id_: 77,
       nom: '300-11',
       tex: 'Aseguramiento y soportes.',
       tip: 'O',
@@ -746,7 +751,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 78,
+      id_: 78,
       nom: '300-13',
       tex: 'Continuidad mecánica y eléctrica de los conductores',
       tip: 'O',
@@ -755,7 +760,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 79,
+      id_: 79,
       nom: '300-14',
       tex: 'Longitud de los conductores libres en las salidas',
       tip: 'O',
@@ -764,7 +769,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 80,
+      id_: 80,
       nom: '300-15',
       tex: 'Cajas o accesorios, cuando se requieren',
       tip: 'O',
@@ -773,7 +778,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 81,
+      id_: 81,
       nom: '300-17',
       tex: 'Número y tamaño de los conductores en una canalización',
       tip: 'O',
@@ -782,7 +787,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 82,
+      id_: 82,
       nom: '300-18',
       tex: 'Instalación de canalizaciones',
       tip: 'O',
@@ -791,7 +796,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 83,
+      id_: 83,
       nom: '300-21',
       tex: 'Propagación de fuego o de productos de la combustión',
       tip: 'O',
@@ -801,7 +806,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 84,
+      id_: 84,
       nom: '',
       tex: '392 Charolas Portacables',
       tip: '',
@@ -810,7 +815,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 85,
+      id_: 85,
       nom: '392-18',
       tex: 'Instalación de charolas portacables',
       tip: 'O',
@@ -820,7 +825,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 86,
+      id_: 86,
       nom: '392-60',
       tex: 'Puesta a tierra y Unión',
       tip: 'O',
@@ -830,7 +835,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 87,
+      id_: 87,
       nom: '392-30',
       tex: 'Sujeción y soporte',
       tip: 'O',
@@ -840,7 +845,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 88,
+      id_: 88,
       nom: '392-22',
       tex: 'Número de cables multiconductores de 2000 v nominales o menos en soportes tipo charola portacables',
       tip: 'O',
@@ -850,7 +855,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 89,
+      id_: 89,
       nom: '392-22 a)',
       tex: 'Número de cables monoconductores ≤ 2000 V',
       tip: 'O',
@@ -859,7 +864,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 90,
+      id_: 90,
       nom: '392-22 c)',
       tex: 'Número de cables de media tensión y tipo MC de (más de 2000 volts) en charolas portacables',
       tip: 'O',
@@ -869,7 +874,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 91,
+      id_: 91,
       nom: '',
       tex: '358 Tubo conduit metáico ligero tipo EMT',
       tip: '',
@@ -878,7 +883,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 92,
+      id_: 92,
       nom: '358-10',
       tex: 'Usos permitidos',
       tip: 'O',
@@ -887,7 +892,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 93,
+      id_: 93,
       nom: '358-20',
       tex: 'Tamaño',
       tip: 'O',
@@ -896,7 +901,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 94,
+      id_: 94,
       nom: '358-22',
       tex: 'Número de conductores',
       tip: '',
@@ -905,7 +910,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 95,
+      id_: 95,
       nom: '358-28 358-42',
       tex: 'Desbastado y roscado Coples y conectores',
       tip: 'O',
@@ -914,7 +919,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 96,
+      id_: 96,
       nom: '358-24 358-26',
       tex: 'Dobleces Número de curvas',
       tip: 'O',
@@ -924,7 +929,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 97,
+      id_: 97,
       nom: '358-30',
       tex: 'Sujeción y soporte',
       tip: 'O',
@@ -933,7 +938,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 98,
+      id_: 98,
       nom: '',
       tex: '314 Cajas, cajas de paso y sus accesorios, utilizados para salida, empalme, unión o jalado',
       tip: '',
@@ -942,7 +947,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 99,
+      id_: 99,
       nom: '314-4',
       tex: 'Cajas metálicas',
       tip: 'O',
@@ -951,7 +956,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 100,
+      id_: 100,
       nom: '314-16',
       tex: 'Número de conductores en las cajas de salida, de dispositivos y de unión y en las cajas de paso',
       tip: 'O',
@@ -960,7 +965,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 101,
+      id_: 101,
       nom: '314-17 314-17 a)',
       tex: 'Conductores que entran en cajas, cajas de paso o accesorios',
       tip: 'O',
@@ -969,7 +974,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 102,
+      id_: 102,
       nom: '314-20',
       tex: 'En la pared o el plafón',
       tip: 'O',
@@ -978,7 +983,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 103,
+      id_: 103,
       nom: '314-21',
       tex: 'Reparación de superficies incombustibles',
       tip: 'O',
@@ -987,7 +992,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 104,
+      id_: 104,
       nom: '314-23',
       tex: 'Soportes',
       tip: 'O',
@@ -996,7 +1001,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 105,
+      id_: 105,
       nom: '314-24',
       tex: 'Profundidad de las cajas de salida',
       tip: 'O',
@@ -1005,7 +1010,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 106,
+      id_: 106,
       nom: '314-27',
       tex: 'Cajas de salida para: alumbrado, piso y ventiladores de techo',
       tip: 'O',
@@ -1014,7 +1019,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 107,
+      id_: 107,
       nom: '314-29',
       tex: 'Cajas y registros que deben ser accesibles',
       tip: 'O',
@@ -1023,7 +1028,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 108,
+      id_: 108,
       nom: '314-30',
       tex: 'Registros',
       tip: 'O',
@@ -1032,7 +1037,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 109,
+      id_: 109,
       nom: '314-40',
       tex: 'Cajas, cajas metálicas y accesorios',
       tip: 'O',
@@ -1041,7 +1046,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 110,
+      id_: 110,
       nom: '',
       tex: '312 Gabinetes, cajas de desconexión y bases para medidores',
       tip: '',
@@ -1050,7 +1055,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 111,
+      id_: 111,
       nom: '312-3',
       tex: 'Posición en las paredes',
       tip: 'O',
@@ -1060,7 +1065,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 112,
+      id_: 112,
       nom: '312-4',
       tex: 'Reparación de las superficies no combustibles',
       tip: 'O',
@@ -1070,7 +1075,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 113,
+      id_: 113,
       nom: '312-5',
       tex: 'Conductores que entren en ,los gabinetes o cajas para corta circuitos',
       tip: 'O',
@@ -1079,7 +1084,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 114,
+      id_: 114,
       nom: '312-6 312-7',
       tex: 'Radio de curvatura de los conductores',
       tip: 'O',
@@ -1088,7 +1093,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 115,
+      id_: 115,
       nom: '312-8',
       // tslint:disable-next-line: max-line-length
       tex: 'Envolventes para interruptores y dispositivos de protección contra sobrecorriente con empalmes, derivaciones y conductores de paso de alimentación',
@@ -1098,7 +1103,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 116,
+      id_: 116,
       nom: '',
       tex: '404 Des-conectadores',
       tip: '',
@@ -1107,7 +1112,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 117,
+      id_: 117,
       nom: '404-2 404-12',
       tex: 'Conexión de los des-conectadores Conexión a tierra',
       tip: 'O',
@@ -1116,7 +1121,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 118,
+      id_: 118,
       nom: '',
       tex: '406 Contactos, Conectores de Cordón y Clavijas de Conexión.',
       tip: '',
@@ -1125,7 +1130,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 119,
+      id_: 119,
       nom: '406-4 a)',
       tex: 'De tipo de puesta a tierra',
       tip: 'O',
@@ -1134,7 +1139,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 120,
+      id_: 120,
       nom: '406-4 b)',
       tex: 'Puestos a tierra',
       tip: 'O',
@@ -1143,7 +1148,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 121,
+      id_: 121,
       nom: '406-5',
       tex: 'Montaje del contacto',
       tip: 'O',
@@ -1152,7 +1157,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 122,
+      id_: 122,
       nom: '406-9',
       tex: 'Contactos en lugares húmedos o mojados',
       tip: 'O',
@@ -1161,7 +1166,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 123,
+      id_: 123,
       nom: '406-11',
       tex: 'Conexión de la terminal de puesta a tierra del contacto de la caja',
       tip: 'O',
@@ -1170,7 +1175,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 124,
+      id_: 124,
       nom: '',
       tex: '408 Tableros de distribución y tableros de alumbrado y control',
       tip: '',
@@ -1179,7 +1184,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 125,
+      id_: 125,
       nom: '408-3 408-3 a) 1)',
       tex: 'Soportes e instalación de las barras colectoras y de los conductores Ubicación',
       tip: 'O',
@@ -1189,7 +1194,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 126,
+      id_: 126,
       nom: '408-4 a)',
       tex: 'Directorio de circuitos o identificación de circuito',
       tip: 'O',
@@ -1198,7 +1203,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 127,
+      id_: 127,
       nom: '408-20',
       tex: 'Ubicación de los tableros de distribución',
       tip: 'O',
@@ -1207,7 +1212,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 128,
+      id_: 128,
       nom: '408-17',
       tex: 'Ubicación con materiales fácilmente combustibles',
       tip: 'O',
@@ -1216,7 +1221,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 129,
+      id_: 129,
       nom: '408-18',
       tex: 'Separaciones',
       tip: 'O',
@@ -1225,7 +1230,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 130,
+      id_: 130,
       nom: '408-19',
       tex: 'Aislamiento de los conductores',
       tip: 'O',
@@ -1234,7 +1239,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 131,
+      id_: 131,
       nom: '408-5',
       tex: 'Distancia para el conductor que entra en el envolvente de la barra conductora',
       tip: 'O',
@@ -1243,7 +1248,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 132,
+      id_: 132,
       nom: '408-30 408-36',
       tex: 'Tableros de alumbrado y control, generalidades, protección contra sobre-corriente',
       tip: 'O',
@@ -1252,7 +1257,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 133,
+      id_: 133,
       nom: '408-50 408-51 408-52',
       tex: 'Paneles Barras colectoras Protección de los circuitos de instrumento',
       tip: 'O',
@@ -1261,7 +1266,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 134,
+      id_: 134,
       nom: '408-55',
       tex: 'Espacio de curvatura de alambre dentro de un envolvente que contiene un panel de alumbrado y control',
       tip: 'O',
@@ -1270,7 +1275,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 135,
+      id_: 135,
       nom: '',
       tex: '410 Luminarias, portalámparas, lámparas y receptáculos',
       tip: '',
@@ -1279,7 +1284,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 136,
+      id_: 136,
       nom: '410-5',
       tex: 'Partes vivas',
       tip: 'O',
@@ -1288,7 +1293,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 137,
+      id_: 137,
       nom: '410-20',
       tex: 'Espacio para los conductores',
       tip: 'O',
@@ -1297,7 +1302,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 138,
+      id_: 138,
       nom: '410-21',
       tex: 'Limites de temperatura de los conductores en las cajas de salida',
       tip: 'O',
@@ -1306,7 +1311,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 139,
+      id_: 139,
       nom: '410-24',
       tex: 'Conexión de las luminarias de descarga eléctrica y luminarias LED',
       tip: 'O',
@@ -1315,7 +1320,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 140,
+      id_: 140,
       nom: '410-30',
       tex: 'Soportes de las luminarias',
       tip: 'O',
@@ -1324,7 +1329,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 141,
+      id_: 141,
       nom: '410-52',
       tex: 'Aislamiento de los conductores',
       tip: 'O',
@@ -1333,7 +1338,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 142,
+      id_: 142,
       nom: '410-74',
       tex: 'Capacidad nominal de las luminarias',
       tip: 'O',
@@ -1342,7 +1347,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 143,
+      id_: 143,
       nom: '410-151',
       tex: 'Rieles de iluminación Instalación',
       tip: 'O',
@@ -1351,7 +1356,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 144,
+      id_: 144,
       nom: '410-154',
       tex: 'Sujeción',
       tip: 'O',
@@ -1360,7 +1365,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 145,
+      id_: 145,
       nom: '440-1 al 440-3',
       tex: 'Disposiciones generales',
       tip: 'O',
@@ -1369,7 +1374,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 146,
+      id_: 146,
       nom: '440 – 4 a) b) c)',
       tex: 'Placa de datos de moto-compresores herméticos de refrigeración y equipos',
       tip: 'O',
@@ -1379,7 +1384,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 147,
+      id_: 147,
       nom: '440-12 a)',
       tex: 'Medios de desconexión. Capacidad nominal y capacidad de interrupción. Moto-compresor hermético de refrigeración',
       tip: 'O, A',
@@ -1389,7 +1394,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 148,
+      id_: 148,
       nom: '440-21 al 440-22',
       tex: 'Protección de los circuitos derivados contra cortocircuito y falla a tierra. Requisitos generales. Aplicación y selección',
       tip: 'O, A',
@@ -1399,7 +1404,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 149,
+      id_: 149,
       nom: '440-31 al 440-35',
       tex: 'Conductores del circuito derivado',
       tip: 'O',
@@ -1408,7 +1413,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 150,
+      id_: 150,
       nom: '440-41',
       tex: 'Controladores para motores de compresor. Capacidad nominal',
       tip: 'O',
@@ -1417,7 +1422,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 151,
+      id_: 151,
       nom: '440-60 al 440-65',
       tex: 'Requisitos para acondicionadores de aire para habitación',
       tip: 'O',
@@ -1432,16 +1437,16 @@ export class ClientService {
   // public client = {};
   public f11 = [
     {
-      id: 1,
+      id_: 1,
       nom: '',
       tex: '110 Requisitos generales',
       tip: '',
       cri: '',
       obp: '',
       obs: '',
-      cum: 'si'
+      cum: ''
     }, {
-      id: 2,
+      id_: 2,
       nom: '110-2',
       tex: 'Aprobación',
       tip: 'O',
@@ -1450,7 +1455,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id: 3,
+      id_: 3,
       nom: '110-3 b)',
       tex: 'Evaluación, identificación, instalación y uso del equipo',
       tip: '',
@@ -1460,6 +1465,7 @@ export class ClientService {
       cum: ''
     }
   ];
+
   constructor(
     private db: AngularFireDatabase,
     private router: Router,
@@ -1528,25 +1534,336 @@ export class ClientService {
       // console.log(item);
     });
   }
-
-  addRowFt10(f10: object) {
-    this.ft10List.push(f10 as F10);
+  addft81(fecha: string, id: number) {
+    this.ft81List.push({
+      id_: id, fecha: fecha, tipo: 'NOM', desc: 'INS', n1: 1,
+      n2: 2, n3: 3, n4: 4, n5: 5, n6: 6, d1: '', d2: '', d3: '', d4: '', d5: '', d6: '',
+      nc1: '', nc2: '', nc3: '', nc4: '', nc5: '', nc6: '', fr1: '', fr2: '', fr3: '', fr4: '', fr5: '', fr6: '',
+      a1: '', a2: '', a3: '', a4: '', a5: '', a6: '', fs1: '', fs2: '', fs3: '', fs4: '', fs5: '', fs6: ''
+    } as F081);
+  }
+  addft82(fecha: string, id: number) {
+    this.ft82List.push({
+      id_: id, fecha: fecha, tipo: 'PEC', desc: 'PRO', n1: 1,
+      n2: 2, n3: 3, n4: 4, n5: 5, n6: 6, d1: '', d2: '', d3: '', d4: '', d5: '', d6: '',
+      nc1: '', nc2: '', nc3: '', nc4: '', nc5: '', nc6: '', fr1: '', fr2: '', fr3: '', fr4: '', fr5: '', fr6: '',
+      a1: '', a2: '', a3: '', a4: '', a5: '', a6: '', fs1: '', fs2: '', fs3: '', fs4: '', fs5: '', fs6: ''
+    } as F081);
+  }
+  addft15(fecha: string, id: number) {
+    this.ft15List.push(
+      {
+        id_: id,
+        fecha: fecha,
+        tipo: 'RTPE',
+        name: 'REPORTE TÉCNICO DE PROYECTO ELÉCTRICO',
+        cod: 'FT-15',
+        rev: 5,
+        vigen: '17-Nov-17',
+        nomycar: '',
+        objeto: '',
+        fechad: '',
+        fecham: '',
+        fechaa: '',
+        horai: '',
+        horaf: '',
+        circuns: '',
+        no_conf: '',
+        observa: '',
+        acciones: '',
+        firma: '',
+        nom1: '',
+        id1: '',
+        folio1: '',
+        exp1: '',
+        direc1: '',
+        firma1: '',
+        nom2: '',
+        id2: '',
+        folio2: '',
+        exp2: '',
+        direc2: '',
+        firma2: '',
+        nom3: '',
+        id3: '',
+        folio3: '',
+        exp3: '',
+        direc3: '',
+        firma3: ''
+      } as Ft7);
+  }
+  addft07(fecha: string, id: number) {
+    this.ft07List.push(
+      {
+        id_: id,
+        fecha: fecha,
+        tipo: 'AECIE',
+        name: 'ACTA DE EVALUACIÓN DE LA CONFORMIDAD',
+        cod: 'FT-07',
+        rev: 3,
+        vigen: '05-Dic-14',
+        nomycar: '',
+        objeto: '',
+        fechad: '',
+        fecham: '',
+        fechaa: '',
+        horai: '',
+        horaf: '',
+        circuns: '',
+        no_conf: '',
+        observa: '',
+        acciones: '',
+        firma: '',
+        nom1: '',
+        id1: '',
+        folio1: '',
+        exp1: '',
+        direc1: '',
+        firma1: '',
+        nom2: '',
+        id2: '',
+        folio2: '',
+        exp2: '',
+        direc2: '',
+        firma2: '',
+        nom3: '',
+        id3: '',
+        folio3: '',
+        exp3: '',
+        direc3: '',
+        firma3: ''
+      } as Ft7);
+  }
+  async addft07Offline(key: string, fecha: string, id: number) {
+    const ui = UUID.UUID();
+    await this.localDb.ft07.add({
+      id: ui,
+      client: key,
+      id_: id,
+      fecha: fecha,
+      tipo: 'AECIE',
+      name: 'ACTA DE EVALUACIÓN DE LA CONFORMIDAD',
+      cod: 'FT-07',
+      rev: 3,
+      vigen: '05-Dic-14',
+      nomycar: '',
+      objeto: '',
+      fechad: '',
+      fecham: '',
+      fechaa: '',
+      horai: '',
+      horaf: '',
+      circuns: '',
+      no_conf: '',
+      observa: '',
+      acciones: '',
+      firma: '',
+      nom1: '',
+      id1: '',
+      folio1: '',
+      exp1: '',
+      direc1: '',
+      firma1: '',
+      nom2: '',
+      id2: '',
+      folio2: '',
+      exp2: '',
+      direc2: '',
+      firma2: '',
+      nom3: '',
+      id3: '',
+      folio3: '',
+      exp3: '',
+      direc3: '',
+      firma3: ''
+    }
+    );
+  }
+  async addft15Offline(key: string, fecha: string, id: number) {
+    const ui = UUID.UUID();
+    await this.localDb.ft15.add({
+      id: ui,
+      client: key,
+      id_: id,
+      fecha: fecha,
+      tipo: 'RTPE',
+      name: 'REPORTE TÉCNICO DE PROYECTO ELÉCTRICO',
+      cod: 'FT-15',
+      rev: 5,
+      vigen: '17-Nov-17',
+      nomycar: '',
+      objeto: '',
+      fechad: '',
+      fecham: '',
+      fechaa: '',
+      horai: '',
+      horaf: '',
+      circuns: '',
+      no_conf: '',
+      observa: '',
+      acciones: '',
+      firma: '',
+      nom1: '',
+      id1: '',
+      folio1: '',
+      exp1: '',
+      direc1: '',
+      firma1: '',
+      nom2: '',
+      id2: '',
+      folio2: '',
+      exp2: '',
+      direc2: '',
+      firma2: '',
+      nom3: '',
+      id3: '',
+      folio3: '',
+      exp3: '',
+      direc3: '',
+      firma3: ''
+    }
+    );
+  }
+  async addft81Offline(key: string, fecha: string, id: number) {
+    const ui = UUID.UUID();
+    await this.localDb.ft81.add({
+      id: ui, client: key, id_: id, fecha: fecha, tipo: 'NOM', desc: 'INS', n1: 1,
+      n2: 2, n3: 3, n4: 4, n5: 5, n6: 6, d1: '', d2: '', d3: '', d4: '', d5: '', d6: '',
+      nc1: '', nc2: '', nc3: '', nc4: '', nc5: '', nc6: '', fr1: '', fr2: '', fr3: '', fr4: '', fr5: '', fr6: '',
+      a1: '', a2: '', a3: '', a4: '', a5: '', a6: '', fs1: '', fs2: '', fs3: '', fs4: '', fs5: '', fs6: ''
+    }
+    );
+  }
+  async addft82Offline(key: string, fecha: string, id: number) {
+    const ui = UUID.UUID();
+    await this.localDb.ft82.add({
+      id: ui, client: key, id_: id, fecha: fecha, tipo: 'PEC', desc: 'PRO', n1: 1,
+      n2: 2, n3: 3, n4: 4, n5: 5, n6: 6, d1: '', d2: '', d3: '', d4: '', d5: '', d6: '',
+      nc1: '', nc2: '', nc3: '', nc4: '', nc5: '', nc6: '', fr1: '', fr2: '', fr3: '', fr4: '', fr5: '', fr6: '',
+      a1: '', a2: '', a3: '', a4: '', a5: '', a6: '', fs1: '', fs2: '', fs3: '', fs4: '', fs5: '', fs6: ''
+    }
+    );
   }
 
-  updateRowFt10(f10: F10) {
-    this.f10Object.update({ nom: f10.nom, tex: f10.tex, tip: f10.tip, cri: f10.cri, obp: f10.obp, obs: f10.obs, cum: f10.cum });
+  async addFt10Offline(key: string) {
+    // const ft10local = [];
+    this.f10.forEach(async item => {
+      const ui = UUID.UUID();
+      await this.localDb.ft10.add({
+        id: ui, client: key, id_: item.id_, cri: item.cri,
+        cum: item.cum, nom: item.nom, obp: item.obp,
+        obs: item.obs, tex: item.tex, tip: item.tip
+      });
+    });
+  }
+
+  async addRowFt10(f10: any, key: string) {
+    if (this.offlineOnlineService.isOnline) {
+      this.ft10List.push(f10 as F10);
+    } else {
+      const ui = UUID.UUID();
+      await this.localDb.ft10.add({
+        id: ui, client: key, id_: f10.id_, cri: f10.cri,
+        cum: f10.cum, nom: f10.nom, obp: f10.obp,
+        obs: f10.obs, tex: f10.tex, tip: f10.tip
+      });
+    }
+  }
+
+  updateRowFt10(f10: F10, key: string) {
+    if (this.offlineOnlineService.isOnline) {
+      this.f10Object.update({ nom: f10.nom, tex: f10.tex, tip: f10.tip, cri: f10.cri, obp: f10.obp, obs: f10.obs, cum: f10.cum });
+    } else {
+      this.localDb.ft10 // Offline
+        .where('id').equals(key).modify(cc => {
+          cc.cri = f10.cri;
+          cc.cum = f10.cum;
+          cc.nom = f10.nom;
+          cc.obp = f10.obp,
+          cc.obs = f10.obs;
+          cc.tex = f10.tex;
+          cc.tip = f10.tip;
+        });
+    }
   }
 
   Getf10(key: string) {
     this.ft10List = this.db.list('data/' + key + '/ft10', ref =>
-      ref.orderByChild('id')
+      ref.orderByChild('id_')
     );
     return this.ft10List;
   }
+  Getf81(key: string) {
+    this.ft81List = this.db.list('data/' + key + '/ft81', ref =>
+      ref.orderByChild('id_')
+    );
+    return this.ft81List;
+  }
+  Getf82(key: string) {
+    this.ft82List = this.db.list('data/' + key + '/ft82', ref =>
+      ref.orderByChild('id_')
+    );
+    return this.ft82List;
+  }
+  Getf07(key: string) {
+    this.ft07List = this.db.list('data/' + key + '/ft07', ref =>
+      ref.orderByChild('id_')
+    );
+    return this.ft07List;
+  }
+  Getf15(key: string) {
+    this.ft15List = this.db.list('data/' + key + '/ft15', ref =>
+      ref.orderByChild('id_')
+    );
+    return this.ft15List;
+  }
 
   updateClient(datos: Datos, key: string) {
-    this.db.object('data/' + key)
-      .update({ datos });
+    if (this.offlineOnlineService.isOnline) {
+      this.db.object('data/' + key).update({ datos });
+    } else {
+      this.localDb.clients // Offline
+        .where('id').equals(key).modify(c => {
+          c.datos.razon = datos.razon;
+          c.datos.giro = datos.giro;
+          c.datos.nocontrol = datos.nocontrol;
+          c.datos.nombre = datos.nombre;
+          c.datos.tel = datos.tel;
+          c.datos.correo = datos.correo;
+          c.datos.fax = datos.fax;
+          c.datos.pedido = datos.pedido;
+          c.datos.rfc = datos.rfc;
+          c.datos.calle = datos.calle;
+          c.datos.colonia = datos.colonia;
+          c.datos.munic = datos.munic;
+          c.datos.estado = datos.estado;
+          c.datos.cp = datos.cp;
+          c.datos.tipos = datos.tipos;
+          c.datos.tension = datos.tension;
+          c.datos.planos = datos.planos;
+          c.datos.cargai = datos.cargai;
+          c.datos.alcance = datos.alcance;
+          c.datos.factor = datos.factor;
+          c.datos.cargadem = datos.cargadem;
+          c.datos.corriente = datos.corriente;
+          c.datos.volts = datos.volts;
+          c.datos.sub = datos.sub;
+          c.datos.area = datos.area;
+          c.datos.costo = datos.costo;
+          c.datos.costol = datos.costol;
+          c.datos.instal = datos.instal;
+          c.datos.ambien = datos.ambien;
+          c.datos.memo = datos.memo;
+          c.datos.nombreuv = datos.nombreuv;
+          c.datos.logo = datos.logo;
+          c.datos.dia = datos.dia;
+          c.datos.mes = datos.mes;
+          c.datos.anio = datos.anio;
+          c.datos.fechai = datos.fechai;
+          c.datos.fechaf = datos.fechaf;
+          c.datos.cargouv = datos.cargouv;
+        });
+    }
   }
 
   GetDataList() {
@@ -1565,99 +1882,331 @@ export class ClientService {
     this.f10Object = this.db.object('data/' + key + '/ft10/' + key2);
     return this.f10Object;
   }
+  getCurrentDataF81(key: string, key2: string) {
+    this.f81Object = this.db.object('data/' + key + '/ft81/' + key2);
+    return this.f81Object;
+  }
+  getCurrentDataF82(key: string, key2: string) {
+    this.f81Object = this.db.object('data/' + key + '/ft82/' + key2);
+    return this.f81Object;
+  }
+
+  getCurrentDataF07(key: string, key2: string) {
+    this.f07Object = this.db.object('data/' + key + '/ft07/' + key2);
+    return this.f07Object;
+  }
+  getCurrentDataF15(key: string, key2: string) {
+    this.f07Object = this.db.object('data/' + key + '/ft15/' + key2);
+    return this.f07Object;
+  }
 
   UpdateFt01(ft01: any, key: string) {
-    this.db.object('data/' + key + '/datos/')
-      .update({ s1: ft01.s1, s2: ft01.s2, fpago: ft01.fpago, vigencia: ft01.vigencia, intro: ft01.intro });
+    if (this.offlineOnlineService.isOnline) {
+      this.db.object('data/' + key + '/datos/')
+        .update({ s1: ft01.s1, s2: ft01.s2, fpago: ft01.fpago, vigencia: ft01.vigencia, intro: ft01.intro });
+    } else {
+      this.localDb.clients // Offline
+        .where('id').equals(key).modify(client => {
+          client.datos.s1 = ft01.s1;
+          client.datos.s2 = ft01.s2;
+          client.datos.fpago = ft01.fpago;
+          client.datos.vigencia = ft01.vigencia;
+          client.datos.intro = ft01.intro;
+        });
+    }
   }
 
   UpdateFt02(f02: F02, key: string) {
-    this.db.object('data/' + key)
-      .update({ ft02: f02 });
+    if (this.offlineOnlineService.isOnline) {
+      this.db.object('data/' + key)
+        .update({ ft02: f02 });
+    } else {
+      this.localDb.clients // Offline
+        .where('id').equals(key).modify(client => {
+          client.ft02 = f02;
+        });
+    }
   }
 
   UpdateFt03(f03: F03, key: string) {
-    this.db.object('data/' + key)
-      .update({ ft03: f03 });
+    if (this.offlineOnlineService.isOnline) {
+      this.db.object('data/' + key)
+        .update({ ft03: f03 });
+    } else {
+      this.localDb.clients // Offline
+        .where('id').equals(key).modify(client => {
+          client.ft03 = f03;
+        });
+    }
   }
 
   UpdateFt05(f05: F05, key: string) {
-    this.db.object('data/' + key)
-      .update({ ft05: f05 });
+    if (this.offlineOnlineService.isOnline) {
+      this.db.object('data/' + key)
+        .update({ ft05: f05 });
+    } else {
+      this.localDb.clients // Offline
+        .where('id').equals(key).modify(client => {
+          client.ft05 = f05;
+        });
+    }
   }
 
   UpdateFt06(f06: F06, key: string) {
-    this.db.object('data/' + key)
-      .update({ ft06: f06 });
+    if (this.offlineOnlineService.isOnline) {
+      this.db.object('data/' + key)
+        .update({ ft06: f06 });
+    } else {
+      this.localDb.clients // Offline
+        .where('id').equals(key).modify(client => {
+          client.ft06 = f06;
+        });
+    }
   }
 
   UpdateFc07(f07: F07, key: string) {
-    this.db.object('data/' + key)
-      .update({ fc07: f07 });
+    if (this.offlineOnlineService.isOnline) {
+      this.db.object('data/' + key)
+        .update({ fc07: f07 });
+    } else {
+      this.localDb.clients // Offline
+        .where('id').equals(key).modify(client => {
+          client.fc07 = f07;
+        });
+    }
   }
 
   UpdateFt09(f09: F09, key: string) {
-    this.db.object('data/' + key)
-      .update({ ft09: f09 });
+    if (this.offlineOnlineService.isOnline) {
+      this.db.object('data/' + key)
+        .update({ ft09: f09 });
+    } else {
+      this.localDb.clients // Offline
+        .where('id').equals(key).modify(client => {
+          client.ft09 = f09;
+        });
+    }
   }
 
   UpdateFt11(f11: F11, key: string) {
-    this.db.object('data/' + key)
-      .update({ ft11: f11 });
+    if (this.offlineOnlineService.isOnline) {
+      this.db.object('data/' + key)
+        .update({ ft11: f11 });
+    } else {
+      this.localDb.clients // Offline
+        .where('id').equals(key).modify(client => {
+          client.ft11 = f11;
+        });
+    }
   }
 
-  UpdateFt08INCIE1(f08: F081, key: string) {
-    this.db.object('data/' + key)
-      .update({ ft08i1: f08 });
+  UpdateFt08INCIE1(f08: F081, key: string, type: string) {
+    if (this.offlineOnlineService.isOnline) { // Online
+      this.f81Object.update({
+        n1: f08.n1, n2: f08.n2, n3: f08.n3, n4: f08.n4, n5: f08.n5, n6: f08.n6,
+        d1: f08.d1, d2: f08.d2, d3: f08.d3, d4: f08.d4, d5: f08.d5, d6: f08.d6,
+        nc1: f08.nc1, nc2: f08.nc2, nc3: f08.nc3, nc4: f08.nc4, nc5: f08.nc5, nc6: f08.nc6,
+        fr1: f08.fr1, fr2: f08.fr2, fr3: f08.fr3, fr4: f08.fr4, fr5: f08.fr5, fr6: f08.fr6,
+        a1: f08.a1, a2: f08.a2, a3: f08.a3, a4: f08.a4, a5: f08.a5, a6: f08.a6,
+        fs1: f08.fs1, fs2: f08.fs2, fs3: f08.fs3, fs4: f08.fs4, fs5: f08.fs5, fs6: f08.fs6
+      });
+    } else {
+      if (type === 'NOM') {
+        this.localDb.ft81.where('id').equals(key).modify(cc => {
+          cc.n1 = f08.n1; cc.n2 = f08.n2; cc.n3 = f08.n3; cc.n4 = f08.n4; cc.n5 = f08.n5; cc.n6 = f08.n6;
+          cc.d1 = f08.d1; cc.d2 = f08.d2; cc.d3 = f08.d3; cc.d4 = f08.d4; cc.d5 = f08.d5; cc.d6 = f08.d6;
+          cc.nc1 = f08.nc1; cc.nc2 = f08.nc2; cc.nc3 = f08.nc3; cc.nc4 = f08.nc4; cc.nc5 = f08.nc5; cc.nc6 = f08.nc6;
+          cc.fr1 = f08.fr1; cc.fr2 = f08.fr2; cc.fr3 = f08.fr3; cc.fr4 = f08.fr4; cc.fr5 = f08.fr5; cc.fr6 = f08.fr6;
+          cc.a1 = f08.a1; cc.a2 = f08.a2; cc.a3 = f08.a3; cc.a4 = f08.a4; cc.a5 = f08.a5; cc.a6 = f08.a6;
+          cc.fs1 = f08.fs1; cc.fs2 = f08.fs2; cc.fs3 = f08.fs3; cc.fs4 = f08.fs4; cc.fs5 = f08.fs5; cc.fs6 = f08.fs6;
+        });
+      }
+      if (type === 'PEC') {
+        this.localDb.ft82.where('id').equals(key).modify(cc => {
+          cc.n1 = f08.n1; cc.n2 = f08.n2; cc.n3 = f08.n3; cc.n4 = f08.n4; cc.n5 = f08.n5; cc.n6 = f08.n6;
+          cc.d1 = f08.d1; cc.d2 = f08.d2; cc.d3 = f08.d3; cc.d4 = f08.d4; cc.d5 = f08.d5; cc.d6 = f08.d6;
+          cc.nc1 = f08.nc1; cc.nc2 = f08.nc2; cc.nc3 = f08.nc3; cc.nc4 = f08.nc4; cc.nc5 = f08.nc5; cc.nc6 = f08.nc6;
+          cc.fr1 = f08.fr1; cc.fr2 = f08.fr2; cc.fr3 = f08.fr3; cc.fr4 = f08.fr4; cc.fr5 = f08.fr5; cc.fr6 = f08.fr6;
+          cc.a1 = f08.a1; cc.a2 = f08.a2; cc.a3 = f08.a3; cc.a4 = f08.a4; cc.a5 = f08.a5; cc.a6 = f08.a6;
+          cc.fs1 = f08.fs1; cc.fs2 = f08.fs2; cc.fs3 = f08.fs3; cc.fs4 = f08.fs4; cc.fs5 = f08.fs5; cc.fs6 = f08.fs6;
+        });
+      }
+    }
   }
 
-  /* UpdateFt08INCIE2(f08: F082, key: string) {
-    this.db.object('data/' + key)
-    .update({ ft08i2: f08 });
-  } */
-
-  UpdateFt08INCPE(f08: F081, key: string) {
-    this.db.object('data/' + key)
-      .update({ ft08ie: f08 });
+  UpdateFt07(f07: Ft7, key: string, type: string) {
+    if (this.offlineOnlineService.isOnline) { // Online
+      this.f07Object.update({
+        nomycar: f07.nomycar, objeto: f07.objeto, fechad: f07.fechad, fecham: f07.fecham,
+        fechaa: f07.fechaa, horai: f07.horai, horaf: f07.horaf, circuns: f07.circuns,
+        no_conf: f07.no_conf, observa: f07.observa, acciones: f07.acciones, firma: f07.firma,
+        nom1: f07.nom1, id1: f07.id1, folio1: f07.folio1, exp1: f07.exp1, direc1: f07.direc1, firma1: f07.firma1,
+        nom2: f07.nom2, id2: f07.id2, folio2: f07.folio2, exp2: f07.exp2, direc2: f07.direc2, firma2: f07.firma2,
+        nom3: f07.nom3, id3: f07.id3, folio3: f07.folio3, exp3: f07.exp3, direc3: f07.direc3, firma3: f07.firma3
+      });
+    } else {
+      if (type === 'AECIE') {
+        this.localDb.ft07.where('id').equals(key).modify(cc => {
+          cc.nomycar = f07.nomycar; cc.objeto = f07.objeto; cc.fechad = f07.fechad; cc.fecham = f07.fecham;
+          cc.fechaa = f07.fechaa; cc.horai = f07.horai; cc.horaf = f07.horaf; cc.circuns = f07.circuns;
+          cc.no_conf = f07.no_conf; cc.observa = f07.observa; cc.acciones = f07.acciones; cc.firma = f07.firma;
+          cc.nom1 = f07.nom1; cc.id1 = f07.id1; cc.folio1 = f07.folio1; cc.exp1 = f07.exp1; cc.direc1 = f07.direc1; cc.firma1 = f07.firma1;
+          cc.nom2 = f07.nom2; cc.id2 = f07.id2; cc.folio2 = f07.folio2; cc.exp2 = f07.exp2; cc.direc2 = f07.direc2; cc.firma2 = f07.firma2;
+          cc.nom3 = f07.nom3; cc.id3 = f07.id3; cc.folio3 = f07.folio3; cc.exp3 = f07.exp3; cc.direc3 = f07.direc3; cc.firma3 = f07.firma3;
+        });
+      }
+      if (type === 'RTPE') {
+        this.localDb.ft15.where('id').equals(key).modify(cc => {
+          cc.nomycar = f07.nomycar; cc.objeto = f07.objeto; cc.fechad = f07.fechad; cc.fecham = f07.fecham;
+          cc.fechaa = f07.fechaa; cc.horai = f07.horai; cc.horaf = f07.horaf; cc.circuns = f07.circuns;
+          cc.no_conf = f07.no_conf; cc.observa = f07.observa; cc.acciones = f07.acciones; cc.firma = f07.firma;
+          cc.nom1 = f07.nom1; cc.id1 = f07.id1; cc.folio1 = f07.folio1; cc.exp1 = f07.exp1; cc.direc1 = f07.direc1; cc.firma1 = f07.firma1;
+          cc.nom2 = f07.nom2; cc.id2 = f07.id2; cc.folio2 = f07.folio2; cc.exp2 = f07.exp2; cc.direc2 = f07.direc2; cc.firma2 = f07.firma2;
+          cc.nom3 = f07.nom3; cc.id3 = f07.id3; cc.folio3 = f07.folio3; cc.exp3 = f07.exp3; cc.direc3 = f07.direc3; cc.firma3 = f07.firma3;
+        });
+      }
+    }
   }
 
-  /** Update form dates */
+
+  /** Update dates */
   upfi(f: string, key: string) {
     const dd = this.splitDate(f);
-    this.db.object('data/' + key + '/datos/')
-      .update({ fechai: f, dia: dd.d, mes: dd.m, anio: dd.a });
+    if (this.offlineOnlineService.isOnline) { // Online
+      this.db.object('data/' + key + '/datos/')
+        .update({ fechai: f, dia: dd.d, mes: dd.m, anio: dd.a });
+    } else {
+      this.localDb.clients.where('id').equals(key).modify(client => { // Offline
+        client.datos.fechai = f;
+        client.datos.dia = dd.d;
+        client.datos.mes = dd.m;
+        client.datos.anio = dd.a;
+      });
+    }
   }
   upf02(f: string, key: string) {
-    this.db.object('data/' + key + '/datos/')
-      .update({ fft02: f });
+    if (this.offlineOnlineService.isOnline) { // Online
+      this.db.object('data/' + key + '/datos/')
+        .update({ fft02: f });
+    } else {
+      this.localDb.clients // Offline
+        .where('id').equals(key).modify(client => {
+          client.datos.fft02 = f;
+        });
+    }
   }
   upf03(f: string, key: string) {
-    this.db.object('data/' + key + '/datos/')
-      .update({ fft03: f });
+    if (this.offlineOnlineService.isOnline) { // Online
+      this.db.object('data/' + key + '/datos/')
+        .update({ fft03: f });
+    } else {
+      this.localDb.clients // Offline
+        .where('id').equals(key).modify(client => {
+          client.datos.fft03 = f;
+        });
+    }
   }
   upf05(f: string, key: string) {
-    this.db.object('data/' + key + '/datos/')
-      .update({ fft05: f });
+    if (this.offlineOnlineService.isOnline) { // Online
+      this.db.object('data/' + key + '/datos/')
+        .update({ fft05: f });
+    } else {
+      this.localDb.clients // Offline
+        .where('id').equals(key).modify(client => {
+          client.datos.fft05 = f;
+        });
+    }
   }
   upf06(f: string, key: string) {
-    this.db.object('data/' + key + '/datos/')
-      .update({ fft06: f });
+    if (this.offlineOnlineService.isOnline) { // Online
+      this.db.object('data/' + key + '/datos/')
+        .update({ fft06: f });
+    } else {
+      this.localDb.clients // Offline
+        .where('id').equals(key).modify(client => {
+          client.datos.fft06 = f;
+        });
+    }
   }
   upf09(f: string, key: string) {
-    this.db.object('data/' + key + '/datos/')
-      .update({ fft09: f });
+    if (this.offlineOnlineService.isOnline) { // Online
+      this.db.object('data/' + key + '/datos/')
+        .update({ fft09: f });
+    } else {
+      this.localDb.clients // Offline
+        .where('id').equals(key).modify(client => {
+          client.datos.fft09 = f;
+        });
+    }
   }
   upf10(f: string, key: string) {
-    this.db.object('data/' + key + '/datos/')
-      .update({ fft10: f });
+    if (this.offlineOnlineService.isOnline) { // Online
+      this.db.object('data/' + key + '/datos/')
+        .update({ fft10: f });
+    } else {
+      this.localDb.clients // Offline
+        .where('id').equals(key).modify(client => {
+          client.datos.fft10 = f;
+        });
+    }
   }
   upf11(f: string, key: string) {
-    this.db.object('data/' + key + '/datos/')
-      .update({ fft11: f });
+    if (this.offlineOnlineService.isOnline) { // Online
+      this.db.object('data/' + key + '/datos/')
+        .update({ fft11: f });
+    } else {
+      this.localDb.clients // Offline
+        .where('id').equals(key).modify(client => {
+          client.datos.fft11 = f;
+        });
+    }
   }
   upfc07(f: string, key: string) {
-    this.db.object('data/' + key + '/datos/')
-      .update({ ffc07: f });
+    if (this.offlineOnlineService.isOnline) { // Online
+      this.db.object('data/' + key + '/datos/')
+        .update({ ffc07: f });
+    } else {
+      this.localDb.clients // Offline
+        .where('id').equals(key).modify(client => {
+          client.datos.ffc07 = f;
+        });
+    }
+  }
+  upft07(f: string, key: string, key2: string) {  // Online
+    this.db.object('data/' + key + '/ft07/' + key2)
+      .update({ fecha: f });
+  }
+  upft07Off(f: string, id: string) {   // Offline
+    this.localDb.ft07.where('id').equals(id).modify(client => {
+      client.fecha = f;
+    });
+  }
+  upf15(f: string, key: string, key2: string) {   // Online
+    this.db.object('data/' + key + '/ft15/' + key2)
+      .update({ fecha: f });
+  }
+  upft15Off(f: string, id: string) {   // Offline
+    this.localDb.ft15.where('id').equals(id).modify(client => {
+      client.fecha = f;
+    });
+  }
+  upf81(f: string, key: string, key2: string) {
+    this.db.object('data/' + key + '/ft81/' + key2)
+      .update({ fecha: f });
+  }
+  upft81Off(f: string, id: string) {   // Offline
+    this.localDb.ft81.where('id').equals(id).modify(client => {
+      client.fecha = f;
+    });
+  }
+  upf82(f: string, key: string, key2: string) {
+    this.db.object('data/' + key + '/ft82/' + key2)
+      .update({ fecha: f });
+  }
+  upft82Off(f: string, id: string) {   // Offline
+    this.localDb.ft82.where('id').equals(id).modify(client => {
+      client.fecha = f;
+    });
   }
 
   /** IndexedDB Offline */
@@ -1677,7 +2226,12 @@ export class ClientService {
   private createDatabase() {
     this.localDb = new Dexie('LocalDB');
     this.localDb.version(1).stores({
-      clients: 'id'
+      clients: 'id',
+      ft07: 'id, client',
+      ft15: 'id, client',
+      ft81: 'id, client',
+      ft82: 'id, client',
+      ft10: 'id, client, id_'
     });
   }
 
@@ -1693,16 +2247,27 @@ export class ClientService {
       });
   }
 
-  private async sendItemsFromIndexedDb() {
+  public async sendItemsFromIndexedDb() {
     this.GetDataList();
     const allItems: Client[] = await this.localDb.clients.toArray();
     allItems.forEach((item: Client) => {
-      this.localDb.clients.delete(item.id).then(() => {
+      this.localDb.clients.delete(item.id).then(async () => {
+        const f10Items = await this.localDb.ft10.where('client').equals(item.id).toArray();
+        if (f10Items.length > 0) { item.ft10 = f10Items; }
+        const f07Items = await this.localDb.ft07.where('client').equals(item.id).toArray();
+        if (f07Items.length > 0) { item.ft07 = f07Items; }
+        const f15Items = await this.localDb.ft15.where('client').equals(item.id).toArray();
+        if (f15Items.length > 0) { item.ft15 = f15Items; }
+        const f81Items = await this.localDb.ft81.where('client').equals(item.id).toArray();
+        if (f81Items.length > 0) { item.ft81 = f81Items; }
+        const f82Items = await this.localDb.ft82.where('client').equals(item.id).toArray();
+        if (f82Items.length > 0) { item.ft82 = f82Items; }
         this.dataList.push(item);
         console.log(`item ${item.id} sent and deleted locally`);
       });
     });
   }
+
 
   addClientOffline(client: Client) {
     client.id = UUID.UUID();
@@ -1713,7 +2278,7 @@ export class ClientService {
     this.dataOffline = await this.localDb.clients.toArray();
   }
 
-  public getClientOffline(id: string) {
+  /* public getClientOffline(id: string) {
     this.localDb.clients
     .get(id)
     .then(async (client) => {
@@ -1723,9 +2288,24 @@ export class ClientService {
     .catch(e => {
       alert('Error: ' + (e.stack || e));
     });
-  }
-    // if (!this.offlineOnlineService.isOnline) {
-   // }  else {
-     // this.api.AddTodo(client);
-    // }
+  } */
+
+  /* public async addFt10Offline(id: string) {
+    const ft10local = [];
+    this.f11.forEach(item => {
+      const key = UUID.UUID();
+      ft10local.push({
+        key: key, id_: item.id_, cri: item.cri,
+        cum: item.cum, nom: item.nom, obp: item.obp,
+        obs: item.obs, tex: item.tex, tip: item.tip
+      });
+    });
+    await this.localDb.clients
+        .where('id')
+        .equals(id)
+        .modify(client => {
+          client.ft10 = ft10local;
+        });
+  } */
+
 }

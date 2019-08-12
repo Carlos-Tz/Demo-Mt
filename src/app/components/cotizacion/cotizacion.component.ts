@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 /* import 'fecha';
 import fechaObj from 'fecha'; */
 import { ClientService } from 'src/app/services/client.service';
-import { Ng2ImgMaxService } from 'ng2-img-max';
+// import { Ng2ImgMaxService } from 'ng2-img-max';
 import { DomSanitizer } from '@angular/platform-browser';
 import * as num from 'written-number';
 import { OfflineOnlineService } from 'src/app/services/offline-online.service';
@@ -18,28 +18,12 @@ import { OfflineOnlineService } from 'src/app/services/offline-online.service';
 })
 export class CotizacionComponent implements OnInit {
   costol = '';
-  // fechaS: Date;
-  /* uploadedImage: Blob;
-  public logo = ''; */
- /*  public razon = '';
-  public nombreuv = ''; */
-  /* public fecha = {
-    fecha: '',
-    dia: '',
-    mes: '',
-    anio: ''
-  }; */
-  /* public signs = {
-    s1: '',
-    s2: '',
-    s3: ''
-  }; */
   public clientForm: FormGroup;
   public dataList = [];
   constructor(
     public toastr: ToastrService,
     public clientApi: ClientService,
-    private ng2ImgMax: Ng2ImgMaxService,
+  //  private ng2ImgMax: Ng2ImgMaxService,
     public fb: FormBuilder,
     public sanitizer: DomSanitizer,
     private router: Router,
@@ -47,10 +31,6 @@ export class CotizacionComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    /* this.fecha.dia = fechaObj.format(new Date(), 'D');
-    this.fecha.mes = fechaObj.format(new Date(), 'MM');
-    this.fecha.anio = fechaObj.format(new Date(), 'YY');
-    this.fecha.fecha = fechaObj.format(new Date(), 'D [de] MMM [del] YYYY'); */
     if (this.offlineOnlineService.isOnline) {
       this.clientApi.GetDataList();
     }
@@ -66,8 +46,8 @@ export class CotizacionComponent implements OnInit {
       fechai: ['', [Validators.required]],
       tel: [''],
       correo: [''],
-      id: [''],
-      folio: [''],
+  //    id: [''],
+  //    folio: [''],
       fax: [''],
       pedido: [''],
       rfc: [''],
@@ -90,17 +70,17 @@ export class CotizacionComponent implements OnInit {
       costo: [''],
       costol: [''],
       instal: [''],
-      nom1: [''],
-      nom7: [''],
-      nom13: [''],
-      revp: [''],
-      verfs: [''],
-      verfbt: [''],
+  //    nom1: [''],
+  //    nom7: [''],
+  //    nom13: [''],
+  //    revp: [''],
+  //    verfs: [''],
+  //    verfbt: [''],
       ambien: [''],
       memo: [''],
-      nombreuv: [''],
-      iduv: [''],
-      foliouv: [''],
+      nombreuv: ['Ing.Héctor Martínez Peña'],
+ //     iduv: [''],
+ //     foliouv: [''],
       fft02: [''],
       fft03: [''],
       fft05: [''],
@@ -109,11 +89,16 @@ export class CotizacionComponent implements OnInit {
       fft10: [''],
       fft11: [''],
       ffc07: [''],
-      mesl: [''],
-      s1: [''],
-      s2: [''],
-      s3: [''],
-      logo: ['']
+  //    mesl: [''],
+  //    s1: [''],
+  //    s2: [''],
+ //     s3: [''],
+      logo: [''],
+      fechaf: [''],
+      cargouv: ['Verificador'],
+      fpago: [''],
+      vigencia: [''],
+      intro: ['']
     });
   }
 
@@ -122,48 +107,11 @@ export class CotizacionComponent implements OnInit {
   }
 
   submitClientData = () => {
-    /* console.log(this.fechaS);
-    console.log(this.fechaS.getFullYear());
-    console.log(this.fechaS.getDate()); */
     this.clientApi.AddClient(this.clientForm.value, this.costol);
     this.toastr.success('Guardado!');
     this.ResetForm();
     this.router.navigate(['/']);
   }
-
-  /* imgChanged($event) {
-    this.signs.s1 = $event.target.src;
-  }
-
-  imgChanged2($event) {
-    this.signs.s2 = $event.target.src;
-  }
-
-  imgChanged3($event) {
-    this.signs.s3 = $event.target.src;
-  } */
-
-  /* changeListener($event): void {
-    this.readThis($event.target);
-  }
-
-  readThis(inputValue: any): void {
-    const ima = inputValue.files[0];
-    this.ng2ImgMax.resizeImage(ima, 200, 200).subscribe(
-      result => {
-        this.uploadedImage = result;
-        const myReader: FileReader = new FileReader();
-        myReader.readAsDataURL(this.uploadedImage);
-        myReader.onload = (e) => {
-         this.logo = <string>myReader.result;
-          this.toastr.success('Logo cargado correctamente!');
-        };
-      },
-      error => {
-        this.toastr.error('Logo invalido!');
-      }
-    );
-  } */
 
   costo(value) {
     this.costol =  num(value, {lang: 'es'});

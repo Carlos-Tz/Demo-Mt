@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { ActivatedRoute } from '@angular/router';
+import { OfflineOnlineService } from 'src/app/services/offline-online.service';
 
 @Component({
   selector: 'app-ft09',
@@ -166,21 +167,39 @@ export class Ft09Component implements OnInit {
     private clientApi: ClientService,
     private location: Location,
     private fb: FormBuilder,
-    private actRoute: ActivatedRoute
+    private actRoute: ActivatedRoute,
+    private readonly offlineOnlineService: OfflineOnlineService
   ) { }
 
   ngOnInit() {
     this.key = this.actRoute.snapshot.paramMap.get('key');
-    if (this.clientApi.clientObject) {
-      this.clientApi.clientObject.valueChanges().subscribe(data => {
-        this.client = data.datos;
+    if (this.offlineOnlineService.isOnline) {
+      if (this.clientApi.clientObject) {
+        this.clientApi.clientObject.valueChanges().subscribe(data => {
+          this.client = data.datos;
+          if (this.client.fft09) {
+            this.ff = this.clientApi.splitDate(this.client.fft09);
+            this.month = this.clientApi.monthToRoman(this.ff.m);
+          }
+          if (data.ft09) {
+            this.ft09 = data.ft09;
+          }
+        });
+      }
+    } else {
+      this.clientApi.localDb.clients
+      .get(this.key).then(async (client) => {
+        this.client = client.datos;
         if (this.client.fft09) {
           this.ff = this.clientApi.splitDate(this.client.fft09);
           this.month = this.clientApi.monthToRoman(this.ff.m);
         }
-        if (data.ft09) {
-          this.ft09 = data.ft09;
+        if (client.ft09) {
+          this.ft09 = client.ft09;
         }
+      })
+      .catch(e => {
+        this.toastr.warning('Intentalo de nuevo!!');
       });
     }
     this.form();

@@ -1,14 +1,16 @@
-<!-- <tr *ngIf="page[j]">
-    <td class="cols_">{{ page[j].nom }}</td>
-    <td class="colmm">{{ page[j].tex }}</td>
-    <td class="colsm_">{{ page[j].tip }}</td>
-    <td class="colmm_">{{ page[j].cri }}</td>
-    <td class="colm_">{{ page[j].obp }}</td>
-    <td class="colm_">{{ page[j].obs }}</td>
-    <td class="colss_"><span *ngIf="page[j].cum=='si'">&#9632;</span></td>
-    <td class="colss_"><span *ngIf="page[j].cum=='no'">&#9632;</span></td>
-</tr> -->
-<tr *ngIf="row" [routerLink]="['/ft-10/', key, row.$key]" style="cursor: pointer;">
+
+<tr *ngIf="row && !off" [routerLink]="['/ft-10/', key, row.$key]" style="cursor: pointer;">
+    <td class="cols_">{{ row.nom }}</td>
+    <td class="colmm">{{ row.tex }}</td>
+    <td class="colsm_">{{ row.tip }}</td>
+    <td class="colmm_">{{ row.cri }}</td>
+    <td class="colm_">{{ row.obp }}</td>
+    <td class="colm_">{{ row.obs }}</td>
+    <td class="colss_"><span *ngIf="row.cum=='si'">&#9632;</span></td>
+    <td class="colss_"><span *ngIf="row.cum=='no'">&#9632;</span></td>
+</tr>
+
+<tr *ngIf="row && off" [routerLink]="['/ft-10/', key, row.id]" style="cursor: pointer;">
     <td class="cols_">{{ row.nom }}</td>
     <td class="colmm">{{ row.tex }}</td>
     <td class="colsm_">{{ row.tip }}</td>

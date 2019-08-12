@@ -58,12 +58,18 @@ export class PanelComponent implements OnInit {
         this.data_ = true;
       });
     } else {
-      this.clientApi.getDataOffline();
+      this.getDataOffline();
+      /* this.clientApi.getDataOffline();
       if (this.clientApi.dataOffline) {
         this.dataList = this.clientApi.dataOffline;
         this.data_2 = true;
-      }
+      } */
     }
   }
 
+  async getDataOffline () {
+    this.dataList = [];
+    this.dataList = await this.clientApi.localDb.clients.toArray();
+    this.data_2 = true;
+  }
 }

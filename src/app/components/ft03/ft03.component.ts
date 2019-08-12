@@ -4,6 +4,7 @@ import { Client } from 'src/app/models/client';
 import { Location } from '@angular/common';
 import { ToastrService } from 'ngx-toastr';
 import { ActivatedRoute } from '@angular/router';
+import { OfflineOnlineService } from 'src/app/services/offline-online.service';
 
 @Component({
   selector: 'app-ft03',
@@ -56,20 +57,42 @@ export class Ft03Component implements OnInit {
     private clientApi: ClientService,
     private location: Location,
     private toastr: ToastrService,
-    private actRoute: ActivatedRoute
+    private actRoute: ActivatedRoute,
+    private readonly offlineOnlineService: OfflineOnlineService
   ) { }
 
   ngOnInit() {
     this.key = this.actRoute.snapshot.paramMap.get('key');
-    if (this.clientApi.clientObject) {
-      this.clientApi.clientObject.valueChanges().subscribe(data => {
-        this.client = data.datos;
+    if (this.offlineOnlineService.isOnline) {
+      if (this.clientApi.clientObject) {
+        this.clientApi.clientObject.valueChanges().subscribe(data => {
+          this.client = data.datos;
+          if (this.client.fft03) {
+            this.ff = this.clientApi.splitDate(this.client.fft03);
+            this.mes = this.monthToName(this.ff.m);
+          }
+          if (data.ft03) {
+            this.ft03 = data.ft03;
+          } else {
+            this.ft03.nom1 = false;
+            this.ft03.nom7 = false;
+            this.ft03.nom13 = false;
+            this.ft03.revp = false;
+            this.ft03.vers = false;
+            this.ft03.veri = false;
+          }
+        });
+      }
+    } else {
+      this.clientApi.localDb.clients
+      .get(this.key).then(async (client) => {
+        this.client = client.datos;
         if (this.client.fft03) {
           this.ff = this.clientApi.splitDate(this.client.fft03);
           this.mes = this.monthToName(this.ff.m);
         }
-        if (data.ft03) {
-          this.ft03 = data.ft03;
+        if (client.ft03) {
+          this.ft03 = client.ft03;
         } else {
           this.ft03.nom1 = false;
           this.ft03.nom7 = false;
@@ -78,6 +101,9 @@ export class Ft03Component implements OnInit {
           this.ft03.vers = false;
           this.ft03.veri = false;
         }
+      })
+      .catch(e => {
+        this.toastr.warning('Intentalo de nuevo!!');
       });
     }
   }

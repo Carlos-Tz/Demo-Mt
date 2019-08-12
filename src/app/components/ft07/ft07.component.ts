@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { OfflineOnlineService } from 'src/app/services/offline-online.service';
 
 @Component({
   selector: 'app-ft07',
@@ -11,9 +12,16 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./ft07.component.css']
 })
 export class Ft07Component implements OnInit {
-
-   public clientF: FormGroup;
   public key = '';
+  public key2 = '';
+  public type = '';
+  // public mes = '';
+  public acta = false;
+  public ff = {
+    d: '',
+    m: '',
+    a: ''
+  };
   public client: {
     razon: '',
     nocontrol: '',
@@ -28,24 +36,44 @@ export class Ft07Component implements OnInit {
     correo: '',
     anio: ''
   };
-  public ft11 = {
-    r1: '',
-    r2: '',
-    r3: '',
-    r3a: '',
-    r4: '',
-    c1: '',
-    c2: '',
-    c3: '',
-    c4: '',
-    e1: '',
-    e2: '',
-    e3: '',
-    e4: '',
-    f1: '',
-    f2: '',
-    f3: '',
-    f4: ''
+  public ft07 = {
+    name: '',
+    cod: '',
+    rev: null,
+    vigen: '',
+    tipo: '',
+    fecha: '',
+    id_: null,
+    nomycar: '',
+    objeto: '',
+    fechad: null,
+    fecham: null,
+    fechaa: null,
+    horai: '',
+    horaf: '',
+    circuns: '',
+    no_conf: '',
+    observa: '',
+    acciones: '',
+    firma: '',
+    nom1: '',
+    id1: '',
+    folio1: '',
+    exp1: '',
+    direc1: '',
+    firma1: '',
+    nom2: '',
+    id2: '',
+    folio2: '',
+    exp2: '',
+    direc2: '',
+    firma2: '',
+    nom3: '',
+    id3: '',
+    folio3: '',
+    exp3: '',
+    direc3: '',
+    firma3: ''
   };
 
   constructor(
@@ -53,50 +81,100 @@ export class Ft07Component implements OnInit {
     private clientApi: ClientService,
     private location: Location,
     private fb: FormBuilder,
-    private actRoute: ActivatedRoute
+    private actRoute: ActivatedRoute,
+    private readonly offlineOnlineService: OfflineOnlineService
   ) { }
 
   ngOnInit() {
     this.key = this.actRoute.snapshot.paramMap.get('key');
-    if (this.clientApi.clientObject) {
-      this.clientApi.clientObject.valueChanges().subscribe(data => {
-        this.client = data.datos;
-        if (data.ft11) {
-          this.ft11 = data.ft11;
-        }
+    this.key2 = this.actRoute.snapshot.paramMap.get('key2');
+    this.type = this.actRoute.snapshot.paramMap.get('type');
+    if (this.offlineOnlineService.isOnline) {
+      if (this.clientApi.clientObject) {
+        this.clientApi.clientObject.valueChanges().subscribe(data => {
+          this.client = data.datos;
+        });
+      }
+    } else {
+      this.clientApi.localDb.clients
+      .get(this.key).then(async (cc) => {
+        this.client = cc.datos;
+      })
+      .catch(e => {
+        this.toastr.warning('Intentalo de nuevo!!');
       });
     }
-    this.form();
+    if (this.type === 'AECIE') {
+      if (this.offlineOnlineService.isOnline) {
+        this.clientApi.getCurrentDataF07(this.key, this.key2).valueChanges().subscribe(data => {
+          this.ft07 = data;
+          this.acta = true;
+          if (this.ft07.fecha) {
+            console.log(this.ft07.fecha + 'AECIE');
+            this.ff = this.clientApi.splitDate(this.ft07.fecha);
+            // this.mes = this.clientApi.monthToRoman(this.ff.m);
+          }
+        });
+      } else {
+        this.clientApi.localDb.ft07
+          .get(this.key2).then(async (cc) => {
+            this.ft07 = cc;
+            this.acta = true;
+            if (this.ft07.fecha) {
+              this.ff = this.clientApi.splitDate(this.ft07.fecha);
+            }
+          })
+          .catch(e => {
+            this.toastr.warning('Intentalo de nuevo!!');
+          });
+      }
+    }
+    if (this.type === 'RTPE') {
+      if (this.offlineOnlineService.isOnline) {
+        this.clientApi.getCurrentDataF15(this.key, this.key2).valueChanges().subscribe(data => {
+          this.ft07 = data;
+          this.acta = false;
+          if (this.ft07.fecha) {
+            console.log(this.ft07.fecha + 'RTPE');
+            this.ff = this.clientApi.splitDate(this.ft07.fecha);
+            // this.mes = this.clientApi.monthToRoman(this.ff.m);
+          }
+        });
+      } else {
+        this.clientApi.localDb.ft15
+        .get(this.key2).then(async (cc) => {
+          this.ft07 = cc;
+          this.acta = false;
+          if (this.ft07.fecha) {
+            this.ff = this.clientApi.splitDate(this.ft07.fecha);
+          }
+        })
+        .catch(e => {
+          this.toastr.warning('Intentalo de nuevo!!');
+        });
+      }
+    }
   }
 
   goBack = () => {
     this.location.back();
   }
 
-  form() {
-    this.clientF = this.fb.group({
-      r1: [''],
-      r2: [''],
-      r3: [''],
-      r3a: [''],
-      r4: [''],
-      c1: [''],
-      c2: [''],
-      c3: [''],
-      c4: [''],
-      e1: [''],
-      e2: [''],
-      e3: [''],
-      e4: [''],
-      f1: [''],
-      f2: [''],
-      f3: [''],
-      f4: ['']
-    });
+  imgChanged($event) {
+    this.ft07.firma = $event.target.src;
+  }
+  imgChanged2($event) {
+    this.ft07.firma1 = $event.target.src;
+  }
+  imgChanged3($event) {
+    this.ft07.firma2 = $event.target.src;
+  }
+  imgChanged4($event) {
+    this.ft07.firma3 = $event.target.src;
   }
 
   submitClientData = () => {
-    this.clientApi.UpdateFt11(this.clientF.value, this.key);
+    this.clientApi.UpdateFt07(this.ft07, this.key2, this.type);
     this.toastr.success('Actualizado!');
   }
 }

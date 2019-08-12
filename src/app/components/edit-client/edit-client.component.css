@@ -10,6 +10,15 @@ input[type="number"], input[type="text"] {
     border-bottom-style: none;
   }
 
+  .page {
+    min-height: 18.5cm !important;
+    height: 18.5cm !important;
+  }
+
+  .green {
+    background-color: #ddffdd;
+  }
+
   td {
     padding: 0 1mm;
     border-radius: 0 !important;
@@ -85,4 +94,8 @@ input[type="number"], input[type="text"] {
   }
   input[type=file] {
     font-size: 0.6em;
+  }
+  input[type=date], select {
+    border: none;
+    background-color: transparent;
   }

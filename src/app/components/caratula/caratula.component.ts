@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ClientService } from 'src/app/services/client.service';
 import { Location } from '@angular/common';
+import { OfflineOnlineService } from 'src/app/services/offline-online.service';
+import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-caratula',
@@ -9,18 +12,36 @@ import { Location } from '@angular/common';
 })
 export class CaratulaComponent implements OnInit {
   public client: {
-    anio: ''
+    anio: '',
+    razon: '',
+    giro: '',
+    nocontrol: ''
   };
+  public key = '';
 
   constructor(
+    public toastr: ToastrService,
     private clientApi: ClientService,
-    private location: Location
+    private actRouter: ActivatedRoute,
+    private location: Location,
+    private readonly offlineOnlineService: OfflineOnlineService
   ) { }
 
   ngOnInit() {
-    if (this.clientApi.clientObject) {
-      this.clientApi.clientObject.valueChanges().subscribe(data => {
-        this.client = data.datos;
+    this.key = this.actRouter.snapshot.paramMap.get('key');
+    if (this.offlineOnlineService.isOnline) {
+      if (this.clientApi.clientObject) {
+        this.clientApi.clientObject.valueChanges().subscribe(data => {
+          this.client = data.datos;
+        });
+      }
+    } else {
+      this.clientApi.localDb.clients
+      .get(this.key).then(async (client) => {
+        this.client = client.datos;
+      })
+      .catch(e => {
+        this.toastr.warning('Intentalo de nuevo!!');
       });
     }
   }

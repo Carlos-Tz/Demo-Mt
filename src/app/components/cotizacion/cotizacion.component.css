@@ -1,6 +1,6 @@
 .page {
-  min-height: 12cm !important;
-  height: 12cm !important;
+  min-height: 13cm !important;
+  height: 13cm !important;
 }
 input[type="number"], input[type="text"] {
     border-bottom: none !important;
@@ -92,4 +92,7 @@ input[type="number"], input[type="text"] {
   }
   input[type=file] {
     font-size: 0.6em;
+  }
+  input[type=date] {
+    border: none;
   }

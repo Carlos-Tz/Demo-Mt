@@ -14,7 +14,6 @@ import { CaratulaComponent } from './components/caratula/caratula.component';
 import { PanelComponent } from './components/panel/panel.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ClientComponent } from './components/client/client.component';
-import { AddClientComponent } from './components/add-client/add-client.component';
 import { Fc07Component } from './components/fc07/fc07.component';
 import { Ft05Component } from './components/ft05/ft05.component';
 import { Ft02Component } from './components/ft02/ft02.component';
@@ -24,8 +23,6 @@ import { Ft03Component } from './components/ft03/ft03.component';
 import { Ft01Component } from './components/ft01/ft01.component';
 import { Ft11Component } from './components/ft11/ft11.component';
 import { Ft08incie1Component } from './components/ft08incie1/ft08incie1.component';
-import { Ft08incie2Component } from './components/ft08incie2/ft08incie2.component';
-import { Ft08incpeComponent } from './components/ft08incpe/ft08incpe.component';
 
 import { environment } from '../environments/environment';
 import { Ft10Component } from './components/ft10/ft10.component';
@@ -44,7 +41,6 @@ import { EditCotizacionComponent } from './components/edit-cotizacion/edit-cotiz
     PanelComponent,
     NavbarComponent,
     ClientComponent,
-    AddClientComponent,
     Fc07Component,
     Ft05Component,
     Ft02Component,
@@ -54,8 +50,6 @@ import { EditCotizacionComponent } from './components/edit-cotizacion/edit-cotiz
     Ft01Component,
     Ft11Component,
     Ft08incie1Component,
-    Ft08incie2Component,
-    Ft08incpeComponent,
     Ft10Component,
     RowComponent,
     EditFt10Component,

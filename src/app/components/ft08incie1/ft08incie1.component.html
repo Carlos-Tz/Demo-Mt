@@ -3,7 +3,7 @@
   <section>
     <div class="page-landscape">
       <div class="inner">
-        <!-- <form [formGroup]="clientF" autocomplete="off"> -->
+        
           <table class="table1_">
             <tr>
               <td rowspan="5" style="width: 30%;"><img src="assets/mt.png" style="height: 2.5cm;"></td>
@@ -11,18 +11,18 @@
                 <h2><b>INFORME DE NO COMFORMIDAD</b></h2>
               </td>
               <td rowspan="2">
-                <p>Proyecto (<b *ngIf="ft081=='PEC'"> X </b>)  Memorias Técnicas Descriptivas ( )</p>
-                <p>Instalación en Sitio (<b *ngIf="ft081=='NOM'"> X </b>)  Pruebas ( )</p>
+                <p>Proyecto ( <b *ngIf="ft081"><span *ngIf="ft081.desc=='PRO'">X</span></b> ) <span style="padding-right: 3em;"></span> Memorias Técnicas Descriptivas ( )</p>
+                <p>Instalación en Sitio ( <b *ngIf="ft081"><span *ngIf="ft081.desc=='INS'">X</span></b> ) <span style="padding-right: 3em;"></span> Pruebas ( )</p>
               </td>
-              <td style="padding-top: 3mm;">CÓDIGO: <b>FT-08</b></td>
+              <td style="padding-top: 3mm; width: 10%;">CÓDIGO: <b>FT-08</b></td>
             </tr>
             <tr>
               <td>EDICIÓN: <b>1</b></td>
             </tr>
             <tr>
               <td rowspan="3">
-                <p>No. UVSEIE 448-A-<b *ngIf="client">{{ client.nocontrol }}/{{ client.anio }}</b></p>
-                <p>Fecha: <b *ngIf="client">{{ client.dia }}/{{ client.mes }}/{{ client.anio }}</b></p>
+                <p>No. UVSEIE 448-A-<b *ngIf="client">{{ client.nocontrol }}/{{ ff.a }}</b></p>
+                <p>Fecha: <b *ngIf="client">{{ ff.d }}/{{ mes }}/{{ ff.a }}</b></p>
               </td>
               <td rowspan="3">
                 <p>Cliente: <b *ngIf="client" style="text-transform: uppercase;">{{ client.razon }}</b></p>
@@ -40,7 +40,7 @@
             <tr>
               <th class="col1_">No</th>
               <th class="col2_">Descripción de No Conformidades</th>
-              <th class="col3_">No Conforme con la(s) seccion(es) de la {{ ft081.tipo }}</th>
+              <th class="col3_">No Conforme con la(s) seccion(es) <span *ngIf="nom">de la</span><span *ngIf="!nom">del</span> {{ ft081.tipo }}</th>
               <th class="cols_">Fecha de revisión</th>
               <th>Acciones Correctivas <p>(Por el Cliente)</p>
               </th>
@@ -102,7 +102,7 @@
             PROGRAMAR UNA NUEVA VISITA DE INSPECCION
           </p>
           <p style="font-size: 0.7em;"><b>IMPORTANTE: EL VERIFICADOR NO ES EL SUPERVISOR DE OBRA DEL SOLICITANTE</b></p> <br>
-          <p style="font-size: 0.8em;"><b *ngIf="client">{{ client.cargouv }}</b> <b *ngIf="client" style="margin-right: 6em;">{{ client.nombreuv }}</b> El Cliente: <b style="text-transform: uppercase;" *ngIf="client">{{ client.razon }}</b></p>
+          <p style="font-size: 0.8em;"><b *ngIf="client">{{ client.cargouv }}: </b> <b *ngIf="client" style="margin-right: 6em;">{{ client.nombreuv }}</b> El Cliente: <b style="text-transform: uppercase;" *ngIf="client">{{ client.razon }}</b></p>
           </div>
 
        <!--  </form> -->

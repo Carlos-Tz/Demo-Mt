@@ -2,13 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import 'fecha';
-import fechaObj from 'fecha';
 import { ClientService } from 'src/app/services/client.service';
 import { Ng2ImgMaxService } from 'ng2-img-max';
 import { DomSanitizer } from '@angular/platform-browser';
 import * as num from 'written-number';
 import { Location } from '@angular/common';
+import { OfflineOnlineService } from 'src/app/services/offline-online.service';
 
 @Component({
   selector: 'app-edit-client',
@@ -25,8 +24,6 @@ export class EditClientComponent implements OnInit {
     nombre: '',
     tel: '',
     correo: '',
-    id: '',
-    folio: '',
     fax: '',
     pedido: null,
     rfc: '',
@@ -49,25 +46,13 @@ export class EditClientComponent implements OnInit {
     costo: null,
     costol: '',
     instal: '',
-    nom1: false,
-    nom7: false,
-    nom13: false,
-    revp: false,
-    verfs: false,
-    verfbt: false,
     ambien: '',
     memo: '',
     nombreuv: '',
-    iduv: '',
-    foliouv: '',
     logo: '',
     dia: '',
     mes: '',
-    mesl: '',
     anio: '',
-    s1: '',
-    s2: '',
-    s3: '',
     fechai: '',
     date: null,
     fechaf: '',
@@ -86,12 +71,6 @@ export class EditClientComponent implements OnInit {
   };
   uploadedImage: Blob;
   public logo = '';
-  /* public fecha = {
-    fecha: '',
-    dia: '',
-    mes: '',
-    anio: ''
-  }; */
   public signs = {
     s1: '',
     s2: '',
@@ -106,25 +85,25 @@ export class EditClientComponent implements OnInit {
     private actRouter: ActivatedRoute,
     public fb: FormBuilder,
     public sanitizer: DomSanitizer,
-    private router: Router,
-    private location: Location
+    private location: Location,
+    private readonly offlineOnlineService: OfflineOnlineService
   ) { }
 
   ngOnInit() {
-    /* this.fecha.dia = fechaObj.format(new Date(), 'D');
-    this.fecha.mes = fechaObj.format(new Date(), 'MMMM');
-    this.fecha.anio = fechaObj.format(new Date(), 'YY');
-    this.fecha.fecha = fechaObj.format(new Date(), 'D [de] MMM [del] YYYY'); */
     this.key = this.actRouter.snapshot.paramMap.get('key');
-    this.clientApi.getCurrentData(this.key).valueChanges().subscribe(data => {
-      this.datos = data.datos;
-      /* if (!data.ft10) {
-        console.log('Sin datos en ft10');
-        this.clientApi.Getf10(this.key);
-        this.clientApi.addft10();
-      } */
-    });
-    // this.clientApi.GetDataList();
+    if (this.offlineOnlineService.isOnline) {
+      this.clientApi.getCurrentData(this.key).valueChanges().subscribe(data => {
+        this.datos = data.datos;
+      });
+    } else {
+      this.clientApi.localDb.clients
+      .get(this.key).then(async (client) => {
+        this.datos = client.datos;
+      })
+      .catch(e => {
+        this.toastr.warning('Intentalo de nuevo!!');
+      });
+    }
     this.cForm();
   }
 
@@ -132,74 +111,16 @@ export class EditClientComponent implements OnInit {
     this.clientForm = this.fb.group({
       razon: ['', [Validators.required]],
       giro: ['', [Validators.required]],
-      nocontrol: ['', [Validators.required]],
-      nombre: ['', [Validators.required]],
-      tel: [''],
-      correo: [''],
-      id: [''],
-      folio: [''],
-      fax: [''],
-      pedido: [''],
-      rfc: [''],
-      calle: [''],
-      colonia: [''],
-      munic: [''],
-      estado: [''],
-      cp: [''],
-      tipos: [''],
-      tension: [''],
-      planos: [''],
-      cargai: [''],
-      alcance: [''],
-      factor: [''],
-      cargadem: [''],
-      corriente: [''],
-      volts: [''],
-      sub: [''],
-      area: [''],
-      costo: [''],
-      costol: [''],
-      instal: [''],
-      nom1: [''],
-      nom7: [''],
-      nom13: [''],
-      revp: [''],
-      verfs: [''],
-      verfbt: [''],
-      ambien: [''],
-      memo: [''],
-      nombreuv: [''],
-      iduv: [''],
-      foliouv: ['']
+      nocontrol: [''],
+      nombre: ['', [Validators.required]]
     });
   }
-  /*
-    ResetForm() {
-      this.clientForm.reset();
-    } */
 
   submitClientData = () => {
-    // this.clientApi.AddClient(this.clientForm.value, this.fecha, this.signs, this.logo, this.costol);
     this.clientApi.updateClient(this.datos, this.key);
     this.toastr.success('Actualizado!');
-    // this.ResetForm();
-   // this.router.navigate(['/panel']);
   }
 
-  imgChanged($event) {
-    // this.signs.s1 = $event.target.src;
-    this.datos.s1 = $event.target.src;
-  }
-
-  imgChanged2($event) {
-    // this.signs.s2 = $event.target.src;
-    this.datos.s2 = $event.target.src;
-  }
-
-  imgChanged3($event) {
-    // this.signs.s3 = $event.target.src;
-    this.datos.s3 = $event.target.src;
-  }
 
   changeListener($event): void {
     this.readThis($event.target);

@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { F05 } from 'src/app/models/f05';
+import { OfflineOnlineService } from 'src/app/services/offline-online.service';
 
 @Component({
   selector: 'app-ft05',
@@ -59,20 +60,37 @@ export class Ft05Component implements OnInit {
     private clientApi: ClientService,
     private location: Location,
     private fb: FormBuilder,
-    private actRoute: ActivatedRoute
+    private actRoute: ActivatedRoute,
+    private readonly offlineOnlineService: OfflineOnlineService
   ) { }
 
   ngOnInit() {
     this.key = this.actRoute.snapshot.paramMap.get('key');
-    if (this.clientApi.clientObject) {
-      this.clientApi.clientObject.valueChanges().subscribe(data => {
-        this.client = data.datos;
+    if (this.offlineOnlineService.isOnline) {
+      if (this.clientApi.clientObject) {
+        this.clientApi.clientObject.valueChanges().subscribe(data => {
+          this.client = data.datos;
+          if (this.client.fft05) {
+            this.ff = this.clientApi.splitDate(this.client.fft05);
+          }
+          if (data.ft05) {
+            this.ft05 = data.ft05;
+          }
+        });
+      }
+    } else {
+      this.clientApi.localDb.clients
+      .get(this.key).then(async (client) => {
+        this.client = client.datos;
         if (this.client.fft05) {
           this.ff = this.clientApi.splitDate(this.client.fft05);
         }
-        if (data.ft05) {
-          this.ft05 = data.ft05;
+        if (client.ft05) {
+          this.ft05 = client.ft05;
         }
+      })
+      .catch(e => {
+        this.toastr.warning('Intentalo de nuevo!!');
       });
     }
     this.form();

@@ -16,8 +16,9 @@
   .brand-logo_ .logo_ {height: 100%;}
   .nav-wrapper_ {
     display: flex;
-    /* justify-content: space-between; */
-    justify-content: center;
+    justify-content: space-between;
+    /* justify-content: center; */
+    /* justify-content: space-around; */
     /* align-items: center; */
     width: 100%;
   }

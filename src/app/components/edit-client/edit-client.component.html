@@ -4,7 +4,7 @@
     <div class="page">
       <div class="inner">
         
-          <h3>Actualizar Expediente</h3>
+          <h3 style="text-align: center;">Actualizar Expediente</h3>
           <table id="tab1">
             <tr>
               <th>
@@ -15,118 +15,119 @@
           <form [formGroup]="clientForm" (ngSubmit)="submitClientData()" novalidate autocomplete="off">
           <table id="tab3">
             <tr>
-              <td>
+              <td [ngClass]="{'green':datos.razon}">
                 <span class="line">Razón Social: </span>
-                <input class="line1" type="text" formControlName="razon" placeholder="**" [(ngModel)]="datos.razon">
+                <input class="line1 focusNext" type="text" formControlName="razon" placeholder="**" [(ngModel)]="datos.razon" tabindex="0">
               </td>
             </tr>
           </table>
           <table id="tab3">
             <tr>
-              <td>
+              <td [ngClass]="{'green':datos.giro}">
                 <span class="line">Giro: </span>
-                <input class="line1" type="text" formControlName="giro" placeholder="**" [(ngModel)]="datos.giro">
+                <input class="line1 focusNext" type="text" formControlName="giro" placeholder="**" [(ngModel)]="datos.giro" tabindex="1">
               </td>
             </tr>
           </table>
           <table id="tab3">
             <tr>
-              <td>
+              <td [ngClass]="{'green':datos.nocontrol}">
                 <span class="line">No. de Control Interno: </span>
-                <input class="line1" type="text" formControlName="nocontrol" placeholder="**" [(ngModel)]="datos.nocontrol">
+                <input class="line1 focusNext" type="text" formControlName="nocontrol" placeholder="**" [(ngModel)]="datos.nocontrol" tabindex="2">
               </td>
             </tr>
           </table>
           <table id="tab3">
             <tr>
-              <td>
+              <td [ngClass]="{'green':datos.nombre}">
                 <span class="line">Nombre del Responsable: </span>
-                <input class="line1" type="text" formControlName="nombre" placeholder="**" [(ngModel)]="datos.nombre">
+                <input class="line1 focusNext" type="text" formControlName="nombre" placeholder="**" [(ngModel)]="datos.nombre" tabindex="3">
               </td>
             </tr>
           </table>
           </form>
+          
           <table id="tab3">
-            <tr>
-              <td class="col50">
-                <span class="line">Teléfono: </span>
-                <input class="line2" type="text" [(ngModel)]="datos.tel">
+            <tr>              
+              <td class="col50" [ngClass]="{'green':datos.fechai}">
+                <span class="line">Fecha Inicio: </span>
+                <input class="line2" type="date" [(ngModel)]="datos.fechai">
               </td>
-              <td class="col50">
-                <span class="line">Fax: </span>
-                <input class="line2" type="text" [(ngModel)]="datos.fax">
-              </td>
-            </tr>
-          </table>
-          <table id="tab3">
-            <tr>
-              <td class="col50">
+              <td class="col50" [ngClass]="{'green':datos.correo}">
                 <span class="line">Correo electrónico: </span>
-                <input class="line2" type="text" [(ngModel)]="datos.correo">
-              </td>
-              <td class="col50">
-                <span class="line">RFC: </span>
-                <input class="line2" type="text" [(ngModel)]="datos.rfc">
+                <input class="line2 focusNext" type="text" [(ngModel)]="datos.correo" tabindex="4">
               </td>
             </tr>
           </table>
           <table id="tab3">
             <tr>
-              <td class="col50">
+              <td class="col50" [ngClass]="{'green':datos.tel}">
+                <span class="line">Teléfono: </span>
+                <input class="line2 focusNext" type="text" [(ngModel)]="datos.tel" tabindex="5">
+              </td>
+              <td class="col50" [ngClass]="{'green':datos.fax}">
+                <span class="line">Fax: </span>
+                <input class="line2 focusNext" type="text" [(ngModel)]="datos.fax" tabindex="6">
+              </td>
+            </tr>
+          </table>
+          <!-- <table id="tab3">
+            <tr>
+              <td class="col50" [ngClass]="{'green':datos.id}">
                 <span class="line">Identificación: </span>
                 <input class="line2" type="text" [(ngModel)]="datos.id">
               </td>
-              <td class="col50">
+              <td class="col50" [ngClass]="{'green':datos.folio}">
                 <span class="line">No de Id o Folio: </span>
                 <input class="line2" type="text" [(ngModel)]="datos.folio">
               </td>
             </tr>
-          </table>
+          </table> -->
           <table id="tab3">
-            <tr>
-              <td class="col50">
-                <span class="line">Fecha Inicio: </span>
-                <input class="line2" type="text" [(ngModel)]="datos.fechai">
+            <tr>              
+              <td class="col50" [ngClass]="{'green':datos.rfc}">
+                <span class="line">RFC: </span>
+                <input class="line2 focusNext" type="text" [(ngModel)]="datos.rfc" tabindex="7">
               </td>
-              <td class="col50">
+              <td class="col50" [ngClass]="{'green':datos.logo}">
                 <span class="line">Logo: </span>
-                <input class="line2" type="file" accept="image/*" (change)="changeListener($event)">
+                <input class="line2 focusNext" type="file" accept="image/*" (change)="changeListener($event)">
               </td>
             </tr>
           </table>
           <table id="tab3">
             <tr>
-              <td>
+              <td [ngClass]="{'green':datos.calle}">
                 <span class="line">Calle y No.: </span>
-                <input class="line1" type="text" [(ngModel)]="datos.calle">
+                <input class="line1 focusNext" type="text" [(ngModel)]="datos.calle" tabindex="8">
               </td>
             </tr>
           </table>
           <table id="tab3">
             <tr>
-              <td>
+              <td [ngClass]="{'green':datos.colonia}">
                 <span class="line">Colonia o Población: </span>
-                <input class="line1" type="text" [(ngModel)]="datos.colonia">
+                <input class="line1 focusNext" type="text" [(ngModel)]="datos.colonia" tabindex="9">
               </td>
             </tr>
           </table>
           <table id="tab3">
             <tr>
-              <td>
+              <td [ngClass]="{'green':datos.munic}">
                 <span class="line">Municipio o Delegación: </span>
-                <input class="line1" type="text" [(ngModel)]="datos.munic">
+                <input class="line1 focusNext" type="text" [(ngModel)]="datos.munic" tabindex="10">
               </td>
             </tr>
           </table>
           <table id="tab2">
             <tr>
-              <td class="col50">
+              <td class="col50" [ngClass]="{'green':datos.estado}">
                 <span class="line">Ciudad o Estado: </span>
-                <input class="line2" type="text" [(ngModel)]="datos.estado">
+                <input class="line2 focusNext" type="text" [(ngModel)]="datos.estado" tabindex="11">
               </td>
-              <td class="col50">
+              <td class="col50" [ngClass]="{'green':datos.cp}">
                 <span class="line">C.P.: </span>
-                <input class="line2" type="number" [(ngModel)]="datos.cp">
+                <input class="line2 focusNext" type="number" [(ngModel)]="datos.cp" tabindex="12">
               </td>
             </tr>
           </table>
@@ -141,23 +142,27 @@
           </table>
           <table id="tab3">
             <tr>
-              <td>
+              <td [ngClass]="{'green':datos.tipos}">
                 <span class="line">Tipo de Servicio: </span>
-                <input class="line1" type="text" [(ngModel)]="datos.tipos">
+                <input class="line1 focusNext" type="text" [(ngModel)]="datos.tipos" tabindex="13">
               </td>
             </tr>
           </table>
           <table id="tab3">
             <tr>
-              <td>
-                <span class="line">No de Pedido: </span>
-                <input class="line1" type="number" [(ngModel)]="datos.pedido">
-              </td>
+              <td class="col50" [ngClass]="{'green':datos.planos}">
+                <span class="line">Planos: </span>
+                <input class="line1 focusNext" type="text" [(ngModel)]="datos.planos" tabindex="14">
+              </td>              
+              <td class="col50" [ngClass]="{'green':datos.fechaf}">
+                <span class="line">Fecha Termino: </span>
+                <input class="line1" type="date" [(ngModel)]="datos.fechaf">
+              </td>              
             </tr>
           </table>
           <table id="tab3">
             <tr>
-              <td class="col50">
+              <td class="col50" [ngClass]="{'green':datos.tension}">
                 <span class="line">Tensión: </span>
                 <select name="tension" [(ngModel)]="datos.tension">
                   <option value="Baja" selected>Baja</option>
@@ -165,78 +170,78 @@
                   <option value="Alta">Alta</option>
                 </select>
               </td>
-              <td class="col50">
-                <span class="line">Planos: </span>
-                <input type="text" [(ngModel)]="datos.planos">
-              </td>
+              <td class="col50" [ngClass]="{'green':datos.pedido}">
+                  <span class="line">No de Pedido: </span>
+                  <input class="focusNext" type="number" [(ngModel)]="datos.pedido" tabindex="15">
+                </td>
             </tr>
           </table>
           <table id="tab3">
             <tr>
-              <td class="col50">
+              <td class="col50" [ngClass]="{'green':datos.cargai}">
                 <span class="line">Carga Instalada: </span>
-                <input type="number" step="0.01" min="0" [(ngModel)]="datos.cargai" placeholder="Kw">
+                <input class="focusNext" type="number" step="0.01" min="0" [(ngModel)]="datos.cargai" placeholder="Kw" tabindex="16">
               </td>
-              <td class="col50">
+              <td class="col50" [ngClass]="{'green':datos.alcance}">
                 <span class="line">Alcance de la Verif.: </span>
-                <input type="number" step="0.01" min="0" [(ngModel)]="datos.alcance" placeholder="Kw">
+                <input class="focusNext" type="number" step="0.01" min="0" [(ngModel)]="datos.alcance" placeholder="Kw" tabindex="17">
               </td>
             </tr>
           </table>
           <table id="tab3">
             <tr>
-              <td class="col50">
+              <td class="col50" [ngClass]="{'green':datos.factor}">
                 <span class="line">Factor de Demanda: </span>
-                <input type="number" min="0" max="100" [(ngModel)]="datos.factor" placeholder="%">
+                <input class="focusNext" type="number" min="0" max="100" [(ngModel)]="datos.factor" placeholder="%" tabindex="18">
               </td>
-              <td class="col50">
+              <td class="col50" [ngClass]="{'green':datos.cargadem}">
                 <span class="line">Carga Demandada: </span>
-                <input type="number" step="0.001" min="0" [(ngModel)]="datos.cargadem" placeholder="Kw">
+                <input class="focusNext" type="number" step="0.001" min="0" [(ngModel)]="datos.cargadem" placeholder="Kw" tabindex="19">
               </td>
             </tr>
           </table>
           <table id="tab3">
             <tr>
-              <td class="col50">
+              <td class="col50" [ngClass]="{'green':datos.corriente}">
                 <span class="line">Corriente Demandada: </span>
-                <input type="number" step="0.01" min="0" [(ngModel)]="datos.corriente" placeholder="Amps">
+                <input class="focusNext" type="number" step="0.01" min="0" [(ngModel)]="datos.corriente" placeholder="Amps" tabindex="20">
               </td>
-              <td class="col50">
+              <td class="col50" [ngClass]="{'green':datos.volts}">
                 <span class="line">Voltaje: </span>
-                <input type="text" [(ngModel)]="datos.volts" placeholder="220/127 v">
+                <input class="focusNext" type="text" [(ngModel)]="datos.volts" placeholder="220/127 v" tabindex="21">
               </td>
             </tr>
           </table>
           <table id="tab3">
             <tr>
-              <td class="col50">
+              <td class="col50" [ngClass]="{'green':datos.sub}">
                 <span class="line">Cap. de Subestación: </span>
-                <input type="number" step="0.01" min="0" [(ngModel)]="datos.sub" placeholder="kVA">
+                <input class="focusNext" type="number" step="0.01" min="0" [(ngModel)]="datos.sub" placeholder="kVA" tabindex="22">
               </td>
-              <td class="col50">
+              <td class="col50" [ngClass]="{'green':datos.area}">
                 <span class="line">Área electrificada: </span>
-                <input type="number" step="0.01" min="0" [(ngModel)]="datos.area" placeholder="m2">
+                <input class="focusNext" type="number" step="0.01" min="0" [(ngModel)]="datos.area" placeholder="m2" tabindex="23">
               </td>
             </tr>
           </table>
           <table id="tab3">
             <tr>
-              <td class="col50">
+              <td class="col50" [ngClass]="{'green':datos.costo}">
                 <span class="line">Costo: $ </span>
-                <input type="number" [(ngModel)]="datos.costo" min="0" (change)="costo($event.target.value)">
+                <input class="focusNext" type="number" [(ngModel)]="datos.costo" min="0" (change)="costo($event.target.value)" tabindex="24">
               </td>
-              <td class="col50">
-                <span class="line">Tipo de instalación: </span>
+              <td class="col50" [ngClass]="{'green':datos.instal}">
+                <span class="line">Tipo de área: </span>
                 <select name="instal" [(ngModel)]="datos.instal">
                   <option value="publica" selected>Concentración pública</option>
-                  <option value="peligrosa">Área perligrosa</option>
+                  <option value="peligrosa">Área peligrosa</option>
                 </select>
               </td>
             </tr>
           </table>
           <table id="tab3">
             <tr>
-              <td>
+              <td [ngClass]="{'green':datos.costol}">
                 <span class="line">Costo con letra: </span>
                 <input class="line1" type="text" [(ngModel)]="datos.costol" value={{costol}}>
               </td>
@@ -244,57 +249,7 @@
           </table>
           <table id="tab3">
             <tr>
-              <td>
-                <span class="line">NOM-001-SEDE-2012 Instalaciones Eléctricas (utilización) </span>
-                <input type="checkbox" [(ngModel)]="datos.nom1">
-              </td>
-            </tr>
-          </table>
-          <table id="tab3">
-            <tr>
-              <td>
-                <span class="line">NOM-007-ENER-2014 Eficiencia energética en sistemas de alumbrado no residenciales.
-                </span>
-                <input type="checkbox" [(ngModel)]="datos.nom7">
-              </td>
-            </tr>
-          </table>
-          <table id="tab3">
-            <tr>
-              <td>
-                <span class="line">NOM-013-ENER-2013 Eficiencia energética para sistemas de alumbrado en vialidades.
-                </span>
-                <input type="checkbox" [(ngModel)]="datos.nom13">
-              </td>
-            </tr>
-          </table>
-          <table id="tab3">
-            <tr>
-              <td>
-                <span class="line">Revisión de planos de proyecto y memoria de cálculo. </span>
-                <input type="checkbox" [(ngModel)]="datos.revp">
-              </td>
-            </tr>
-          </table>
-          <table id="tab3">
-            <tr>
-              <td>
-                <span class="line">Verificación de subestación eléctrica. </span>
-                <input type="checkbox" [(ngModel)]="datos.verfs">
-              </td>
-            </tr>
-          </table>
-          <table id="tab3">
-            <tr>
-              <td>
-                <span class="line">Verificación de instalaciones en baja tensión. </span>
-                <input type="checkbox" [(ngModel)]="datos.verfbt">
-              </td>
-            </tr>
-          </table>
-          <table id="tab3">
-            <tr>
-              <td>
+              <td [ngClass]="{'green':datos.ambien}">
                 <span class="line">Ambientes especiales: </span>
                 <label><span class="line">Si</span>
                   <input type="radio" name="ambien" [(ngModel)]="datos.ambien" value="si">
@@ -307,7 +262,7 @@
           </table>
           <table id="tab3">
             <tr>
-              <td>
+              <td [ngClass]="{'green':datos.memo}">
                 <span class="line">Memoria Técnica: </span>
                 <label><span class="line">Si</span>
                   <input type="radio" name="memo" value="si" [(ngModel)]="datos.memo">
@@ -322,78 +277,27 @@
           <table id="tab1">
             <tr>
               <th>
-                <span class="line">Datos del Responsable de atender a la UVIE </span>
+                <span class="line">Datos UVIE </span>
               </th>
             </tr>
           </table>
           <table id="tab3">
             <tr>
-              <td>
-                <span class="line">Nombre: </span>
-                <input class="line1" type="text" [(ngModel)]="datos.nombreuv">
+              <td [ngClass]="{'green':datos.nombreuv}">
+                <span class="line">Responsable UVIE: </span>
+                <input class="line1 focusNext" type="text" [(ngModel)]="datos.nombreuv" tabindex="25">
               </td>
             </tr>
           </table>
           <table id="tab3">
             <tr>
-              <td class="col50">
-                <span class="line">Identificación: </span>
-                <input type="text" [(ngModel)]="datos.iduv">
-              </td>
-              <td class="col50">
-                <span class="line">No de Id o Folio: </span>
-                <input type="number" min="0" [(ngModel)]="datos.foliouv">
+              <td [ngClass]="{'green':datos.cargouv}">
+                <span class="line">Cargo: </span>
+                <input class="line1 focusNext" type="text" [(ngModel)]="datos.cargouv" tabindex="26">
               </td>
             </tr>
           </table>
-          <br>
-
-          <table style=" text-align:center; border:none;">
-            <tr>
-              <td>
-                <p class="line">"LA UNIDAD DE VERIFICACIÓN"</p>
-                <div class="sign">
-                  <div class="signature">
-                    <div id="contSign" onclick="btn_click()">
-                      <img src="{{datos.s1}}" id="imgSign" (load)="imgChanged($event)">
-                    </div>
-                  </div>
-                  <hr>
-                  <div>
-                    <p class="line">ING. HÉCTOR MARTÍNEZ PEÑA</p>
-                  </div>
-                </div>
-              </td>
-              <td>
-                <p class="line">"EL SOLICITANTE"</p>
-                <div class="sign">
-                  <div class="signature">
-                    <div id="contSign" onclick="btn_click2()">
-                      <img src="{{datos.s2}}" id="imgSign2" (load)="imgChanged2($event)" >
-                    </div>
-                  </div>
-                  <hr>
-                  <div style="margin: 1.8mm;">
-                    <input style="width: 100%; font-size: 0.8em; text-transform: uppercase;" type="text" [(ngModel)]="datos.razon">
-                  </div>
-                </div>
-              </td>
-              <td>
-                <p class="line">"EL RESPONSABLE"</p>
-                <div class="sign">
-                  <div class="signature">
-                    <div id="contSign" onclick="btn_click3()">
-                      <img src="{{datos.s3}}" id="imgSign3" (load)="imgChanged3($event)">
-                    </div>
-                  </div>
-                  <hr>
-                  <div style="margin: 1.9mm;">
-                    <input style="width: 100%; font-size: 0.8em; text-transform: uppercase;" type="text" [(ngModel)]="datos.nombreuv">
-                  </div>
-                </div>
-              </td>
-            </tr>
-          </table>
+          <br>          
         
       </div>
     </div>

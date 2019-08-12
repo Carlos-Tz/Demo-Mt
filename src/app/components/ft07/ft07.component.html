@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
 <div class="app">
-  <form [formGroup]="clientF" autocomplete="off">
+  <!-- <form [formGroup]="clientF" autocomplete="off"> -->
     <section>
       <div class="page">
         <div class="inner">
@@ -9,25 +9,25 @@
               <td rowspan="5" style="width: 43%;"><img src="assets/mt.png" style="height: 2.5cm;"></td>
               <td rowspan="5" style="width: 32%;">
                 <h2>
-                  <b>ACTA DE EVALUACIÓN DE LA CONFORMIDAD</b>
+                  <b>{{ ft07.name }}</b>
                 </h2>
 
               </td>
-              <td style="padding-top: 3mm;">CÓDIGO: <b>FT-07</b></td>
+              <td style="padding-top: 3mm;">CÓDIGO: <b>{{ ft07.cod }}</b></td>
             </tr>
             <tr>
               <td>EDICIÓN: <b>1</b></td>
             </tr>
             <tr>
-              <td>N. REVISIÓN: <b>3</b></td>
+              <td>N. REVISIÓN: <b>{{ ft07.rev }}</b></td>
             </tr>
             <tr>
-              <td rowspan="2">Vigente a partir de: <br><b>05-Dic-14</b></td>
+              <td rowspan="2">Vigente a partir de: <br><b>{{ ft07.vigen }}</b></td>
             </tr>
           </table>
 
           <p>DATOS DEL SOLICITANTE DE LA VERIFICACIÓN:</p>
-          <p style="text-align: right;">Verificación No.: <b *ngIf="client">{{ client.nocontrol }}/{{ client.anio }}</b>
+          <p style="text-align: right;">Verificación No.: <b *ngIf="client">{{ client.nocontrol }}/{{ ff.a }}</b>
           </p>
           <table>
             <tr>
@@ -88,7 +88,7 @@
             <tr>
               <td>
                 <p>NOMBRE Y CARGO DE LA PERSONA QUE ATENDIÓ LA VISITA DE VERIFICACIÓN:</p>
-                <textarea rows="3"></textarea>
+                <textarea rows="3" [(ngModel)]="ft07.nomycar"></textarea>
               </td>
             </tr>
           </table>
@@ -99,16 +99,18 @@
             <tr>
               <td>
                 <p>OBJETO DE LA VISITA DE VERIFICACIÓN</p>
-                <textarea rows="4"></textarea>
+                <textarea rows="4" [(ngModel)]="ft07.objeto"></textarea>
               </td>
             </tr>
           </table>
           <table>
             <tr>
               <td>
-                <p>FECHA DE LA VISITA DE VERIFICACIÓN DIA: <input type="text"> MES: <input type="text"> AÑO: <input
-                    type="text"></p>
-                <p>HORA DE INICIO: <input type="text"> HORA DE TERMINO: <input type="text"></p>
+                <p>FECHA DE LA VISITA DE VERIFICACIÓN 
+                  DIA: <input type="text" [(ngModel)]="ft07.fechad"> 
+                  MES: <input type="text" [(ngModel)]="ft07.fecham"> 
+                  AÑO: <input type="text" [(ngModel)]="ft07.fechaa"></p>
+                <p>HORA DE INICIO: <input type="text" [(ngModel)]="ft07.horai"> HORA DE TERMINO: <input type="text" [(ngModel)]="ft07.horaf"></p>
               </td>
             </tr>
           </table>
@@ -117,7 +119,7 @@
               <td>
                 <p>DESARROLLO DE LA VISITA DE VERIFICACIÓN: </p>
                 <p>Circunstancias en las que se efectúa la verificación</p>
-                <textarea rows="11"></textarea>
+                <textarea rows="11" [(ngModel)]="ft07.circuns"></textarea>
               </td>
             </tr>
           </table>
@@ -135,27 +137,27 @@
               <td rowspan="5" style="width: 43%;"><img src="assets/mt.png" style="height: 2.5cm;"></td>
               <td rowspan="5" style="width: 32%;">
                 <h2>
-                  <b>ACTA DE EVALUACIÓN DE LA CONFORMIDAD</b>
+                  <b>{{ ft07.name }}</b>
                 </h2>
 
               </td>
-              <td style="padding-top: 3mm;">CÓDIGO: <b>FT-07</b></td>
+              <td style="padding-top: 3mm;">CÓDIGO: <b>{{ ft07.cod }}</b></td>
             </tr>
             <tr>
               <td>EDICIÓN: <b>1</b></td>
             </tr>
             <tr>
-              <td>N. REVISIÓN: <b>3</b></td>
+              <td>N. REVISIÓN: <b>{{ ft07.rev }}</b></td>
             </tr>
             <tr>
-              <td rowspan="2">Vigente a partir de: <br><b>05-Dic-14</b></td>
+              <td rowspan="2">Vigente a partir de: <br><b>{{ ft07.vigen }}</b></td>
             </tr>
           </table>
           <table>
               <tr>
                 <td>
                   <p>No Conformidades Encontradas:</p>
-                  <textarea rows="4"></textarea>
+                  <textarea rows="4" [(ngModel)]="ft07.no_conf"></textarea>
                 </td>
               </tr>
             </table>
@@ -163,13 +165,13 @@
               <tr>
                 <td>
                   <p>OBSERVACIONES DE LA PERSONA QUE ATENDIO LA VISITA DE VERIFICACIÓN:</p>
-                  <textarea rows="3"></textarea>
+                  <textarea rows="3" [(ngModel)]="ft07.observa"></textarea>
                 </td>
               </tr>
               <tr>
                 <td>
                   <p>Acciones realizadas y documentación ofrecida con respecto a lo asentado en el desarrollo de la visita de verificación:</p>
-                  <textarea rows="2"></textarea>
+                  <textarea rows="2" [(ngModel)]="ft07.acciones"></textarea>
                 </td>
               </tr>
             </table>
@@ -178,10 +180,20 @@
               <tr>
                 <td>
                   <p>Unidad de verificación de Instalaciones Eléctricas: <b *ngIf="client" style="text-transform: uppercase;">{{ client.nombreuv }}</b></p>
-                  <p>No. Registro: <b>UVSEIE 448-A-{{ client.nocontrol }}/{{ client.anio }}</b></p>
+                  <p>No. Registro: <b *ngIf="client">UVSEIE 448-A-{{ client.nocontrol }}/{{ ff.a }}</b></p>
                 </td>
-                <td>
-                  Firma
+                <td style="width: 250px;">
+                  <div class="sign" style="margin: 0 auto;">
+                    <div class="signature">
+                      <div id="contSign" onclick = "btn_click()">
+                        <img *ngIf="client" src="{{ ft07.firma }}" id="imgSign" (load)="imgChanged($event)">
+                      </div>
+                    </div>
+                    <hr>
+                    <div>
+                      <p style="text-align: center;">FIRMA</p>
+                    </div>
+                  </div>
                 </td>
               </tr>              
             </table>
@@ -189,14 +201,24 @@
               <tr>
                 <td>
                   <p>Datos de la persona que atendió la visita</p>
-                  <p>Nombre: <input type="text"></p>
-                  <p>Identificación: <input type="text"></p>
-                  <p>Número o folio de la identificación: <input type="text"></p>
-                  <p>Expedida por: <input type="text"></p>
-                  <p>Dirección: <input type="text"></p>
+                  <p>Nombre: <input type="text" [(ngModel)]="ft07.nom1" class="nom"></p>
+                  <p>Identificación: <input type="text" [(ngModel)]="ft07.id1" class="id"></p>
+                  <p>Número o folio de la identificación: <input type="text" [(ngModel)]="ft07.folio1" class="fol"></p>
+                  <p>Expedida por: <input type="text" [(ngModel)]="ft07.exp1" class="exp"></p>
+                  <p>Dirección: <input type="text" [(ngModel)]="ft07.direc1" class="dir"></p>
                 </td>
-                <td>
-                  Firma
+                <td style="width: 250px;">
+                  <div class="sign" style="margin: 0 auto;">
+                    <div class="signature">
+                      <div id="contSign" onclick = "btn_click2()">
+                        <img *ngIf="client" src="{{ ft07.firma1 }}" id="imgSign2" (load)="imgChanged2($event)">
+                      </div>
+                    </div>
+                    <hr>
+                    <div>
+                      <p style="text-align: center;">FIRMA</p>
+                    </div>
+                  </div>
                 </td>
               </tr>
             </table>
@@ -204,14 +226,24 @@
                 <tr>
                   <td>
                     <p>Datos del Testigo</p>
-                    <p>Nombre: <input type="text"></p>
-                    <p>Identificación: <input type="text"></p>
-                    <p>Número o folio de la identificación: <input type="text"></p>
-                    <p>Expedida por: <input type="text"></p>
-                    <p>Dirección: <input type="text"></p>
+                    <p>Nombre: <input type="text" [(ngModel)]="ft07.nom2" class="nom"></p>
+                    <p>Identificación: <input type="text" [(ngModel)]="ft07.id2" class="id"></p>
+                    <p>Número o folio de la identificación: <input type="text" [(ngModel)]="ft07.folio2" class="fol"></p>
+                    <p>Expedida por: <input type="text" [(ngModel)]="ft07.exp2" class="exp"></p>
+                    <p>Dirección: <input type="text" [(ngModel)]="ft07.direc2" class="dir"></p>
                   </td>
-                  <td>
-                    Firma
+                  <td style="width: 250px;">
+                    <div class="sign" style="margin: 0 auto;">
+                      <div class="signature">
+                        <div id="contSign" onclick = "btn_click3()">
+                          <img *ngIf="client" src="{{ ft07.firma2 }}" id="imgSign3" (load)="imgChanged3($event)">
+                        </div>
+                      </div>
+                      <hr>
+                      <div>
+                        <p style="text-align: center;">FIRMA</p>
+                      </div>
+                    </div>
                   </td>
                 </tr>
               </table>
@@ -219,21 +251,31 @@
               <tr>
                 <td>
                   <p>Datos del Testigo</p>
-                  <p>Nombre: <input type="text"></p>
-                  <p>Identificación: <input type="text"></p>
-                  <p>Número o folio de la identificación: <input type="text"></p>
-                  <p>Expedida por: <input type="text"></p>
-                  <p>Dirección: <input type="text"></p>
+                  <p>Nombre: <input type="text" [(ngModel)]="ft07.nom3" class="nom"></p>
+                  <p>Identificación: <input type="text" [(ngModel)]="ft07.id3" class="id"></p>
+                  <p>Número o folio de la identificación: <input type="text" [(ngModel)]="ft07.folio3" class="fol"></p>
+                  <p>Expedida por: <input type="text" [(ngModel)]="ft07.exp3" class="exp"></p>
+                  <p>Dirección: <input type="text" [(ngModel)]="ft07.direc3" class="dir"></p>
                 </td>
-                <td>
-                  Firma
+                <td style="width: 250px;">
+                  <div class="sign" style="margin: 0 auto;">
+                    <div class="signature">
+                      <div id="contSign" onclick = "btn_click4()">
+                        <img *ngIf="client" src="{{ ft07.firma3 }}" id="imgSign4" (load)="imgChanged4($event)">
+                      </div>
+                    </div>
+                    <hr>
+                    <div>
+                      <p style="text-align: center;">FIRMA</p>
+                    </div>
+                  </div>
                 </td>
               </tr>
             </table>
         </div>
       </div>
     </section>
-  </form>
+  <!-- </form> -->
   <div>
     <button class="volver_ no-print" (click)="goBack()">
       Volver

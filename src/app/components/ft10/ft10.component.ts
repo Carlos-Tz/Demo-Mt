@@ -3,6 +3,8 @@ import { Location } from '@angular/common';
 import { ClientService } from 'src/app/services/client.service';
 import { F10 } from 'src/app/models/f10';
 import { ActivatedRoute } from '@angular/router';
+import { OfflineOnlineService } from 'src/app/services/offline-online.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-ft10',
@@ -35,39 +37,53 @@ export class Ft10Component implements OnInit {
   constructor(
     private clientApi: ClientService,
     private location: Location,
-    private actRoute: ActivatedRoute
+    private toastr: ToastrService,
+    private actRoute: ActivatedRoute,
+    private readonly offlineOnlineService: OfflineOnlineService
   ) { }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.key = this.actRoute.snapshot.paramMap.get('key');
-    if (this.clientApi.clientObject) {
-      this.clientApi.clientObject.valueChanges().subscribe(data => {
-        this.client = data.datos;
+    if (this.offlineOnlineService.isOnline) {
+      if (this.clientApi.clientObject) {
+        this.clientApi.clientObject.valueChanges().subscribe(data => {
+          this.client = data.datos;
+          if (this.client.fft10) {
+            this.ff = this.clientApi.splitDate(this.client.fft10);
+            this.month = this.clientApi.monthToRoman(this.ff.m);
+          }
+        });
+      }
+      this.clientApi.Getf10(this.key).snapshotChanges().subscribe(re => {
+        this.ft10List = [];
+        re.forEach(item => {
+          const surv = item.payload.toJSON();
+          surv['$key'] = item.key;
+          this.ft10List.push(surv as F10);
+        });
+        this.len = Math.ceil((this.ft10List.length) / 17);
+        this.pages = this.page0.slice(0, this.len);
+      });
+    } else {
+      this.clientApi.localDb.clients
+      .get(this.key).then(async (client) => {
+        this.client = client.datos;
         if (this.client.fft10) {
           this.ff = this.clientApi.splitDate(this.client.fft10);
           this.month = this.clientApi.monthToRoman(this.ff.m);
         }
-        /* if (data.ft10) {
-          for (const i in data.ft10) {
-            this.ft10List.push(data.ft10[i] as F10);
-          }
-          this.len = Math.ceil((this.ft10List.length) / 18);
-          this.pages = this.page0.slice(0, this.len);
-        } */
+      })
+      .catch(e => {
+        this.toastr.warning('Intentalo de nuevo!!');
       });
-    }
-    this.clientApi.Getf10(this.key).snapshotChanges().subscribe(re => {
       this.ft10List = [];
-      re.forEach(item => {
-        const surv = item.payload.toJSON();
-        surv['$key'] = item.key;
-        this.ft10List.push(surv as F10);
-      });
-     // this.data_ = true;
+      this.ft10List = await this.clientApi.localDb.ft10.where('client').equals(this.key).toArray();
       this.len = Math.ceil((this.ft10List.length) / 17);
       this.pages = this.page0.slice(0, this.len);
-     // console.log(this.ft10List[1]);
-    });
+      this.ft10List.sort((a, b) => {
+        return a.id_ - b.id_;
+      });
+    }
   }
 
   goBack = () => {

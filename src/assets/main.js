@@ -1,6 +1,4 @@
 var modal = document.getElementById('myModal');
-//var btn = document.getElementById("contSign");
-//var span = document.getElementsByClassName("close")[0];
 var span = document.getElementById("close");
 var canvas = document.getElementById('canvas');
 var modal2 = document.getElementById('myModal2');
@@ -9,6 +7,9 @@ var canvas2 = document.getElementById('canvas2');
 var modal3 = document.getElementById('myModal3');
 var span3 = document.getElementById("close3");
 var canvas3 = document.getElementById('canvas3');
+var modal4 = document.getElementById('myModal4');
+var span4 = document.getElementById("close4");
+var canvas4 = document.getElementById('canvas4');
 
 var signaturePad = new SignaturePad(canvas, {
     backgroundColor: 'rgba(255, 255, 255, 0)',
@@ -28,6 +29,12 @@ var signaturePad3 = new SignaturePad(canvas3, {
     maxWidth: 4,
     penColor: "rgb(33, 33, 33)"
 });
+var signaturePad4 = new SignaturePad(canvas4, {
+    backgroundColor: 'rgba(255, 255, 255, 0)',
+    minWidth: 3,
+    maxWidth: 4,
+    penColor: "rgb(33, 33, 33)"
+});
 
 //btn.onclick = function (event) {
 function btn_click() {
@@ -42,6 +49,10 @@ function btn_click3() {
     modal3.style.display = "block";
    resizeCanvas3();
 } 
+function btn_click4() {
+    modal4.style.display = "block";
+   resizeCanvas4();
+} 
 span.onclick = function () {
     modal.style.display = "none";
     document.getElementById('imgSign').src = signaturePad.toDataURL();
@@ -53,6 +64,10 @@ span2.onclick = function () {
 span3.onclick = function () {
     modal3.style.display = "none";
     document.getElementById('imgSign3').src = signaturePad3.toDataURL();
+}
+span4.onclick = function () {
+    modal4.style.display = "none";
+    document.getElementById('imgSign4').src = signaturePad4.toDataURL();
 }
 window.onclick = function (event) {
     if (event.target == modal) {
@@ -66,6 +81,10 @@ window.onclick = function (event) {
     if (event.target == modal3) {
         modal3.style.display = "none";
         document.getElementById('imgSign3').src = signaturePad3.toDataURL();
+    }
+    if (event.target == modal4) {
+        modal4.style.display = "none";
+        document.getElementById('imgSign4').src = signaturePad4.toDataURL();
     }
 }
 
@@ -90,10 +109,18 @@ function resizeCanvas3() {
     canvas3.height = Math.ceil(h * 0.7);
     signaturePad3.clear();
 }
+function resizeCanvas4() {
+    var w = modal4.clientWidth;
+    var h = modal4.clientHeight;
+    canvas4.width = Math.ceil(w * 0.75);
+    canvas4.height = Math.ceil(h * 0.7);
+    signaturePad4.clear();
+}
 
 window.addEventListener("resize", resizeCanvas);
 window.addEventListener("resize2", resizeCanvas2);
 window.addEventListener("resize3", resizeCanvas3);
+window.addEventListener("resize4", resizeCanvas4);
 
 document.addEventListener('keypress', function(evt) {
     if (evt.key !== 'Enter') {

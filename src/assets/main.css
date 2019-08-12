@@ -45,7 +45,7 @@ canvas {
   #contSign,.signature{
     text-align:center; width:250px; height: 80px;
   }
-  #imgSign, #imgSign2, #imgSign3{
+  #imgSign, #imgSign2, #imgSign3, #imgSign4{
     max-width: 100%;
     max-height: 100%;
   }

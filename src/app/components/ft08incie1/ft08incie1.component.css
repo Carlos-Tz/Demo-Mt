@@ -25,7 +25,7 @@ th {
     width: 1cm;
 }
 .table3_ .col2_ {
-    width: 10cm;
+    width: 8.5cm;
 }
 .table3_ .col3_ {
     width: 4cm;
@@ -40,7 +40,11 @@ th {
     resize: none;
     overflow: hidden;
     border: none;    
-    font-size: 1.1em;
+    font-size: 1em;
+    font-family: 'Times New Roman', Times, serif;
+}
+input[type=date] {
+    border: none;
 }
 input[type=checkbox] {
     margin-left: 0.5em;

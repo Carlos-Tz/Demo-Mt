@@ -1,6 +1,8 @@
 export interface F081 {
     tipo: string;
     desc: string;
+    fecha: string;
+    id_: number;
     n1: number;
     n2: number;
     n3: number;

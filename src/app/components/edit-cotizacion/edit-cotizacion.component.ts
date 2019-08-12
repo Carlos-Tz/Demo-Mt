@@ -98,12 +98,20 @@ export class EditCotizacionComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    /* if (this.offlineOnlineService.isOnline) { */
-      this.key = this.actRouter.snapshot.paramMap.get('key');
+    this.key = this.actRouter.snapshot.paramMap.get('key');
+    if (this.offlineOnlineService.isOnline) {
       this.clientApi.getCurrentData(this.key).valueChanges().subscribe(data => {
         this.datos = data.datos;
       });
-    /* } */
+    } else {
+      this.clientApi.localDb.clients
+      .get(this.key).then(async (client) => {
+        this.datos = client.datos;
+      })
+      .catch(e => {
+        this.toastr.warning('Intentalo de nuevo!!');
+      });
+    }
     this.cForm();
   }
 
@@ -111,65 +119,14 @@ export class EditCotizacionComponent implements OnInit {
     this.clientForm = this.fb.group({
       razon: ['', [Validators.required]],
       giro: ['', [Validators.required]],
-      nocontrol: [''],
       nombre: ['', [Validators.required]],
-      fechai: ['', [Validators.required]],
-      tel: [''],
-      correo: [''],
-      id: [''],
-      folio: [''],
-      fax: [''],
-      pedido: [''],
-      rfc: [''],
-      calle: [''],
-      colonia: [''],
-      munic: [''],
-      estado: [''],
-      cp: [''],
-      tipos: [''],
-      tension: [''],
-      planos: [''],
-      cargai: [''],
-      alcance: [''],
-      factor: [''],
-      cargadem: [''],
-      corriente: [''],
-      volts: [''],
-      sub: [''],
-      area: [''],
-      costo: [''],
-      costol: [''],
-      instal: [''],
-      nom1: [''],
-      nom7: [''],
-      nom13: [''],
-      revp: [''],
-      verfs: [''],
-      verfbt: [''],
-      ambien: [''],
-      memo: [''],
-      nombreuv: [''],
-      iduv: [''],
-      foliouv: [''],
-      fft02: [''],
-      fft03: [''],
-      fft05: [''],
-      fft06: [''],
-      fft09: [''],
-      fft10: [''],
-      fft11: [''],
-      ffc07: [''],
-      mesl: [''],
-      s1: [''],
-      s2: [''],
-      s3: [''],
-      logo: ['']
+      fechai: ['', [Validators.required]]
     });
   }
 
-  ResetForm() {
+  /* ResetForm() {
     this.clientForm.reset();
-  }
+  } */
 
   submitClientData = () => {
     this.clientApi.updateClient(this.datos, this.key);

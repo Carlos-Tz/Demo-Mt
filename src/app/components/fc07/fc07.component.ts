@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { ActivatedRoute } from '@angular/router';
+import { OfflineOnlineService } from 'src/app/services/offline-online.service';
 
 @Component({
   selector: 'app-fc07',
@@ -92,27 +93,69 @@ export class Fc07Component implements OnInit {
     private clientApi: ClientService,
     private location: Location,
     private fb: FormBuilder,
-    private actRoute: ActivatedRoute
+    private actRoute: ActivatedRoute,
+    private readonly offlineOnlineService: OfflineOnlineService
   ) { }
 
   ngOnInit() {
     this.key = this.actRoute.snapshot.paramMap.get('key');
-    if (this.clientApi.clientObject) {
-      this.clientApi.clientObject.valueChanges().subscribe(data => {
-        this.client = data.datos;
-        if (this.client.ffc07) { this.ff = this.clientApi.splitDate(this.client.ffc07); this.month = this.clientApi.monthToRoman(this.ff.m);}
+    if (this.offlineOnlineService.isOnline) {
+      if (this.clientApi.clientObject) {
+        this.clientApi.clientObject.valueChanges().subscribe(data => {
+          this.client = data.datos;
+          if (this.client.ffc07) {
+            this.ff = this.clientApi.splitDate(this.client.ffc07); this.month = this.clientApi.monthToRoman(this.ff.m); }
+          this.month1 = this.clientApi.monthToRoman(this.client.mes);
+          if (this.client.fft02) {
+            this.ff2 = this.clientApi.splitDate(this.client.fft02); this.month2 = this.clientApi.monthToRoman(this.ff2.m); }
+          if (this.client.fft03) {
+            this.ff3 = this.clientApi.splitDate(this.client.fft03); this.month3 = this.clientApi.monthToRoman(this.ff3.m); }
+          if (this.client.fft05) {
+            this.ff5 = this.clientApi.splitDate(this.client.fft05); this.month5 = this.clientApi.monthToRoman(this.ff5.m); }
+          if (this.client.fft06) {
+            this.ff6 = this.clientApi.splitDate(this.client.fft06); this.month6 = this.clientApi.monthToRoman(this.ff6.m); }
+          if (this.client.fft09) {
+            this.ff9 = this.clientApi.splitDate(this.client.fft09); this.month9 = this.clientApi.monthToRoman(this.ff9.m); }
+          if (this.client.fft10) {
+            this.ff10 = this.clientApi.splitDate(this.client.fft10); this.month10 = this.clientApi.monthToRoman(this.ff10.m); }
+          if (this.client.fft11) {
+            this.ff11 = this.clientApi.splitDate(this.client.fft11); this.month11 = this.clientApi.monthToRoman(this.ff11.m); }
+          if (this.client.fechaf) {
+            this.fff = this.clientApi.splitDate(this.client.fechaf); this.monthf = this.clientApi.monthToRoman(this.fff.m); }
+          if (data.fc07) {
+            this.fc07 = data.fc07;
+          }
+        });
+      }
+    } else {
+      this.clientApi.localDb.clients
+      .get(this.key).then(async (client) => {
+        this.client = client.datos;
+        if (this.client.ffc07) {
+          this.ff = this.clientApi.splitDate(this.client.ffc07); this.month = this.clientApi.monthToRoman(this.ff.m); }
         this.month1 = this.clientApi.monthToRoman(this.client.mes);
-        if (this.client.fft02) { this.ff2 = this.clientApi.splitDate(this.client.fft02); this.month2 = this.clientApi.monthToRoman(this.ff2.m);}
-        if (this.client.fft03) { this.ff3 = this.clientApi.splitDate(this.client.fft03); this.month3 = this.clientApi.monthToRoman(this.ff3.m);}
-        if (this.client.fft05) { this.ff5 = this.clientApi.splitDate(this.client.fft05); this.month5 = this.clientApi.monthToRoman(this.ff5.m);}
-        if (this.client.fft06) { this.ff6 = this.clientApi.splitDate(this.client.fft06); this.month6 = this.clientApi.monthToRoman(this.ff6.m);}
-        if (this.client.fft09) { this.ff9 = this.clientApi.splitDate(this.client.fft09); this.month9 = this.clientApi.monthToRoman(this.ff9.m);}
-        if (this.client.fft10) { this.ff10 = this.clientApi.splitDate(this.client.fft10); this.month10 = this.clientApi.monthToRoman(this.ff10.m);}
-        if (this.client.fft11) { this.ff11 = this.clientApi.splitDate(this.client.fft11); this.month11 = this.clientApi.monthToRoman(this.ff11.m);}
-        if (this.client.fechaf) { this.fff= this.clientApi.splitDate(this.client.fechaf); this.monthf = this.clientApi.monthToRoman(this.fff.m);}
-        if (data.fc07) {
-          this.fc07 = data.fc07;
+        if (this.client.fft02) {
+          this.ff2 = this.clientApi.splitDate(this.client.fft02); this.month2 = this.clientApi.monthToRoman(this.ff2.m); }
+        if (this.client.fft03) {
+          this.ff3 = this.clientApi.splitDate(this.client.fft03); this.month3 = this.clientApi.monthToRoman(this.ff3.m); }
+        if (this.client.fft05) {
+          this.ff5 = this.clientApi.splitDate(this.client.fft05); this.month5 = this.clientApi.monthToRoman(this.ff5.m); }
+        if (this.client.fft06) {
+          this.ff6 = this.clientApi.splitDate(this.client.fft06); this.month6 = this.clientApi.monthToRoman(this.ff6.m); }
+        if (this.client.fft09) {
+          this.ff9 = this.clientApi.splitDate(this.client.fft09); this.month9 = this.clientApi.monthToRoman(this.ff9.m); }
+        if (this.client.fft10) {
+          this.ff10 = this.clientApi.splitDate(this.client.fft10); this.month10 = this.clientApi.monthToRoman(this.ff10.m); }
+        if (this.client.fft11) {
+          this.ff11 = this.clientApi.splitDate(this.client.fft11); this.month11 = this.clientApi.monthToRoman(this.ff11.m); }
+        if (this.client.fechaf) {
+          this.fff = this.clientApi.splitDate(this.client.fechaf); this.monthf = this.clientApi.monthToRoman(this.fff.m); }
+        if (client.fc07) {
+          this.fc07 = client.fc07;
         }
+      })
+      .catch(e => {
+        this.toastr.warning('Intentalo de nuevo!!');
       });
     }
     // this.form();

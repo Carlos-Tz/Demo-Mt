@@ -1,5 +1,5 @@
 export interface F10 {
-    id: number;
+    id_: number;
     nom: string;
     tex: string;
     tip: string;
