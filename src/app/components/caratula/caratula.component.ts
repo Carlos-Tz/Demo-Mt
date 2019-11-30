@@ -15,7 +15,8 @@ export class CaratulaComponent implements OnInit {
     anio: '',
     razon: '',
     giro: '',
-    nocontrol: ''
+    nocontrol: '',
+    nomcom: ''
   };
   public key = '';
 

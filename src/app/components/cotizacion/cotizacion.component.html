@@ -4,7 +4,7 @@
     <div class="page">
       <div class="inner">
         <form [formGroup]="clientForm" (ngSubmit)="submitClientData()" novalidate autocomplete="off">
-          <h3 style="text-align: center;">Nueva Cotización</h3>
+          <h3 style="text-align: center;">Nuevo Expediente</h3>
           <table id="tab1">
             <tr>
               <th>
@@ -14,7 +14,7 @@
           </table>
           <table id="tab3">
             <tr>
-              <td>
+              <td [ngClass]="{'green':clientForm.value.razon}">
                 <span class="line">Razón Social: </span>
                 <input class="line1 focusNext" type="text" formControlName="razon" placeholder="**" autofocus tabindex="0" >
               </td>
@@ -22,15 +22,15 @@
           </table>
           <table id="tab3">
             <tr>
-              <td>
+              <td [ngClass]="{'green':clientForm.value.giro}">
                 <span class="line">Giro: </span>
                 <input class="line1 focusNext" type="text" formControlName="giro" placeholder="**" tabindex="1" >
               </td>
             </tr>
-          </table>          
+          </table>                   
           <table id="tab3">
             <tr>
-              <td>
+              <td [ngClass]="{'green':clientForm.value.nombre}">
                 <span class="line">Nombre del Representante: </span>
                 <input class="line3 focusNext" type="text" formControlName="nombre" placeholder="**" tabindex="2" >
               </td>
@@ -38,57 +38,104 @@
           </table>
           <table id="tab3">
             <tr>
-              <td>
-                <span class="line">Fecha de inicio: </span>
-                <input class="focusNext" type="date" formControlName="fechai" placeholder="**" tabindex="3" >
+              <td [ngClass]="{'green':clientForm.value.nomcom}">
+                <span class="line">Nombre Comercial: </span>
+                <input class="line3 focusNext" type="text" formControlName="nomcom" tabindex="3" >
               </td>
             </tr>
           </table>
           <table id="tab3">
             <tr>
-              <td class="col50">
-                <span class="line">Teléfono: </span>
-                <input class="line2 focusNext" type="text" formControlName="tel" tabindex="4" >
+              <td [ngClass]="{'green':clientForm.value.nocontrol}">
+                <span class="line">No. de Control Interno: </span>
+                <input class="line1 focusNext" type="text" formControlName="nocontrol" tabindex="4">
               </td>
-              <td class="col50">
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td class="col50" [ngClass]="{'green':clientForm.value.fechai}">
+                <span class="line">Fecha de inicio (cotización): </span>
+                <input class="focusNext" type="date" formControlName="fechai">
+              </td>
+              <td class="col50" [ngClass]="{'green':clientForm.value.correo}">
                 <span class="line">Correo electrónico: </span>
                 <input class="line2 focusNext" type="text" formControlName="correo" tabindex="5" >
               </td>
             </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td class="col50" [ngClass]="{'green':clientForm.value.tel}">
+                <span class="line">Teléfono: </span>
+                <input class="line2 focusNext" type="text" formControlName="tel" tabindex="6" >
+              </td>
+              <td class="col50" [ngClass]="{'green':clientForm.value.fax}">
+                <span class="line">Fax: </span>
+                <input class="line2 focusNext" type="text" formControlName="fax" tabindex="7">
+              </td>
+            </tr>
           </table>  
           <table id="tab3">
+            <tr>              
+              <td class="col50" [ngClass]="{'green':clientForm.value.rfc}">
+                <span class="line">RFC: </span>
+                <input class="line2 focusNext" type="text" formControlName="rfc" tabindex="8">
+              </td>
+              <td class="col50" [ngClass]="{'green':clientForm.value.logo}">
+                <span class="line">Logo: </span>
+                <input class="line2 focusNext" type="file" accept="image/*" (change)="changeListener($event)">
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
             <tr>
-              <td>
+              <td [ngClass]="{'green':clientForm.value.calle}">
                 <span class="line">Calle y No.: </span>
-                <input class="line1 focusNext" type="text" formControlName="calle" tabindex="6" >
+                <input class="line1 focusNext" type="text" formControlName="calle" tabindex="9" >
               </td>
             </tr>
           </table>
           <table id="tab3">
             <tr>
-              <td>
+              <td [ngClass]="{'green':clientForm.value.colonia}">
                 <span class="line">Colonia o Población: </span>
-                <input class="line1 focusNext" type="text" formControlName="colonia" tabindex="7" >
+                <input class="line1 focusNext" type="text" formControlName="colonia" tabindex="10" >
               </td>
             </tr>
           </table>
           <table id="tab3">
             <tr>
-              <td>
+              <td [ngClass]="{'green':clientForm.value.munic}">
                 <span class="line">Municipio o Delegación: </span>
-                <input class="line1 focusNext" type="text" formControlName="munic" tabindex="8" >
+                <input class="line1 focusNext" type="text" formControlName="munic" tabindex="11" >
               </td>
             </tr>
           </table>
           <table id="tab2">
             <tr>
-              <td class="col50">
+              <td class="col50" [ngClass]="{'green':clientForm.value.estado}">
                 <span class="line">Ciudad o Estado: </span>
-                <input class="line2 focusNext" type="text" formControlName="estado" tabindex="9" >
+                <input class="line2 focusNext" type="text" formControlName="estado" tabindex="12" >
               </td>
-              <td class="col50">
+              <td class="col50" [ngClass]="{'green':clientForm.value.cp}">
                 <span class="line">C.P.: </span>
-                <input class="line2 focusNext" type="number" formControlName="cp" tabindex="10" >
+                <input class="line2 focusNext" type="number" formControlName="cp" tabindex="13" >
+              </td>
+            </tr>
+          </table>
+          <table id="tab1">
+            <tr>
+              <th>
+                <span class="line">Responsable de atender a la Unidad Verificadora en Sitio</span>
+              </th>
+            </tr>
+          </table>
+          <table id="tab2">
+            <tr>
+              <td [ngClass]="{'green':clientForm.value.nombrers}">
+                <span class="line">Nombre: </span>
+                <input class="line1 focusNext" type="text" formControlName="nombrers" tabindex="14" >
               </td>
             </tr>
           </table>
@@ -101,37 +148,184 @@
           </table>
           <table id="tab3">
             <tr>
-              <td>
+              <td [ngClass]="{'green':clientForm.value.tipos}">
                 <span class="line">Tipo de Servicio: </span>
-                <input class="line1 focusNext" type="text" formControlName="tipos" tabindex="11" >
+                <select name="tipos" (change)=changeTipoS($event.target.value)>
+                  <option value=""></option>
+                  <option value="nueva">Instalación nueva</option>
+                  <option value="ampliacion">Ampliación de una instalación existente</option>
+                  <option value="verificacion">Verificación periodica de instalación con áreas peligrosas</option>
+                  <option value="subestacion">Subestación para cambio de tensión para la alimentación de la instalación</option>
+                  <option value="nom001">Instalación construida antes de la entrada en vigor de la NOM-001-SEDE-2012</option>
+                  <option value="otro">Otro</option>
+                </select>
+                <input class="line1 focusNext" type="text" formControlName="tipos" style="margin-left: 2mm !important;">
               </td>
             </tr>
           </table>   
           <table id="tab3">
             <tr>
-              <td class="col50">
-                <span class="line">Carga Instalada: </span>
-                <input type="number" class="focusNext" step="0.01" min="0" formControlName="cargai" placeholder="Kw" tabindex="12" >
+              <td class="col50" [ngClass]="{'green':clientForm.value.planos}">
+                <span class="line">Planos: </span>
+                <input class="line1 focusNext" type="text" formControlName="planos" tabindex="15">
+              </td>              
+              <td class="col50" [ngClass]="{'green':clientForm.value.fechaf}">
+                <span class="line">Fecha Termino: </span>
+                <input class="line1" type="date" formControlName="fechaf">
+              </td>              
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td class="col50" [ngClass]="{'green':clientForm.value.tension}">
+                <span class="line">Tensión: </span>
+                <select name="tension" formControlName="tension">
+                  <option value="Baja" selected>Baja</option>
+                  <option value="Media">Media</option>
+                  <option value="Alta">Alta</option>
+                  <option value="Media y Baja">Media y Baja</option>
+                  <option value="Alta y Media">Alta y Media</option>
+                </select>
               </td>
-              <td class="col50">
+              <td class="col50" [ngClass]="{'green':clientForm.value.pedido}">
+                  <span class="line">No de Pedido: </span>
+                  <input class="focusNext" type="number" formControlName="pedido" tabindex="16">
+                </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td class="col50" [ngClass]="{'green':clientForm.value.cargai}">
+                <span class="line">Carga Instalada: </span>                
+                <input type="number" class="focusNext" step="0.01" min="0" formControlName="cargai" placeholder="kW" tabindex="17" >                
+              </td>
+              <td class="col50" [ngClass]="{'green':clientForm.value.alcance}">
+                <span class="line">Alcance de la Verif.: </span>
+                <input class="focusNext" type="number" step="0.01" min="0" formControlName="alcance" placeholder="kW" tabindex="18">
+              </td>
+            </tr>
+          </table>
+          
+          <table id="tab3">
+            <tr>
+              <td class="col50" [ngClass]="{'green':clientForm.value.factor}">
+                <span class="line">Factor de Demanda: </span>
+                <input class="focusNext" type="number" min="0" max="100" formControlName="factor" placeholder="%" tabindex="19">
+              </td>
+              <td class="col50" [ngClass]="{'green':clientForm.value.cargadem}">
+                <span class="line">Carga Demandada: </span>
+                <input class="focusNext" type="number" step="0.001" min="0" formControlName="cargadem" placeholder="kW" tabindex="20">
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td class="col50" [ngClass]="{'green':clientForm.value.corriente}">
+                <span class="line">Corriente Demandada: </span>
+                <input class="focusNext" type="number" step="0.01" min="0" formControlName="corriente" placeholder="Amps" tabindex="21">
+              </td>
+              <td class="col50" [ngClass]="{'green':clientForm.value.volts}">
+                <span class="line">Voltaje: </span>
+                <input class="focusNext" type="text" formControlName="volts" placeholder="220/127 v" tabindex="22">
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td class="col50" [ngClass]="{'green':clientForm.value.sub}">
                 <span class="line">Cap. de Subestación: </span>
-                <input type="number" class="focusNext" step="0.01" min="0" formControlName="sub" placeholder="kVA" tabindex="13" >
+                <select name="subes" (change)=changeSub($event.target.value)>
+                  <option value=""></option>
+                  <option value="cero">0.0</option>
+                  <option value="compartida">Subestación compartida</option>
+                  <option value="cfe">Subestación CFE</option>
+                  <option value="otro">Otro</option>
+                </select>
+                <!-- <input class="focusNext" type="number" step="0.01" min="0" formControlName="sub" placeholder="kVA" tabindex="23"> -->
+              </td>
+              <td class="col50" [ngClass]="{'green':clientForm.value.area}">
+                <span class="line">Área electrificada: </span>
+                <select name="areae" (change)=changeArea($event.target.value)>
+                  <option value=""></option>
+                  <option value="definir">Por definir</option>
+                  <option value="otro">Otro</option>
+                </select>
+                <!-- <input class="focusNext" type="number" step="0.01" min="0" formControlName="area" placeholder="m2" tabindex="24"> -->
               </td>
             </tr>
           </table>
           <table id="tab3">
+              <tr>
+                <td class="col50" [ngClass]="{'green':clientForm.value.sub}">
+                  <input class="line1 focusNext" type="text" formControlName="sub" style="margin-left: 2mm !important;">
+                </td>
+                <td class="col50" [ngClass]="{'green':clientForm.value.area}">
+                  <input class="line1 focusNext" type="text" formControlName="area" style="margin-left: 2mm !important;">
+                </td>
+              </tr>
+            </table>
+          <table id="tab3">
             <tr>
-              <td>
+              <td class="col50" [ngClass]="{'green':clientForm.value.costo}">
                 <span class="line">Costo: $ </span>
-                <input type="number" class="focusNext" formControlName="costo" min="0" (change)="costo($event.target.value)" tabindex="14" >
+                <input type="number" class="focusNext" formControlName="costo" min="0" step="1" (change)="costo($event.target.value)" tabindex="23" >
+              </td>
+              <td class="col50" [ngClass]="{'green':clientForm.value.cent}">
+                <span class="line">&#162; </span>
+                <input type="number" class="focusNext" formControlName="cent" min="0" max="99" tabindex="24" (change)="centavos($event.target.value)">
               </td>
             </tr>
           </table>
           <table id="tab3">
             <tr>
-              <td>
+              <td [ngClass]="{'green':clientForm.value.costol}">
                 <span class="line">Costo con letra: </span>
-                <input class="line1" type="text" formControlName="costol" value={{costol}}>
+                <span class="line">{{costol}} {{cents}}/100 MN</span>
+                <!-- <input class="line1" type="text" formControlName="costol" value={{costol}}> -->
+
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td class="col50" [ngClass]="{'green':clientForm.value.instal}">
+                <span class="line">Tipo de área: </span>
+                <select name="instal" (change)="changeInst($event.target.value)">
+                  <option value=""></option>
+                  <option value="publica">Concentración pública</option>
+                  <option value="peligrosa">Áreas peligrosas</option>
+                  <option value="industria">Industria</option>
+                  <option value="otro">Otro</option>
+                </select>
+              </td>
+              <td class="col50" [ngClass]="{'green':clientForm.value.instal}">
+                <input class="line1 focusNext" type="text" formControlName="instal" style="margin-left: 2mm !important;">
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td [ngClass]="{'green':clientForm.value.ambien}">
+                <span class="line">Ambientes especiales: </span>
+                <label><span class="line">Si</span>
+                  <input type="radio" name="ambien" formControlName="ambien" value="si">
+                </label>
+                <label><span class="line">No</span>
+                  <input type="radio" name="ambien" formControlName="ambien" value="no">
+                </label>
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td [ngClass]="{'green':clientForm.value.memo}">
+                <span class="line">Memoria Técnica: </span>
+                <label><span class="line">Si</span>
+                  <input type="radio" name="memo" value="si" formControlName="memo">
+                </label>
+                <label><span class="line">No</span>
+                  <input type="radio" name="memo" value="no" formControlName="memo">
+                </label>
               </td>
             </tr>
           </table>
@@ -144,17 +338,119 @@
           </table>
           <table id="tab3">
             <tr>
-              <td>
+              <td [ngClass]="{'green':clientForm.value.nombreuv}">
                 <span class="line">Responsable de la UVIE: </span>
-                <input class="line3 focusNext" type="text" formControlName="nombreuv" tabindex="15" >
+                <select name="resp" (change)=changeResp($event.target.value)>
+                    <option value=""></option>
+                    <option value="ing1">Ing. Héctor Martínez Peña </option>
+                    <option value="ing2">Ing. Hugo Martínez Peña</option>
+                    <option value="ing3">Ing. Salvador Martínez Tenorio</option>
+                    <option value="otro">Otro</option>
+                  </select>
+                <input class="line1 focusNext" type="text" formControlName="nombreuv" style="margin-left: 2mm !important;">
               </td>
             </tr>
           </table>
           <table id="tab3">
             <tr>
-              <td>
+              <td [ngClass]="{'green':clientForm.value.cargouv}">
                 <span class="line">Cargo: </span>
-                <input class="line3 focusNext" type="text" formControlName="cargouv" tabindex="16" >
+                <input class="line3 focusNext" type="text" formControlName="cargouv" tabindex="25" >
+              </td>
+            </tr>
+          </table>
+          <table id="tab1">
+            <tr>
+              <th>
+                <span class="line">Expediente</span>
+              </th>
+            </tr>
+          </table>
+          <!-- <table id="tab3">
+            <tr>
+              <td [ngClass]="{'green':clientForm.value.fechai}">
+                <span class="line">FT-01 COTIZACIÓN: </span>
+                <input type="date" formControlName="fechai">
+              </td>
+            </tr>
+          </table> -->
+          <table id="tab3">
+            <tr>
+              <td [ngClass]="{'green':clientForm.value.fft02}">
+                <span class="line">FT-02 SOLICITUD DE VERIFICACIÓN: </span>
+                <input type="date" formControlName="fft02">
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td [ngClass]="{'green':clientForm.value.fft03}">
+                <span class="line">FT-03 CONTRATO: </span>
+                <input type="date" formControlName="fft03">
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td [ngClass]="{'green':clientForm.value.fft05}">
+                <span class="line">FT-05 DOCUMENTOS DEL USUARIO: </span>
+                <input type="date" formControlName="fft05">
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td [ngClass]="{'green':clientForm.value.fft06}">
+                <span class="line">FT-06 LISTA DE VERIFICACIÓN PROYECTO: </span>
+                <input type="date" formControlName="fft06">
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td [ngClass]="{'green':clientForm.value.fft09}">
+                <span class="line">FT-09 REGISTRO DE MATERIALES APROBADOS: </span>
+                <input type="date" formControlName="fft09">
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td [ngClass]="{'green':clientForm.value.fft10}">
+                <span class="line">FT-10 LISTA DE VERIFICACIÓN INSTALACIONES: </span>
+                <input type="date" formControlName="fft10">
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td [ngClass]="{'green':clientForm.value.fft11}">
+                <span class="line">FT-11 INFORME DE PRUEBAS: </span>
+                <input type="date" formControlName="fft11">
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td [ngClass]="{'green':clientForm.value.fft12}">
+                <span class="line">FT-12 DICTAMEN DE VERIFICACIÓN: </span>
+                <input type="date" formControlName="fft12">
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td [ngClass]="{'green':clientForm.value.fft13}">
+                <span class="line">FT-13 PORTADA DE DICTAMEN: </span>
+                <input type="date" formControlName="fft13">
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td [ngClass]="{'green':clientForm.value.ffc07}">
+                <span class="line">FC-07 SUPERVISION DE EXPEDIENTE: </span>
+                <input type="date" formControlName="ffc07">
               </td>
             </tr>
           </table>

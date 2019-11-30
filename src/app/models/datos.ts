@@ -8,6 +8,8 @@ export interface Datos {
     fft09: string;
     fft10: string;
     fft11: string;
+    fft12: string;
+    fft13: string;
     ffc07: string;
     dia: string;
     mes: string;
@@ -21,6 +23,7 @@ export interface Datos {
     giro: string;
     nocontrol: string;
     nombre: string;
+    nomcom: string;
   //  id: string;
   //  folio: string;
     tel: string;
@@ -42,10 +45,11 @@ export interface Datos {
     cargadem: number;
     corriente: number;
     volts: string;
-    sub: number;
-    area: number;
+    sub: string;
+    area: string;
     costo: number;
     costol: string;
+    cent: number;
     instal: string;
 //    nom1: boolean;
 //    nom7: boolean;
@@ -56,9 +60,11 @@ export interface Datos {
     ambien: string;
     memo: string;
     nombreuv: string;
+    nombrers: string;
     cargouv: string;
     pedido: number;
     fpago: string;
     vigencia: string;
     intro: string;
+    intro2: string;
 }

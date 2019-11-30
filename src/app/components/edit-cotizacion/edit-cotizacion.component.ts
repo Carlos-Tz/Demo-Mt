@@ -15,15 +15,19 @@ import { Location } from '@angular/common';
   styleUrls: ['./edit-cotizacion.component.css']
 })
 export class EditCotizacionComponent implements OnInit {
+  constructor() {}
+  ngOnInit() {}
+}
+  /*
   costol = '';
   public clientForm: FormGroup;
-  // public dataList = [];
   public key = '';
   public datos = {
     razon: '',
     giro: '',
     nocontrol: '',
     nombre: '',
+    nomcom: '',
     tel: '',
     correo: '',
     id: '',
@@ -49,6 +53,7 @@ export class EditCotizacionComponent implements OnInit {
     area: null,
     costo: null,
     costol: '',
+    cent: null,
     instal: '',
     nom1: false,
     nom7: false,
@@ -59,6 +64,7 @@ export class EditCotizacionComponent implements OnInit {
     ambien: '',
     memo: '',
     nombreuv: '',
+    nombrers: '',
     iduv: '',
     foliouv: '',
     logo: '',
@@ -83,16 +89,15 @@ export class EditCotizacionComponent implements OnInit {
     fpago: '',
     vigencia: '',
     intro: '',
+    intro2: '',
     cargouv: ''
   };
   constructor(
     public toastr: ToastrService,
     public clientApi: ClientService,
-   // private ng2ImgMax: Ng2ImgMaxService,
     private actRouter: ActivatedRoute,
     public fb: FormBuilder,
     public sanitizer: DomSanitizer,
-   // private router: Router,
     private location: Location,
     private readonly offlineOnlineService: OfflineOnlineService
   ) { }
@@ -124,9 +129,6 @@ export class EditCotizacionComponent implements OnInit {
     });
   }
 
-  /* ResetForm() {
-    this.clientForm.reset();
-  } */
 
   submitClientData = () => {
     this.clientApi.updateClient(this.datos, this.key);
@@ -144,3 +146,4 @@ export class EditCotizacionComponent implements OnInit {
     this.location.back();
   }
 }
+*/

@@ -34,6 +34,14 @@ export class ClientService {
   public ft82List: AngularFireList<any>;
   public ft07List: AngularFireList<any>;
   public ft15List: AngularFireList<any>;
+  public f151: AngularFireList<any>;
+  public f152: AngularFireList<any>;
+  public f71: AngularFireList<any>;
+  public f72: AngularFireList<any>;
+  public f811: AngularFireList<any>;
+  public f812: AngularFireList<any>;
+  public f822: AngularFireList<any>;
+  public f821: AngularFireList<any>;
   public ft10: F10[];
   public clientObject: AngularFireObject<any>;
   public f10Object: AngularFireObject<any>;
@@ -1475,6 +1483,55 @@ export class ClientService {
     this.createDatabase();
   }
 
+  Getft151(key: string) {
+    this.f151 = this.db.list('data/' + key + '/ft15', ref =>
+      ref.orderByChild('id_').equalTo(1).limitToFirst(1)
+    );
+    return this.f151;
+  }
+  Getft152(key: string) {
+    this.f152 = this.db.list('data/' + key + '/ft15', ref =>
+      ref.orderByChild('id_').equalTo(2).limitToFirst(1)
+    );
+    return this.f152;
+  }
+  Getft71(key: string) {
+    this.f71 = this.db.list('data/' + key + '/ft07', ref =>
+      ref.orderByChild('id_').equalTo(1).limitToFirst(1)
+    );
+    return this.f71;
+  }
+  Getft72(key: string) {
+    this.f72 = this.db.list('data/' + key + '/ft07', ref =>
+      ref.orderByChild('id_').equalTo(2).limitToFirst(1)
+    );
+    return this.f72;
+  }
+  Getft811(key: string) {
+    this.f811 = this.db.list('data/' + key + '/ft81', ref =>
+      ref.orderByChild('id_').equalTo(1).limitToFirst(1)
+    );
+    return this.f811;
+  }
+  Getft812(key: string) {
+    this.f812 = this.db.list('data/' + key + '/ft81', ref =>
+      ref.orderByChild('id_').equalTo(2).limitToFirst(1)
+    );
+    return this.f812;
+  }
+  Getft821(key: string) {
+    this.f821 = this.db.list('data/' + key + '/ft82', ref =>
+      ref.orderByChild('id_').equalTo(1).limitToFirst(1)
+    );
+    return this.f821;
+  }
+  Getft822(key: string) {
+    this.f822 = this.db.list('data/' + key + '/ft82', ref =>
+      ref.orderByChild('id_').equalTo(2).limitToFirst(1)
+    );
+    return this.f822;
+  }
+
   AddClient(datos: Datos, costol: string) {
     const f = this.splitDate(datos.fechai);
     // const ff = datos.fechai.split('-');
@@ -2070,9 +2127,9 @@ export class ClientService {
 
 
   /** Update dates */
-  upfi(f: string, key: string) {
+  /* upfi(f: string, key: string) {
     const dd = this.splitDate(f);
-    if (this.offlineOnlineService.isOnline) { // Online
+    if (this.offlineOnlineService.isOnline) { 
       this.db.object('data/' + key + '/datos/')
         .update({ fechai: f, dia: dd.d, mes: dd.m, anio: dd.a });
     } else {
@@ -2085,93 +2142,93 @@ export class ClientService {
     }
   }
   upf02(f: string, key: string) {
-    if (this.offlineOnlineService.isOnline) { // Online
+    if (this.offlineOnlineService.isOnline) { 
       this.db.object('data/' + key + '/datos/')
         .update({ fft02: f });
     } else {
-      this.localDb.clients // Offline
+      this.localDb.clients 
         .where('id').equals(key).modify(client => {
           client.datos.fft02 = f;
         });
     }
   }
   upf03(f: string, key: string) {
-    if (this.offlineOnlineService.isOnline) { // Online
+    if (this.offlineOnlineService.isOnline) { 
       this.db.object('data/' + key + '/datos/')
         .update({ fft03: f });
     } else {
-      this.localDb.clients // Offline
+      this.localDb.clients 
         .where('id').equals(key).modify(client => {
           client.datos.fft03 = f;
         });
     }
   }
   upf05(f: string, key: string) {
-    if (this.offlineOnlineService.isOnline) { // Online
+    if (this.offlineOnlineService.isOnline) { 
       this.db.object('data/' + key + '/datos/')
         .update({ fft05: f });
     } else {
-      this.localDb.clients // Offline
+      this.localDb.clients 
         .where('id').equals(key).modify(client => {
           client.datos.fft05 = f;
         });
     }
   }
   upf06(f: string, key: string) {
-    if (this.offlineOnlineService.isOnline) { // Online
+    if (this.offlineOnlineService.isOnline) { 
       this.db.object('data/' + key + '/datos/')
         .update({ fft06: f });
     } else {
-      this.localDb.clients // Offline
+      this.localDb.clients 
         .where('id').equals(key).modify(client => {
           client.datos.fft06 = f;
         });
     }
   }
   upf09(f: string, key: string) {
-    if (this.offlineOnlineService.isOnline) { // Online
+    if (this.offlineOnlineService.isOnline) { 
       this.db.object('data/' + key + '/datos/')
         .update({ fft09: f });
     } else {
-      this.localDb.clients // Offline
+      this.localDb.clients 
         .where('id').equals(key).modify(client => {
           client.datos.fft09 = f;
         });
     }
   }
   upf10(f: string, key: string) {
-    if (this.offlineOnlineService.isOnline) { // Online
+    if (this.offlineOnlineService.isOnline) { 
       this.db.object('data/' + key + '/datos/')
         .update({ fft10: f });
     } else {
-      this.localDb.clients // Offline
+      this.localDb.clients 
         .where('id').equals(key).modify(client => {
           client.datos.fft10 = f;
         });
     }
   }
   upf11(f: string, key: string) {
-    if (this.offlineOnlineService.isOnline) { // Online
+    if (this.offlineOnlineService.isOnline) { 
       this.db.object('data/' + key + '/datos/')
         .update({ fft11: f });
     } else {
-      this.localDb.clients // Offline
+      this.localDb.clients 
         .where('id').equals(key).modify(client => {
           client.datos.fft11 = f;
         });
     }
   }
   upfc07(f: string, key: string) {
-    if (this.offlineOnlineService.isOnline) { // Online
+    if (this.offlineOnlineService.isOnline) { 
       this.db.object('data/' + key + '/datos/')
         .update({ ffc07: f });
     } else {
-      this.localDb.clients // Offline
+      this.localDb.clients 
         .where('id').equals(key).modify(client => {
           client.datos.ffc07 = f;
         });
     }
-  }
+  } */
   upft07(f: string, key: string, key2: string) {  // Online
     this.db.object('data/' + key + '/ft07/' + key2)
       .update({ fecha: f });

@@ -186,7 +186,7 @@ export class ClientComponent implements OnInit {
     this.clientApi.localDb.clients.put({ id: id, ft10: { id_: 1, nom: 'ok1'}});
   } */
 
-  updateFi() {
+  /* updateFi() {
     this.clientApi.upfi(this.clientData.fechai, this.key);
     this.toastr.success('Fecha guardada!');
   }
@@ -223,7 +223,7 @@ export class ClientComponent implements OnInit {
   updateFc07() {
     this.clientApi.upfc07(this.clientData.ffc07, this.key);
     this.toastr.success('Fecha guardada!');
-  }
+  } */
   updateFt07(ft: any, key: string) {
     if (this.offlineOnlineService.isOnline) {
       this.clientApi.upft07(ft.fecha, key, ft.$key);

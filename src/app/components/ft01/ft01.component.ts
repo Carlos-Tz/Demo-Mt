@@ -15,6 +15,7 @@ import { OfflineOnlineService } from 'src/app/services/offline-online.service';
 export class Ft01Component implements OnInit {
   public key = '';
   public month = '';
+  public cents = '';
   public client = {
     razon: '',
     nombre: '',
@@ -40,7 +41,9 @@ export class Ft01Component implements OnInit {
     fpago: '',
     vigencia: '',
     intro: '',
-    area: ''
+    intro2: '',
+    area: '',
+    cent: 0
   };
 
   constructor(
@@ -62,6 +65,17 @@ export class Ft01Component implements OnInit {
           if (!this.client.vigencia) { this.client.vigencia = '30 días naturales.'; }
           // tslint:disable-next-line: max-line-length
           if (!this.client.intro) { this.client.intro = '   En respuesta a su amable solicitud de cotización, estoy poniendo a su consideración el presupuesto relativo a la verificación de sus instalaciones eléctricas en baja tensión; conforme a la NOM-001-SEDE-2012, Instalaciones eléctricas (utilización).'; }
+          // tslint:disable-next-line: max-line-length
+          if (!this.client.intro2) { this.client.intro2 = 'A fin de cumplir con las leyes aplicables a la materia, las instalaciones eléctricas en servicios en baja tensión y en lugares de concentración pública deben ser verificadas por una Unidad de Verificación de Instalaciones Eléctricas aprobada por la Secretaría de Energía y acreditada por la Entidad Mexicana de Acreditación'; }
+          if (this.client.cent) {
+            if (this.client.cent < 10) {
+              this.cents = `0${this.client.cent}`;
+            } else {
+              this.cents = `${this.client.cent}`;
+            }
+          } else {
+            this.cents = '00';
+          }
         });
       }
     } else {
@@ -73,6 +87,17 @@ export class Ft01Component implements OnInit {
           if (!this.client.vigencia) { this.client.vigencia = '30 días naturales.'; }
           // tslint:disable-next-line: max-line-length
           if (!this.client.intro) { this.client.intro = '   En respuesta a su amable solicitud de cotización, estoy poniendo a su consideración el presupuesto relativo a la verificación de sus instalaciones eléctricas en baja tensión; conforme a la NOM-001-SEDE-2012, Instalaciones eléctricas (utilización).'; }
+          // tslint:disable-next-line: max-line-length
+          if (!this.client.intro2) { this.client.intro2 = 'A fin de cumplir con las leyes aplicables a la materia, las instalaciones eléctricas en servicios en baja tensión y en lugares de concentración pública deben ser verificadas por una Unidad de Verificación de Instalaciones Eléctricas aprobada por la Secretaría de Energía y acreditada por la Entidad Mexicana de Acreditación'; }
+          if (this.client.cent) {
+            if (this.client.cent < 10) {
+              this.cents = `0${this.client.cent}`;
+            } else {
+              this.cents = `${this.client.cent}`;
+            }
+          } else {
+            this.cents = '00';
+          }
       })
       .catch(e => {
         this.toastr.warning('Intentalo de nuevo!!');

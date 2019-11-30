@@ -122,9 +122,9 @@
         <p>1.- Revisión de planos de proyecto y memoria de cálculo. <input type="checkbox" [(ngModel)]="ft03.revp"></p>
         <p>2.- Verificación de acometida en:</p>
         <!-- <p class="tab_">Baja tensión <b *ngIf="client"> ( <span *ngIf="client.tension=='Baja'"> X </span> )</b></p> -->
-        <p class="tab_">Baja tensión <b *ngIf="client"> [ <span *ngIf="client.tension=='Baja'"> X </span> ]</b></p>
-        <p class="tab_">Media tensión <b *ngIf="client"> [ <span *ngIf="client.tension=='Media'"> X </span> ]</b></p>
-        <p class="tab_">Alta tensión <b *ngIf="client"> [ <span *ngIf="client.tension=='Alta'"> X </span> ]</b></p>
+        <p class="tab_">Baja tensión <b *ngIf="client"> [ <span *ngIf="client.tension=='Baja' || client.tension=='Media y Baja'"> X </span> ]</b></p>
+        <p class="tab_">Media tensión <b *ngIf="client"> [ <span *ngIf="client.tension=='Media' || client.tension=='Media y Baja' || client.tension=='Alta y Media'"> X </span> ]</b></p>
+        <p class="tab_">Alta tensión <b *ngIf="client"> [ <span *ngIf="client.tension=='Alta' || client.tension=='Alta y Media'"> X </span> ]</b></p>
         <p>3.- Verificación de subestación eléctrica. <input type="checkbox" [(ngModel)]="ft03.vers"></p>
         <p>4.- Verificación de instalaciones en baja tensión. <input type="checkbox" [(ngModel)]="ft03.veri"></p><br>
 
@@ -137,7 +137,7 @@
           aplicables, “EL VERIFICADOR”, expedirá el dictamen de cumplimiento, mismo que “EL SOLICITANTE “, entregará a
           la compañía suministradora al celebrar el contrato definitivo de suministro eléctrico.</p><br>
         <p>5.- “EL SOLICITANTE” se obliga a pagar a “LA UNIDAD DE VERIFICACIÓN” por el servicio antes descrito la
-          cantidad de $ <b *ngIf="client">{{ client.costo }}</b> (<b *ngIf="client">{{ client.costol }}</b> <b> Pesos 00/100 M.N.),</b> debiéndose agregar el 16% de I.V.A, a
+          cantidad de $ <b *ngIf="client">{{ client.costo }}</b> (<b *ngIf="client">{{ client.costol }}</b> <b> Pesos {{cents}}/100 M.N.),</b> debiéndose agregar el 16% de I.V.A, a
           la entrega por parte del “LA UNIDAD DE VERIFICACIÓN” del DICTAMEN DE CUMPLIMIENTO DE VERIFICACIÓN DE LAS
           NORMAS OFICIALES MEXICANAS aplicables o informe técnico.</p><br>
         <p>6.- En caso que “EL SOLICITANTE” en forma unilateral y sin causas imputables a “LA UNIDAD DE VERIFICACIÓN”,

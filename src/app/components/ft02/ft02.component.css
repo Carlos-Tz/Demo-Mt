@@ -3,9 +3,9 @@ table {
     border-collapse: collapse;
     margin-bottom: 1.5em;
 }
-table, th, td {
+/* table, th, td {
     border: solid 1px black;
-}
+} */
 input {
     width: 15cm;
     border: none;

@@ -29,6 +29,7 @@ export class Ft11Component implements OnInit {
     cp: '',
     giro: '',
     nombreuv: '',
+    nombrers: '',
     anio: '',
     fft11: ''
   };
@@ -105,5 +106,38 @@ export class Ft11Component implements OnInit {
 
   imgChanged($event) {
     this.ft11.s1 = $event.target.src;
+  }
+
+  conf1(ev: string) {
+    if (ev === 'si') {
+      this.ft11.r1 = 'Satisfactorio';
+    }
+    if (ev === 'no') {
+      this.ft11.r1 = '';
+    }
+  }
+  conf2(ev: string) {
+    if (ev === 'si') {
+      this.ft11.r2 = 'Satisfactorio';
+    }
+    if (ev === 'no') {
+      this.ft11.r2 = '';
+    }
+  }
+  conf3(ev: string) {
+    if (ev === 'si') {
+      this.ft11.r3 = 'Satisfactorio';
+    }
+    if (ev === 'no') {
+      this.ft11.r3 = '';
+    }
+  }
+  conf4(ev: string) {
+    if (ev === 'si') {
+      this.ft11.r4 = 'Satisfactorio';
+    }
+    if (ev === 'no') {
+      this.ft11.r4 = '';
+    }
   }
 }

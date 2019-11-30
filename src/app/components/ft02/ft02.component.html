@@ -3,12 +3,15 @@
   <section>
     <div class="page">
       <div class="inner">
-        <table style="border: none;">
+        <table>
           <tr>
-            <td style="border: none; width: 150px;">
-              <img *ngIf="client" style="width: 100%;" src="{{client.logo}}" alt="">
+            <td>
+              <img *ngIf="client" style="height: 120px;" src="{{client.logo}}" alt="">
             </td>
-            <td style="border: none;">
+            <td *ngIf="client && !client.logo">
+              <h4 style="text-transform: uppercase">{{client.razon}}</h4>
+            </td>
+            <td>
               <p style="text-align: right;"><b *ngIf="client">{{ ff.d }}-{{ mes }}-20{{ ff.a }}</b></p>
             </td>
           </tr>
@@ -38,15 +41,15 @@
 
         <p>Con una carga instalada de: <b *ngIf="client">{{ client.cargai }}</b> kW </p>
         <p>Alcance de la Verificación: <b *ngIf="client">{{ client.alcance }}</b> kW </p>
-        <p>Factor de Demanda: <b *ngIf="client">{{ client.factor }}</b> % Carga demandada:<b
+        <p>Factor de Demanda: <b *ngIf="client">{{ client.factor }}</b> % Carga demandada: <b
             *ngIf="client">{{ client.cargadem }}</b> kW </p>
         <p>Corriente Demandada: <b *ngIf="client">{{ client.corriente }}</b> Amps. <b
             *ngIf="client">{{ client.volts }}</b> V </p>
-        <p>Capacidad de subestación: <b *ngIf="client">{{ client.sub }}</b> kVA </p>
-        <p>Área electrificada: <b *ngIf="client">{{ client.area }}</b> m<sup>2</sup></p>
+        <p>Capacidad de subestación: <b *ngIf="client">{{ client.sub }}</b></p>
+        <p>Área electrificada: <b *ngIf="client">{{ client.area }}</b></p>
         <p>Existen Áreas Clasificadas como peligrosas:
           <b *ngIf="client"><span *ngIf="client.instal=='peligrosa'">SI</span>
-            <span *ngIf="client.instal=='publica'">NO</span></b> (cuando sea el caso anexar el plano de
+            <span *ngIf="client.instal!=='peligrosa'">NO</span></b> (cuando sea el caso anexar el plano de
           clasificación de áreas 7.3).</p>
         <p>Existen Locales con Ambientes Especiales:
           <b *ngIf="client"><span *ngIf="client.ambien=='si'">SI</span>
@@ -73,12 +76,15 @@
   <section>
     <div class="page">
       <div class="inner">
-        <table style="border: none;">
-          <tr>
-            <td style="border: none; width: 150px;">
-              <img *ngIf="client" style="width: 100%;" src="{{client.logo}}" alt="">
+        <table>
+          <tr>            
+            <td>
+              <img *ngIf="client" style="height: 120px;" src="{{client.logo}}" alt="">
             </td>
-            <td style="border: none;"></td>
+            <td *ngIf="client && !client.logo">
+              <h4 style="text-transform: uppercase">{{client.razon}}</h4>
+            </td>
+            
           </tr>
         </table>
 
@@ -86,25 +92,31 @@
 
         <p>Nombre: <input type="text" [(ngModel)]="ft02.snom"></p>
         <p>Identificación: <input type="text" [(ngModel)]="ft02.sid"></p>
-        <p>No. de Identificación o Folio: <input type="text" [(ngModel)]="ft02.sfol"></p>
-        <p>Domicilio: <input type="text" [(ngModel)]="ft02.sdom"></p>
+        <p>No. de Identificación o Folio: <input type="text" [(ngModel)]="ft02.sfol"></p><br>
+        <!-- <p>Domicilio: <input type="text" [(ngModel)]="ft02.sdom"></p>
         <p>CURP: <input type="text" [(ngModel)]="ft02.scur"></p>
         <p>Tel. Cel: <input type="text" [(ngModel)]="ft02.scel"></p>
-        <p>Correo Electrónico: <input type="text" [(ngModel)]="ft02.scor"></p><br>
+        <p>Correo Electrónico: <input type="text" [(ngModel)]="ft02.scor"></p><br> -->
 
         <p><b>Datos del responsable de atender a la UVIE tanto en proyecto como en sitio 7.2 III.4:</b></p><br>
 
         <p>Nombre: <input type="text" [(ngModel)]="ft02.rnom"></p>
         <p>Identificación: <input type="text" [(ngModel)]="ft02.rid"></p>
-        <p>No. de Identificación o Folio: <input type="text" [(ngModel)]="ft02.rfol"></p>
-        <p>Domicilio: <input type="text" [(ngModel)]="ft02.rdom"></p>
+        <p>No. de Identificación o Folio: <input type="text" [(ngModel)]="ft02.rfol"></p><br>
+
+
+        <p><b>Datos del responsable del proyecto 7.2 III.4:</b></p><br>
+
+        <p>Nombre: <input type="text" [(ngModel)]="ft02.rpnom"></p>
+        <p>No. de cédula profesional: <input type="text" [(ngModel)]="ft02.rpfol"></p>
+        <!-- <p>Domicilio: <input type="text" [(ngModel)]="ft02.rdom"></p>
         <p>CURP: <input type="text" [(ngModel)]="ft02.rcur"></p>
         <p>Tel. Cel: <input type="text" [(ngModel)]="ft02.rcel"></p>
-        <p>Correo Electrónico: <input type="text" [(ngModel)]="ft02.rcor"></p>
+        <p>Correo Electrónico: <input type="text" [(ngModel)]="ft02.rcor"></p> -->
 
-        <table style="border: none; margin-top: 2em;">
+        <table style="margin-top: 2em;">
           <tr>
-            <td style="border: none;">
+            <td>
               <p style="text-align: center;">ATENTAMENTE</p>
               <div class="sign" style="margin: 0 auto;">
                 <div class="signature">

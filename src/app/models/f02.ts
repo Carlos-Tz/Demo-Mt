@@ -20,5 +20,7 @@ export interface F02 {
     rcur: string;
     rcel: string;
     rcor: string;
+    rpnom: string;
+    rpfol: string;
     s2: string;
 }

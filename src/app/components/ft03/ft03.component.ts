@@ -33,10 +33,12 @@ export class Ft03Component implements OnInit {
     anio: '',
     fechai: '',
     nombreuv: '',
-    fft03: ''
+    fft03: '',
+    cent: ''
   };
   public key = '';
   public mes = '';
+  public cents = '';
   public ff = {
     d: '',
     m: '',
@@ -67,6 +69,15 @@ export class Ft03Component implements OnInit {
       if (this.clientApi.clientObject) {
         this.clientApi.clientObject.valueChanges().subscribe(data => {
           this.client = data.datos;
+          if (this.client.cent) {
+            if (this.client.cent < 10) {
+              this.cents = `0${this.client.cent}`;
+            } else {
+              this.cents = `${this.client.cent}`;
+            }
+          } else {
+            this.cents = '00';
+          }
           if (this.client.fft03) {
             this.ff = this.clientApi.splitDate(this.client.fft03);
             this.mes = this.monthToName(this.ff.m);
@@ -87,6 +98,15 @@ export class Ft03Component implements OnInit {
       this.clientApi.localDb.clients
       .get(this.key).then(async (client) => {
         this.client = client.datos;
+        if (this.client.cent) {
+          if (this.client.cent < 10) {
+            this.cents = `0${this.client.cent}`;
+          } else {
+            this.cents = `${this.client.cent}`;
+          }
+        } else {
+          this.cents = '00';
+        }
         if (this.client.fft03) {
           this.ff = this.clientApi.splitDate(this.client.fft03);
           this.mes = this.monthToName(this.ff.m);

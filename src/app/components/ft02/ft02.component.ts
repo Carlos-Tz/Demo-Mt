@@ -77,6 +77,8 @@ export class Ft02Component implements OnInit {
     rcur: '',
     rcel: '',
     rcor: '',
+    rpnom: '',
+    rpfol: '',
     s2: ''
   };
 

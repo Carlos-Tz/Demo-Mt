@@ -24,6 +24,16 @@ export class Fc07Component implements OnInit {
   public month9 = '';
   public month10 = '';
   public month11 = '';
+  public month12 = '';
+  public month13 = '';
+  public month71 = '';
+  public month72 = '';
+  public month151 = '';
+  public month152 = '';
+  public month811 = '';
+  public month812 = '';
+  public month821 = '';
+  public month822 = '';
   public ff = { d: '', m: '', a: ''};
   public ff1 = { d: '', m: '', a: ''};
   public ff2 = { d: '', m: '', a: ''};
@@ -33,7 +43,17 @@ export class Fc07Component implements OnInit {
   public ff9 = { d: '', m: '', a: ''};
   public ff10 = { d: '', m: '', a: ''};
   public ff11 = { d: '', m: '', a: ''};
+  public ff12 = { d: '', m: '', a: ''};
+  public ff13 = { d: '', m: '', a: ''};
   public fff = { d: '', m: '', a: ''};
+  public ff71 = { d: '', m: '', a: ''};
+  public ff72 = { d: '', m: '', a: ''};
+  public ff151 = { d: '', m: '', a: ''};
+  public ff152 = { d: '', m: '', a: ''};
+  public ff811 = { d: '', m: '', a: ''};
+  public ff812 = { d: '', m: '', a: ''};
+  public ff821 = { d: '', m: '', a: ''};
+  public ff822 = { d: '', m: '', a: ''};
   public client: {
     razon: '',
     giro: '',
@@ -66,7 +86,9 @@ export class Fc07Component implements OnInit {
     fft06: '',
     fft09: '',
     fft10: '',
-    fft11: ''
+    fft11: '',
+    fft12: '',
+    fft13: ''
   };
   public fc07 = {
     c1: '',
@@ -122,9 +144,61 @@ export class Fc07Component implements OnInit {
             this.ff11 = this.clientApi.splitDate(this.client.fft11); this.month11 = this.clientApi.monthToRoman(this.ff11.m); }
           if (this.client.fechaf) {
             this.fff = this.clientApi.splitDate(this.client.fechaf); this.monthf = this.clientApi.monthToRoman(this.fff.m); }
+          if (this.client.fft12) {
+            this.ff12 = this.clientApi.splitDate(this.client.fft12); this.month12 = this.clientApi.monthToRoman(this.ff12.m); }
+          if (this.client.fft13) {
+            this.ff13 = this.clientApi.splitDate(this.client.fft13); this.month13 = this.clientApi.monthToRoman(this.ff13.m); }
           if (data.fc07) {
             this.fc07 = data.fc07;
           }
+        });
+        this.clientApi.Getft71(this.key).snapshotChanges().subscribe(data => {
+          data.forEach(item => {
+            const r: any = item.payload.toJSON();
+            if (r.fecha) { this.ff71 = this.clientApi.splitDate(r.fecha); this.month71 = this.clientApi.monthToRoman(this.ff71.m); }
+          });
+        });
+        this.clientApi.Getft72(this.key).snapshotChanges().subscribe(data => {
+          data.forEach(item => {
+            const r: any = item.payload.toJSON();
+            if (r.fecha) { this.ff72 = this.clientApi.splitDate(r.fecha); this.month72 = this.clientApi.monthToRoman(this.ff72.m); }
+          });
+        });
+        this.clientApi.Getft151(this.key).snapshotChanges().subscribe(data => {
+          data.forEach(item => {
+            const r: any = item.payload.toJSON();
+            if (r.fecha) { this.ff151 = this.clientApi.splitDate(r.fecha); this.month151 = this.clientApi.monthToRoman(this.ff151.m); }
+          });
+        });
+        this.clientApi.Getft152(this.key).snapshotChanges().subscribe(data => {
+          data.forEach(item => {
+            const r: any = item.payload.toJSON();
+            if (r.fecha) { this.ff152 = this.clientApi.splitDate(r.fecha); this.month152 = this.clientApi.monthToRoman(this.ff152.m); }
+          });
+        });
+        this.clientApi.Getft811(this.key).snapshotChanges().subscribe(data => {
+          data.forEach(item => {
+            const r: any = item.payload.toJSON();
+            if (r.fecha) { this.ff811 = this.clientApi.splitDate(r.fecha); this.month811 = this.clientApi.monthToRoman(this.ff811.m); }
+          });
+        });
+        this.clientApi.Getft812(this.key).snapshotChanges().subscribe(data => {
+          data.forEach(item => {
+            const r: any = item.payload.toJSON();
+            if (r.fecha) { this.ff812 = this.clientApi.splitDate(r.fecha); this.month812 = this.clientApi.monthToRoman(this.ff812.m); }
+          });
+        });
+        this.clientApi.Getft821(this.key).snapshotChanges().subscribe(data => {
+          data.forEach(item => {
+            const r: any = item.payload.toJSON();
+            if (r.fecha) { this.ff821 = this.clientApi.splitDate(r.fecha); this.month821 = this.clientApi.monthToRoman(this.ff821.m); }
+          });
+        });
+        this.clientApi.Getft822(this.key).snapshotChanges().subscribe(data => {
+          data.forEach(item => {
+            const r: any = item.payload.toJSON();
+            if (r.fecha) { this.ff822 = this.clientApi.splitDate(r.fecha); this.month822 = this.clientApi.monthToRoman(this.ff822.m); }
+          });
         });
       }
     } else {

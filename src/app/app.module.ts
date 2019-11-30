@@ -33,6 +33,9 @@ import { MainComponent } from './components/main/main.component';
 import { CotizacionComponent } from './components/cotizacion/cotizacion.component';
 import { Ft07Component } from './components/ft07/ft07.component';
 import { EditCotizacionComponent } from './components/edit-cotizacion/edit-cotizacion.component';
+import { Nft06Component } from './components/nft06/nft06.component';
+import { Row6Component } from './components/nft06/row6/row6.component';
+import { EditFt06Component } from './components/edit-ft06/edit-ft06.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +60,10 @@ import { EditCotizacionComponent } from './components/edit-cotizacion/edit-cotiz
     MainComponent,
     CotizacionComponent,
     Ft07Component,
-    EditCotizacionComponent
+    EditCotizacionComponent,
+    Nft06Component,
+    Row6Component,
+    EditFt06Component
   ],
   imports: [
     BrowserModule,

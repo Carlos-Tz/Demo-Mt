@@ -65,11 +65,11 @@
               <p>Prueba: <b>Resistencia de aislamiento de conductores</b></p>
               <p>Resultado: <input type="text" [(ngModel)]="ft11.r1">
                 <b style="margin-left: 10em;">Conforme</b>
-                <input type="radio" name="c1" value="si" [(ngModel)]="ft11.c1">
+                <input type="radio" name="c1" value="si" [(ngModel)]="ft11.c1" (change)="conf1($event.target.value)">
                 <b>No Conforme</b>
-                <input type="radio" name="c1" value="no" [(ngModel)]="ft11.c1">
+                <input type="radio" name="c1" value="no" [(ngModel)]="ft11.c1" (change)="conf1($event.target.value)">
               </p>
-              <p>Equipo utilizado: <input type="text" style="margin-right: 6em;" [(ngModel)]="ft11.e1"> Fecha de ejecución: <input type="date" [(ngModel)]="ft11.f1"></p>
+              <p>Equipo utilizado: <input type="text" style="margin-right: 6em;" [(ngModel)]="ft11.e1"> Fecha de ejecución: <b *ngIf="client">{{ client.fft11}}</b></p>
               <p><b>Parámetro:</b> NOM-001-SEDE-2012 (Sección 110-7). En la instalación eléctrica o parte de ella si los
                 conductores están libres de corto circuitos se acepta. Se rechaza en caso de haber corto circuitos.</p>
             </td>
@@ -79,11 +79,11 @@
               <p>Prueba: <b>Continuidad eléctrica de envolventes y canalizaciones metálicas</b></p>
               <p>Resultado: <input type="text"  [(ngModel)]="ft11.r2">
                 <b style="margin-left: 10em;">Conforme</b>
-                <input type="radio"  name="c2" value="si" [(ngModel)]="ft11.c2">
+                <input type="radio"  name="c2" value="si" [(ngModel)]="ft11.c2" (change)="conf2($event.target.value)">
                 <b>No Conforme</b>
-                <input type="radio" name="c2" value="no" [(ngModel)]="ft11.c2">
+                <input type="radio" name="c2" value="no" [(ngModel)]="ft11.c2" (change)="conf2($event.target.value)">
               </p>
-              <p>Equipo utilizado: <input type="text" style="margin-right: 6em;" [(ngModel)]="ft11.e2"> Fecha de ejecución: <input type="date" [(ngModel)]="ft11.f2"></p>
+              <p>Equipo utilizado: <input type="text" style="margin-right: 6em;" [(ngModel)]="ft11.e2"> Fecha de ejecución: <b *ngIf="client">{{ client.fft11}}</b></p>
               <p><b>Parámetro:</b> Conforme a lo establecido en la norma NOM-001-SEDE-2012 (Sección 300-10).</p>
             </td>
           </tr>
@@ -92,12 +92,12 @@
               <p>Prueba: <b>Resistencia de electrodos artificiales y de red de tierras</b></p>
               <p>Resultado del electrodo: <input type="text" [(ngModel)]="ft11.r3">
                 <b style="margin-left: 4.5em;">Conforme</b>
-                <input type="radio" name="c3"  value="si" [(ngModel)]="ft11.c3">
+                <input type="radio" name="c3"  value="si" [(ngModel)]="ft11.c3" (change)="conf3($event.target.value)">
                 <b>No Conforme</b>
-                <input type="radio" name="c3" value="no" [(ngModel)]="ft11.c3">
+                <input type="radio" name="c3" value="no" [(ngModel)]="ft11.c3" (change)="conf3($event.target.value)">
               </p>
               <p>Resultado de puesta a tierra del sistema: <input type="text"  [(ngModel)]="ft11.r3a"></p>
-              <p>Equipo utilizado: <input type="text" style="margin-right: 6em;" [(ngModel)]="ft11.e3"> Fecha de ejecución: <input type="date" [(ngModel)]="ft11.f3"></p>
+              <p>Equipo utilizado: <input type="text" style="margin-right: 6em;" [(ngModel)]="ft11.e3"> Fecha de ejecución: <b *ngIf="client">{{ client.fft11}}</b></p>
               <p><b>Parámetro:</b> Conforme a lo establecido en la norma NOM-001-SEDE- 2012 (Sección 921-25, a) y b),
                 para subestaciones.</p>
               <table style="margin: 0 10mm 0 18mm; width: 70%; border: none;">
@@ -155,11 +155,11 @@
               <p>Prueba: <b>Polaridad de conexiones en los receptáculos</b></p>
               <p>Resultado: <input type="text" [(ngModel)]="ft11.r4">
                 <b style="margin-left: 10em;">Conforme</b>
-                <input type="radio" name="c4"  value="si" [(ngModel)]="ft11.c4">
+                <input type="radio" name="c4"  value="si" [(ngModel)]="ft11.c4" (change)="conf4($event.target.value)">
                 <b>No Conforme</b>
-                <input type="radio" name="c4" value="no" [(ngModel)]="ft11.c4">
+                <input type="radio" name="c4" value="no" [(ngModel)]="ft11.c4" (change)="conf4($event.target.value)">
               </p>
-              <p>Inspección ocular: <input type="text" style="margin-right: 6em;" [(ngModel)]="ft11.e4"> Fecha de ejecución: <input type="date" [(ngModel)]="ft11.f4"></p>
+              <p>Inspección ocular: <input type="text" style="margin-right: 6em;" [(ngModel)]="ft11.e4"> Fecha de ejecución: <b *ngIf="client">{{ client.fft11}}</b></p>
               <p><b>Parámetro:</b> Conforme a lo establecido en la norma NOM-001-SEDE-2012 (Sección 200-11). No debe
                 conectarse a ninguna Terminal o cable algún conductor puesto a tierra que pueda invertir la polaridad
                 diseñada.</p>
@@ -190,7 +190,7 @@
                 <hr>
                 <div>
                   <p *ngIf="client" style="text-align: center;"><b
-                      style="text-transform: uppercase">{{ client.nombreuv }}</b></p>
+                      style="text-transform: uppercase">{{ client.nombrers }}</b></p>
                 </div>
               </div>
             </td>
