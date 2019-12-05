@@ -29,7 +29,7 @@ export class Ft09Component implements OnInit {
     m: '',
     d: ''
   };
-  public ft09 = {
+  /* public ft09 = {
     mt1: '',
     mt2: '',
     mt3: '',
@@ -160,7 +160,7 @@ export class Ft09Component implements OnInit {
     o24: '',
     o25: '',
     o26: ''
-  };
+  }; */
 
   constructor(
     private toastr: ToastrService,
@@ -173,6 +173,7 @@ export class Ft09Component implements OnInit {
 
   ngOnInit() {
     this.key = this.actRoute.snapshot.paramMap.get('key');
+    this.form();
     if (this.offlineOnlineService.isOnline) {
       if (this.clientApi.clientObject) {
         this.clientApi.clientObject.valueChanges().subscribe(data => {
@@ -182,7 +183,8 @@ export class Ft09Component implements OnInit {
             this.month = this.clientApi.monthToRoman(this.ff.m);
           }
           if (data.ft09) {
-            this.ft09 = data.ft09;
+            // this.ft09 = data.ft09;
+            this.clientF.patchValue(data.ft09);
           }
         });
       }
@@ -195,14 +197,14 @@ export class Ft09Component implements OnInit {
           this.month = this.clientApi.monthToRoman(this.ff.m);
         }
         if (client.ft09) {
-          this.ft09 = client.ft09;
+          this.clientF.patchValue(client.ft09);
+         // this.ft09 = client.ft09;
         }
       })
       .catch(e => {
         this.toastr.warning('Intentalo de nuevo!!');
       });
     }
-    this.form();
   }
 
   goBack = () => {
@@ -345,7 +347,20 @@ export class Ft09Component implements OnInit {
     o23: [''],
     o24: [''],
     o25: [''],
-    o26: ['']
+    o26: [''],
+    filas: [1]
     });
+  }
+  addFila() {
+    const filas: number = this.clientF.get('filas').value;
+    if (filas > 0 && filas < 24) {
+      this.clientF.patchValue({filas: filas + 1});
+    }
+  }
+  deleteFila() {
+    const filas: number = this.clientF.get('filas').value;
+    if (filas > 1 && filas < 25) {
+      this.clientF.patchValue({filas: filas - 1});
+    }
   }
 }

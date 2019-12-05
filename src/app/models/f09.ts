@@ -129,4 +129,5 @@ export interface F09 {
     o24: string;
     o25: string;
     o26: string;
+    filas: number;
 }

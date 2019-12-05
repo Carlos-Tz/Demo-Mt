@@ -28,7 +28,7 @@ export class Ft05Component implements OnInit {
     m: '',
     a: ''
   };
-  public ft05 = {
+  /* public ft05 = {
     m1: '',
     m2: '',
     m3: '',
@@ -53,7 +53,7 @@ export class Ft05Component implements OnInit {
     f4: '',
     f5: '',
     f6: ''
-  };
+  }; */
 
   constructor(
     private toastr: ToastrService,
@@ -66,6 +66,7 @@ export class Ft05Component implements OnInit {
 
   ngOnInit() {
     this.key = this.actRoute.snapshot.paramMap.get('key');
+    this.form();
     if (this.offlineOnlineService.isOnline) {
       if (this.clientApi.clientObject) {
         this.clientApi.clientObject.valueChanges().subscribe(data => {
@@ -74,7 +75,8 @@ export class Ft05Component implements OnInit {
             this.ff = this.clientApi.splitDate(this.client.fft05);
           }
           if (data.ft05) {
-            this.ft05 = data.ft05;
+            this.clientF.patchValue(data.ft05);
+            // this.ft05 = data.ft05;
           }
         });
       }
@@ -86,14 +88,14 @@ export class Ft05Component implements OnInit {
           this.ff = this.clientApi.splitDate(this.client.fft05);
         }
         if (client.ft05) {
-          this.ft05 = client.ft05;
+          this.clientF.patchValue(client.ft05);
+          // this.ft05 = client.ft05;
         }
       })
       .catch(e => {
         this.toastr.warning('Intentalo de nuevo!!');
       });
     }
-    this.form();
   }
 
   form() {
@@ -121,7 +123,8 @@ export class Ft05Component implements OnInit {
       f3: [''],
       f4: [''],
       f5: [''],
-      f6: ['']
+      f6: [''],
+      filas: [1]
     });
   }
 
@@ -132,5 +135,18 @@ export class Ft05Component implements OnInit {
   submitClientData = () => {
     this.clientApi.UpdateFt05(this.clientF.value, this.key);
     this.toastr.success('Actualizado!');
+  }
+
+  addFila() {
+    const filas: number = this.clientF.get('filas').value;
+    if (filas > 0 && filas < 6) {
+      this.clientF.patchValue({filas: filas + 1});
+    }
+  }
+  deleteFila() {
+    const filas: number = this.clientF.get('filas').value;
+    if (filas > 1 && filas < 7) {
+      this.clientF.patchValue({filas: filas - 1});
+    }
   }
 }

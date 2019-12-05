@@ -19,6 +19,9 @@ import { MainComponent } from './components/main/main.component';
 import { CotizacionComponent } from './components/cotizacion/cotizacion.component';
 import { Ft07Component } from './components/ft07/ft07.component';
 import { EditCotizacionComponent } from './components/edit-cotizacion/edit-cotizacion.component';
+import { Nft06Component } from './components/nft06/nft06.component';
+import { EditFt06Component } from './components/edit-ft06/edit-ft06.component';
+import { ListaComponent } from './components/lista/lista.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/', pathMatch: 'full'},
@@ -33,9 +36,12 @@ const routes: Routes = [
   {path: 'ft-11/:key', component: Ft11Component},
   {path: 'ft-10/:key', component: Ft10Component},
   {path: 'ft-10/:key/:key2', component: EditFt10Component},
-  {path: 'ft-06/:key', component: Ft06Component},
+  // {path: 'ft-06/:key', component: Ft06Component},
+  {path: 'ft-06/:key', component: Nft06Component},
+  {path: 'ft-06/:key/:key2', component: EditFt06Component},
   {path: 'ft-07/:key/:key2/:type', component: Ft07Component},
-  {path: 'panel', component: PanelComponent},
+  {path: 'panel', component: ListaComponent},
+  {path: 'panel/:key', component: PanelComponent},
   {path: 'nuevo', component: CotizacionComponent},
   {path: 'cliente/:key', component: ClientComponent},
   {path: 'edit-client/:key', component: EditClientComponent},
@@ -44,7 +50,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

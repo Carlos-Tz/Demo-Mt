@@ -42,40 +42,41 @@
             <th class="cols_">FECHA DE RECEPCIÓN</th>
           </tr>
           <tr>
-            <td><textarea rows="2" formControlName="m1" [(ngModel)]="ft05.m1"></textarea></td>
-            <td><textarea rows="2" formControlName="t1" [(ngModel)]="ft05.t1"></textarea></td>
-            <td><textarea rows="2" formControlName="o1" [(ngModel)]="ft05.o1"></textarea></td>
-            <td><input type="date" formControlName="f1" [(ngModel)]="ft05.f1"></td>
+            <!-- <td><textarea rows="2" formControlName="m1" [(ngModel)]="ft05.m1"></textarea></td> -->
+            <td><textarea rows="2" formControlName="m1"></textarea></td>
+            <td><textarea rows="2" formControlName="t1"></textarea></td>
+            <td><textarea rows="2" formControlName="o1"></textarea></td>
+            <td><input type="date" formControlName="f1"></td>
           </tr>
-          <tr>
-            <td><textarea rows="2" formControlName="m2" [(ngModel)]="ft05.m2"></textarea></td>
-            <td><textarea rows="2" formControlName="t2" [(ngModel)]="ft05.t2"></textarea></td>
-            <td><textarea rows="2" formControlName="o2" [(ngModel)]="ft05.o2"></textarea></td>
-            <td><input type="date" formControlName="f2" [(ngModel)]="ft05.f2"></td>
+          <tr *ngIf="clientF.value.filas > 1">
+            <td><textarea rows="2" formControlName="m2"></textarea></td>
+            <td><textarea rows="2" formControlName="t2"></textarea></td>
+            <td><textarea rows="2" formControlName="o2"></textarea></td>
+            <td><input type="date" formControlName="f2"></td>
           </tr>
-          <tr>
-            <td><textarea rows="2" formControlName="m3" [(ngModel)]="ft05.m3"></textarea></td>
-            <td><textarea rows="2" formControlName="t3" [(ngModel)]="ft05.t3"></textarea></td>
-            <td><textarea rows="2" formControlName="o3" [(ngModel)]="ft05.o3"></textarea></td>
-            <td><input type="date" formControlName="f3" [(ngModel)]="ft05.f3"></td>
+          <tr *ngIf="clientF.value.filas > 2">
+            <td><textarea rows="2" formControlName="m3"></textarea></td>
+            <td><textarea rows="2" formControlName="t3"></textarea></td>
+            <td><textarea rows="2" formControlName="o3"></textarea></td>
+            <td><input type="date" formControlName="f3"></td>
           </tr>
-          <tr>
-            <td><textarea rows="2" formControlName="m4" [(ngModel)]="ft05.m4"></textarea></td>
-            <td><textarea rows="2" formControlName="t4" [(ngModel)]="ft05.t4"></textarea></td>
-            <td><textarea rows="2" formControlName="o4" [(ngModel)]="ft05.o4"></textarea></td>
-            <td><input type="date" formControlName="f4" [(ngModel)]="ft05.f4"></td>
+          <tr *ngIf="clientF.value.filas > 3">
+            <td><textarea rows="2" formControlName="m4"></textarea></td>
+            <td><textarea rows="2" formControlName="t4"></textarea></td>
+            <td><textarea rows="2" formControlName="o4"></textarea></td>
+            <td><input type="date" formControlName="f4"></td>
           </tr>
-          <tr>
-            <td><textarea rows="2" formControlName="m5" [(ngModel)]="ft05.m5"></textarea></td>
-            <td><textarea rows="2" formControlName="t5" [(ngModel)]="ft05.t5"></textarea></td>
-            <td><textarea rows="2" formControlName="o5" [(ngModel)]="ft05.o5"></textarea></td>
-            <td><input type="date" formControlName="f5" [(ngModel)]="ft05.f5"></td>
+          <tr *ngIf="clientF.value.filas > 4">
+            <td><textarea rows="2" formControlName="m5"></textarea></td>
+            <td><textarea rows="2" formControlName="t5"></textarea></td>
+            <td><textarea rows="2" formControlName="o5"></textarea></td>
+            <td><input type="date" formControlName="f5"></td>
           </tr>
-          <tr>
-            <td><textarea rows="2" formControlName="m6" [(ngModel)]="ft05.m6"></textarea></td>
-            <td><textarea rows="2" formControlName="t6" [(ngModel)]="ft05.t6"></textarea></td>
-            <td><textarea rows="2" formControlName="o6" [(ngModel)]="ft05.o6"></textarea></td>
-            <td><input type="date" formControlName="f6" [(ngModel)]="ft05.f6"></td>
+          <tr *ngIf="clientF.value.filas > 5">
+            <td><textarea rows="2" formControlName="m6"></textarea></td>
+            <td><textarea rows="2" formControlName="t6"></textarea></td>
+            <td><textarea rows="2" formControlName="o6"></textarea></td>
+            <td><input type="date" formControlName="f6"></td>
           </tr>
         </table>
         </form>
@@ -90,6 +91,12 @@
       </button>
       <button class="guardar_ no-print" (click)="submitClientData()">
         Guardar
+      </button>
+      <button class="mas_ no-print" (click)="addFila()" *ngIf="clientF.value.filas < 6">
+        +
+      </button>
+      <button class="menos_ no-print" (click)="deleteFila()" *ngIf="clientF.value.filas > 1">
+        -
       </button>
     </div>
   </section>

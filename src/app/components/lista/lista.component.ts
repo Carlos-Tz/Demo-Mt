@@ -1,24 +1,22 @@
 import { Component, OnInit } from '@angular/core';
+import { OfflineOnlineService } from 'src/app/services/offline-online.service';
 import { ClientService } from 'src/app/services/client.service';
 import { Client } from 'src/app/models/client';
-import { OfflineOnlineService } from 'src/app/services/offline-online.service';
 import { Location } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-panel',
-  templateUrl: './panel.component.html',
-  styleUrls: ['./panel.component.css']
+  selector: 'app-lista',
+  templateUrl: './lista.component.html',
+  styleUrls: ['./lista.component.css']
 })
-export class PanelComponent implements OnInit {
+export class ListaComponent implements OnInit {
   public dtOptions = {};
   public data_ = false;
   public data_2 = false;
   public dataList: Client[];
-  public key = '';
+  public anioList: number[];
   constructor(
     public clientApi: ClientService,
-    private actRouter: ActivatedRoute,
     private location: Location,
     private readonly offlineOnlineService: OfflineOnlineService
   ) { }
@@ -51,27 +49,24 @@ export class PanelComponent implements OnInit {
       },
       info: false
     };
-    this.key = this.actRouter.snapshot.paramMap.get('key');
     if (this.offlineOnlineService.isOnline) {
-      this.clientApi.GetDataListA(this.key).snapshotChanges().subscribe(re => {
-        this.dataList = [];
+      this.clientApi.GetDataList().snapshotChanges().subscribe(re => {
+        this.anioList = [];
         re.forEach(item => {
-          const surv = item.payload.toJSON();
-          surv['$key'] = item.key;
-          this.dataList.push(surv as Client);
+          const surv: any = item.payload.toJSON();
+          const anio: number = parseInt(surv.datos.anio, 10);
+          if (this.anioList.indexOf(anio) === -1) {
+            this.anioList.push(anio);
+          }
         });
         this.data_ = true;
+        this.anioList.sort();
+        this.anioList.reverse();
       });
     } else {
       this.getDataOffline();
-      /* this.clientApi.getDataOffline();
-      if (this.clientApi.dataOffline) {
-        this.dataList = this.clientApi.dataOffline;
-        this.data_2 = true;
-      } */
     }
   }
-
   async getDataOffline () {
     this.dataList = [];
     this.dataList = await this.clientApi.localDb.clients.toArray();

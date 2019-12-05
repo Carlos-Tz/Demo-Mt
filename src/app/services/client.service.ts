@@ -30,6 +30,7 @@ export class ClientService {
   // public clientsList: AngularFireList<any>;
   public dataList: AngularFireList<any>;
   public ft10List: AngularFireList<any>;
+  public ft06List: AngularFireList<any>;
   public ft81List: AngularFireList<any>;
   public ft82List: AngularFireList<any>;
   public ft07List: AngularFireList<any>;
@@ -45,8 +46,10 @@ export class ClientService {
   public ft10: F10[];
   public clientObject: AngularFireObject<any>;
   public f10Object: AngularFireObject<any>;
+  public f06Object: AngularFireObject<any>;
   public f81Object: AngularFireObject<any>;
   public f07Object: AngularFireObject<any>;
+  public deleteObject: AngularFireObject<any>;
   public f10 = [
     {
       id_: 1,
@@ -1443,11 +1446,11 @@ export class ClientService {
   ];
   // public currentD = '';
   // public client = {};
-  public f11 = [
+  public f06 = [
     {
       id_: 1,
       nom: '',
-      tex: '110 Requisitos generales',
+      tex: 'Se recibe el Proyecto Eléctrico correspondiente.',
       tip: '',
       cri: '',
       obp: '',
@@ -1455,19 +1458,325 @@ export class ClientService {
       cum: ''
     }, {
       id_: 2,
-      nom: '110-2',
-      tex: 'Aprobación',
-      tip: 'O',
-      cri: 'Los materiales y equipos utilizados están aprobados',
+      nom: 'PEC 7.1',
+      tex: 'El proyecto esta integrado por un diagrama unifilar.',
+      tip: 'D',
+      cri: 'Contenga información de todos los circuitos',
+      obp: '',
+      obs: '',
+      cum: 'si'
+    }, {
+      id_: 3,
+      nom: 'PEC 7.1',
+      tex: 'Relación de cargas.',
+      tip: 'D',
+      cri: 'Se acepta si se hay una relación de cargas.',
+      obp: '',
+      obs: '',
+      cum: 'si'
+    }, {
+      id_: 4,
+      nom: 'PEC 7.1',
+      tex: 'Lista de los principales materiales y equipos utilizados de manera general incluida la lnformación de Transformadores cuando aplique, documentoque compruebe que están aprobados y cumplen con las normas oficiales mexicanas y disposiciones legales aplicables.',
+      tip: 'D',
+      cri: 'Se acepta si hay una lista de materialesy un documento de certificación del TR.',
+      obp: '',
+      obs: '',
+      cum: 'si'
+    }, {
+      id_: 5,
+      nom: 'NOM-001-SEDE-2012 215-5, 310-10c)',
+      tex: '¿El diagrama de alimentadores muestra los detalles de los circuitos alimentadores, superficie en m2 del edificio, carga total conectada, factores de demanda, carga calculada, el tipo tamaño nominal y longitud de los conductores y caída de tensión de cada circuito derivado,alimentador,tipo de aislamiento?',
+      tip: 'D',
+      cri: 'Se acepta si cumple con el 215-5',
+      obp: '',
+      obs: '',
+      cum: 'si'
+    }, {
+      id_: 6,
+      nom: 'PEC 7.2',
+      tex: 'Para instalaciones eléctricas con carga instalada igual o mayor a 100 kW.',
+      tip: '',
+      cri: '',
       obp: '',
       obs: '',
       cum: ''
     }, {
-      id_: 3,
-      nom: '110-3 b)',
-      tex: 'Evaluación, identificación, instalación y uso del equipo',
+      id_: 7,
+      nom: 'PEC 7.2.I, 215-5',
+      tex: 'El Diagrama unifilar debe contener:',
       tip: '',
-      cri: 'De acuerdo con las instrucciones incluidas en la etiqueta y/o instalación',
+      cri: '',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 8,
+      nom: 'PEC 7.2.I.1',
+      tex: 'Características de la acometida.',
+      tip: 'D',
+      cri: 'Se acepta si se define dichas características.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 9,
+      nom: 'PEC 7.2.I.2',
+      tex: 'Características de la subestación.',
+      tip: 'D',
+      cri: 'Se acepta si define las características de la subestación.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 10,
+      nom: 'PEC 7.2.I.3, 210-19 nota 4, 310-8c)',
+      tex: 'Características de los alimentadores hasta los centros de carga, tableros de fuerza, alumbrado, entre otros, indicando en cada caso el tamaño (calibre) de los conductores (conductores activos, neutro y de puesta a tierra), la longitud y la corriente en amperes, (%e, canalización,tipo de aislamiento.)',
+      tip: 'D',
+      cri: 'Se acepta si se indican las características de los alimentadores.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 11,
+      nom: 'PEC 7.2.I.4, 110-9',
+      tex: 'Tipo de los dispositivos de interrupción, capacidad interruptiva e intervalo de ajuste de cada una de las protecciones de los alimentadores.',
+      tip: 'D',
+      cri: 'Se acepta si se indican los tipos, sus ajustes y capacidades de interrupción.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 12,
+      nom: 'PEC 7.2.II',
+      tex: 'Cuadro de distribución de cargas por circuito, el cual debe contener:',
+      tip: '',
+      cri: '',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 13,
+      nom: 'PEC 7.2.II.1',
+      tex: 'Circuito de alumbrado y luminarias.',
+      tip: 'D',
+      cri: 'Se acepta si se indican los circuitos.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 14,
+      nom: 'PEC 7.2.II.2',
+      tex: 'Número de circuitos, número de lámparas, receptáculos, dispositivos eléctricos por cada circuito, fase o fases a que va conectado el circuito, carga en watts o VA y corriente en amperes de cada circuito, tamaño (calibre) de los conductores, protección contra sobre corriente por cada circuito y el desbalanceo entre fases expresado en por ciento.',
+      tip: 'D',
+      cri: 'Se acepta si se indican todas las características indicadas.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 15,
+      nom: 'PEC 7.2.II.3',
+      tex: 'Fuerza, circuitos, fases a que va conectado el circuito, características de los motores o aparatos y sus dispositivos de protección y control, carga en watts o VA y corriente en amperes de cada circuito, tamaño (calibre) de los conductores y el resumen de cargas indicando el desbalanceo entre fases expresado en por ciento.',
+      tip: 'D',
+      cri: 'Se acepta si se indican todas las características indicadas.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 16,
+      nom: 'PEC 7.2.III',
+      tex: 'Plano eléctrico el cual debe contener:',
+      tip: '',
+      cri: '',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 17,
+      nom: 'PEC 7.2.III.1',
+      tex: 'Escala mínima de 1:100. La altura mínima de la letra o caracteres debe ser de 2mm.',
+      tip: 'D',
+      cri: 'Se acepta si se entrega en archivo electrónico.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 18,
+      nom: 'PEC 7.2.III.2',
+      tex: 'Utilizar el Sistema General de Unidades de Medida, de acuerdo con la Norma NOM-008-SCFI vigente y en todas sus leyendas en idioma español.',
+      tip: 'D',
+      cri: 'Se acepta aunque sea en otro idioma, siempre y cuando también traiga el español.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 19,
+      nom: 'PEC 7.2.III.3',
+      tex: 'Contener los datos relativos a las instalaciones eléctricas, ser claros e incluir la información para su correcta interpretación de manera que permita construir la instalación. Pueden indicarse notas aclaratorias a los puntos que el proyectista considere necesarios.',
+      tip: 'D',
+      cri: 'Se acepta si se cuenta con notas aclaratorias y dibujos típicos de detalle referente al proyecto eléctrico que faciliten la instalación.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 20,
+      nom: 'PEC 7.2.III.4',
+      tex: 'Incluir la información mínima siguiente: a) Nombre o razón social del cliente del servicio. b) Domicilio (calle y número, colonia, código postal, delegación o población, municipio y entidad). c) Uso al que se vaya a destinar la instalación ( giro o actividad). d) Nombre, número de cédula profesional y firma del responsable del proyecto. e) Fecha de elaboración del proyecto.',
+      tip: 'D',
+      cri: 'Se acepta si cumple con todos los requisitos.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 21,
+      nom: 'PEC 7.2.III.5',
+      tex: 'Los planos eléctricos de planta y elevación, deben incluir lo siguiente:',
+      tip: '',
+      cri: '',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 22,
+      nom: 'PEC 7.2.III.5.a)',
+      tex: 'a) Localización del punto de la acometida, del interruptor general y del equipo principal incluyendo el tablero o tableros generales de distribución.',
+      tip: 'D',
+      cri: 'Se acepta si se indican cuando existan.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 23,
+      nom: 'PEC 7.2.III.5.b)',
+      tex: 'b) Localización de centros de control de motores, tableros de fuerza, de alumbrado y receptáculos.',
+      tip: 'D',
+      cri: 'Se acepta si se indican cuando existan.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 24,
+      nom: 'PEC 7.2.III.5.c)',
+      tex: 'c) Trayectoria de alimentadores y circuitos derivados, tanto de fuerza como de alumbrado, identificando cada circuito, e indicando su tamaño y canalización, localización de motores y equipos alimentados por los circuitos derivados, localización de los controladores y sus medios de desconexión, localización de receptáculos y unidades de alumbrado con sus controladores, identificando las cargas con su circuito y tablero correspondiente.',
+      tip: 'D',
+      cri: 'Se acepta si se indican todas las características indicadas.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 25,
+      nom: 'PEC 7.2.III.5.d)',
+      tex: 'd) Localización, en su caso, de áreas peligrosas indicando su clasificación de acuerdo con la NOM.',
+      tip: 'D',
+      cri: 'Se acepta si se identifican tales áreas.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 26,
+      nom: 'PEC 7.2.IV 110-2',
+      tex: 'Lista de los principales materiales utilizados. Incluida la  información de Transformadores cuando aplique, documentoque compruebe que están aprobados y cumplen con las normas oficiales mexicanas y disposiciones legales aplicables',
+      tip: 'D',
+      cri: 'Se acepta cuando hay una lista de materiales y un documento de certificación del TR',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 27,
+      nom: 'PEC 7.2.V 110-2',
+      tex: 'Lista de los principales equipos utilizados. Incluida la  información de Transformadores cuando aplique, documentoque compruebe que están aprobados y cumplen con las normas oficiales mexicanas y disposiciones legales aplicables',
+      tip: 'D',
+      cri: 'Se acepta si hay una lista de equipos. y un documento de certificación del TR',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 28,
+      nom: 'PEC 7.2.VI',
+      tex: 'Croquis de localización, indicando el domicilio donde se ubica la instalación.',
+      tip: 'D',
+      cri: 'Se acepta si esta el croquis de localización.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 29,
+      nom: 'PEC 7.2.VII',
+      tex: 'Memoria técnica, la cual debe contener, de manera enunciativa y no limitativa:',
+      tip: '',
+      cri: '',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 30,
+      nom: 'PEC 7.2.VII.1',
+      tex: 'Los cálculos de corriente de corto circuito trifásico para la adecuada selección de la capacidad interruptiva de las protecciones de la instalación.',
+      tip: 'D',
+      cri: 'Se acepta si cuenta con dicho cálculo.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 31,
+      nom: 'PEC 7.2.VII.2',
+      tex: 'Los cálculos de corriente de falla de fase a tierra (monofásico y bifásico), para el diseño de la malla de tierra de la subestación eléctrica.',
+      tip: 'D',
+      cri: 'Se acepta si cuenta con dicho cálculo.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 32,
+      nom: 'PEC 7.2.VII.3',
+      tex: 'Los cálculos correspondientes a la malla de tierra (incluyendo la resistividad del terreno) para subestaciones considerando las tensiones de paso, contacto, su resistencia a tierra, así como la selección del tamaño (calibre) del conductor, longitud del conductor de la malla y la selección de los electrodos. Nota- En los casos en que el neutro sea corrido no se requieren los cálculos de la malla de tierra.',
+      tip: 'D',
+      cri: 'Se acepta si cuenta con dicho cálculo.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 33,
+      nom: 'PEC 7.2.VII.4',
+      tex: 'Los cálculos de caída de tensión en alimentadores y circuitos derivados.',
+      tip: 'D',
+      cri: 'Se acepta si cuenta con dicho cálculo.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 34,
+      nom: 'PEC 7.3',
+      tex: 'Las áreas en donde pueda existir peligro o riesgo de incendio o explosión debido a la presencia y manejo de gases o vapores inflamables, líquidos inflamables, polvos combustibles o fibras inflamables dispersas en el aire, deben estar indicadas en el proyecto conforme a lo dispuesto en la NOM.',
+      tip: 'D',
+      cri: 'Se acepta si se identifican tales áreas.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 35,
+      nom: 'PEC 7.3',
+      tex: 'El solicitante de la verificación debe presentar a la UV el plano de las áreas peligrosas (clasificadas) indicando los límites en vistas de planta y cortes transversales y longitudinales, de forma que las disposiciones contenidas en la NOM, aplicables a cada clasificación, puedan verificarse objetivamente. La clasificación de las áreas debe hacerse por personas clasificadas, baja la responsabilidad del solicitante de la verificación teniendo en cuenta la información contenida de la NOM y en otras disposiciones legales aplicables.',
+      tip: 'D',
+      cri: 'Se acepta si se identifican tales áreas en corte y elevación.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 36,
+      nom: 'PEC 7.3',
+      tex: 'Cada dictamen de verificación que la UNIE expida para instalaciones eléctricas que contenga áreas peligrosas (clasificadas) deben indicar la fecha para la próxima verificación de la instalación eléctrica de dichas áreas, para que el usuario o propietario de la instalación la solicite a una UVIE, la cual circunscribirá a los conceptos y alcances a que se refiere el anexo "B".',
+      tip: 'D',
+      cri: 'Se acepta cuando este señalada la fecha de la verificación periódica.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 37,
+      nom: 'PEC 7.3',
+      tex: 'Si las instalaciones eléctricas que tiene áreas peligrosas (clasificadas) cumplen con lo establecido en la NOM, la UVIE expedirá un dictamen de verificación, el cual se entregara al solicitante de la verificación, quien lo conservará y deberá estar a disposición de la Autoridad competente u otra dependencia o entidad pública que lo solicite conforme a sus atribuciones.',
+      tip: 'D',
+      cri: 'El informe trimestral debe tener este señalamiento.',
       obp: '',
       obs: '',
       cum: ''
@@ -1540,7 +1849,7 @@ export class ClientService {
     datos.anio = f.a;
     datos.date = Date.now();
     datos.costol = costol;
-    const nClient = { datos };
+    const nClient = { datos, anio: datos.anio };
 
     if (!this.offlineOnlineService.isOnline) {  // Offline
       this.addClientOffline(nClient as Client);
@@ -1589,6 +1898,11 @@ export class ClientService {
     this.f10.forEach(item => {
       this.ft10List.push(item as F10);
       // console.log(item);
+    });
+  }
+  addft06() {
+    this.f06.forEach(it => {
+      this.ft06List.push(it as F10);
     });
   }
   addft81(fecha: string, id: number) {
@@ -1813,6 +2127,16 @@ export class ClientService {
       });
     });
   }
+  async addFt06Offline(key: string) {
+    this.f06.forEach(async item => {
+      const ui = UUID.UUID();
+      await this.localDb.ft06.add({
+        id: ui, client: key, id_: item.id_, cri: item.cri,
+        cum: item.cum, nom: item.nom, obp: item.obp,
+        obs: item.obs, tex: item.tex, tip: item.tip
+      });
+    });
+  }
 
   async addRowFt10(f10: any, key: string) {
     if (this.offlineOnlineService.isOnline) {
@@ -1823,6 +2147,18 @@ export class ClientService {
         id: ui, client: key, id_: f10.id_, cri: f10.cri,
         cum: f10.cum, nom: f10.nom, obp: f10.obp,
         obs: f10.obs, tex: f10.tex, tip: f10.tip
+      });
+    }
+  }
+  async addRowFt06(f06: any, key: string) {
+    if (this.offlineOnlineService.isOnline) {
+      this.ft06List.push(f06 as F10);
+    } else {
+      const ui = UUID.UUID();
+      await this.localDb.ft06.add({
+        id: ui, client: key, id_: f06.id_, cri: f06.cri,
+        cum: f06.cum, nom: f06.nom, obp: f06.obp,
+        obs: f06.obs, tex: f06.tex, tip: f06.tip
       });
     }
   }
@@ -1843,12 +2179,34 @@ export class ClientService {
         });
     }
   }
+  updateRowFt06(f06: F10, key: string) {
+    if (this.offlineOnlineService.isOnline) {
+      this.f06Object.update({ nom: f06.nom, tex: f06.tex, tip: f06.tip, cri: f06.cri, obp: f06.obp, obs: f06.obs, cum: f06.cum });
+    } else {
+      this.localDb.ft06 // Offline
+        .where('id').equals(key).modify(cc => {
+          cc.cri = f06.cri;
+          cc.cum = f06.cum;
+          cc.nom = f06.nom;
+          cc.obp = f06.obp,
+          cc.obs = f06.obs;
+          cc.tex = f06.tex;
+          cc.tip = f06.tip;
+        });
+    }
+  }
 
   Getf10(key: string) {
     this.ft10List = this.db.list('data/' + key + '/ft10', ref =>
       ref.orderByChild('id_')
     );
     return this.ft10List;
+  }
+  Getf06(key: string) {
+    this.ft06List = this.db.list('data/' + key + '/ft06', ref =>
+      ref.orderByChild('id_')
+    );
+    return this.ft06List;
   }
   Getf81(key: string) {
     this.ft81List = this.db.list('data/' + key + '/ft81', ref =>
@@ -1929,6 +2287,12 @@ export class ClientService {
     );
     return this.dataList;
   }
+  GetDataListA(anio: string) {
+    this.dataList = this.db.list('data', ref =>
+      ref.orderByChild('anio').equalTo(anio)
+    );
+    return this.dataList;
+  }
 
   getCurrentData(key: string) {
     this.clientObject = this.db.object('data/' + key);
@@ -1938,6 +2302,10 @@ export class ClientService {
   getCurrentDataF10Row(key: string, key2: string) {
     this.f10Object = this.db.object('data/' + key + '/ft10/' + key2);
     return this.f10Object;
+  }
+  getCurrentDataF06Row(key: string, key2: string) {
+    this.f06Object = this.db.object('data/' + key + '/ft06/' + key2);
+    return this.f06Object;
   }
   getCurrentDataF81(key: string, key2: string) {
     this.f81Object = this.db.object('data/' + key + '/ft81/' + key2);
@@ -2288,7 +2656,8 @@ export class ClientService {
       ft15: 'id, client',
       ft81: 'id, client',
       ft82: 'id, client',
-      ft10: 'id, client, id_'
+      ft10: 'id, client, id_',
+      ft06: 'id, client, id_'
     });
   }
 
@@ -2311,6 +2680,8 @@ export class ClientService {
       this.localDb.clients.delete(item.id).then(async () => {
         const f10Items = await this.localDb.ft10.where('client').equals(item.id).toArray();
         if (f10Items.length > 0) { item.ft10 = f10Items; }
+        const f06Items = await this.localDb.ft06.where('client').equals(item.id).toArray();
+        if (f06Items.length > 0) { item.ft06 = f06Items; }
         const f07Items = await this.localDb.ft07.where('client').equals(item.id).toArray();
         if (f07Items.length > 0) { item.ft07 = f07Items; }
         const f15Items = await this.localDb.ft15.where('client').equals(item.id).toArray();
@@ -2320,7 +2691,7 @@ export class ClientService {
         const f82Items = await this.localDb.ft82.where('client').equals(item.id).toArray();
         if (f82Items.length > 0) { item.ft82 = f82Items; }
         this.dataList.push(item);
-        console.log(`item ${item.id} sent and deleted locally`);
+       // console.log(`item ${item.id} sent and deleted locally`);
       });
     });
   }
@@ -2333,6 +2704,15 @@ export class ClientService {
 
   public async getDataOffline() {
     this.dataOffline = await this.localDb.clients.toArray();
+  }
+
+  deleteRowFt06(key: string, key2: string) {
+    this.deleteObject = this.db.object('data/' + key + '/ft06/' + key2);
+    this.deleteObject.remove();
+  }
+  deleteRowFt10(key: string, key2: string) {
+    this.deleteObject = this.db.object('data/' + key + '/ft10/' + key2);
+    this.deleteObject.remove();
   }
 
   /* public getClientOffline(id: string) {

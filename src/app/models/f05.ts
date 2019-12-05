@@ -23,4 +23,5 @@ export interface F05 {
     f4: string;
     f5: string;
     f6: string;
+    filas: number;
 }

@@ -1,3 +1,21 @@
-<p>
-  row6 works!
-</p>
+<tr *ngIf="row && !off" [routerLink]="['/ft-06/', key, row.$key]" style="cursor: pointer;">
+  <td class="cols_">{{ row.nom }}</td>
+  <td class="colmm">{{ row.tex }}</td>
+  <td class="colsm_">{{ row.tip }}</td>
+  <td class="colm_">{{ row.cri }}</td>
+  <td class="colm_">{{ row.obp }}</td>
+  <td class="colm_">{{ row.obs }}</td>
+  <td class="colss_"><span *ngIf="row.cum=='si'">&#9632;</span></td>
+  <td class="colss_"><span *ngIf="row.cum=='no'">&#9632;</span></td>
+</tr>
+
+<tr *ngIf="row && off" [routerLink]="['/ft-06/', key, row.id]" style="cursor: pointer;">
+  <td class="cols_">{{ row.nom }}</td>
+  <td class="colmm">{{ row.tex }}</td>
+  <td class="colsm_">{{ row.tip }}</td>
+  <td class="colm_">{{ row.cri }}</td>
+  <td class="colm_">{{ row.obp }}</td>
+  <td class="colm_">{{ row.obs }}</td>
+  <td class="colss_"><span *ngIf="row.cum=='si'">&#9632;</span></td>
+  <td class="colss_"><span *ngIf="row.cum=='no'">&#9632;</span></td>
+</tr>

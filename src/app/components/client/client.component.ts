@@ -23,6 +23,7 @@ export class ClientComponent implements OnInit {
   public ft15List: Ft7[];
   public ft07List: Ft7[];
   public ft10List: F10[];
+  public ft06List: F10[];
   public lenft81 = 0;
   public lenft82 = 0;
   public lenft15 = 0;
@@ -51,6 +52,10 @@ export class ClientComponent implements OnInit {
           this.clientApi.Getf10(this.key);
           this.clientApi.addft10();
         }
+        /* if (!data.ft06) {
+          this.clientApi.Getf06(this.key);
+          this.clientApi.addft06();
+        } */
         if (data.ft81) {
           this.clientApi.Getf81(this.key).snapshotChanges().subscribe(re => {
             this.ft81List = [];
@@ -161,6 +166,7 @@ export class ClientComponent implements OnInit {
     this.ft07List = [];
     this.ft15List = [];
     this.ft10List = [];
+    this.ft06List = [];
     this.clientApi.localDb.clients
       .get(id).then(async (client) => {
         this.clientData = client.datos;
@@ -168,18 +174,22 @@ export class ClientComponent implements OnInit {
         if (this.ft10List.length === 0) {
           this.clientApi.addFt10Offline(id);
         }
+        this.ft06List = await this.clientApi.localDb.ft06.where('client').equals(id).toArray();
+        if (this.ft06List.length === 0) {
+          this.clientApi.addFt06Offline(id);
+        }
       })
       .catch(e => {
         this.toastr.warning('Intentalo de nuevo!!');
       });
-      this.ft07List = await this.clientApi.localDb.ft07.where('client').equals(id).toArray();
-      this.lenft07 = this.ft07List.length;
-      this.ft15List = await this.clientApi.localDb.ft15.where('client').equals(id).toArray();
-      this.lenft15 = this.ft15List.length;
-      this.ft81List = await this.clientApi.localDb.ft81.where('client').equals(id).toArray();
-      this.lenft81 = this.ft81List.length;
-      this.ft82List = await this.clientApi.localDb.ft82.where('client').equals(id).toArray();
-      this.lenft82 = this.ft82List.length;
+    this.ft07List = await this.clientApi.localDb.ft07.where('client').equals(id).toArray();
+    this.lenft07 = this.ft07List.length;
+    this.ft15List = await this.clientApi.localDb.ft15.where('client').equals(id).toArray();
+    this.lenft15 = this.ft15List.length;
+    this.ft81List = await this.clientApi.localDb.ft81.where('client').equals(id).toArray();
+    this.lenft81 = this.ft81List.length;
+    this.ft82List = await this.clientApi.localDb.ft82.where('client').equals(id).toArray();
+    this.lenft82 = this.ft82List.length;
   }
 
   /* addFt10Offline (id: string) {

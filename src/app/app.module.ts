@@ -36,6 +36,7 @@ import { EditCotizacionComponent } from './components/edit-cotizacion/edit-cotiz
 import { Nft06Component } from './components/nft06/nft06.component';
 import { Row6Component } from './components/nft06/row6/row6.component';
 import { EditFt06Component } from './components/edit-ft06/edit-ft06.component';
+import { ListaComponent } from './components/lista/lista.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { EditFt06Component } from './components/edit-ft06/edit-ft06.component';
     EditCotizacionComponent,
     Nft06Component,
     Row6Component,
-    EditFt06Component
+    EditFt06Component,
+    ListaComponent
   ],
   imports: [
     BrowserModule,

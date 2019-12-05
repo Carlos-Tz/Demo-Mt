@@ -16,6 +16,7 @@ export class EditFt10Component implements OnInit {
   public newRowF: FormGroup;
   public key = '';
   public key2 = '';
+  public online: boolean;
   public ft10Row = {
     id_: 0,
     nom: '',
@@ -49,18 +50,23 @@ export class EditFt10Component implements OnInit {
   ngOnInit() {
     this.key = this.actRouter.snapshot.paramMap.get('key');
     this.key2 = this.actRouter.snapshot.paramMap.get('key2');
-    if (this.offlineOnlineService.isOnline) {
-      this.clientApi.Getf10(this.key);
+    this.online = this.offlineOnlineService.isOnline;
+    if (this.online) {
+    //  this.clientApi.Getf10(this.key);
       this.clientApi.getCurrentDataF10Row(this.key, this.key2).valueChanges().subscribe(data => {
         this.ft10Row = data;
       // console.log(data);
+      if (this.ft10Row) {
         this.newft10Row.id_ = this.ft10Row.id_ + 0.01;
+      }
       });
     } else {
       this.clientApi.localDb.ft10
       .get(this.key2).then(async (cc) => {
         this.ft10Row = cc;
-        this.newft10Row.id_ = this.ft10Row.id_ + 0.01;
+        if (this.ft10Row) {
+          this.newft10Row.id_ = this.ft10Row.id_ + 0.01;
+        }
       })
       .catch(e => {
         this.toastr.warning('Intentalo de nuevo!!');
@@ -90,4 +96,10 @@ export class EditFt10Component implements OnInit {
     this.location.back();
   }
 
+  deleteData() {
+    if (window.confirm('¿Esta seguro de eliminar el artículo actual?')) {
+      this.clientApi.deleteRowFt10(this.key, this.key2);
+      this.location.back();
+    }
+  }
 }

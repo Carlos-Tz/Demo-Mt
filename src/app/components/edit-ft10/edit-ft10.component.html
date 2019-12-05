@@ -95,6 +95,9 @@
       <button class="imprimir_ no-print" (click)="submitClientData()">
         Guardar
       </button>
+      <button *ngIf="online" class="eliminar_ no-print" (click)="deleteData()">
+        Eliminar
+      </button>
     </div>
   </section>
 </div>

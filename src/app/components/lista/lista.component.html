@@ -1,0 +1,41 @@
+<section>
+  <div class="main-content">
+    <table>
+      <tr>
+        <td><img style="width: 100%;" src="assets/mt.png" alt=""></td>
+      </tr>
+      <tr>
+        <td><p>EXPEDIENTES</p></td>
+      </tr>
+      <tr class="mini-page" *ngFor="let anio of anioList; let i=index;">
+        <td [routerLink]="['/panel/', anio]"><p>20{{anio}}</p></td>
+      </tr>
+    </table>
+    <table *ngIf="data_2" datatable [dtOptions]="dtOptions" class="row-border hover">
+      <thead>
+          <tr>
+              <th>Fecha aaaa-mm-dd</th>
+              <th>Razón Social</th>
+              <th>No. de Control Interno</th>
+              <th>Giro</th>
+              <th>Responsable</th>
+              <!-- <th>Más...</th> -->
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let client of dataList;let i=index; " [routerLink]="['/cliente/', client.id]" style="cursor: pointer;">
+              <td>{{client.datos.fechai}}</td>
+              <td>{{client.datos.razon}}</td>
+              <td>{{client.datos.nocontrol}}</td>
+              <td>{{client.datos.giro}}</td>
+              <td>{{client.datos.nombre}}</td>
+          </tr>
+      </tbody>
+  </table>
+  </div>
+  <div>
+    <button class="volver_ no-print" (click)="goBack()">
+      Volver
+    </button>
+  </div>
+</section>

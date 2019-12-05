@@ -4,6 +4,7 @@ export interface Client {
     $key: string;
     id: string;
     datos: Datos;
+    anio: string;
     ft02: object;
     ft03: object;
     ft05: object;

@@ -155,6 +155,47 @@
     font-weight: 600;
     box-shadow: 1px 3px 5px #707070;
   }
+  .eliminar_ {
+    position: fixed;
+    bottom: 150px;
+    right: 10px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: #bd4439;
+    color: #333;
+    font-weight: 600;
+    box-shadow: 1px 3px 5px #707070;
+  }
+  .mas_ {
+    position: fixed;
+    bottom: 290px;
+    right: 10px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: #94d88e;
+    color: #333;
+    font-weight: 600;
+    font-size: 1.3em;
+    box-shadow: 1px 3px 5px #707070;
+  }
+  .menos_ {
+    position: fixed;
+    bottom: 220px;
+    right: 10px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: #d88e8e;
+    color: #333;
+    font-weight: 600;
+    font-size: 1.3em;
+    box-shadow: 1px 3px 5px #707070;
+  }
 
   .imprimir_ {
     position: fixed;
