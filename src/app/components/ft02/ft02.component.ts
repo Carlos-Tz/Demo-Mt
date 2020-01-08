@@ -5,6 +5,7 @@ import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { OfflineOnlineService } from 'src/app/services/offline-online.service';
+declare const pdfExport: any;
 
 @Component({
   selector: 'app-ft02',
@@ -168,5 +169,9 @@ export class Ft02Component implements OnInit {
       default: m = ''; break;
     }
     return m;
+  }
+
+   savePDF() {
+    pdfExport(this.key, this.client.anio, this.client.nocontrol, 'ft-02', false);
   }
 }

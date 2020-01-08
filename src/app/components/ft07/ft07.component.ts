@@ -5,6 +5,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { OfflineOnlineService } from 'src/app/services/offline-online.service';
+declare const pdfExport2: any;
 
 @Component({
   selector: 'app-ft07',
@@ -110,7 +111,7 @@ export class Ft07Component implements OnInit {
           this.ft07 = data;
           this.acta = true;
           if (this.ft07.fecha) {
-            console.log(this.ft07.fecha + 'AECIE');
+           // console.log(this.ft07.fecha + 'AECIE');
             this.ff = this.clientApi.splitDate(this.ft07.fecha);
             // this.mes = this.clientApi.monthToRoman(this.ff.m);
           }
@@ -135,7 +136,7 @@ export class Ft07Component implements OnInit {
           this.ft07 = data;
           this.acta = false;
           if (this.ft07.fecha) {
-            console.log(this.ft07.fecha + 'RTPE');
+           // console.log(this.ft07.fecha + 'RTPE');
             this.ff = this.clientApi.splitDate(this.ft07.fecha);
             // this.mes = this.clientApi.monthToRoman(this.ff.m);
           }
@@ -176,5 +177,9 @@ export class Ft07Component implements OnInit {
   submitClientData = () => {
     this.clientApi.UpdateFt07(this.ft07, this.key2, this.type);
     this.toastr.success('Actualizado!');
+  }
+
+  savePDF() {
+    pdfExport2(this.key, this.key2, this.type, this.client.anio, this.client.nocontrol, 'ft-07', false);
   }
 }

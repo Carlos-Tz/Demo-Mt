@@ -11,8 +11,8 @@
                 <h2><b>INFORME DE NO COMFORMIDAD</b></h2>
               </td>
               <td rowspan="2">
-                <p>Proyecto ( <b *ngIf="ft081"><span *ngIf="ft081.desc=='PRO'">X</span></b> ) <span style="padding-right: 3em;"></span> Memorias Técnicas Descriptivas ( )</p>
-                <p>Instalación en Sitio ( <b *ngIf="ft081"><span *ngIf="ft081.desc=='INS'">X</span></b> ) <span style="padding-right: 3em;"></span> Pruebas ( )</p>
+                <p>Proyecto ( <b *ngIf="clientF.value"><span *ngIf="clientF.value.desc=='PRO'">X</span></b> ) <span style="padding-right: 3em;"></span> Memorias Técnicas Descriptivas ( )</p>
+                <p>Instalación en Sitio ( <b *ngIf="clientF.value"><span *ngIf="clientF.value.desc=='INS'">X</span></b> ) <span style="padding-right: 3em;"></span> Pruebas ( )</p>
               </td>
               <td style="padding-top: 3mm; width: 10%;">CÓDIGO: <b>FT-08</b></td>
             </tr>
@@ -36,65 +36,67 @@
             </tr>
           </table>
 
+          <form [formGroup]="clientF" autocomplete="off">
           <table class="table3_">
             <tr>
               <th class="col1_">No</th>
               <th class="col2_">Descripción de No Conformidades</th>
-              <th class="col3_">No Conforme con la(s) seccion(es) <span *ngIf="nom">de la</span><span *ngIf="!nom">del</span> {{ ft081.tipo }}</th>
+              <th class="col3_">No Conforme con la(s) seccion(es) <span *ngIf="nom">de la</span><span *ngIf="!nom">del</span> {{ clientF.value.tipo }}</th>
               <th class="cols_">Fecha de revisión</th>
               <th>Acciones Correctivas <p>(Por el Cliente)</p>
               </th>
               <th class="cols_">Fecha de solución</th>
             </tr>
             <tr>
-              <td style="text-align: center;"><input type="number" [(ngModel)]="ft081.n1"></td>
-              <td><textarea rows="3" [(ngModel)]="ft081.d1"></textarea></td>
-              <td><textarea rows="3" [(ngModel)]="ft081.nc1"></textarea></td>
-              <td><input type="date"[(ngModel)]="ft081.fr1"></td>              
-              <td><textarea rows="3" [(ngModel)]="ft081.a1"></textarea></td>
-              <td><input type="date"[(ngModel)]="ft081.fs1"></td>     
+              <td style="text-align: center;"><input type="number" formControlName="n1"></td>
+              <td><textarea rows="3" formControlName="d1"></textarea></td>
+              <td><textarea rows="3" formControlName="nc1"></textarea></td>
+              <td><input type="date"formControlName="fr1"></td>              
+              <td><textarea rows="3" formControlName="a1"></textarea></td>
+              <td><input type="date"formControlName="fs1"></td>     
             </tr>
-            <tr>
-              <td style="text-align: center;"><input type="number" [(ngModel)]="ft081.n2"></td>
-              <td><textarea rows="3" [(ngModel)]="ft081.d2"></textarea></td>
-              <td><textarea rows="3"  [(ngModel)]="ft081.nc2"></textarea></td>
-              <td><input type="date"[(ngModel)]="ft081.fr2"></td>     
-              <td><textarea rows="3" [(ngModel)]="ft081.a2"></textarea></td>
-              <td><input type="date"[(ngModel)]="ft081.fs2"></td>     
+            <tr *ngIf="clientF.value.filas > 1">
+              <td style="text-align: center;"><input type="number" formControlName="n2"></td>
+              <td><textarea rows="3" formControlName="d2"></textarea></td>
+              <td><textarea rows="3"  formControlName="nc2"></textarea></td>
+              <td><input type="date"formControlName="fr2"></td>     
+              <td><textarea rows="3" formControlName="a2"></textarea></td>
+              <td><input type="date"formControlName="fs2"></td>     
             </tr>
-            <tr>
-              <td style="text-align: center;"><input type="number" [(ngModel)]="ft081.n3"></td>
-              <td><textarea rows="3" [(ngModel)]="ft081.d3"></textarea></td>
-              <td><textarea rows="3"  [(ngModel)]="ft081.nc3"></textarea></td>
-              <td><input type="date"[(ngModel)]="ft081.fr3"></td>     
-              <td><textarea rows="3" [(ngModel)]="ft081.a3"></textarea></td>
-              <td><input type="date"[(ngModel)]="ft081.fs3"></td>     
+            <tr *ngIf="clientF.value.filas > 2">
+              <td style="text-align: center;"><input type="number" formControlName="n3"></td>
+              <td><textarea rows="3" formControlName="d3"></textarea></td>
+              <td><textarea rows="3"  formControlName="nc3"></textarea></td>
+              <td><input type="date"formControlName="fr3"></td>     
+              <td><textarea rows="3" formControlName="a3"></textarea></td>
+              <td><input type="date"formControlName="fs3"></td>     
             </tr>
-            <tr>
-              <td style="text-align: center;"><input type="number" [(ngModel)]="ft081.n4"></td>
-              <td><textarea rows="3" [(ngModel)]="ft081.d4"></textarea></td>
-              <td><textarea rows="3"  [(ngModel)]="ft081.nc4"></textarea></td>
-              <td><input type="date"[(ngModel)]="ft081.fr4"></td>     
-              <td><textarea rows="3" [(ngModel)]="ft081.a4"></textarea></td>
-              <td><input type="date"[(ngModel)]="ft081.fs4"></td>     
+            <tr *ngIf="clientF.value.filas > 3">
+              <td style="text-align: center;"><input type="number" formControlName="n4"></td>
+              <td><textarea rows="3" formControlName="d4"></textarea></td>
+              <td><textarea rows="3"  formControlName="nc4"></textarea></td>
+              <td><input type="date"formControlName="fr4"></td>     
+              <td><textarea rows="3" formControlName="a4"></textarea></td>
+              <td><input type="date"formControlName="fs4"></td>     
             </tr>
-            <tr>
-              <td style="text-align: center;"><input type="number" [(ngModel)]="ft081.n5"></td>
-              <td><textarea rows="3" [(ngModel)]="ft081.d5"></textarea></td>
-              <td><textarea rows="3"  [(ngModel)]="ft081.nc5"></textarea></td>
-              <td><input type="date"[(ngModel)]="ft081.fr5"></td>     
-              <td><textarea rows="3" [(ngModel)]="ft081.a5"></textarea></td>
-              <td><input type="date"[(ngModel)]="ft081.fs5"></td>     
+            <tr *ngIf="clientF.value.filas > 4">
+              <td style="text-align: center;"><input type="number" formControlName="n5"></td>
+              <td><textarea rows="3" formControlName="d5"></textarea></td>
+              <td><textarea rows="3"  formControlName="nc5"></textarea></td>
+              <td><input type="date"formControlName="fr5"></td>     
+              <td><textarea rows="3" formControlName="a5"></textarea></td>
+              <td><input type="date"formControlName="fs5"></td>     
             </tr>
-            <tr>
-              <td style="text-align: center;"><input type="number" [(ngModel)]="ft081.n6"></td>
-              <td><textarea rows="3" [(ngModel)]="ft081.d6"></textarea></td>
-              <td><textarea rows="3"  [(ngModel)]="ft081.nc6"></textarea></td>
-              <td><input type="date"[(ngModel)]="ft081.fr6"></td>     
-              <td><textarea rows="3" [(ngModel)]="ft081.a6"></textarea></td>
-              <td><input type="date"[(ngModel)]="ft081.fs6"></td>     
+            <tr *ngIf="clientF.value.filas > 5">
+              <td style="text-align: center;"><input type="number" formControlName="n6"></td>
+              <td><textarea rows="3" formControlName="d6"></textarea></td>
+              <td><textarea rows="3"  formControlName="nc6"></textarea></td>
+              <td><input type="date"formControlName="fr6"></td>     
+              <td><textarea rows="3" formControlName="a6"></textarea></td>
+              <td><input type="date"formControlName="fs6"></td>     
             </tr>
           </table>
+          </form>
           <div style="position: absolute; bottom: 0; ">
           <p style="font-size: 0.7em;">EL CLIENTE FIJA LA FECHA DE CORRECCIÓN PARA CERRAR LOS INCUMPLIMIENTOS ENCONTRADOS EN EL PROYECTO E
             INSTALACIONES. <b>LA LEY LE CONCEDE 90 DIAS PARA
@@ -118,6 +120,15 @@
       </button>
       <button class="guardar_ no-print" (click)="submitClientData()">
         Guardar
+      </button>
+      <button class="pdf_ no-print" (click)="savePDF()">
+        PDF
+      </button> 
+      <button class="mas_ no-print" (click)="addFila()" *ngIf="clientF.value.filas < 6">
+        +
+      </button>
+      <button class="menos_ no-print" (click)="deleteFila()" *ngIf="clientF.value.filas > 1">
+        -
       </button>
     </div>
   </section>

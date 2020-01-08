@@ -5,6 +5,7 @@ import { F10 } from 'src/app/models/f10';
 import { ActivatedRoute } from '@angular/router';
 import { OfflineOnlineService } from 'src/app/services/offline-online.service';
 import { ToastrService } from 'ngx-toastr';
+declare const pdfExport: any;
 
 @Component({
   selector: 'app-nft06',
@@ -92,6 +93,10 @@ export class Nft06Component implements OnInit {
 
   goBack = () => {
     this.location.back();
+  }
+
+  savePDF() {
+    pdfExport(this.key, this.client.anio, this.client.nocontrol, 'ft-06', true);
   }
 }
 

@@ -5,6 +5,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { ActivatedRoute } from '@angular/router';
 import { OfflineOnlineService } from 'src/app/services/offline-online.service';
+declare const pdfExport: any;
 
 @Component({
   selector: 'app-fc07',
@@ -242,6 +243,10 @@ export class Fc07Component implements OnInit {
   submitClientData = () => {
     this.clientApi.UpdateFc07(this.fc07, this.key);
     this.toastr.success('Actualizado!');
+  }
+
+  savePDF() {
+    pdfExport(this.key, this.client.anio, this.client.nocontrol, 'fc-07', true);
   }
 
   /* form() {

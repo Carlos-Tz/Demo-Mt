@@ -78,15 +78,15 @@
                 <span style="margin-left: 2em;">No </span> <b *ngIf="client"><span *ngIf="client.memo=='no'" style="padding: 0 0.4em; border: 1px solid #000;">x</span></b></p>
             </td>
             <td style="width: 15%;">
-              <p>Subestación: <b *ngIf="client">{{ client.sub }} kVA</b></p>
+              <p>Subestación: <b *ngIf="client">{{ client.sub }}</b></p>
             </td>
             <td style="width: 15%;">
               <p>Carga Instalada: <b *ngIf="client">{{ client.cargai }} kW</b></p>
             </td>
             <td colspan="2">
               <p>Tipo de Instalación:</p>
-              <p>Concentración Pública  <b *ngIf="client"><span *ngIf="client.instal=='publica'" style="padding: 0 0.4em; border: 1px solid #000;">x</span></b>
-                <span style="margin-left: 2em;">Área Peligrosa </span> <b *ngIf="client"><span *ngIf="client.instal=='peligrosa'" style="padding: 0 0.4em; border: 1px solid #000;">x</span></b></p>
+              <p>Concentración Pública  <b *ngIf="client"><span *ngIf="client.instal=='Concentración pública'" style="padding: 0 0.4em; border: 1px solid #000;">x</span></b>
+                <span style="margin-left: 2em;">Área Peligrosa </span> <b *ngIf="client"><span *ngIf="client.instal=='Áreas peligrosas'" style="padding: 0 0.4em; border: 1px solid #000;">x</span></b></p>
             </td>
           </tr>
         </table>
@@ -295,6 +295,9 @@
       <button class="guardar_ no-print" (click)="submitClientData()">
         Guardar
       </button>
+      <button class="pdf_ no-print" (click)="savePDF()">
+        PDF
+      </button> 
     </div>
   </section>
 </div>

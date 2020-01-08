@@ -5,6 +5,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { OfflineOnlineService } from 'src/app/services/offline-online.service';
+declare const pdfExport: any;
 
 @Component({
   selector: 'app-ft11',
@@ -139,5 +140,9 @@ export class Ft11Component implements OnInit {
     if (ev === 'no') {
       this.ft11.r4 = '';
     }
+  }
+
+  savePDF() {
+    pdfExport(this.key, this.client.anio, this.client.nocontrol, 'ft-11', false);
   }
 }

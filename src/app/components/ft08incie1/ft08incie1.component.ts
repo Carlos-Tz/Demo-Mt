@@ -5,6 +5,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { ActivatedRoute } from '@angular/router';
 import { OfflineOnlineService } from 'src/app/services/offline-online.service';
+declare const pdfExport2: any;
 
 @Component({
   selector: 'app-ft08incie1',
@@ -12,6 +13,7 @@ import { OfflineOnlineService } from 'src/app/services/offline-online.service';
   styleUrls: ['./ft08incie1.component.css']
 })
 export class Ft08incie1Component implements OnInit {
+  public clientF: FormGroup;
   public key = '';
   public key2 = '';
   public type = '';
@@ -36,7 +38,7 @@ export class Ft08incie1Component implements OnInit {
     nombreuv: '',
     cargouv: ''
   };
-  public ft081 = {
+  /* public ft081 = {
     tipo: '',
     desc: '',
     fecha: '',
@@ -77,7 +79,7 @@ export class Ft08incie1Component implements OnInit {
     fs4: '',
     fs5: '',
     fs6: ''
-  };
+  }; */
 
   constructor(
     private clientApi: ClientService,
@@ -92,6 +94,7 @@ export class Ft08incie1Component implements OnInit {
     this.key = this.actRoute.snapshot.paramMap.get('key');
     this.key2 = this.actRoute.snapshot.paramMap.get('key2');
     this.type = this.actRoute.snapshot.paramMap.get('type');
+    this.form();
     if (this.offlineOnlineService.isOnline) {
       if (this.clientApi.clientObject) {
         this.clientApi.clientObject.valueChanges().subscribe(data => {
@@ -110,20 +113,22 @@ export class Ft08incie1Component implements OnInit {
       if (this.type === 'NOM') {
         if (this.offlineOnlineService.isOnline) {
           this.clientApi.getCurrentDataF81(this.key, this.key2).valueChanges().subscribe(data => {
-            this.ft081 = data;
+            this.clientF.patchValue(data);
+            // this.ft081 = data;
             this.nom = true;
-            if (this.ft081.fecha) {
-              this.ff = this.clientApi.splitDate(this.ft081.fecha);
+            if (data.fecha) {
+              this.ff = this.clientApi.splitDate(data.fecha);
               this.mes = this.clientApi.monthToRoman(this.ff.m);
             }
           });
         } else {
           this.clientApi.localDb.ft81
           .get(this.key2).then(async (cc) => {
-            this.ft081 = cc;
+            // this.ft081 = cc;
+            this.clientF.patchValue(cc);
             this.nom = true;
-            if (this.ft081.fecha) {
-              this.ff = this.clientApi.splitDate(this.ft081.fecha);
+            if (cc.fecha) {
+              this.ff = this.clientApi.splitDate(cc.fecha);
               this.mes = this.clientApi.monthToRoman(this.ff.m);
             }
           })
@@ -135,20 +140,22 @@ export class Ft08incie1Component implements OnInit {
       if (this.type === 'PEC') {
         if (this.offlineOnlineService.isOnline) {
           this.clientApi.getCurrentDataF82(this.key, this.key2).valueChanges().subscribe(data => {
-            this.ft081 = data;
+            this.clientF.patchValue(data);
+           // this.ft081 = data;
             this.nom = false;
-            if (this.ft081.fecha) {
-              this.ff = this.clientApi.splitDate(this.ft081.fecha);
+            if (data.fecha) {
+              this.ff = this.clientApi.splitDate(data.fecha);
               this.mes = this.clientApi.monthToRoman(this.ff.m);
             }
           });
         } else {
           this.clientApi.localDb.ft82
           .get(this.key2).then(async (cc) => {
-            this.ft081 = cc;
+           // this.ft081 = cc;
+            this.clientF.patchValue(cc);
             this.nom = false;
-            if (this.ft081.fecha) {
-              this.ff = this.clientApi.splitDate(this.ft081.fecha);
+            if (cc.fecha) {
+              this.ff = this.clientApi.splitDate(cc.fecha);
               this.mes = this.clientApi.monthToRoman(this.ff.m);
             }
           })
@@ -164,7 +171,69 @@ export class Ft08incie1Component implements OnInit {
   }
 
   submitClientData = () => {
-    this.clientApi.UpdateFt08INCIE1(this.ft081, this.key2, this.type);
+    this.clientApi.UpdateFt08INCIE1(this.clientF.value, this.key2, this.type);
     this.toastr.success('Actualizado!');
+  }
+
+  savePDF() {
+    pdfExport2(this.key, this.key2, this.type, this.client.anio, this.client.nocontrol, 'ft-081', true);
+  }
+
+  form() {
+    this.clientF = this.fb.group({
+      tipo: [''],
+      desc: [''],
+      fecha: [''],
+      id_: [null],
+      n1: [null],
+      n2: [null],
+      n3: [null],
+      n4: [null],
+      n5: [null],
+      n6: [null],
+      d1: [''],
+      d2: [''],
+      d3: [''],
+      d4: [''],
+      d5: [''],
+      d6: [''],
+      nc1: [''],
+      nc2: [''],
+      nc3: [''],
+      nc4: [''],
+      nc5: [''],
+      nc6: [''],
+      fr1: [''],
+      fr2: [''],
+      fr3: [''],
+      fr4: [''],
+      fr5: [''],
+      fr6: [''],
+      a1: [''],
+      a2: [''],
+      a3: [''],
+      a4: [''],
+      a5: [''],
+      a6: [''],
+      fs1: [''],
+      fs2: [''],
+      fs3: [''],
+      fs4: [''],
+      fs5: [''],
+      fs6: [''],
+      filas: [1]
+    });
+  }
+  addFila() {
+    const filas: number = this.clientF.get('filas').value;
+    if (filas > 0 && filas < 6) {
+      this.clientF.patchValue({filas: filas + 1});
+    }
+  }
+  deleteFila() {
+    const filas: number = this.clientF.get('filas').value;
+    if (filas > 1 && filas < 7) {
+      this.clientF.patchValue({filas: filas - 1});
+    }
   }
 }

@@ -175,10 +175,13 @@ export class EditClientComponent implements OnInit {
         fpago: [''],
         vigencia: [''],
         intro: [''],
+        intro2: [''],
         dia: [''],
         mes: [''],
         anio: [''],
-        date: ['']
+        date: [''],
+        s1: [''],
+        s2: ['']
     });
   }
 

@@ -6,6 +6,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { F05 } from 'src/app/models/f05';
 import { OfflineOnlineService } from 'src/app/services/offline-online.service';
+declare const pdfExport: any;
 
 @Component({
   selector: 'app-ft05',
@@ -77,6 +78,8 @@ export class Ft05Component implements OnInit {
           if (data.ft05) {
             this.clientF.patchValue(data.ft05);
             // this.ft05 = data.ft05;
+          } else {
+            this.clientF.patchValue({f1: this.client.fft05});
           }
         });
       }
@@ -148,5 +151,9 @@ export class Ft05Component implements OnInit {
     if (filas > 1 && filas < 7) {
       this.clientF.patchValue({filas: filas - 1});
     }
+  }
+
+   savePDF() {
+    pdfExport(this.key, this.client.anio, this.client.nocontrol, 'ft-05', true);
   }
 }

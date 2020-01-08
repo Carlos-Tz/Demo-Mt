@@ -39,4 +39,5 @@ export interface F081 {
     fs4: string;
     fs5: string;
     fs6: string;
+    filas: number;
 }

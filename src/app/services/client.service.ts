@@ -1910,7 +1910,7 @@ export class ClientService {
       id_: id, fecha: fecha, tipo: 'NOM', desc: 'INS', n1: 1,
       n2: 2, n3: 3, n4: 4, n5: 5, n6: 6, d1: '', d2: '', d3: '', d4: '', d5: '', d6: '',
       nc1: '', nc2: '', nc3: '', nc4: '', nc5: '', nc6: '', fr1: '', fr2: '', fr3: '', fr4: '', fr5: '', fr6: '',
-      a1: '', a2: '', a3: '', a4: '', a5: '', a6: '', fs1: '', fs2: '', fs3: '', fs4: '', fs5: '', fs6: ''
+      a1: '', a2: '', a3: '', a4: '', a5: '', a6: '', fs1: '', fs2: '', fs3: '', fs4: '', fs5: '', fs6: '', filas: 1
     } as F081);
   }
   addft82(fecha: string, id: number) {
@@ -1918,7 +1918,7 @@ export class ClientService {
       id_: id, fecha: fecha, tipo: 'PEC', desc: 'PRO', n1: 1,
       n2: 2, n3: 3, n4: 4, n5: 5, n6: 6, d1: '', d2: '', d3: '', d4: '', d5: '', d6: '',
       nc1: '', nc2: '', nc3: '', nc4: '', nc5: '', nc6: '', fr1: '', fr2: '', fr3: '', fr4: '', fr5: '', fr6: '',
-      a1: '', a2: '', a3: '', a4: '', a5: '', a6: '', fs1: '', fs2: '', fs3: '', fs4: '', fs5: '', fs6: ''
+      a1: '', a2: '', a3: '', a4: '', a5: '', a6: '', fs1: '', fs2: '', fs3: '', fs4: '', fs5: '', fs6: '', filas: 1
     } as F081);
   }
   addft15(fecha: string, id: number) {
@@ -2101,7 +2101,7 @@ export class ClientService {
       id: ui, client: key, id_: id, fecha: fecha, tipo: 'NOM', desc: 'INS', n1: 1,
       n2: 2, n3: 3, n4: 4, n5: 5, n6: 6, d1: '', d2: '', d3: '', d4: '', d5: '', d6: '',
       nc1: '', nc2: '', nc3: '', nc4: '', nc5: '', nc6: '', fr1: '', fr2: '', fr3: '', fr4: '', fr5: '', fr6: '',
-      a1: '', a2: '', a3: '', a4: '', a5: '', a6: '', fs1: '', fs2: '', fs3: '', fs4: '', fs5: '', fs6: ''
+      a1: '', a2: '', a3: '', a4: '', a5: '', a6: '', fs1: '', fs2: '', fs3: '', fs4: '', fs5: '', fs6: '', filas: 1
     }
     );
   }
@@ -2111,7 +2111,7 @@ export class ClientService {
       id: ui, client: key, id_: id, fecha: fecha, tipo: 'PEC', desc: 'PRO', n1: 1,
       n2: 2, n3: 3, n4: 4, n5: 5, n6: 6, d1: '', d2: '', d3: '', d4: '', d5: '', d6: '',
       nc1: '', nc2: '', nc3: '', nc4: '', nc5: '', nc6: '', fr1: '', fr2: '', fr3: '', fr4: '', fr5: '', fr6: '',
-      a1: '', a2: '', a3: '', a4: '', a5: '', a6: '', fs1: '', fs2: '', fs3: '', fs4: '', fs5: '', fs6: ''
+      a1: '', a2: '', a3: '', a4: '', a5: '', a6: '', fs1: '', fs2: '', fs3: '', fs4: '', fs5: '', fs6: '', filas: 1
     }
     );
   }
@@ -2243,6 +2243,7 @@ export class ClientService {
           c.datos.giro = datos.giro;
           c.datos.nocontrol = datos.nocontrol;
           c.datos.nombre = datos.nombre;
+          c.datos.nomcom = datos.nomcom;
           c.datos.tel = datos.tel;
           c.datos.correo = datos.correo;
           c.datos.fax = datos.fax;
@@ -2266,10 +2267,12 @@ export class ClientService {
           c.datos.area = datos.area;
           c.datos.costo = datos.costo;
           c.datos.costol = datos.costol;
+          c.datos.cent = datos.cent;
           c.datos.instal = datos.instal;
           c.datos.ambien = datos.ambien;
           c.datos.memo = datos.memo;
           c.datos.nombreuv = datos.nombreuv;
+          c.datos.nombrers = datos.nombrers;
           c.datos.logo = datos.logo;
           c.datos.dia = datos.dia;
           c.datos.mes = datos.mes;
@@ -2277,6 +2280,23 @@ export class ClientService {
           c.datos.fechai = datos.fechai;
           c.datos.fechaf = datos.fechaf;
           c.datos.cargouv = datos.cargouv;
+          c.datos.fpago = datos.fpago;
+          c.datos.vigencia = datos.vigencia;
+          c.datos.intro = datos.intro;
+          c.datos.intro2 = datos.intro2;
+          c.datos.date = datos.date;
+          c.datos.fft02 = datos.fft02;
+          c.datos.fft03 = datos.fft03;
+          c.datos.fft05 = datos.fft05;
+          c.datos.fft06 = datos.fft06;
+          c.datos.fft09 = datos.fft09;
+          c.datos.fft10 = datos.fft10;
+          c.datos.fft11 = datos.fft11;
+          c.datos.fft12 = datos.fft12;
+          c.datos.fft13 = datos.fft13;
+          c.datos.ffc07 = datos.ffc07;
+          c.datos.s1 = datos.s1;
+          c.datos.s2 = datos.s2;
         });
     }
   }
@@ -2328,7 +2348,7 @@ export class ClientService {
   UpdateFt01(ft01: any, key: string) {
     if (this.offlineOnlineService.isOnline) {
       this.db.object('data/' + key + '/datos/')
-        .update({ s1: ft01.s1, s2: ft01.s2, fpago: ft01.fpago, vigencia: ft01.vigencia, intro: ft01.intro });
+        .update({ s1: ft01.s1, s2: ft01.s2, fpago: ft01.fpago, vigencia: ft01.vigencia, intro: ft01.intro, intro2: ft01.intro2 });
     } else {
       this.localDb.clients // Offline
         .where('id').equals(key).modify(client => {
@@ -2337,6 +2357,7 @@ export class ClientService {
           client.datos.fpago = ft01.fpago;
           client.datos.vigencia = ft01.vigencia;
           client.datos.intro = ft01.intro;
+          client.datos.intro2 = ft01.intro2;
         });
     }
   }
@@ -2433,7 +2454,7 @@ export class ClientService {
         nc1: f08.nc1, nc2: f08.nc2, nc3: f08.nc3, nc4: f08.nc4, nc5: f08.nc5, nc6: f08.nc6,
         fr1: f08.fr1, fr2: f08.fr2, fr3: f08.fr3, fr4: f08.fr4, fr5: f08.fr5, fr6: f08.fr6,
         a1: f08.a1, a2: f08.a2, a3: f08.a3, a4: f08.a4, a5: f08.a5, a6: f08.a6,
-        fs1: f08.fs1, fs2: f08.fs2, fs3: f08.fs3, fs4: f08.fs4, fs5: f08.fs5, fs6: f08.fs6
+        fs1: f08.fs1, fs2: f08.fs2, fs3: f08.fs3, fs4: f08.fs4, fs5: f08.fs5, fs6: f08.fs6, filas: f08.filas
       });
     } else {
       if (type === 'NOM') {
@@ -2443,7 +2464,7 @@ export class ClientService {
           cc.nc1 = f08.nc1; cc.nc2 = f08.nc2; cc.nc3 = f08.nc3; cc.nc4 = f08.nc4; cc.nc5 = f08.nc5; cc.nc6 = f08.nc6;
           cc.fr1 = f08.fr1; cc.fr2 = f08.fr2; cc.fr3 = f08.fr3; cc.fr4 = f08.fr4; cc.fr5 = f08.fr5; cc.fr6 = f08.fr6;
           cc.a1 = f08.a1; cc.a2 = f08.a2; cc.a3 = f08.a3; cc.a4 = f08.a4; cc.a5 = f08.a5; cc.a6 = f08.a6;
-          cc.fs1 = f08.fs1; cc.fs2 = f08.fs2; cc.fs3 = f08.fs3; cc.fs4 = f08.fs4; cc.fs5 = f08.fs5; cc.fs6 = f08.fs6;
+          cc.fs1 = f08.fs1; cc.fs2 = f08.fs2; cc.fs3 = f08.fs3; cc.fs4 = f08.fs4; cc.fs5 = f08.fs5; cc.fs6 = f08.fs6; cc.filas = f08.filas;
         });
       }
       if (type === 'PEC') {
@@ -2453,7 +2474,7 @@ export class ClientService {
           cc.nc1 = f08.nc1; cc.nc2 = f08.nc2; cc.nc3 = f08.nc3; cc.nc4 = f08.nc4; cc.nc5 = f08.nc5; cc.nc6 = f08.nc6;
           cc.fr1 = f08.fr1; cc.fr2 = f08.fr2; cc.fr3 = f08.fr3; cc.fr4 = f08.fr4; cc.fr5 = f08.fr5; cc.fr6 = f08.fr6;
           cc.a1 = f08.a1; cc.a2 = f08.a2; cc.a3 = f08.a3; cc.a4 = f08.a4; cc.a5 = f08.a5; cc.a6 = f08.a6;
-          cc.fs1 = f08.fs1; cc.fs2 = f08.fs2; cc.fs3 = f08.fs3; cc.fs4 = f08.fs4; cc.fs5 = f08.fs5; cc.fs6 = f08.fs6;
+          cc.fs1 = f08.fs1; cc.fs2 = f08.fs2; cc.fs3 = f08.fs3; cc.fs4 = f08.fs4; cc.fs5 = f08.fs5; cc.fs6 = f08.fs6; cc.filas = f08.filas;
         });
       }
     }
@@ -2639,7 +2660,7 @@ export class ClientService {
   private registerToEvents(onlineOfflineService: OfflineOnlineService) {
     onlineOfflineService.connectionChanged.subscribe(online => {
       if (online) {
-        console.log('went online');
+        // console.log('went online');
         console.log('sending all stored items');
         this.sendItemsFromIndexedDb();
       } else {
@@ -2666,7 +2687,7 @@ export class ClientService {
       .add(client)
       .then(async () => {
         const allItems: Client[] = await this.localDb.clients.toArray();
-        console.log('saved in DB, DB is now', allItems);
+      //  console.log('saved in DB, DB is now', allItems);
       })
       .catch(e => {
         alert('Error: ' + (e.stack || e));

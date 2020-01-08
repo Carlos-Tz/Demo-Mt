@@ -155,9 +155,11 @@
               <p>Prueba: <b>Polaridad de conexiones en los receptáculos</b></p>
               <p>Resultado: <input type="text" [(ngModel)]="ft11.r4">
                 <b style="margin-left: 10em;">Conforme</b>
-                <input type="radio" name="c4"  value="si" [(ngModel)]="ft11.c4" (change)="conf4($event.target.value)">
+                <!-- <input type="radio" name="c4"  value="si" [(ngModel)]="ft11.c4" (change)="conf4($event.target.value)"> -->
+                <input type="radio" name="c4"  value="si" [(ngModel)]="ft11.c4" >
                 <b>No Conforme</b>
-                <input type="radio" name="c4" value="no" [(ngModel)]="ft11.c4" (change)="conf4($event.target.value)">
+                <!-- <input type="radio" name="c4" value="no" [(ngModel)]="ft11.c4" (change)="conf4($event.target.value)"> -->
+                <input type="radio" name="c4" value="no" [(ngModel)]="ft11.c4" >
               </p>
               <p>Inspección ocular: <input type="text" style="margin-right: 6em;" [(ngModel)]="ft11.e4"> Fecha de ejecución: <b *ngIf="client">{{ client.fft11}}</b></p>
               <p><b>Parámetro:</b> Conforme a lo establecido en la norma NOM-001-SEDE-2012 (Sección 200-11). No debe
@@ -211,6 +213,9 @@
       <button class="guardar_ no-print" (click)="submitClientData()">
         Guardar
       </button>
+      <button class="pdf_ no-print" (click)="savePDF()">
+        PDF
+      </button> 
     </div>
   </section>
 </div>

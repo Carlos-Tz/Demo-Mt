@@ -46,7 +46,7 @@ const routes: Routes = [
   {path: 'cliente/:key', component: ClientComponent},
   {path: 'edit-client/:key', component: EditClientComponent},
   {path: 'edit-coti/:key', component: EditCotizacionComponent},
-  {path: 'caratula/:key', component: CaratulaComponent},
+  {path: 'caratula/:key', component: CaratulaComponent}
 ];
 
 @NgModule({

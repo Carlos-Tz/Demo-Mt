@@ -87,16 +87,27 @@ export class CotizacionComponent implements OnInit {
       fft12: [''],
       fft13: [''],
       ffc07: [''],
+      fft08ie1: [''],
+      fft08ie2: [''],
+      fft08pe1: [''],
+      fft08pe2: [''],
+      fft151: [''],
+      fft152: [''],
+      fft071: [''],
+      fft072: [''],
       logo: [''],
       fechaf: [''],
       cargouv: ['Verificador'],
       fpago: [''],
       vigencia: [''],
       intro: [''],
+      intro2: [''],
       dia: [''],
       mes: [''],
       anio: [''],
-      date: ['']
+      date: [''],
+      s1: [''],
+      s2: ['']
     });
   }
 

@@ -168,6 +168,20 @@
     font-weight: 600;
     box-shadow: 1px 3px 5px #707070;
   }
+  .pdf_ {
+    position: fixed;
+    bottom: 360px;
+    right: 10px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: #c38ed8;
+    color: #333;
+    font-weight: 600;
+    /* font-size: 1.3em; */
+    box-shadow: 1px 3px 5px #707070;
+  }
   .mas_ {
     position: fixed;
     bottom: 290px;

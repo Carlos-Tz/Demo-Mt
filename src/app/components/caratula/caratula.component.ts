@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 import { OfflineOnlineService } from 'src/app/services/offline-online.service';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+declare const pdfExport: any;
 
 @Component({
   selector: 'app-caratula',
@@ -48,5 +49,9 @@ export class CaratulaComponent implements OnInit {
   }
   goBack = () => {
     this.location.back();
+  }
+
+  savePDF() {
+    pdfExport(this.key, this.client.anio, this.client.nocontrol, 'caratula', false);
   }
 }
