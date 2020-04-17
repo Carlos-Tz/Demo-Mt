@@ -17,4 +17,12 @@ export interface Client {
     ft09: object;
     ft10: object;
     ft11: object;
+    ft71: object;
+    ft72: object;
+    ft151: object;
+    ft152: object;
+    fti81: object;
+    fti82: object;
+    ftp81: object;
+    ftp82: object;
 }

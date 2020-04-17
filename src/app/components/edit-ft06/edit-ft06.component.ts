@@ -52,11 +52,10 @@ export class EditFt06Component implements OnInit {
     this.key = this.actRouter.snapshot.paramMap.get('key');
     this.key2 = this.actRouter.snapshot.paramMap.get('key2');
     this.online = this.offlineOnlineService.isOnline;
-    if (this.online) {
+    /* if (this.online) {
      // this.clientApi.Getf06(this.key);
       this.clientApi.getCurrentDataF06Row(this.key, this.key2).valueChanges().subscribe(data => {
         this.ft06Row = data;
-      // console.log(data);
       if (this.ft06Row) {
         this.newft06Row.id_ = this.ft06Row.id_ + 0.01;
       }
@@ -72,10 +71,10 @@ export class EditFt06Component implements OnInit {
       .catch(e => {
         this.toastr.warning('Intentalo de nuevo!!');
       });
-    }
+    } */
   }
 
-  updRow() {
+  /* updRow() {
     this.clientApi.updateRowFt06(this.ft06Row, this.key2);
     this.toastr.success('Artículo actualizado!');
   }
@@ -83,25 +82,25 @@ export class EditFt06Component implements OnInit {
   addNewRow() {
     this.clientApi.addRowFt06(this.newft06Row, this.key);
     this.toastr.success('Nuevo artículo agregado!');
-  }
+  } */
 
   goBack = () => {
     this.location.back();
   }
 
-  submitClientData = () => {
+  /* submitClientData = () => {
     this.updRow();
     if (this.newft06Row.nom || this.newft06Row.tex || this.newft06Row.tip || this.newft06Row.cri) {
       this.addNewRow();
     }
     this.location.back();
-  }
+  } */
 
-  deleteData() {
+ /*  deleteData() {
     if (window.confirm('¿Esta seguro de eliminar el artículo actual?')) {
       this.clientApi.deleteRowFt06(this.key, this.key2);
       this.location.back();
     }
-  }
+  } */
 
 }

@@ -89,7 +89,15 @@ export class Fc07Component implements OnInit {
     fft10: '',
     fft11: '',
     fft12: '',
-    fft13: ''
+    fft13: '',
+    fft08ie1: '',
+    fft08ie2: '',
+    fft08pe1: '',
+    fft08pe2: '',
+    fft151: '',
+    fft152: '',
+    fft071: '',
+    fft072: ''
   };
   public fc07 = {
     c1: '',
@@ -149,11 +157,27 @@ export class Fc07Component implements OnInit {
             this.ff12 = this.clientApi.splitDate(this.client.fft12); this.month12 = this.clientApi.monthToRoman(this.ff12.m); }
           if (this.client.fft13) {
             this.ff13 = this.clientApi.splitDate(this.client.fft13); this.month13 = this.clientApi.monthToRoman(this.ff13.m); }
+          if (this.client.fft071) {
+            this.ff71 = this.clientApi.splitDate(this.client.fft071); this.month71 = this.clientApi.monthToRoman(this.ff71.m); }
+          if (this.client.fft072) {
+            this.ff72 = this.clientApi.splitDate(this.client.fft072); this.month72 = this.clientApi.monthToRoman(this.ff72.m); }
+          if (this.client.fft151) {
+            this.ff151 = this.clientApi.splitDate(this.client.fft151); this.month151 = this.clientApi.monthToRoman(this.ff151.m); }
+          if (this.client.fft152) {
+            this.ff152 = this.clientApi.splitDate(this.client.fft152); this.month152 = this.clientApi.monthToRoman(this.ff152.m); }
+          if (this.client.fft08ie1) {
+            this.ff811 = this.clientApi.splitDate(this.client.fft08ie1); this.month811 = this.clientApi.monthToRoman(this.ff811.m); }
+          if (this.client.fft08ie2) {
+            this.ff812 = this.clientApi.splitDate(this.client.fft08ie2); this.month812 = this.clientApi.monthToRoman(this.ff812.m); }
+          if (this.client.fft08pe1) {
+            this.ff821 = this.clientApi.splitDate(this.client.fft08pe1); this.month821 = this.clientApi.monthToRoman(this.ff821.m); }
+          if (this.client.fft08pe2) {
+            this.ff822 = this.clientApi.splitDate(this.client.fft08pe2); this.month822 = this.clientApi.monthToRoman(this.ff822.m); }
           if (data.fc07) {
             this.fc07 = data.fc07;
           }
         });
-        this.clientApi.Getft71(this.key).snapshotChanges().subscribe(data => {
+        /* this.clientApi.Getft71(this.key).snapshotChanges().subscribe(data => {
           data.forEach(item => {
             const r: any = item.payload.toJSON();
             if (r.fecha) { this.ff71 = this.clientApi.splitDate(r.fecha); this.month71 = this.clientApi.monthToRoman(this.ff71.m); }
@@ -176,8 +200,8 @@ export class Fc07Component implements OnInit {
             const r: any = item.payload.toJSON();
             if (r.fecha) { this.ff152 = this.clientApi.splitDate(r.fecha); this.month152 = this.clientApi.monthToRoman(this.ff152.m); }
           });
-        });
-        this.clientApi.Getft811(this.key).snapshotChanges().subscribe(data => {
+        }); */
+        /* this.clientApi.Getft811(this.key).snapshotChanges().subscribe(data => {
           data.forEach(item => {
             const r: any = item.payload.toJSON();
             if (r.fecha) { this.ff811 = this.clientApi.splitDate(r.fecha); this.month811 = this.clientApi.monthToRoman(this.ff811.m); }
@@ -200,7 +224,7 @@ export class Fc07Component implements OnInit {
             const r: any = item.payload.toJSON();
             if (r.fecha) { this.ff822 = this.clientApi.splitDate(r.fecha); this.month822 = this.clientApi.monthToRoman(this.ff822.m); }
           });
-        });
+        }); */
       }
     } else {
       this.clientApi.localDb.clients

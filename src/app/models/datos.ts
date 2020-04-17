@@ -32,8 +32,11 @@ export interface Datos {
     nocontrol: string;
     nombre: string;
     nomcom: string;
-  //  id: string;
-  //  folio: string;
+    id: string;
+    folio: string;
+    id2: string;
+    folio2: string;
+    cedula: string;
     tel: string;
     correo: string;
     fax: string;

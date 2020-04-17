@@ -29,26 +29,27 @@ export class ClientService {
   public clientOffline: Client;
   // public clientsList: AngularFireList<any>;
   public dataList: AngularFireList<any>;
+  public dataft10List: AngularFireList<any>;
   public ft10List: AngularFireList<any>;
-  public ft06List: AngularFireList<any>;
-  public ft81List: AngularFireList<any>;
-  public ft82List: AngularFireList<any>;
-  public ft07List: AngularFireList<any>;
-  public ft15List: AngularFireList<any>;
-  public f151: AngularFireList<any>;
-  public f152: AngularFireList<any>;
-  public f71: AngularFireList<any>;
-  public f72: AngularFireList<any>;
-  public f811: AngularFireList<any>;
-  public f812: AngularFireList<any>;
-  public f822: AngularFireList<any>;
-  public f821: AngularFireList<any>;
+  // public ft06List: AngularFireList<any>;
+  // public ft81List: AngularFireList<any>;
+  // public ft82List: AngularFireList<any>;
+  // public ft07List: AngularFireList<any>;
+  // public ft15List: AngularFireList<any>;
+  // public f151: AngularFireList<any>;
+  // public f152: AngularFireList<any>;
+  // public f71: AngularFireList<any>;
+  // public f72: AngularFireList<any>;
+  // public f811: AngularFireList<any>;
+  // public f812: AngularFireList<any>;
+  // public f822: AngularFireList<any>;
+  // public f821: AngularFireList<any>;
   public ft10: F10[];
   public clientObject: AngularFireObject<any>;
   public f10Object: AngularFireObject<any>;
-  public f06Object: AngularFireObject<any>;
-  public f81Object: AngularFireObject<any>;
-  public f07Object: AngularFireObject<any>;
+  // public f06Object: AngularFireObject<any>;
+  // public f81Object: AngularFireObject<any>;
+  // public f07Object: AngularFireObject<any>;
   public deleteObject: AngularFireObject<any>;
   public f10 = [
     {
@@ -1377,6 +1378,186 @@ export class ClientService {
       cum: ''
     }, {
       id_: 145,
+      nom: '',
+      tex: '430 Motores',
+      tip: '',
+      cri: '',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 146,
+      nom: '430-6',
+      tex: 'Determinación de la ampacidad y del valor nominal de los motores',
+      tip: 'O',
+      cri: 'Los conductores están seleccionados con las tablas 430-247 al 430-250; interruptores con la tabla 430-52. Los elementos térmicos se seleccionan con la corriente de placa.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 147,
+      nom: '430-7 430-8',
+      tex: 'Marcado de motores y equipo con varios motores. Marcado en los controladores',
+      tip: 'O',
+      cri: 'Existe una placa de datos en la carcasa del motor. Existe una placa de datos en el gabinete de control. ',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 148,
+      nom: '430-9',
+      tex: 'Terminales',
+      tip: 'O',
+      cri: 'Las terminales están identificadas por dígitos o colores, los conductores son de cobre, no existen falsos contactos.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 149,
+      nom: '430-10',
+      tex: 'Espacio para cableado en los gabinetes',
+      tip: 'O',
+      cri: 'Los gabinetes no se usan como cajas de conexión. Existe espacio suficiente dentro de los gabinetes de equipo de control para el doblado de cables tabla 430-10(b).',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 150,
+      nom: '430-12',
+      tex: 'Cajas para las terminales para los motores ',
+      tip: 'O',
+      cri: 'Las cajas son metálicas, existe espacio suficiente para el acomodo de las terminales (tabla 430-12 (b) )',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 151,
+      nom: '430-14',
+      tex: 'Ubicación de los motores',
+      tip: 'O',
+      cri: 'Los motores esta ventilados y obedecen a un programa de mantenimiento',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 152,
+      nom: '430-22 a)',
+      tex: 'Un solo motor. ',
+      tip: 'O',
+      cri: 'La capacidad de corriente de los conductores es del 125% de la corriente de plena carga (tabla 430-247 a 430-250)',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 153,
+      nom: '430-24',
+      tex: 'Varios motores o motor(es) y otras (s) cargas(s)',
+      tip: 'O',
+      cri: 'Los conductores tienen capacidades de corriente iguales a la suma de las corrientes de plena carga de los aparatos más la corriente de plena carga de los motores ( 430-247 a 430-250) mas el 125% de la del motor mas grande.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 154,
+      nom: '430-31 al 430-44',
+      tex: 'Protección de sobrecarga de los motores y de sus circuitos derivados',
+      tip: 'O',
+      cri: 'La protección contra sobrecarga del motor no excede los valores permitidos.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 155,
+      nom: '430-51 al 430-58',
+      tex: 'Protección de circuitos derivados para motores contra cortocircuito y fallas a tierra',
+      tip: 'O',
+      cri: 'La protección contra falla a tierra y corto circuito del circuito derivado del motor no excede los valores permitidos.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 156,
+      nom: '430-61 al 430-63',
+      tex: 'Protección de los alimentadores de motores contra cortocircuito y fallas a tierra',
+      tip: 'O',
+      cri: 'La protección contra falla a tierra y corto circuito del alimentador del motor no excede los valores permitidos.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 157,
+      nom: '430-71 al 430-75',
+      tex: 'Circuitos de control de motores',
+      tip: 'O',
+      cri: 'La protección contra sobre corriente no excede los valores permitidos y la protección de los conductores no excede los valores especificados en la columna A de la Tabla 430-72 (b).',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 158,
+      nom: '430-81 al 430-90',
+      tex: 'Controladores de motores',
+      tip: 'O',
+      cri: 'Los controladores son del tipo apropiado y posean las capacidades nominales y la envolvente.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 159,
+      nom: '430-92 al 430-98',
+      tex: 'Centro de control de motores',
+      tip: 'O',
+      cri: 'La protección contra sobre corriente no excede las capacidades nominales apropiadas. El arreglo de fases es apropiado. Los espacios mínimos para cableados son adecuados (tabla 430-97).',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 160,
+      nom: '430-101 al 430-113 110-26 110-34',
+      tex: 'Medios de desconexión',
+      tip: 'O',
+      cri: 'Las capacidades nominales de los medios de desconexión y protección son los adecuados. El espacio de trabajo y el espacio dedicado son los adecuados. Los medios de desconexión están a la vista y son fácilmente accesibles.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 161,
+      nom: '430-221 al 430-227',
+      tex: 'Motores que operan a más de 600 V nominales',
+      tip: 'O',
+      cri: 'Los controles están identificados. Las canalizaciones son metálicas. Los conductores son del calibre adecuado. Está protegido contra CC, falla a tierra y sobre carga. Los controladores son del tamaño adecuado. El medio de desconexión tiene bloqueo mecánico.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 162,
+      nom: '430-231 al 430-233',
+      tex: 'Protección de las partes vivas para todas las tensiones eléctricas',
+      tip: 'O',
+      cri: 'Las partes vivas están protegidas mediante un envolvente. Existen tarimas aislantes frente al equipo eléctrico.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 163,
+      nom: '430-241 al 430-245',
+      tex: 'Puesta a tierra para todas las tensiones eléctricas',
+      tip: 'O',
+      cri: 'Todas las partes metálicas no conductoras de energía eléctrica están conectadas.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 164,
+      nom: '',
+      tex: '440 Equipos de aire acondicionado y de refrigeración',
+      tip: '',
+      cri: '',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 165,
       nom: '440-1 al 440-3',
       tex: 'Disposiciones generales',
       tip: 'O',
@@ -1385,7 +1566,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id_: 146,
+      id_: 166,
       nom: '440 – 4 a) b) c)',
       tex: 'Placa de datos de moto-compresores herméticos de refrigeración y equipos',
       tip: 'O',
@@ -1395,7 +1576,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id_: 147,
+      id_: 167,
       nom: '440-12 a)',
       tex: 'Medios de desconexión. Capacidad nominal y capacidad de interrupción. Moto-compresor hermético de refrigeración',
       tip: 'O, A',
@@ -1405,7 +1586,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id_: 148,
+      id_: 168,
       nom: '440-21 al 440-22',
       tex: 'Protección de los circuitos derivados contra cortocircuito y falla a tierra. Requisitos generales. Aplicación y selección',
       tip: 'O, A',
@@ -1415,7 +1596,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id_: 149,
+      id_: 169,
       nom: '440-31 al 440-35',
       tex: 'Conductores del circuito derivado',
       tip: 'O',
@@ -1424,7 +1605,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id_: 150,
+      id_: 170,
       nom: '440-41',
       tex: 'Controladores para motores de compresor. Capacidad nominal',
       tip: 'O',
@@ -1433,7 +1614,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }, {
-      id_: 151,
+      id_: 171,
       nom: '440-60 al 440-65',
       tex: 'Requisitos para acondicionadores de aire para habitación',
       tip: 'O',
@@ -1442,11 +1623,956 @@ export class ClientService {
       obp: '',
       obs: '',
       cum: ''
+    }, {
+      id_: 172,
+      nom: '',
+      tex: '450 Transformadores y bóvedas para transformadores',
+      tip: '',
+      cri: '',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 173,
+      nom: '450-1, 450-2',
+      tex: 'Alcance y definición ',
+      tip: 'O',
+      cri: 'Están identificados los transformadores tratados en este articulo.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 174,
+      nom: '450-3',
+      tex: 'Protección contra sobre-corriente. Instalaciones supervisadas a) Primario y secundario. Instalaciones supervisadas Transformadores de tensión eléctrica mayor a 600 V. ',
+      tip: 'O',
+      cri: 'Se cuenta con protección contra sobre-corriente para los transformadores de más de 600 Volts, de acuerdo a la tabla 450-3 a),450-3 b).',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 175,
+      nom: '450-6',
+      tex: 'Enlace del secundario',
+      tip: 'O',
+      cri: 'Debe contar con protección en los términos de esta sección.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 176,
+      nom: '450-7',
+      tex: 'Funcionamiento en paralelo',
+      tip: 'O',
+      cri: 'La protección de cada TR debe cumplir con 450-3 a) ó 450-3 b).',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 177,
+      nom: '450-8',
+      tex: 'Resguardo',
+      tip: 'O',
+      cri: 'Se acepta cuando tengan protección mecánica y no tengan partes vivas expuestas.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 178,
+      nom: '450-9',
+      tex: 'Ventilación',
+      tip: 'O',
+      cri: 'La ventilación se considera correcta cuando sin provocar aumentos de temperatura mayor a la nominal del TR.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 179,
+      nom: '450-10',
+      tex: 'Puesta a tierra',
+      tip: 'O',
+      cri: 'El tanque del TR está conectado a tierra.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 180,
+      nom: '450-11',
+      tex: 'Marcado',
+      tip: 'O',
+      cri: 'Tiene una placa con las características técnicas del TR.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 181,
+      nom: '450-12',
+      tex: 'Espacio para el alambrado de las terminales',
+      tip: 'O',
+      cri: 'Tiene espacio suficiente para permitir los radios de curvatura de los cables, ver 312-6, tabla 314-16 b).',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 182,
+      nom: '450-13',
+      tex: 'Accesibilidad',
+      tip: 'O',
+      cri: 'El acceso es fácil para el personal calificado de inspección y mantenimiento 450-13 a) ó 450-13 b).',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 183,
+      nom: '450-21',
+      tex: 'TR tipo seco instalados en interiores',
+      tip: '',
+      cri: '',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 184,
+      nom: '',
+      tex: '< 112.5 KVA',
+      tip: 'O',
+      cri: 'Están instalados a no menos de 30 cm de materiales combustibles.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 185,
+      nom: '',
+      tex: '> 112.5 KVA',
+      tip: 'O',
+      cri: 'Están instalados en un cuarto resistente al fuego.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 186,
+      nom: '',
+      tex: '> 35000 VOLTS',
+      tip: 'O',
+      cri: 'Están instalados en una bóveda.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 187,
+      nom: '450-22',
+      tex: 'TR secos instalados en exteriores',
+      tip: '',
+      cri: 'Tienen un envolvente a prueba de intemperie.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 188,
+      nom: '450-23',
+      tex: 'TR aislados con líquidos de baja inflamabilidad',
+      tip: 'O',
+      cri: '',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 189,
+      nom: '',
+      tex: 'Instalaciones interiores',
+      tip: 'O',
+      cri: 'Los TR instalados son < 35KV, no hay materiales combustibles, se tiene un área de confinamiento del líquido.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 190,
+      nom: '',
+      tex: '',
+      tip: '',
+      cri: 'El área cumple las restricciones en la aprobación del liquido.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 191,
+      nom: '',
+      tex: '',
+      tip: '',
+      cri: 'Se tiene un sistema automático de extinguidores, 450-26.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 192,
+      nom: '',
+      tex: 'Instalaciones exteriores',
+      tip: 'O',
+      cri: 'La instalación cumple con las restricciones aprobadas para el líquido,, 450-27.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 193,
+      nom: '450-24',
+      tex: 'TR aislados con líquidos no inflamables',
+      tip: 'O',
+      cri: 'Están instalados en bóvedas y tienen un área para confinar el liquido, el TR cuenta con una válvula de alivio.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 194,
+      nom: '450-25',
+      tex: 'TR aislados con Askarel',
+      tip: 'O',
+      cri: 'No se permite.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 195,
+      nom: '450-26',
+      tex: 'TR aislados con aceite instalados en interiores',
+      tip: 'O',
+      cri: 'Están instalados en una bóveda, ver parte C de 450.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 196,
+      nom: '450-27',
+      tex: 'TR con aislamiento de aceite instalados en exteriores',
+      tip: 'O',
+      cri: 'Las construcciones aledañas son resistentes al fuego, hay espacio suficiente para aislar el fuego, barreras separadoras  resistentes al fuego, sistemas rociadores automáticos, espacios para confinar el aceite.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 197,
+      nom: '450-28',
+      tex: 'Modificaciones a los transformadores',
+      tip: 'O',
+      cri: 'El TR tiene una placa con sus nuevas características.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 198,
+      nom: '450-41',
+      tex: 'Ubicación (bóvedas)',
+      tip: 'O',
+      cri: 'Cuentan con ventilación al aire exterior, natural o forzada.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 199,
+      nom: '450-42',
+      tex: 'Paredes, techos y pisos',
+      tip: 'O',
+      cri: 'Están construidos con resistencia estructural acorde al peso del TR y resistente al fuego por tres horas.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 200,
+      nom: '450-43',
+      tex: 'Entradas',
+      tip: 'O',
+      cri: 'La puerta es de cierre hermético resistente al fuego, tiene un murete de 10 cm de altura para contener el aceite y permanece cerrada.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 201,
+      nom: '',
+      tex: '924 Subestaciones',
+      tip: '',
+      cri: '',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 202,
+      nom: '924-2 a), b)',
+      tex: 'Medio de desconexión general',
+      tip: 'O',
+      cri: 'Tienen un medio de desconexión entre el suministro y el transformador.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 203,
+      nom: '924-3',
+      tex: 'Resguardos de locales y espacios',
+      tip: 'O',
+      cri: 'El espacio está restringido y resguardado su acceso, deben tener una altura mínima de 2.10 m y deben cumplir con el 110-34.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 204,
+      nom: '924-4 a) al e)',
+      tex: 'Condiciones de los locales y espacios',
+      tip: 'O',
+      cri: 'Están hechos de materiales no combustibles, no se emplean como almacén o taller, están libres de materiales combustibles, están ventilados y acceso restringido.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 205,
+      nom: '924-5',
+      tex: 'Instalación de alumbrado',
+      tip: 'O',
+      cri: 'Existen un alumbrado y permite los trabajos de mantenimiento y segura para el personal que lo realice, el alumbrado está conectado a una planta de emergencia (tabla 924-5).',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 206,
+      nom: '924-6',
+      tex: 'Piso, barreras y escaleras',
+      tip: 'O',
+      cri: 'Los pisos son planos, firmes y con superficie antiderrapante, los huecos y trincheras están tapados, las escaleras tienen pasamanos.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 207,
+      nom: '924-7',
+      tex: 'Accesos y Salidas',
+      tip: 'O',
+      cri: 'El acceso y salida están libres de obstáculos, las puertas abren hacia afuera, en la puerta está un letrero de advertencia con le leyenda “PELIGRO ALTA TENSIÓN”.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 208,
+      nom: '924-8',
+      tex: 'Protección contra incendio',
+      tip: 'O',
+      cri: 'Existen extintores y medio para confinar recoger y almacenar el aceite que puede fugarse de los tanques, cuando los transformadores se enfriados por aceite existen barreras que limitan la propagación del fuego.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 209,
+      nom: '924-9',
+      tex: 'Localización y accesibilidad de tableros',
+      tip: 'O',
+      cri: 'Los tableros son accesibles y con el espacio suficiente para operación y mantenimiento seguros, no hay materiales combustibles cercanos.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 210,
+      nom: '924-10',
+      tex: 'Dispositivo general de protección contra sobrecorriente',
+      tip: 'O',
+      cri: 'Existe en el primario un interruptor de fusibles.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 211,
+      nom: '924-11',
+      tex: 'Requisitos generales del sistema de protección del usuario',
+      tip: 'O',
+      cri: 'La subestación tiene su propio medio de protección.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 212,
+      nom: '924-12',
+      tex: 'Equipo a la intemperie o en lugares húmedos',
+      tip: 'O',
+      cri: 'El equipo está diseñado para operar en intemperie.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 213,
+      nom: '924-13',
+      tex: 'Consideraciones ambientales',
+      tip: 'O',
+      cri: 'Los equipos soportan los esfuerzos sísmicos y limitan el ruido a 60 dB.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 214,
+      nom: '924-14',
+      tex: 'Instalación y mantenimiento del equipo eléctrico',
+      tip: 'O,D',
+      cri: 'No hay partes maltratadas o rotas del equipo, un programa de mantenimiento con su bitácora.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 215,
+      nom: '924-15',
+      tex: 'Partes con movimientos repentinos',
+      tip: 'O',
+      cri: 'Las partes en movimiento tienen un resguardo.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 216,
+      nom: '924-16',
+      tex: 'Identificación de equipo eléctrico',
+      tip: 'O',
+      cri: 'Los equipos están identificados.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 217,
+      nom: '924-17',
+      tex: 'Transformadores de corriente.',
+      tip: 'O',
+      cri: 'Tienen un medio para ponerse en corto circuito y conectarse a tierra simultáneamente.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 218,
+      nom: '924-18',
+      tex: 'Protección de los circuitos secundarios de Transformadores para instrumentos',
+      tip: 'O',
+      cri: 'Están equipados con unos conectores adecuados.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 219,
+      nom: '924-19',
+      tex: 'Instalación de transformadores de potencia y distribución',
+      tip: 'O',
+      cri: 'Los tr tienen su medio de desconexión, existe un contendor de aceite y están instalados en una bóveda, trabajan al 80% de su capacidad.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 220,
+      nom: '924-20',
+      tex: 'Medio aislante',
+      tip: 'O',
+      cri: 'Los líquidos aislantes son biodegradables.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 221,
+      nom: '924-23',
+      tex: 'Puesta a tierra',
+      tip: 'O',
+      cri: 'Las partes metálicas no conductoras están conectadas a tierra.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 222,
+      nom: '924-24',
+      tex: 'Tarimas y tapetes aislantes',
+      tip: 'O',
+      cri: 'Existen tarimas y tapetes enfrente a los tableros.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 223,
+      nom: '',
+      tex: '445 Generadores',
+      tip: '',
+      cri: '',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 224,
+      nom: '445-10',
+      tex: 'Ubicación',
+      tip: 'O',
+      cri: 'Los generadores están montados en un local dedicado.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 225,
+      nom: '445-11',
+      tex: 'Marcado',
+      tip: 'O',
+      cri: 'Los generadores tienen una placa de datos con sus características técnicas.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 226,
+      nom: '445-12',
+      tex: 'Protección contra sobrecorriente',
+      tip: 'O',
+      cri: 'Los generadores tienen un interruptor para protección contra sobre carga.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 227,
+      nom: '445-13',
+      tex: 'Ampacidad de los conductores',
+      tip: 'O,D',
+      cri: 'La ampacidad de los conductores es el 115% de la corriente de placa del generador, el neutro cumple con lo indicado en la sección 220-61.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 228,
+      nom: '445-14',
+      tex: 'Protección de las partes vivas',
+      tip: 'O',
+      cri: 'Las partes vivas están resguardadas.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 229,
+      nom: '445-15',
+      tex: 'Protección para los operadores',
+      tip: 'O',
+      cri: 'Las partes que el operador maneje están resguardadas se deben cumplir los requisitos 430-233.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 230,
+      nom: '445-16',
+      tex: 'Pasa cables',
+      tip: 'O',
+      cri: 'En donde aplique los conductores están protegidos por un pasa cable.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 231,
+      nom: '',
+      tex: 'ARTICULO 690 SISTEMAS SOLARES FOTOVOLTAICOS',
+      tip: '',
+      cri: '',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 232,
+      nom: '',
+      tex: 'A. DISPOSICIONES GENERALES',
+      tip: '',
+      cri: '',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 233,
+      nom: '690-4',
+      tex: 'Identificación',
+      tip: 'O,D',
+      cri: 'Los circuitos de las fuentes FV y los circuitos FTV de salida no están instalados en la misma canalización.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 234,
+      nom: '',
+      tex: '',
+      tip: '',
+      cri: 'Los conductores del SFV y del inversor están identificados.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 235,
+      nom: '',
+      tex: '',
+      tip: '',
+      cri: 'Los conductores de SFT diferentes están agrupados.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 236,
+      nom: '',
+      tex: '',
+      tip: '',
+      cri: 'Las conexiones de los paneles están organizadas de manera que al quitar un módulo no se pierde la continuidad de ningún conductor puesto a tierra.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 237,
+      nom: '',
+      tex: '',
+      tip: '',
+      cri: 'El alambrado está hecho por personal calificado.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 238,
+      nom: '',
+      tex: '',
+      tip: '',
+      cri: 'La trayectoria de los circuitos está a la vista.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 239,
+      nom: '',
+      tex: '',
+      tip: '',
+      cri: 'Los medios de desconexión del SFTV en cada inversor están identificados.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 240,
+      nom: '',
+      tex: '',
+      tip: '',
+      cri: 'El dispositivo de protección detecta falas a tierra.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 241,
+      nom: '',
+      tex: '',
+      tip: '',
+      cri: 'Los circuitos con falla se desconectan automáticamente y el inversor suspende la alimentación a los circuitos de salida.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 242,
+      nom: '',
+      tex: '',
+      tip: '',
+      cri: 'El inversor cuenta con un letreo de advertencia "Peligro de descarga eléctrica, si se indica una falla a tierra, los conductores normalmente puestos a tierra pueden estar energizados y no puestos a tierra".',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 243,
+      nom: '690-7',
+      tex: 'Tensión máxima',
+      tip: 'O,D',
+      cri: 'En SFV se anota la tensión máxima 600 V. Tabla 690-7, Para ˃ 600 V, ver 690 parte I y articulo 490.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 244,
+      nom: '',
+      tex: '',
+      tip: '',
+      cri: 'En circuitos de SFV se tiene el letrero de advertencia "Arreglo fotovoltaico bipolar, la desconexión de los conductores del nuetro o los puestos a tierra pueden ocasionar una sobre tensión en el arreglo o en el inversor".',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 245,
+      nom: '690-8',
+      tex: 'Dimensionamiento y corriente de los circuitos',
+      tip: 'O,D',
+      cri: 'La corriente máxima se cálculo en base a esta sección.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 246,
+      nom: '',
+      tex: '',
+      tip: '',
+      cri: 'La ampacidad y valor nominal de las protecciones se seleccionó de acuerdo a esta sección.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 247,
+      nom: '690-9',
+      tex: 'Protección contra sobre-corriente',
+      tip: 'O,D',
+      cri: 'Los circuitos de salida FV y del inversor están protegidos contra sobre corriente.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 248,
+      nom: '',
+      tex: '',
+      tip: '',
+      cri: 'El TR de potencia está protegido contra sobre corriente ver 450-3.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 249,
+      nom: '',
+      tex: '',
+      tip: '',
+      cri: 'Los dispositivos de protección utilizados en CC están etiquetados para este uso.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 250,
+      nom: '690-10',
+      tex: 'Sistemas autónomos',
+      tip: 'O,D',
+      cri: 'El sistema de alambrado es adecuado.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 251,
+      nom: '',
+      tex: '',
+      tip: '',
+      cri: 'Cuenta con letreo de advertencia "Alimentación individual de 120 V, no conectar circuitos derivados multifamiliares".',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 252,
+      nom: '',
+      tex: '',
+      tip: '',
+      cri: 'En caso de que haya retroalimentación no se empelan interruptores automáticos que estén marcados "Línea" y "carga".',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 253,
+      nom: '690-11',
+      tex: 'Protección de falla por arco (corriente continua)',
+      tip: 'O,D',
+      cri: 'Está instalado un interruptor de falla por arco.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 254,
+      nom: '690-13',
+      tex: 'Medios de desconexión. Todos los conductores',
+      tip: 'O,D',
+      cri: 'Se tiene un medio de desconexión que des conecta todos los conductores portadores de CC, adecuado y fácilmente accesible, etiquetado para uso en SFV.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 255,
+      nom: '690-16',
+      tex: 'Fusibles',
+      tip: 'O,D',
+      cri: 'Se tienen medios de desconexión para desconectar un fusible.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 256,
+      nom: '690-17',
+      tex: 'Desconectadores o interruptores automáticos',
+      tip: 'O,D',
+      cri: 'Se cuenta con interruptores automáticos operados manualmente.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 257,
+      nom: '',
+      tex: '',
+      tip: '',
+      cri: 'Advertencia: "Peligro de descarga Eléctrica, no tocar terminales. Las terminales, tanto en el lado de línea como en el lado de carga, pueden estar energizados en la posición de abierto".',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 258,
+      nom: '690-31',
+      tex: 'Métodos de alambrado. Métodos permitidos',
+      tip: 'O,D',
+      cri: 'Se utilizan todos los métodos de alambrado.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 259,
+      nom: '690-33',
+      tex: 'Clavijas o conectores',
+      tip: 'O,D',
+      cri: 'Son polarizadas y no son intercambiables, protegen a las personas de contactos con partes vivas, el elemento de puesta a tierra es el primero en hacer contacto.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 260,
+      nom: '690-34',
+      tex: 'Acceso a cajas',
+      tip: 'O,D',
+      cri: 'Las cajas de conexión están accesibles',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 261,
+      nom: '',
+      tex: '',
+      tip: '',
+      cri: 'En cada caja de conexión existe un letrero de advertencia "Peligro de descarga eléctrica, los conductores de corriente continua de este sistema fotovoltaico no están puestos a tierra y pueden estar energizados".',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 262,
+      nom: '690-41',
+      tex: 'Puesta a tierra',
+      tip: 'O,D',
+      cri: 'El conductor de un sistema de 2 hilos mayor a 50 V y el conductor de referencia está sólidamente puesto a tierra.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 263,
+      nom: '690-43',
+      tex: 'Equipo con frequerimiento de puesta a tierra',
+      tip: 'O,D',
+      cri: 'Partes metálicas expuestas no portadoras de corriente están puestos a tierra.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 264,
+      nom: '690-45',
+      tex: 'Tamaño dcel conductor de puesta a tierra de equipos',
+      tip: 'O,D',
+      cri: 'Está de acuerdo a la tabla 250-122.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 265,
+      nom: '690-47',
+      tex: 'Sistema del electrodo de puesta a tierra',
+      tip: 'O,D',
+      cri: 'En los sistemas de CA cumple con 250.50 hasta 250-60 y 250.64.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 266,
+      nom: '',
+      tex: '',
+      tip: '',
+      cri: 'En sistemas de CC el conductor del electrodo está acorde con 250-166, o 250.169 y 250-64.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 267,
+      nom: '690-48',
+      tex: 'Continuidad del sistema de puesta a tierra de equipos',
+      tip: 'O,D',
+      cri: 'Al retiro de un equipo, se instala un puente de unión para mantener la continuidad.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 268,
+      nom: '690-51',
+      tex: 'Marcado',
+      tip: 'O,D',
+      cri: 'Los módulos están marcados con la polaridad y una placa con las características técnicas.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 269,
+      nom: '690-52',
+      tex: 'Módulos FV de CA ',
+      tip: 'O,D',
+      cri: 'Están marcados con identificación de las puntas y la placa de datos técnicos.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 270,
+      nom: '690-53',
+      tex: 'Fuente de potencia FV de CC',
+      tip: 'O,D',
+      cri: 'En el desconectador está una etiqueta permanente con las características técnicas de la fuente FV.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 271,
+      nom: '690-54',
+      tex: 'Puntos de interconexión de sistemas interactivos',
+      tip: 'O,D',
+      cri: 'Todos los puntos de interconexión con otras fuentes están marcadas con la corriente y tensión nominales.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 272,
+      nom: '690-55',
+      tex: 'Identificación de las fuentes de energía',
+      tip: 'O,D',
+      cri: 'Los sistemas autónomos cuentan con una placa o directorio permanente.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 273,
+      nom: '690-57',
+      tex: 'Conexión a otros suministros. Des conectador de carga',
+      tip: 'O,D',
+      cri: 'Al estar abierto desconecta todas las alimentaciones.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 274,
+      nom: '690-61',
+      tex: 'Pérdida de potencia en un sistema interactivo',
+      tip: 'O,D',
+      cri: 'Des energiza automáticamente su salida a la red cuando hay pérdida de tensión.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 275,
+      nom: '690-71',
+      tex: 'Baterías. Instalación',
+      tip: 'O,D',
+      cri: 'Se instalan de acuerdo al artículo 480.',
+      obp: '',
+      obs: '',
+      cum: ''
+    }, {
+      id_: 276,
+      nom: '690-80',
+      tex: 'Sistemas de tensión superior a 600 Volts',
+      tip: 'O,D',
+      cri: 'Se cumple con el artículo 490.',
+      obp: '',
+      obs: '',
+      cum: ''
     }
   ];
   // public currentD = '';
   // public client = {};
-  public f06 = [
+  /* public f06 = [
     {
       id_: 1,
       nom: '',
@@ -1781,7 +2907,7 @@ export class ClientService {
       obs: '',
       cum: ''
     }
-  ];
+  ]; */
 
   constructor(
     private db: AngularFireDatabase,
@@ -1792,7 +2918,7 @@ export class ClientService {
     this.createDatabase();
   }
 
-  Getft151(key: string) {
+ /*  Getft151(key: string) {
     this.f151 = this.db.list('data/' + key + '/ft15', ref =>
       ref.orderByChild('id_').equalTo(1).limitToFirst(1)
     );
@@ -1839,7 +2965,7 @@ export class ClientService {
       ref.orderByChild('id_').equalTo(2).limitToFirst(1)
     );
     return this.f822;
-  }
+  } */
 
   AddClient(datos: Datos, costol: string) {
     const f = this.splitDate(datos.fechai);
@@ -1895,33 +3021,42 @@ export class ClientService {
   }
 
   addft10() {
-    this.f10.forEach(item => {
-      this.ft10List.push(item as F10);
-      // console.log(item);
+    this.GetDataList10().snapshotChanges().subscribe(re => {
+      /* this.ft81List = []; */
+      re.forEach(item => {
+        const surv = item.payload.toJSON();
+        // surv['$key'] = item.key;
+        // this.ft81List.push(surv as F081);
+        this.ft10List.push(surv as F10);
+      });
     });
+    /* this.f10.forEach(item => {
+      // console.log(item);
+      this.ft10List.push(item as F10);
+    }); */
   }
-  addft06() {
+  /* addft06() {
     this.f06.forEach(it => {
       this.ft06List.push(it as F10);
     });
-  }
-  addft81(fecha: string, id: number) {
+  } */
+  /* addft81(fecha: string, id: number) {
     this.ft81List.push({
       id_: id, fecha: fecha, tipo: 'NOM', desc: 'INS', n1: 1,
       n2: 2, n3: 3, n4: 4, n5: 5, n6: 6, d1: '', d2: '', d3: '', d4: '', d5: '', d6: '',
       nc1: '', nc2: '', nc3: '', nc4: '', nc5: '', nc6: '', fr1: '', fr2: '', fr3: '', fr4: '', fr5: '', fr6: '',
       a1: '', a2: '', a3: '', a4: '', a5: '', a6: '', fs1: '', fs2: '', fs3: '', fs4: '', fs5: '', fs6: '', filas: 1
     } as F081);
-  }
-  addft82(fecha: string, id: number) {
+  } */
+  /* addft82(fecha: string, id: number) {
     this.ft82List.push({
       id_: id, fecha: fecha, tipo: 'PEC', desc: 'PRO', n1: 1,
       n2: 2, n3: 3, n4: 4, n5: 5, n6: 6, d1: '', d2: '', d3: '', d4: '', d5: '', d6: '',
       nc1: '', nc2: '', nc3: '', nc4: '', nc5: '', nc6: '', fr1: '', fr2: '', fr3: '', fr4: '', fr5: '', fr6: '',
       a1: '', a2: '', a3: '', a4: '', a5: '', a6: '', fs1: '', fs2: '', fs3: '', fs4: '', fs5: '', fs6: '', filas: 1
     } as F081);
-  }
-  addft15(fecha: string, id: number) {
+  } */
+  /* addft15(fecha: string, id: number) {
     this.ft15List.push(
       {
         id_: id,
@@ -1962,8 +3097,8 @@ export class ClientService {
         direc3: '',
         firma3: ''
       } as Ft7);
-  }
-  addft07(fecha: string, id: number) {
+  } */
+  /* addft07(fecha: string, id: number) {
     this.ft07List.push(
       {
         id_: id,
@@ -2004,8 +3139,8 @@ export class ClientService {
         direc3: '',
         firma3: ''
       } as Ft7);
-  }
-  async addft07Offline(key: string, fecha: string, id: number) {
+  } */
+  /* async addft07Offline(key: string, fecha: string, id: number) {
     const ui = UUID.UUID();
     await this.localDb.ft07.add({
       id: ui,
@@ -2049,8 +3184,8 @@ export class ClientService {
       firma3: ''
     }
     );
-  }
-  async addft15Offline(key: string, fecha: string, id: number) {
+  } */
+  /* async addft15Offline(key: string, fecha: string, id: number) {
     const ui = UUID.UUID();
     await this.localDb.ft15.add({
       id: ui,
@@ -2115,7 +3250,7 @@ export class ClientService {
     }
     );
   }
-
+*/
   async addFt10Offline(key: string) {
     // const ft10local = [];
     this.f10.forEach(async item => {
@@ -2127,7 +3262,7 @@ export class ClientService {
       });
     });
   }
-  async addFt06Offline(key: string) {
+/*  async addFt06Offline(key: string) {
     this.f06.forEach(async item => {
       const ui = UUID.UUID();
       await this.localDb.ft06.add({
@@ -2136,21 +3271,23 @@ export class ClientService {
         obs: item.obs, tex: item.tex, tip: item.tip
       });
     });
-  }
+  } */
 
   async addRowFt10(f10: any, key: string) {
     if (this.offlineOnlineService.isOnline) {
       this.ft10List.push(f10 as F10);
-    } else {
+      this.GetDataList10();
+      this.dataft10List.push(f10 as F10);
+    } /* else {
       const ui = UUID.UUID();
       await this.localDb.ft10.add({
         id: ui, client: key, id_: f10.id_, cri: f10.cri,
         cum: f10.cum, nom: f10.nom, obp: f10.obp,
         obs: f10.obs, tex: f10.tex, tip: f10.tip
       });
-    }
+    } */
   }
-  async addRowFt06(f06: any, key: string) {
+  /* async addRowFt06(f06: any, key: string) {
     if (this.offlineOnlineService.isOnline) {
       this.ft06List.push(f06 as F10);
     } else {
@@ -2161,12 +3298,12 @@ export class ClientService {
         obs: f06.obs, tex: f06.tex, tip: f06.tip
       });
     }
-  }
+  } */
 
   updateRowFt10(f10: F10, key: string) {
     if (this.offlineOnlineService.isOnline) {
       this.f10Object.update({ nom: f10.nom, tex: f10.tex, tip: f10.tip, cri: f10.cri, obp: f10.obp, obs: f10.obs, cum: f10.cum });
-    } else {
+    }/*  else {
       this.localDb.ft10 // Offline
         .where('id').equals(key).modify(cc => {
           cc.cri = f10.cri;
@@ -2177,9 +3314,9 @@ export class ClientService {
           cc.tex = f10.tex;
           cc.tip = f10.tip;
         });
-    }
+    } */
   }
-  updateRowFt06(f06: F10, key: string) {
+  /* updateRowFt06(f06: F10, key: string) {
     if (this.offlineOnlineService.isOnline) {
       this.f06Object.update({ nom: f06.nom, tex: f06.tex, tip: f06.tip, cri: f06.cri, obp: f06.obp, obs: f06.obs, cum: f06.cum });
     } else {
@@ -2194,7 +3331,7 @@ export class ClientService {
           cc.tip = f06.tip;
         });
     }
-  }
+  } */
 
   Getf10(key: string) {
     this.ft10List = this.db.list('data/' + key + '/ft10', ref =>
@@ -2202,7 +3339,7 @@ export class ClientService {
     );
     return this.ft10List;
   }
-  Getf06(key: string) {
+ /*  Getf06(key: string) {
     this.ft06List = this.db.list('data/' + key + '/ft06', ref =>
       ref.orderByChild('id_')
     );
@@ -2231,7 +3368,7 @@ export class ClientService {
       ref.orderByChild('id_')
     );
     return this.ft15List;
-  }
+  } */
 
   updateClient(datos: Datos, key: string) {
     if (this.offlineOnlineService.isOnline) {
@@ -2295,6 +3432,19 @@ export class ClientService {
           c.datos.fft12 = datos.fft12;
           c.datos.fft13 = datos.fft13;
           c.datos.ffc07 = datos.ffc07;
+          c.datos.fft08ie1 = datos.fft08ie1;
+          c.datos.fft08ie2 = datos.fft08ie2;
+          c.datos.fft08pe1 = datos.fft08pe1;
+          c.datos.fft08pe2 = datos.fft08pe2;
+          c.datos.fft151 = datos.fft151;
+          c.datos.fft152 = datos.fft152;
+          c.datos.fft071 = datos.fft071;
+          c.datos.fft072 = datos.fft072;
+          c.datos.id = datos.id;
+          c.datos.folio = datos.folio;
+          c.datos.id2 = datos.id2;
+          c.datos.folio2 = datos.folio2;
+          c.datos.cedula = datos.cedula;
           c.datos.s1 = datos.s1;
           c.datos.s2 = datos.s2;
         });
@@ -2313,6 +3463,12 @@ export class ClientService {
     );
     return this.dataList;
   }
+  GetDataList10() {
+    this.dataft10List = this.db.list('ft10L', ref =>
+      ref.orderByChild('id_')
+    );
+    return this.dataft10List;
+  }
 
   getCurrentData(key: string) {
     this.clientObject = this.db.object('data/' + key);
@@ -2323,7 +3479,7 @@ export class ClientService {
     this.f10Object = this.db.object('data/' + key + '/ft10/' + key2);
     return this.f10Object;
   }
-  getCurrentDataF06Row(key: string, key2: string) {
+ /*  getCurrentDataF06Row(key: string, key2: string) {
     this.f06Object = this.db.object('data/' + key + '/ft06/' + key2);
     return this.f06Object;
   }
@@ -2343,7 +3499,7 @@ export class ClientService {
   getCurrentDataF15(key: string, key2: string) {
     this.f07Object = this.db.object('data/' + key + '/ft15/' + key2);
     return this.f07Object;
-  }
+  } */
 
   UpdateFt01(ft01: any, key: string) {
     if (this.offlineOnlineService.isOnline) {
@@ -2446,7 +3602,40 @@ export class ClientService {
     }
   }
 
-  UpdateFt08INCIE1(f08: F081, key: string, type: string) {
+  UpdateFt08(f08: F081, key: string, type: string) {
+    if (this.offlineOnlineService.isOnline) {
+      if (type === '8i1') {
+        this.db.object('data/' + key).update({ fti81: f08 });
+      }
+      if (type === '8i2') {
+        this.db.object('data/' + key).update({ fti82: f08 });
+      }
+      if (type === '8p1') {
+        this.db.object('data/' + key).update({ ftp81: f08 });
+      }
+      if (type === '8p2') {
+        this.db.object('data/' + key).update({ ftp82: f08 });
+      }
+    } else {
+      this.localDb.clients // Offline
+        .where('id').equals(key).modify(client => {
+          if (type === '8i1') {
+            client.fti81 = f08;
+          }
+          if (type === '8i2') {
+            client.fti82 = f08;
+          }
+          if (type === '8p1') {
+            client.ftp81 = f08;
+          }
+          if (type === '8p2') {
+            client.ftp82 = f08;
+          }
+        });
+    }
+  }
+
+  /* UpdateFt08INCIE1(f08: F081, key: string, type: string) {
     if (this.offlineOnlineService.isOnline) { // Online
       this.f81Object.update({
         n1: f08.n1, n2: f08.n2, n3: f08.n3, n4: f08.n4, n5: f08.n5, n6: f08.n6,
@@ -2478,9 +3667,9 @@ export class ClientService {
         });
       }
     }
-  }
+  } */
 
-  UpdateFt07(f07: Ft7, key: string, type: string) {
+  /* UpdateFt07(f07: Ft7, key: string, type: string) {
     if (this.offlineOnlineService.isOnline) { // Online
       this.f07Object.update({
         nomycar: f07.nomycar, objeto: f07.objeto, fechad: f07.fechad, fecham: f07.fecham,
@@ -2512,13 +3701,49 @@ export class ClientService {
         });
       }
     }
+  } */
+  UpdateFt07n(f07: Ft7, key: string, type: string) {
+    if (this.offlineOnlineService.isOnline) {
+      if (type === '71') {
+        this.db.object('data/' + key).update({ ft71: f07 });
+      }
+      if (type === '72') {
+        this.db.object('data/' + key).update({ ft72: f07 });
+      }
+      if (type === '151') {
+        this.db.object('data/' + key).update({ ft151: f07 });
+      }
+      if (type === '152') {
+        this.db.object('data/' + key).update({ ft152: f07 });
+      }
+    } else {
+      this.localDb.clients // Offline
+        .where('id').equals(key).modify(client => {
+          if (type === '71') {
+            client.ft71 = f07;
+          }
+          if (type === '72') {
+            client.ft72 = f07;
+          }
+          if (type === '151') {
+            client.ft151 = f07;
+          }
+          if (type === '152') {
+            client.ft152 = f07;
+          }
+        });
+    }
   }
 
+  DeleteForm(key: string) {
+    this.clientObject = this.db.object('data/' + key);
+    this.clientObject.remove();
+  }
 
   /** Update dates */
   /* upfi(f: string, key: string) {
     const dd = this.splitDate(f);
-    if (this.offlineOnlineService.isOnline) { 
+    if (this.offlineOnlineService.isOnline) {
       this.db.object('data/' + key + '/datos/')
         .update({ fechai: f, dia: dd.d, mes: dd.m, anio: dd.a });
     } else {
@@ -2531,94 +3756,94 @@ export class ClientService {
     }
   }
   upf02(f: string, key: string) {
-    if (this.offlineOnlineService.isOnline) { 
+    if (this.offlineOnlineService.isOnline) {
       this.db.object('data/' + key + '/datos/')
         .update({ fft02: f });
     } else {
-      this.localDb.clients 
+      this.localDb.clients
         .where('id').equals(key).modify(client => {
           client.datos.fft02 = f;
         });
     }
   }
   upf03(f: string, key: string) {
-    if (this.offlineOnlineService.isOnline) { 
+    if (this.offlineOnlineService.isOnline) {
       this.db.object('data/' + key + '/datos/')
         .update({ fft03: f });
     } else {
-      this.localDb.clients 
+      this.localDb.clients
         .where('id').equals(key).modify(client => {
           client.datos.fft03 = f;
         });
     }
   }
   upf05(f: string, key: string) {
-    if (this.offlineOnlineService.isOnline) { 
+    if (this.offlineOnlineService.isOnline) {
       this.db.object('data/' + key + '/datos/')
         .update({ fft05: f });
     } else {
-      this.localDb.clients 
+      this.localDb.clients
         .where('id').equals(key).modify(client => {
           client.datos.fft05 = f;
         });
     }
   }
   upf06(f: string, key: string) {
-    if (this.offlineOnlineService.isOnline) { 
+    if (this.offlineOnlineService.isOnline) {
       this.db.object('data/' + key + '/datos/')
         .update({ fft06: f });
     } else {
-      this.localDb.clients 
+      this.localDb.clients
         .where('id').equals(key).modify(client => {
           client.datos.fft06 = f;
         });
     }
   }
   upf09(f: string, key: string) {
-    if (this.offlineOnlineService.isOnline) { 
+    if (this.offlineOnlineService.isOnline) {
       this.db.object('data/' + key + '/datos/')
         .update({ fft09: f });
     } else {
-      this.localDb.clients 
+      this.localDb.clients
         .where('id').equals(key).modify(client => {
           client.datos.fft09 = f;
         });
     }
   }
   upf10(f: string, key: string) {
-    if (this.offlineOnlineService.isOnline) { 
+    if (this.offlineOnlineService.isOnline) {
       this.db.object('data/' + key + '/datos/')
         .update({ fft10: f });
     } else {
-      this.localDb.clients 
+      this.localDb.clients
         .where('id').equals(key).modify(client => {
           client.datos.fft10 = f;
         });
     }
   }
   upf11(f: string, key: string) {
-    if (this.offlineOnlineService.isOnline) { 
+    if (this.offlineOnlineService.isOnline) {
       this.db.object('data/' + key + '/datos/')
         .update({ fft11: f });
     } else {
-      this.localDb.clients 
+      this.localDb.clients
         .where('id').equals(key).modify(client => {
           client.datos.fft11 = f;
         });
     }
   }
   upfc07(f: string, key: string) {
-    if (this.offlineOnlineService.isOnline) { 
+    if (this.offlineOnlineService.isOnline) {
       this.db.object('data/' + key + '/datos/')
         .update({ ffc07: f });
     } else {
-      this.localDb.clients 
+      this.localDb.clients
         .where('id').equals(key).modify(client => {
           client.datos.ffc07 = f;
         });
     }
   } */
-  upft07(f: string, key: string, key2: string) {  // Online
+  /* upft07(f: string, key: string, key2: string) {  // Online
     this.db.object('data/' + key + '/ft07/' + key2)
       .update({ fecha: f });
   }
@@ -2653,7 +3878,7 @@ export class ClientService {
     this.localDb.ft82.where('id').equals(id).modify(client => {
       client.fecha = f;
     });
-  }
+  } */
 
   /** IndexedDB Offline */
 
@@ -2673,12 +3898,12 @@ export class ClientService {
     this.localDb = new Dexie('LocalDB');
     this.localDb.version(1).stores({
       clients: 'id',
-      ft07: 'id, client',
+      /* ft07: 'id, client',
       ft15: 'id, client',
       ft81: 'id, client',
-      ft82: 'id, client',
-      ft10: 'id, client, id_',
-      ft06: 'id, client, id_'
+      ft82: 'id, client', */
+      ft10: 'id, client, id_'/* ,
+      ft06: 'id, client, id_' */
     });
   }
 
@@ -2701,7 +3926,7 @@ export class ClientService {
       this.localDb.clients.delete(item.id).then(async () => {
         const f10Items = await this.localDb.ft10.where('client').equals(item.id).toArray();
         if (f10Items.length > 0) { item.ft10 = f10Items; }
-        const f06Items = await this.localDb.ft06.where('client').equals(item.id).toArray();
+        /* const f06Items = await this.localDb.ft06.where('client').equals(item.id).toArray();
         if (f06Items.length > 0) { item.ft06 = f06Items; }
         const f07Items = await this.localDb.ft07.where('client').equals(item.id).toArray();
         if (f07Items.length > 0) { item.ft07 = f07Items; }
@@ -2710,7 +3935,7 @@ export class ClientService {
         const f81Items = await this.localDb.ft81.where('client').equals(item.id).toArray();
         if (f81Items.length > 0) { item.ft81 = f81Items; }
         const f82Items = await this.localDb.ft82.where('client').equals(item.id).toArray();
-        if (f82Items.length > 0) { item.ft82 = f82Items; }
+        if (f82Items.length > 0) { item.ft82 = f82Items; } */
         this.dataList.push(item);
        // console.log(`item ${item.id} sent and deleted locally`);
       });
@@ -2727,10 +3952,10 @@ export class ClientService {
     this.dataOffline = await this.localDb.clients.toArray();
   }
 
-  deleteRowFt06(key: string, key2: string) {
+  /* deleteRowFt06(key: string, key2: string) {
     this.deleteObject = this.db.object('data/' + key + '/ft06/' + key2);
     this.deleteObject.remove();
-  }
+  } */
   deleteRowFt10(key: string, key2: string) {
     this.deleteObject = this.db.object('data/' + key + '/ft10/' + key2);
     this.deleteObject.remove();

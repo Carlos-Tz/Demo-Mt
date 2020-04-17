@@ -54,12 +54,12 @@ export class Nft06Component implements OnInit {
             this.month = this.clientApi.monthToRoman(this.ff.m);
           }
           if (!data.ft06) {
-            this.clientApi.Getf06(this.key);
-            this.clientApi.addft06();
+            /* this.clientApi.Getf06(this.key);
+            this.clientApi.addft06(); */
           }
         });
       }
-      this.clientApi.Getf06(this.key).snapshotChanges().subscribe(re => {
+      /* this.clientApi.Getf06(this.key).snapshotChanges().subscribe(re => {
         this.ft06List = [];
         re.forEach(item => {
           const surv = item.payload.toJSON();
@@ -68,7 +68,7 @@ export class Nft06Component implements OnInit {
         });
         this.len = Math.ceil((this.ft06List.length) / 14);
         this.pages = this.page0.slice(0, this.len);
-      });
+      }); */
     } else {
       this.clientApi.localDb.clients
       .get(this.key).then(async (client) => {

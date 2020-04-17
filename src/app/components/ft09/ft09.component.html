@@ -328,9 +328,9 @@
     <button class="volver_ no-print" (click)="goBack()">
       Volver
     </button>
-    <button class="imprimir_ no-print" onclick="window.print()">
+    <!-- <button class="imprimir_ no-print" onclick="window.print()">
       Imprimir
-    </button>
+    </button> -->
     <button class="guardar_ no-print" (click)="submitClientData()">
       Guardar
     </button>
@@ -340,7 +340,7 @@
     <button class="menos_ no-print" (click)="deleteFila()" *ngIf="clientF.value.filas > 1">
       -
     </button>
-    <button class="pdf_ no-print" (click)="savePDF()">
+    <button class="imprimir_ no-print" (click)="savePDF()">
         PDF
       </button> 
   </div>

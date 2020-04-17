@@ -121,7 +121,7 @@
             </table>
         </div>
       </div>
-      <div class="incpe">
+      <!-- <div class="incpe">
         <div class="mini-page"  style="height: 2cm;">
           <p>NUEVO FORMATO</p>
           <table>
@@ -138,7 +138,7 @@
               </td>
               <td class="rigth_">
                 <img src="assets/add_.svg" (click)="addForm()">
-                <!-- <img src="assets/eye.svg" [routerLink]="['/ft-081/', key]"> -->
+                
               </td>
             </tr>
           </table>
@@ -168,38 +168,109 @@
               </td>
             </tr>
           </table>
+        </div>
+        <div *ngIf="ft07List">
+        <div *ngFor="let ft of ft07List; let i=index;" class="mini-page"  [ngClass]="{'green':ft.fecha, 'gray':!ft.fecha}">
+          <p>FT-07 AECIE{{ ft.id_ }}</p>
+          <table>
+            <tr>
+              <td><img src="assets/save.svg" (click)="updateFt07(ft, key)"></td>
+              <td>Fecha: <input type="date" [(ngModel)]="ft.fecha"></td>
+              <td class="rigth_">                  
+                <img *ngIf="!off" src="assets/eye.svg" [routerLink]="['/ft-07/', key, ft.$key, ft.tipo]">
+                <img *ngIf="off" src="assets/eye.svg" [routerLink]="['/ft-07/', key, ft.id, ft.tipo]">
+              </td>
+            </tr>
+          </table>
       </div>
-      <div *ngIf="ft07List">
-      <div *ngFor="let ft of ft07List; let i=index;" class="mini-page"  [ngClass]="{'green':ft.fecha, 'gray':!ft.fecha}">
-        <p>FT-07 AECIE{{ ft.id_ }}</p>
-        <table>
-          <tr>
-            <td><img src="assets/save.svg" (click)="updateFt07(ft, key)"></td>
-            <td>Fecha: <input type="date" [(ngModel)]="ft.fecha"></td>
-            <td class="rigth_">                  
-              <img *ngIf="!off" src="assets/eye.svg" [routerLink]="['/ft-07/', key, ft.$key, ft.tipo]">
-              <img *ngIf="off" src="assets/eye.svg" [routerLink]="['/ft-07/', key, ft.id, ft.tipo]">
-            </td>
-          </tr>
-        </table>
-    </div>
-      </div>
-    <div *ngFor="let ft of ft15List; let i=index;" class="mini-page"  [ngClass]="{'green':ft.fecha, 'gray':!ft.fecha}">
-      <p>FT-15 RTPE{{ ft.id_ }}</p>
-      <table>
-        <tr>
-          <td><img src="assets/save.svg" (click)="updateFt15(ft, key)"></td>
-          <td>Fecha: <input type="date" [(ngModel)]="ft.fecha"></td>
-          <td class="rigth_">                  
-            <img *ngIf="!off" src="assets/eye.svg" [routerLink]="['/ft-07/', key, ft.$key, ft.tipo]">
-            <img *ngIf="off" src="assets/eye.svg" [routerLink]="['/ft-07/', key, ft.id, ft.tipo]">
-          </td>
-        </tr>
-      </table>
-  </div>
-      </div>
-      <div class="incie">
-
+        </div>
+        <div *ngFor="let ft of ft15List; let i=index;" class="mini-page"  [ngClass]="{'green':ft.fecha, 'gray':!ft.fecha}">
+          <p>FT-15 RTPE{{ ft.id_ }}</p>
+          <table>
+            <tr>
+              <td><img src="assets/save.svg" (click)="updateFt15(ft, key)"></td>
+              <td>Fecha: <input type="date" [(ngModel)]="ft.fecha"></td>
+              <td class="rigth_">                  
+                <img *ngIf="!off" src="assets/eye.svg" [routerLink]="['/ft-07/', key, ft.$key, ft.tipo]">
+                <img *ngIf="off" src="assets/eye.svg" [routerLink]="['/ft-07/', key, ft.id, ft.tipo]">
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div> -->
+      <div class="inciee">
+        <div class="mini-page" [ngClass]="{'green':clientData.fft071, 'gray':!clientData.fft071}">
+          <p>FT-07 ACTA DE EVALUACIÓN DE LA CONFORMIDAD 1</p>
+           <table>
+            <tr>
+              <td>Fecha: {{clientData.fft071}}</td>
+              <td class="rigth_"><img src="assets/eye.svg" [routerLink]="['/ft-07/', key, '71']"></td>
+            </tr>
+          </table>
+        </div>
+        <div class="mini-page" [ngClass]="{'green':clientData.fft072, 'gray':!clientData.fft072}">
+          <p>FT-07 ACTA DE EVALUACIÓN DE LA CONFORMIDAD 2</p>
+           <table>
+            <tr>
+              <td>Fecha: {{clientData.fft072}}</td>
+              <td class="rigth_"><img src="assets/eye.svg" [routerLink]="['/ft-07/', key,'72']"></td>
+            </tr>
+          </table>
+        </div>
+        <div class="mini-page" [ngClass]="{'green':clientData.fft08ie1, 'gray':!clientData.fft08ie1}">
+          <p>FT-08 INFORME DE NO CONFORMIDAD INSTALACIONES 1</p>
+           <table>
+            <tr>
+              <td>Fecha: {{clientData.fft08ie1}}</td>
+              <td class="rigth_"><img src="assets/eye.svg" [routerLink]="['/ft-08/', key, '8i1']"></td>
+            </tr>
+          </table>
+        </div>
+        <div class="mini-page" [ngClass]="{'green':clientData.fft08ie2, 'gray':!clientData.fft08ie2}">
+          <p>FT-08 INFORME DE NO CONFORMIDAD INSTALACIONES 2</p>
+           <table>
+            <tr>
+              <td>Fecha: {{clientData.fft08ie2}}</td>
+              <td class="rigth_"><img src="assets/eye.svg" [routerLink]="['/ft-08/', key,'8i2']"></td>
+            </tr>
+          </table>
+        </div>
+        <div class="mini-page" [ngClass]="{'green':clientData.fft08pe1, 'gray':!clientData.fft08pe1}">
+          <p>FT-08 INFORME DE NO CONFORMIDAD DE PROYECTO 1</p>
+           <table>
+            <tr>
+              <td>Fecha: {{clientData.fft08pe1}}</td>
+              <td class="rigth_"><img src="assets/eye.svg" [routerLink]="['/ft-08/', key, '8p1']"></td>
+            </tr>
+          </table>
+        </div>
+        <div class="mini-page" [ngClass]="{'green':clientData.fft08pe2, 'gray':!clientData.fft08pe2}">
+          <p>FT-08 INFORME DE NO CONFORMIDAD DE PROYECTO 2</p>
+           <table>
+            <tr>
+              <td>Fecha: {{clientData.fft08pe2}}</td>
+              <td class="rigth_"><img src="assets/eye.svg" [routerLink]="['/ft-08/', key, '8p2']"></td>
+            </tr>
+          </table>
+        </div>
+        <div class="mini-page" [ngClass]="{'green':clientData.fft151, 'gray':!clientData.fft151}">
+          <p>FT-15 REPORTE TECNICO DE PROYECTO 1</p>
+           <table>
+            <tr>
+              <td>Fecha: {{clientData.fft151}}</td>
+              <td class="rigth_"><img src="assets/eye.svg" [routerLink]="['/ft-07/', key, '151']"></td>
+            </tr>
+          </table>
+        </div>
+        <div class="mini-page" [ngClass]="{'green':clientData.fft152, 'gray':!clientData.fft152}">
+          <p>FT-15 REPORTE TECNICO DE PROYECTO 2</p>
+           <table>
+            <tr>
+              <td>Fecha: {{clientData.fft152}}</td>
+              <td class="rigth_"><img src="assets/eye.svg" [routerLink]="['/ft-07/', key, '152']"></td>
+            </tr>
+          </table>
+        </div>
       </div>
 
 

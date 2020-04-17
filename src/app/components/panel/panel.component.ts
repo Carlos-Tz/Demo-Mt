@@ -81,4 +81,20 @@ export class PanelComponent implements OnInit {
   goBack = () => {
     this.location.back();
   }
+
+  deleteForm(form: any) {
+    if (window.confirm('¿Esta seguro de eliminar el registro seleccionado?')) {
+      this.clientApi.DeleteForm(form.$key);
+      this.data_ = false;
+      this.clientApi.GetDataListA(this.key).snapshotChanges().subscribe(re => {
+        this.dataList = [];
+        re.forEach(item => {
+          const surv = item.payload.toJSON();
+          surv['$key'] = item.key;
+          this.dataList.push(surv as Client);
+        });
+        this.data_ = true;
+      });
+    }
+  }
 }

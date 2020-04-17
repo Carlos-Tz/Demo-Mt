@@ -107,7 +107,12 @@ export class CotizacionComponent implements OnInit {
       anio: [''],
       date: [''],
       s1: [''],
-      s2: ['']
+      s2: [''],
+      id: [''],
+      id2: [''],
+      folio: [''],
+      folio2: [''],
+      cedula: ['']
     });
   }
 

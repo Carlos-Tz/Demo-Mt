@@ -12,11 +12,13 @@
                             <th>No. de Control Interno</th>
                             <th>Giro</th>
                             <th>Responsable</th>
+                            <th>Ver</th>
+                            <th>Eliminar</th>
                             <!-- <th>Más...</th> -->
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let client of dataList;let i=index; " [routerLink]="['/cliente/', client.$key]" style="cursor: pointer;">
+                        <tr *ngFor="let client of dataList;let i=index; ">
                             <!-- <td>{{client.datos.dia}}-{{client.datos.mes}}-{{client.datos.anio}}</td> -->
                             <td>{{client.datos.fechai}}</td>
                             <td>{{client.datos.razon}}</td>
@@ -24,6 +26,12 @@
                             <td>{{client.datos.giro}}</td>
                             <td>{{client.datos.nombre}}</td>
                             <!-- <td><a [routerLink]="['/cliente/', client.$key]">+</a></td> -->
+                            <td style="text-align: center;">
+                                <img src="assets/eye.svg" [routerLink]="['/cliente/', client.$key]" style="cursor: pointer;">                               
+                            </td>
+                            <td style="text-align: right;">
+                                <img src="assets/trash.svg" (click)="deleteForm(client)" style="cursor: pointer;">
+                            </td>
                         </tr>
                     </tbody>
                 </table>

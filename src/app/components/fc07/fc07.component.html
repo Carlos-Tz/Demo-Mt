@@ -109,7 +109,11 @@
             <th>NO</th>
           </tr>
           <tr>
-            <td><p *ngIf="client">{{ client.dia }}/{{ month1 }}/{{ client.anio }} {{ ff3.d }}/{{ month3 }}/{{ ff3.a }}</p></td>
+            <td><p *ngIf="client">
+              <span *ngIf="month1">{{ client.dia }}/{{ month1 }}/{{ client.anio }}</span>
+              <span *ngIf="!month1">N/A</span><br>
+              <span *ngIf="month3">{{ ff3.d }}/{{ month3 }}/{{ ff3.a }}</span>
+              <span *ngIf="!month3">N/A</span></p></td>
             <td>
               <p>Formato de cotización FT-01 o Contrato FT-03</p>
             </td>
@@ -121,7 +125,10 @@
               <p>¿Establece el alcance especifico de la verificación?</p>
               <p>¿Indica el número de control del servicio?</p>
             </td>
-            <td><p>{{ ff71.d }}/{{ month71 }}/{{ ff71.a }}</p></td>
+            <td>
+              <p *ngIf="month71">{{ ff71.d }}/{{ month71 }}/{{ ff71.a }}</p>
+              <p *ngIf="!month71">N/A</p>
+            </td>
             <td>
               <p>Acta de evaluación de la conformidad instalaciones FT-07</p>
             </td>
@@ -129,7 +136,10 @@
             <td><input type="radio" name="c2" value="no"  [(ngModel)]="fc07.c2"></td>
           </tr>
           <tr>
-            <td><p>{{ ff2.d }}/{{ month2 }}/{{ ff2.a }}</p></td>
+            <td>
+              <p *ngIf="month2">{{ ff2.d }}/{{ month2 }}/{{ ff2.a }}</p>
+              <p *ngIf="!month2">N/A</p>
+            </td>
             <td>
               <p>Solicitud de verificación FT-02</p>
             </td>
@@ -140,7 +150,10 @@
               <p>¿Especifica las normas a verificar?</p>
               <p>¿Indica la descripción de la instalación?</p>
             </td>
-            <td><p>{{ ff10.d }}/{{ month10 }}/{{ ff10.a }}</p></td>
+            <td>
+              <p *ngIf="month10">{{ ff10.d }}/{{ month10 }}/{{ ff10.a }}</p>
+              <p *ngIf="!month10">N/A</p>
+            </td>
             <td>
               <p>Lista de verificación de Revisión de Instalaciones eléctricas FT-10</p>
             </td>
@@ -148,7 +161,8 @@
             <td><input type="radio" name="c4" value="no"  [(ngModel)]="fc07.c4"></td>
           </tr>
           <tr>
-            <td><p>{{ ff5.d }}/{{ month5 }}/{{ ff5.a }}</p></td>
+            <td><p *ngIf="month5">{{ ff5.d }}/{{ month5 }}/{{ ff5.a }}</p>
+            <p *ngIf="!month5">N/A</p></td>
             <td>
               <p>Documentos usuario FT-05</p>
             </td>
@@ -157,7 +171,10 @@
             <td>
               <p>Proyecto completo incluida la memoria técnica</p>
             </td>
-            <td><p>{{ ff811.d }}/{{ month811 }}/{{ ff811.a }}</p></td>
+            <td>
+              <p *ngIf="month811">{{ ff811.d }}/{{ month811 }}/{{ ff811.a }}</p>
+            <p *ngIf="!month811">N/A</p>
+            </td>
             <td>
               <p>Informe de no conformidad de instalaciones FT-08</p>
             </td>
@@ -165,7 +182,10 @@
             <td><input type="radio" name="c6" value="no"  [(ngModel)]="fc07.c6"></td>
           </tr>
           <tr>
-            <td><p>{{ ff151.d }}/{{ month151 }}/{{ ff151.a }}</p></td>
+            <td>
+              <p *ngIf="month151">{{ ff151.d }}/{{ month151 }}/{{ ff151.a }}</p>
+              <p *ngIf="!month151">N/A</p>
+            </td>
             <td>
               <p>Reporte Técnico de proyecto FT-15</p>
             </td>
@@ -176,7 +196,10 @@
               <p>¿Describe las actividades realizadas en la revisión proyecto y/o visita a la instalación?</p>
               <p>¿Se llenan todos los campos incluyendo ámbito,circunstancias,hora de inicio y termino?</p>
             </td>
-            <td><p>{{ ff72.d }}/{{ month72 }}/{{ ff72.a }}</p></td>
+            <td>
+              <p *ngIf="month72">{{ ff72.d }}/{{ month72 }}/{{ ff72.a }}</p>
+              <p *ngIf="!month72">N/A</p>
+            </td>
             <td>
               <p>Acta de evaluación de la conformidad instalaciones FT-07</p>
             </td>
@@ -184,7 +207,10 @@
             <td><input type="radio" name="c8" value="no"  [(ngModel)]="fc07.c8"></td>
           </tr>
           <tr>
-            <td><p>{{ ff6.d }}/{{ month6 }}/{{ ff6.a }}</p></td>
+            <td>
+              <p *ngIf="month6">{{ ff6.d }}/{{ month6 }}/{{ ff6.a }}</p>
+              <p *ngIf="!month6">N/A</p>
+            </td>
             <td>
               <p>Lista de verificación del Proyecto eléctrico FT-06</p>
             </td>
@@ -198,7 +224,10 @@
               <p>¿Las listas contienen las secciones aplicables de la NOM, la fecha de revisión se llenan los espacios?
               </p>
             </td>
-            <td><p>{{ ff812.d }}/{{ month812 }}/{{ ff812.a }}</p></td>
+            <td>
+              <p *ngIf="month812">{{ ff812.d }}/{{ month812 }}/{{ ff812.a }}</p>
+              <p *ngIf="!month812">N/A</p>
+            </td>
             <td>
               <p>Informe de cierre de no conformidades de instalaciones FT-08</p>
             </td>
@@ -206,7 +235,10 @@
             <td><input type="radio" name="c10" value="no"  [(ngModel)]="fc07.c10"></td>
           </tr>
           <tr>
-            <td><p>{{ ff821.d }}/{{ month821 }}/{{ ff821.a }}</p></td>
+            <td>
+              <p *ngIf="month821">{{ ff821.d }}/{{ month821 }}/{{ ff821.a }}</p>
+              <p *ngIf="!month821">N/A</p>
+            </td>
             <td>
               <p>Informe de no conformidad de proyecto FT-08</p>
             </td>
@@ -218,7 +250,10 @@
               <p>¿Contiene el articulo, sección o inciso de la norma?</p>
               <p>Indica la etapa, código</p>
             </td>
-            <td><p>{{ ff11.d }}/{{ month11 }}/{{ ff11.a }}</p></td>
+            <td>
+              <p *ngIf="month11">{{ ff11.d }}/{{ month11 }}/{{ ff11.a }}</p>
+              <p *ngIf="!month11">N/A</p>
+            </td>
             <td>
               <p>Informe de pruebas requeridas en el punto 6.6 PEC FT-11</p>
             </td>
@@ -226,7 +261,10 @@
             <td><input type="radio" name="c12" value="no"  [(ngModel)]="fc07.c12"></td>
           </tr>
           <tr>
-            <td><p>{{ ff152.d }}/{{ month152 }}/{{ ff152.a }}</p></td>
+            <td>
+              <p *ngIf="month152">{{ ff152.d }}/{{ month152 }}/{{ ff152.a }}</p>
+              <p *ngIf="!month152">N/A</p>
+            </td>
             <td>
               <p>Reporte Técnico de proyecto FT-15</p>
             </td>
@@ -237,7 +275,10 @@
               <p>¿Describe las actividades realizadas en la revisión proyecto y/o visita a la instalación?</p>
               <p>¿Se llenan todos los campos incluyendo ámbito,circunstancias,hora de inicio y termino?</p>
             </td>
-            <td><p>{{ ff9.d }}/{{ month9 }}/{{ ff9.a }}</p></td>
+            <td>
+              <p *ngIf="month9">{{ ff9.d }}/{{ month9 }}/{{ ff9.a }}</p>
+              <p *ngIf="!month9">N/A</p>
+            </td>
             <td>
               <p>Registro de materiales aprobados FT-09</p>
             </td>
@@ -245,7 +286,10 @@
             <td><input type="radio" name="c14" value="no"  [(ngModel)]="fc07.c14"></td>
           </tr>
           <tr>
-            <td><p>{{ ff822.d }}/{{ month822 }}/{{ ff822.a }}</p></td>
+            <td>
+              <p *ngIf="month822">{{ ff822.d }}/{{ month822 }}/{{ ff822.a }}</p>
+              <p *ngIf="!month822">N/A</p>
+            </td>
             <td>
               <p>Informe de cierre de no conformidad de proyecto FT-08</p>
             </td>
@@ -257,7 +301,10 @@
               <p>¿Contiene el articulo, sección o inciso de la norma?</p>
               <p>¿Hace referencia al informe de incumplimientos py/inst entregado con anterioridad?</p>
             </td>
-            <td><p>{{ ff12.d }}/{{ month12 }}/{{ ff12.a }}</p></td>
+            <td>
+              <p *ngIf="month12">{{ ff12.d }}/{{ month12 }}/{{ ff12.a }}</p>
+              <p *ngIf="!month12">N/A</p>
+            </td>
             <td>
               <p>Dictamen de Verificación de la NOM-001-SEDE-2012 FT-12</p>
             </td>
@@ -273,7 +320,10 @@
                 <b style="padding: 0.5em 4em; border: 1px solid #000; margin-left:0.5em;"> NOM-001-SEDE-2012</b>
               </p>
             </td>
-            <td><p>{{ ff13.d }}/{{ month13 }}/{{ ff13.a }}</p></td>
+            <td>
+              <p *ngIf="month13">{{ ff13.d }}/{{ month13 }}/{{ ff13.a }}</p>
+              <p *ngIf="!month13">N/A</p>
+            </td>
             <td>
               <p>Portada de dictamen FT-13</p>
             </td>
@@ -289,13 +339,13 @@
       <button class="volver_ no-print" (click)="goBack()">
         Volver
       </button>
-      <button class="imprimir_ no-print" onclick="window.print()">
+      <!-- <button class="imprimir_ no-print" onclick="window.print()">
         Imprimir
-      </button>
+      </button> -->
       <button class="guardar_ no-print" (click)="submitClientData()">
         Guardar
       </button>
-      <button class="pdf_ no-print" (click)="savePDF()">
+      <button class="imprimir_ no-print" (click)="savePDF()">
         PDF
       </button> 
     </div>

@@ -69,7 +69,14 @@
                 <b>No Conforme</b>
                 <input type="radio" name="c1" value="no" [(ngModel)]="ft11.c1" (change)="conf1($event.target.value)">
               </p>
-              <p>Equipo utilizado: <input type="text" style="margin-right: 6em;" [(ngModel)]="ft11.e1"> Fecha de ejecución: <b *ngIf="client">{{ client.fft11}}</b></p>
+              <p>Equipo utilizado: <input type="text" style="margin-right: 6em;" [(ngModel)]="ft11.e1">
+                <select name="tension" [(ngModel)]="ft11.e1" class="no-print">
+                  <option value="Megger">Megger</option>
+                  <option value="Multímetro">Multímetro</option>
+                  <option value="Medidor de tierras">Medidor de tierras</option>
+                  <option value="">otro</option>
+                </select>
+                 Fecha de ejecución: <b *ngIf="client">{{ client.fft11}}</b></p>
               <p><b>Parámetro:</b> NOM-001-SEDE-2012 (Sección 110-7). En la instalación eléctrica o parte de ella si los
                 conductores están libres de corto circuitos se acepta. Se rechaza en caso de haber corto circuitos.</p>
             </td>
@@ -83,7 +90,14 @@
                 <b>No Conforme</b>
                 <input type="radio" name="c2" value="no" [(ngModel)]="ft11.c2" (change)="conf2($event.target.value)">
               </p>
-              <p>Equipo utilizado: <input type="text" style="margin-right: 6em;" [(ngModel)]="ft11.e2"> Fecha de ejecución: <b *ngIf="client">{{ client.fft11}}</b></p>
+              <p>Equipo utilizado: <input type="text" style="margin-right: 6em;" [(ngModel)]="ft11.e2">
+                <select name="tension" [(ngModel)]="ft11.e2" class="no-print">
+                  <option value="Megger">Megger</option>
+                  <option value="Multímetro">Multímetro</option>
+                  <option value="Medidor de tierras">Medidor de tierras</option>
+                  <option value="">otro</option>
+                </select>
+                Fecha de ejecución: <b *ngIf="client">{{ client.fft11}}</b></p>
               <p><b>Parámetro:</b> Conforme a lo establecido en la norma NOM-001-SEDE-2012 (Sección 300-10).</p>
             </td>
           </tr>
@@ -97,7 +111,14 @@
                 <input type="radio" name="c3" value="no" [(ngModel)]="ft11.c3" (change)="conf3($event.target.value)">
               </p>
               <p>Resultado de puesta a tierra del sistema: <input type="text"  [(ngModel)]="ft11.r3a"></p>
-              <p>Equipo utilizado: <input type="text" style="margin-right: 6em;" [(ngModel)]="ft11.e3"> Fecha de ejecución: <b *ngIf="client">{{ client.fft11}}</b></p>
+              <p>Equipo utilizado: <input type="text" style="margin-right: 6em;" [(ngModel)]="ft11.e3"> 
+                <select name="tension" [(ngModel)]="ft11.e3" class="no-print">
+                  <option value="Megger">Megger</option>
+                  <option value="Multímetro">Multímetro</option>
+                  <option value="Medidor de tierras">Medidor de tierras</option>
+                  <option value="">otro</option>
+                </select>
+                Fecha de ejecución: <b *ngIf="client">{{ client.fft11}}</b></p>
               <p><b>Parámetro:</b> Conforme a lo establecido en la norma NOM-001-SEDE- 2012 (Sección 921-25, a) y b),
                 para subestaciones.</p>
               <table style="margin: 0 10mm 0 18mm; width: 70%; border: none;">
@@ -207,13 +228,13 @@
       <button class="volver_ no-print" (click)="goBack()">
         Volver
       </button>
-      <button class="imprimir_ no-print" onclick="window.print()">
+      <!-- <button class="imprimir_ no-print" onclick="window.print()">
         Imprimir
-      </button>
+      </button> -->
       <button class="guardar_ no-print" (click)="submitClientData()">
         Guardar
       </button>
-      <button class="pdf_ no-print" (click)="savePDF()">
+      <button class="imprimir_ no-print" (click)="savePDF()">
         PDF
       </button> 
     </div>

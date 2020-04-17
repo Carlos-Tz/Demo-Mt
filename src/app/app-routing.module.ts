@@ -32,14 +32,16 @@ const routes: Routes = [
   {path: 'ft-03/:key', component: Ft03Component},
   {path: 'ft-05/:key', component: Ft05Component},
   {path: 'ft-09/:key', component: Ft09Component},
-  {path: 'ft-081/:key/:key2/:type', component: Ft08incie1Component},
+  /* {path: 'ft-081/:key/:key2/:type', component: Ft08incie1Component}, */
+  {path: 'ft-08/:key/:type', component: Ft08incie1Component},
   {path: 'ft-11/:key', component: Ft11Component},
   {path: 'ft-10/:key', component: Ft10Component},
   {path: 'ft-10/:key/:key2', component: EditFt10Component},
-  // {path: 'ft-06/:key', component: Ft06Component},
-  {path: 'ft-06/:key', component: Nft06Component},
-  {path: 'ft-06/:key/:key2', component: EditFt06Component},
-  {path: 'ft-07/:key/:key2/:type', component: Ft07Component},
+  {path: 'ft-06/:key', component: Ft06Component},
+  /* {path: 'ft-06/:key', component: Nft06Component},
+  {path: 'ft-06/:key/:key2', component: EditFt06Component}, */
+  /* {path: 'ft-07/:key/:key2/:type', component: Ft07Component}, */
+  {path: 'ft-07/:key/:type', component: Ft07Component},
   {path: 'panel', component: ListaComponent},
   {path: 'panel/:key', component: PanelComponent},
   {path: 'nuevo', component: CotizacionComponent},

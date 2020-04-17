@@ -1,304 +1,3 @@
-<!-- <div class="app">
-  <section>
-    <div class="page">
-      <div class="inner">
-        
-          <h3 style="text-align: center;">Actualizar Expediente</h3>
-          <table id="tab1">
-            <tr>
-              <th>
-                <span class="line">Datos del Solicitante </span>
-              </th>
-            </tr>
-          </table>
-          <form [formGroup]="clientForm" (ngSubmit)="submitClientData()" novalidate autocomplete="off">
-          <table id="tab3">
-            <tr>
-              <td [ngClass]="{'green':datos.razon}">
-                <span class="line">Razón Social: </span>
-                <input class="line1 focusNext" type="text" formControlName="razon" placeholder="**" [(ngModel)]="datos.razon" tabindex="0">
-              </td>
-            </tr>
-          </table>
-          <table id="tab3">
-            <tr>
-              <td [ngClass]="{'green':datos.giro}">
-                <span class="line">Giro: </span>
-                <input class="line1 focusNext" type="text" formControlName="giro" placeholder="**" [(ngModel)]="datos.giro" tabindex="1">
-              </td>
-            </tr>
-          </table>
-          <table id="tab3">
-            <tr>
-              <td [ngClass]="{'green':datos.nocontrol}">
-                <span class="line">No. de Control Interno: </span>
-                <input class="line1 focusNext" type="text" formControlName="nocontrol" placeholder="**" [(ngModel)]="datos.nocontrol" tabindex="2">
-              </td>
-            </tr>
-          </table>
-          <table id="tab3">
-            <tr>
-              <td [ngClass]="{'green':datos.nombre}">
-                <span class="line">Nombre del Responsable: </span>
-                <input class="line1 focusNext" type="text" formControlName="nombre" placeholder="**" [(ngModel)]="datos.nombre" tabindex="3">
-              </td>
-            </tr>
-          </table>
-          </form>
-          
-          <table id="tab3">
-            <tr>              
-              <td class="col50" [ngClass]="{'green':datos.fechai}">
-                <span class="line">Fecha Inicio: </span>
-                <input class="line2" type="date" [(ngModel)]="datos.fechai">
-              </td>
-              <td class="col50" [ngClass]="{'green':datos.correo}">
-                <span class="line">Correo electrónico: </span>
-                <input class="line2 focusNext" type="text" [(ngModel)]="datos.correo" tabindex="4">
-              </td>
-            </tr>
-          </table>
-          <table id="tab3">
-            <tr>
-              <td class="col50" [ngClass]="{'green':datos.tel}">
-                <span class="line">Teléfono: </span>
-                <input class="line2 focusNext" type="text" [(ngModel)]="datos.tel" tabindex="5">
-              </td>
-              <td class="col50" [ngClass]="{'green':datos.fax}">
-                <span class="line">Fax: </span>
-                <input class="line2 focusNext" type="text" [(ngModel)]="datos.fax" tabindex="6">
-              </td>
-            </tr>
-          </table>
-          
-          <table id="tab3">
-            <tr>              
-              <td class="col50" [ngClass]="{'green':datos.rfc}">
-                <span class="line">RFC: </span>
-                <input class="line2 focusNext" type="text" [(ngModel)]="datos.rfc" tabindex="7">
-              </td>
-              <td class="col50" [ngClass]="{'green':datos.logo}">
-                <span class="line">Logo: </span>
-                <input class="line2 focusNext" type="file" accept="image/*" (change)="changeListener($event)">
-              </td>
-            </tr>
-          </table>
-          <table id="tab3">
-            <tr>
-              <td [ngClass]="{'green':datos.calle}">
-                <span class="line">Calle y No.: </span>
-                <input class="line1 focusNext" type="text" [(ngModel)]="datos.calle" tabindex="8">
-              </td>
-            </tr>
-          </table>
-          <table id="tab3">
-            <tr>
-              <td [ngClass]="{'green':datos.colonia}">
-                <span class="line">Colonia o Población: </span>
-                <input class="line1 focusNext" type="text" [(ngModel)]="datos.colonia" tabindex="9">
-              </td>
-            </tr>
-          </table>
-          <table id="tab3">
-            <tr>
-              <td [ngClass]="{'green':datos.munic}">
-                <span class="line">Municipio o Delegación: </span>
-                <input class="line1 focusNext" type="text" [(ngModel)]="datos.munic" tabindex="10">
-              </td>
-            </tr>
-          </table>
-          <table id="tab2">
-            <tr>
-              <td class="col50" [ngClass]="{'green':datos.estado}">
-                <span class="line">Ciudad o Estado: </span>
-                <input class="line2 focusNext" type="text" [(ngModel)]="datos.estado" tabindex="11">
-              </td>
-              <td class="col50" [ngClass]="{'green':datos.cp}">
-                <span class="line">C.P.: </span>
-                <input class="line2 focusNext" type="number" [(ngModel)]="datos.cp" tabindex="12">
-              </td>
-            </tr>
-          </table>
-
-          <br>
-          <table id="tab1">
-            <tr>
-              <th>
-                <span class="line">Datos del Servicio </span>
-              </th>
-            </tr>
-          </table>
-          <table id="tab3">
-            <tr>
-              <td [ngClass]="{'green':datos.tipos}">
-                <span class="line">Tipo de Servicio: </span>
-                <input class="line1 focusNext" type="text" [(ngModel)]="datos.tipos" tabindex="13">
-              </td>
-            </tr>
-          </table>
-          <table id="tab3">
-            <tr>
-              <td class="col50" [ngClass]="{'green':datos.planos}">
-                <span class="line">Planos: </span>
-                <input class="line1 focusNext" type="text" [(ngModel)]="datos.planos" tabindex="14">
-              </td>              
-              <td class="col50" [ngClass]="{'green':datos.fechaf}">
-                <span class="line">Fecha Termino: </span>
-                <input class="line1" type="date" [(ngModel)]="datos.fechaf">
-              </td>              
-            </tr>
-          </table>
-          <table id="tab3">
-            <tr>
-              <td class="col50" [ngClass]="{'green':datos.tension}">
-                <span class="line">Tensión: </span>
-                <select name="tension" [(ngModel)]="datos.tension">
-                  <option value="Baja" selected>Baja</option>
-                  <option value="Media">Media</option>
-                  <option value="Alta">Alta</option>
-                </select>
-              </td>
-              <td class="col50" [ngClass]="{'green':datos.pedido}">
-                  <span class="line">No de Pedido: </span>
-                  <input class="focusNext" type="number" [(ngModel)]="datos.pedido" tabindex="15">
-                </td>
-            </tr>
-          </table>
-          <table id="tab3">
-            <tr>
-              <td class="col50" [ngClass]="{'green':datos.cargai}">
-                <span class="line">Carga Instalada: </span>
-                <input class="focusNext" type="number" step="0.01" min="0" [(ngModel)]="datos.cargai" placeholder="kW" tabindex="16">
-              </td>
-              <td class="col50" [ngClass]="{'green':datos.alcance}">
-                <span class="line">Alcance de la Verif.: </span>
-                <input class="focusNext" type="number" step="0.01" min="0" [(ngModel)]="datos.alcance" placeholder="kW" tabindex="17">
-              </td>
-            </tr>
-          </table>
-          <table id="tab3">
-            <tr>
-              <td class="col50" [ngClass]="{'green':datos.factor}">
-                <span class="line">Factor de Demanda: </span>
-                <input class="focusNext" type="number" min="0" max="100" [(ngModel)]="datos.factor" placeholder="%" tabindex="18">
-              </td>
-              <td class="col50" [ngClass]="{'green':datos.cargadem}">
-                <span class="line">Carga Demandada: </span>
-                <input class="focusNext" type="number" step="0.001" min="0" [(ngModel)]="datos.cargadem" placeholder="kW" tabindex="19">
-              </td>
-            </tr>
-          </table>
-          <table id="tab3">
-            <tr>
-              <td class="col50" [ngClass]="{'green':datos.corriente}">
-                <span class="line">Corriente Demandada: </span>
-                <input class="focusNext" type="number" step="0.01" min="0" [(ngModel)]="datos.corriente" placeholder="Amps" tabindex="20">
-              </td>
-              <td class="col50" [ngClass]="{'green':datos.volts}">
-                <span class="line">Voltaje: </span>
-                <input class="focusNext" type="text" [(ngModel)]="datos.volts" placeholder="220/127 v" tabindex="21">
-              </td>
-            </tr>
-          </table>
-          <table id="tab3">
-            <tr>
-              <td class="col50" [ngClass]="{'green':datos.sub}">
-                <span class="line">Cap. de Subestación: </span>
-                <input class="focusNext" type="number" step="0.01" min="0" [(ngModel)]="datos.sub" placeholder="kVA" tabindex="22">
-              </td>
-              <td class="col50" [ngClass]="{'green':datos.area}">
-                <span class="line">Área electrificada: </span>
-                <input class="focusNext" type="number" step="0.01" min="0" [(ngModel)]="datos.area" placeholder="m2" tabindex="23">
-              </td>
-            </tr>
-          </table>
-          <table id="tab3">
-            <tr>
-              <td class="col50" [ngClass]="{'green':datos.costo}">
-                <span class="line">Costo: $ </span>
-                <input class="focusNext" type="number" [(ngModel)]="datos.costo" min="0" (change)="costo($event.target.value)" tabindex="24">
-              </td>
-              <td class="col50" [ngClass]="{'green':datos.instal}">
-                <span class="line">Tipo de área: </span>
-                <select name="instal" [(ngModel)]="datos.instal">
-                  <option value="publica" selected>Concentración pública</option>
-                  <option value="peligrosa">Área peligrosa</option>
-                </select>
-              </td>
-            </tr>
-          </table>
-          <table id="tab3">
-            <tr>
-              <td [ngClass]="{'green':datos.costol}">
-                <span class="line">Costo con letra: </span>
-                <input class="line1" type="text" [(ngModel)]="datos.costol" value={{costol}}>
-              </td>
-            </tr>
-          </table>
-          <table id="tab3">
-            <tr>
-              <td [ngClass]="{'green':datos.ambien}">
-                <span class="line">Ambientes especiales: </span>
-                <label><span class="line">Si</span>
-                  <input type="radio" name="ambien" [(ngModel)]="datos.ambien" value="si">
-                </label>
-                <label><span class="line">No</span>
-                  <input type="radio" name="ambien" [(ngModel)]="datos.ambien" value="no">
-                </label>
-              </td>
-            </tr>
-          </table>
-          <table id="tab3">
-            <tr>
-              <td [ngClass]="{'green':datos.memo}">
-                <span class="line">Memoria Técnica: </span>
-                <label><span class="line">Si</span>
-                  <input type="radio" name="memo" value="si" [(ngModel)]="datos.memo">
-                </label>
-                <label><span class="line">No</span>
-                  <input type="radio" name="memo" value="no" [(ngModel)]="datos.memo">
-                </label>
-              </td>
-            </tr>
-          </table>
-          <br>
-          <table id="tab1">
-            <tr>
-              <th>
-                <span class="line">Datos UVIE </span>
-              </th>
-            </tr>
-          </table>
-          <table id="tab3">
-            <tr>
-              <td [ngClass]="{'green':datos.nombreuv}">
-                <span class="line">Responsable UVIE: </span>
-                <input class="line1 focusNext" type="text" [(ngModel)]="datos.nombreuv" tabindex="25">
-              </td>
-            </tr>
-          </table>
-          <table id="tab3">
-            <tr>
-              <td [ngClass]="{'green':datos.cargouv}">
-                <span class="line">Cargo: </span>
-                <input class="line1 focusNext" type="text" [(ngModel)]="datos.cargouv" tabindex="26">
-              </td>
-            </tr>
-          </table>
-          <br>          
-        
-      </div>
-    </div>
-    <div>
-        <button class="volver_ no-print" (click)="goBack()">
-            Volver
-          </button>
-          <button class="imprimir_ no-print" (click)="submitClientData()" [disabled]="!clientForm.valid" (click)="goBack()">
-          Guardar
-        </button>
-    </div>
-  </section>
-</div> -->
 
 <app-navbar></app-navbar>
 <div class="app">
@@ -340,9 +39,21 @@
           </table>
           <table id="tab3">
             <tr>
+              <td class="col50" [ngClass]="{'green':clientForm.value.id}">
+                <span class="line">Identificación: </span>
+                <input class="line1 focusNext" type="text" formControlName="id" tabindex="3">
+              </td>
+              <td class="col50" [ngClass]="{'green':clientForm.value.folio}">
+                <span class="line">No. de Identificación o Folio: </span>
+                <input class="line3 focusNext" type="text" formControlName="folio" tabindex="4" >
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
               <td [ngClass]="{'green':clientForm.value.nomcom}">
                 <span class="line">Nombre Comercial: </span>
-                <input class="line3 focusNext" type="text" formControlName="nomcom" tabindex="3" >
+                <input class="line3 focusNext" type="text" formControlName="nomcom" tabindex="5" >
               </td>
             </tr>
           </table>
@@ -350,19 +61,19 @@
             <tr>
               <td [ngClass]="{'green':clientForm.value.nocontrol}">
                 <span class="line">No. de Control Interno: </span>
-                <input class="line1 focusNext" type="text" formControlName="nocontrol" tabindex="4">
+                <input class="line1 focusNext" type="text" formControlName="nocontrol" tabindex="6">
               </td>
             </tr>
           </table>
           <table id="tab3">
             <tr>
               <td class="col50" [ngClass]="{'green':clientForm.value.fechai}">
-                <span class="line">Fecha de inicio (cotización): </span>
+                <span class="line">Fecha de inicio: </span>
                 <input class="focusNext" type="date" formControlName="fechai">
               </td>
               <td class="col50" [ngClass]="{'green':clientForm.value.correo}">
                 <span class="line">Correo electrónico: </span>
-                <input class="line2 focusNext" type="text" formControlName="correo" tabindex="5" >
+                <input class="line2 focusNext" type="text" formControlName="correo" tabindex="7" >
               </td>
             </tr>
           </table>
@@ -370,11 +81,11 @@
             <tr>
               <td class="col50" [ngClass]="{'green':clientForm.value.tel}">
                 <span class="line">Teléfono: </span>
-                <input class="line2 focusNext" type="text" formControlName="tel" tabindex="6" >
+                <input class="line2 focusNext" type="text" formControlName="tel" tabindex="8" >
               </td>
               <td class="col50" [ngClass]="{'green':clientForm.value.fax}">
                 <span class="line">Fax: </span>
-                <input class="line2 focusNext" type="text" formControlName="fax" tabindex="7">
+                <input class="line2 focusNext" type="text" formControlName="fax" tabindex="9">
               </td>
             </tr>
           </table>  
@@ -382,7 +93,7 @@
             <tr>              
               <td class="col50" [ngClass]="{'green':clientForm.value.rfc}">
                 <span class="line">RFC: </span>
-                <input class="line2 focusNext" type="text" formControlName="rfc" tabindex="8">
+                <input class="line2 focusNext" type="text" formControlName="rfc" tabindex="10">
               </td>
               <td class="col50" [ngClass]="{'green':clientForm.value.logo}">
                 <span class="line">Logo: </span>
@@ -394,7 +105,7 @@
             <tr>
               <td [ngClass]="{'green':clientForm.value.calle}">
                 <span class="line">Calle y No.: </span>
-                <input class="line1 focusNext" type="text" formControlName="calle" tabindex="9" >
+                <input class="line1 focusNext" type="text" formControlName="calle" tabindex="11" >
               </td>
             </tr>
           </table>
@@ -402,7 +113,7 @@
             <tr>
               <td [ngClass]="{'green':clientForm.value.colonia}">
                 <span class="line">Colonia o Población: </span>
-                <input class="line1 focusNext" type="text" formControlName="colonia" tabindex="10" >
+                <input class="line1 focusNext" type="text" formControlName="colonia" tabindex="12" >
               </td>
             </tr>
           </table>
@@ -410,7 +121,7 @@
             <tr>
               <td [ngClass]="{'green':clientForm.value.munic}">
                 <span class="line">Municipio o Delegación: </span>
-                <input class="line1 focusNext" type="text" formControlName="munic" tabindex="11" >
+                <input class="line1 focusNext" type="text" formControlName="munic" tabindex="13" >
               </td>
             </tr>
           </table>
@@ -418,11 +129,11 @@
             <tr>
               <td class="col50" [ngClass]="{'green':clientForm.value.estado}">
                 <span class="line">Ciudad o Estado: </span>
-                <input class="line2 focusNext" type="text" formControlName="estado" tabindex="12" >
+                <input class="line2 focusNext" type="text" formControlName="estado" tabindex="14" >
               </td>
               <td class="col50" [ngClass]="{'green':clientForm.value.cp}">
                 <span class="line">C.P.: </span>
-                <input class="line2 focusNext" type="number" formControlName="cp" tabindex="13" >
+                <input class="line2 focusNext" type="number" formControlName="cp" tabindex="15" >
               </td>
             </tr>
           </table>
@@ -437,7 +148,19 @@
             <tr>
               <td [ngClass]="{'green':clientForm.value.nombrers}">
                 <span class="line">Nombre: </span>
-                <input class="line1 focusNext" type="text" formControlName="nombrers" tabindex="14" >
+                <input class="line1 focusNext" type="text" formControlName="nombrers" tabindex="16" >
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td class="col50" [ngClass]="{'green':clientForm.value.id2}">
+                <span class="line">Identificación: </span>
+                <input class="line1 focusNext" type="text" formControlName="id2" tabindex="17">
+              </td>
+              <td class="col50" [ngClass]="{'green':clientForm.value.folio2}">
+                <span class="line">No. de Identificación o Folio: </span>
+                <input class="line3 focusNext" type="text" formControlName="folio2" tabindex="18" >
               </td>
             </tr>
           </table>
@@ -469,7 +192,7 @@
             <tr>
               <td class="col50" [ngClass]="{'green':clientForm.value.planos}">
                 <span class="line">Planos: </span>
-                <input class="line1 focusNext" type="text" formControlName="planos" tabindex="15">
+                <input class="line1 focusNext" type="text" formControlName="planos" tabindex="19">
               </td>              
               <td class="col50" [ngClass]="{'green':clientForm.value.fechaf}">
                 <span class="line">Fecha Termino: </span>
@@ -491,7 +214,7 @@
               </td>
               <td class="col50" [ngClass]="{'green':clientForm.value.pedido}">
                   <span class="line">No de Pedido: </span>
-                  <input class="focusNext" type="number" formControlName="pedido" tabindex="16">
+                  <input class="focusNext" type="number" formControlName="pedido" tabindex="20">
                 </td>
             </tr>
           </table>
@@ -499,11 +222,11 @@
             <tr>
               <td class="col50" [ngClass]="{'green':clientForm.value.cargai}">
                 <span class="line">Carga Instalada: </span>                
-                <input type="number" class="focusNext" step="0.01" min="0" formControlName="cargai" placeholder="kW" tabindex="17" >                
+                <input type="number" class="focusNext" step="0.01" min="0" formControlName="cargai" placeholder="kW" tabindex="21" >                
               </td>
               <td class="col50" [ngClass]="{'green':clientForm.value.alcance}">
                 <span class="line">Alcance de la Verif.: </span>
-                <input class="focusNext" type="number" step="0.01" min="0" formControlName="alcance" placeholder="kW" tabindex="18">
+                <input class="focusNext" type="number" step="0.01" min="0" formControlName="alcance" placeholder="kW" tabindex="22">
               </td>
             </tr>
           </table>
@@ -512,11 +235,11 @@
             <tr>
               <td class="col50" [ngClass]="{'green':clientForm.value.factor}">
                 <span class="line">Factor de Demanda: </span>
-                <input class="focusNext" type="number" min="0" max="100" formControlName="factor" placeholder="%" tabindex="19">
+                <input class="focusNext" type="number" min="0" max="100" formControlName="factor" placeholder="%" tabindex="23">
               </td>
               <td class="col50" [ngClass]="{'green':clientForm.value.cargadem}">
                 <span class="line">Carga Demandada: </span>
-                <input class="focusNext" type="number" step="0.001" min="0" formControlName="cargadem" placeholder="kW" tabindex="20">
+                <input class="focusNext" type="number" step="0.001" min="0" formControlName="cargadem" placeholder="kW" tabindex="24">
               </td>
             </tr>
           </table>
@@ -524,11 +247,11 @@
             <tr>
               <td class="col50" [ngClass]="{'green':clientForm.value.corriente}">
                 <span class="line">Corriente Demandada: </span>
-                <input class="focusNext" type="number" step="0.01" min="0" formControlName="corriente" placeholder="Amps" tabindex="21">
+                <input class="focusNext" type="number" step="0.01" min="0" formControlName="corriente" placeholder="Amps" tabindex="25">
               </td>
               <td class="col50" [ngClass]="{'green':clientForm.value.volts}">
                 <span class="line">Voltaje: </span>
-                <input class="focusNext" type="text" formControlName="volts" placeholder="220/127 v" tabindex="22">
+                <input class="focusNext" type="text" formControlName="volts" placeholder="220/127 v" tabindex="26">
               </td>
             </tr>
           </table>
@@ -570,11 +293,11 @@
             <tr>
               <td class="col50" [ngClass]="{'green':clientForm.value.costo}">
                 <span class="line">Costo: $ </span>
-                <input type="number" class="focusNext" formControlName="costo" min="0" step="1" (change)="costo($event.target.value)" tabindex="23" >
+                <input type="number" class="focusNext" formControlName="costo" min="0" step="1" (change)="costo($event.target.value)" tabindex="27" >
               </td>
               <td class="col50" [ngClass]="{'green':clientForm.value.cent}">
                 <span class="line">&#162; </span>
-                <input type="number" class="focusNext" formControlName="cent" min="0" max="99" tabindex="24" (change)="centavos($event.target.value)">
+                <input type="number" class="focusNext" formControlName="cent" min="0" max="99" tabindex="28" (change)="centavos($event.target.value)">
               </td>
             </tr>
           </table>
@@ -653,11 +376,23 @@
               </td>
             </tr>
           </table>
-          <table id="tab3">
+          <!-- <table id="tab3">
             <tr>
               <td [ngClass]="{'green':clientForm.value.cargouv}">
                 <span class="line">Cargo: </span>
                 <input class="line3 focusNext" type="text" formControlName="cargouv" tabindex="25" >
+              </td>
+            </tr>
+          </table> -->
+          <table id="tab3">
+            <tr>
+              <td class="col50" [ngClass]="{'green':clientForm.value.cargouv}">
+                <span class="line">Cargo: </span>
+                <input class=" line1 focusNext" type="text" formControlName="cargouv" tabindex="29">
+              </td>
+              <td class="col50" [ngClass]="{'green':clientForm.value.cedula}">
+                <span class="line">No. de Cédula profesional: </span>
+                <input class="line3 focusNext" type="text" formControlName="cedula" tabindex="30" >
               </td>
             </tr>
           </table>
@@ -756,15 +491,75 @@
               </td>
             </tr>
           </table>
+          <table id="tab3">
+            <tr>
+              <td [ngClass]="{'green':clientForm.value.fft071}">
+                <span class="line">FT-07 ACTA DE EVALUACIÓN DE LA CONFORMIDAD 1: </span>
+                <input type="date" formControlName="fft071">
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td [ngClass]="{'green':clientForm.value.fft072}">
+                <span class="line">FT-07 ACTA DE EVALUACIÓN DE LA CONFORMIDAD 2: </span>
+                <input type="date" formControlName="fft072">
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td [ngClass]="{'green':clientForm.value.fft08ie1}">
+                <span class="line">FT-08 INFORME DE NO CONFORMIDAD INSTALACIONES 1: </span>
+                <input type="date" formControlName="fft08ie1">
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td [ngClass]="{'green':clientForm.value.fft08ie2}">
+                <span class="line">FT-08 INFORME DE NO CONFORMIDAD INSTALACIONES 2: </span>
+                <input type="date" formControlName="fft08ie2">
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td [ngClass]="{'green':clientForm.value.fft08pe1}">
+                <span class="line">FT-08 INFORME DE NO CONFORMIDAD DE PROYECTO 1: </span>
+                <input type="date" formControlName="fft08pe1">
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td [ngClass]="{'green':clientForm.value.fft08pe2}">
+                <span class="line">FT-08 INFORME DE NO CONFORMIDAD DE PROYECTO 2: </span>
+                <input type="date" formControlName="fft08pe2">
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td [ngClass]="{'green':clientForm.value.fft151}">
+                <span class="line">FT-15 REPORTE TECNICO DE PROYECTO 1: </span>
+                <input type="date" formControlName="fft151">
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
+              <td [ngClass]="{'green':clientForm.value.fft152}">
+                <span class="line">FT-15 REPORTE TECNICO DE PROYECTO 2: </span>
+                <input type="date" formControlName="fft152">
+              </td>
+            </tr>
+          </table>
           <br>
         </form>
       </div>
     </div>
-    <!-- <div>
-      <button class="guardar_c no-print" (click)="submitClientData()" [disabled]="!clientForm.valid">
-        Guardar
-      </button>
-    </div> -->
+    
     <div>
       <button class="volver_ no-print" (click)="goBack()">
           Volver

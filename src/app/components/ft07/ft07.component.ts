@@ -14,7 +14,7 @@ declare const pdfExport2: any;
 })
 export class Ft07Component implements OnInit {
   public key = '';
-  public key2 = '';
+  // public key2 = '';
   public type = '';
   // public mes = '';
   public acta = false;
@@ -35,7 +35,11 @@ export class Ft07Component implements OnInit {
     nombreuv: '',
     tel: '',
     correo: '',
-    anio: ''
+    anio: '',
+    fft151: '',
+    fft152: '',
+    fft071: '',
+    fft072: ''
   };
   public ft07 = {
     name: '',
@@ -88,32 +92,110 @@ export class Ft07Component implements OnInit {
 
   ngOnInit() {
     this.key = this.actRoute.snapshot.paramMap.get('key');
-    this.key2 = this.actRoute.snapshot.paramMap.get('key2');
+    // this.key2 = this.actRoute.snapshot.paramMap.get('key2');
     this.type = this.actRoute.snapshot.paramMap.get('type');
     if (this.offlineOnlineService.isOnline) {
       if (this.clientApi.clientObject) {
         this.clientApi.clientObject.valueChanges().subscribe(data => {
           this.client = data.datos;
+          if (this.type === '71') {
+            if (this.client.fft071) {
+              this.ff = this.clientApi.splitDate(this.client.fft071);
+            }
+            if (data.ft71) {
+              this.ft07 = data.ft71;
+            } else {
+              this.initft7();
+            }
+          }
+          if (this.type === '72') {
+            if (this.client.fft072) {
+              this.ff = this.clientApi.splitDate(this.client.fft072);
+            }
+            if (data.ft72) {
+              this.ft07 = data.ft72;
+            } else {
+              this.initft7();
+            }
+          }
+          if (this.type === '151') {
+            if (this.client.fft151) {
+              this.ff = this.clientApi.splitDate(this.client.fft151);
+            }
+            if (data.ft151) {
+              this.ft07 = data.ft151;
+            } else {
+              this.initft15();
+            }
+          }
+          if (this.type === '152') {
+            if (this.client.fft152) {
+              this.ff = this.clientApi.splitDate(this.client.fft152);
+            }
+            if (data.ft152) {
+              this.ft07 = data.ft152;
+            } else {
+              this.initft15();
+            }
+          }
         });
       }
     } else {
       this.clientApi.localDb.clients
       .get(this.key).then(async (cc) => {
         this.client = cc.datos;
+        if (this.type === '71') {
+          if (this.client.fft071) {
+            this.ff = this.clientApi.splitDate(this.client.fft071);
+          }
+          if (cc.ft71) {
+            this.ft07 = cc.ft71;
+          } else {
+            this.initft7();
+          }
+        }
+        if (this.type === '72') {
+          if (this.client.fft072) {
+            this.ff = this.clientApi.splitDate(this.client.fft072);
+          }
+          if (cc.ft72) {
+            this.ft07 = cc.ft72;
+          } else {
+            this.initft7();
+          }
+        }
+        if (this.type === '151') {
+          if (this.client.fft151) {
+            this.ff = this.clientApi.splitDate(this.client.fft151);
+          }
+          if (cc.ft151) {
+            this.ft07 = cc.ft151;
+          } else {
+            this.initft15();
+          }
+        }
+        if (this.type === '152') {
+          if (this.client.fft152) {
+            this.ff = this.clientApi.splitDate(this.client.fft152);
+          }
+          if (cc.ft152) {
+            this.ft07 = cc.ft152;
+          } else {
+            this.initft15();
+          }
+        }
       })
       .catch(e => {
         this.toastr.warning('Intentalo de nuevo!!');
       });
     }
-    if (this.type === 'AECIE') {
+    /* if (this.type === 'AECIE') {
       if (this.offlineOnlineService.isOnline) {
         this.clientApi.getCurrentDataF07(this.key, this.key2).valueChanges().subscribe(data => {
           this.ft07 = data;
           this.acta = true;
           if (this.ft07.fecha) {
-           // console.log(this.ft07.fecha + 'AECIE');
             this.ff = this.clientApi.splitDate(this.ft07.fecha);
-            // this.mes = this.clientApi.monthToRoman(this.ff.m);
           }
         });
       } else {
@@ -136,9 +218,7 @@ export class Ft07Component implements OnInit {
           this.ft07 = data;
           this.acta = false;
           if (this.ft07.fecha) {
-           // console.log(this.ft07.fecha + 'RTPE');
             this.ff = this.clientApi.splitDate(this.ft07.fecha);
-            // this.mes = this.clientApi.monthToRoman(this.ff.m);
           }
         });
       } else {
@@ -154,7 +234,7 @@ export class Ft07Component implements OnInit {
           this.toastr.warning('Intentalo de nuevo!!');
         });
       }
-    }
+    } */
   }
 
   goBack = () => {
@@ -174,12 +254,34 @@ export class Ft07Component implements OnInit {
     this.ft07.firma3 = $event.target.src;
   }
 
-  submitClientData = () => {
+  /* submitClientData = () => {
     this.clientApi.UpdateFt07(this.ft07, this.key2, this.type);
+    this.toastr.success('Actualizado!');
+  } */
+  submitClientData = () => {
+    this.clientApi.UpdateFt07n(this.ft07, this.key, this.type);
     this.toastr.success('Actualizado!');
   }
 
   savePDF() {
+    pdfExport2(this.key, this.type, this.client.anio, this.client.nocontrol, 'ft-07', false);
+  }
+  /* savePDF() {
     pdfExport2(this.key, this.key2, this.type, this.client.anio, this.client.nocontrol, 'ft-07', false);
+  } */
+
+  initft7() {
+    this.ft07.tipo = 'AECIE';
+    this.ft07.name = 'ACTA DE EVALUACIÓN DE LA CONFORMIDAD';
+    this.ft07.cod = 'FT-07';
+    this.ft07.rev = 3;
+    this.ft07.vigen = '05-Dic-14';
+  }
+  initft15() {
+    this.ft07.tipo = 'RTPE';
+    this.ft07.name = 'REPORTE TÉCNICO DE PROYECTO ELÉCTRICO';
+    this.ft07.cod = 'FT-15';
+    this.ft07.rev = 5;
+    this.ft07.vigen = '17-Nov-17';
   }
 }

@@ -60,7 +60,7 @@ export class EditFt10Component implements OnInit {
         this.newft10Row.id_ = this.ft10Row.id_ + 0.01;
       }
       });
-    } else {
+    }/*  else {
       this.clientApi.localDb.ft10
       .get(this.key2).then(async (cc) => {
         this.ft10Row = cc;
@@ -71,7 +71,7 @@ export class EditFt10Component implements OnInit {
       .catch(e => {
         this.toastr.warning('Intentalo de nuevo!!');
       });
-    }
+    } */
   }
 
   updRow() {
@@ -90,6 +90,13 @@ export class EditFt10Component implements OnInit {
 
   submitClientData = () => {
     this.updRow();
+    /* if (this.newft10Row.nom || this.newft10Row.tex || this.newft10Row.tip || this.newft10Row.cri) {
+      this.addNewRow();
+    } */
+    this.location.back();
+  }
+  saveNew = () => {
+   // this.updRow();
     if (this.newft10Row.nom || this.newft10Row.tex || this.newft10Row.tip || this.newft10Row.cri) {
       this.addNewRow();
     }

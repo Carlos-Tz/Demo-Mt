@@ -90,9 +90,9 @@
 
         <p><b>Datos del solicitante de la verificaciòn</b> (responsable de la instalación) <b>7.2 III.4:</b></p><br>
 
-        <p>Nombre: <input type="text" [(ngModel)]="ft02.snom"></p>
-        <p>Identificación: <input type="text" [(ngModel)]="ft02.sid"></p>
-        <p>No. de Identificación o Folio: <input type="text" [(ngModel)]="ft02.sfol"></p><br>
+        <p>Nombre: <input *ngIf="client" type="text" [(ngModel)]="client.nombre"></p>
+        <p>Identificación: <input *ngIf="client" type="text" [(ngModel)]="client.id"></p>
+        <p>No. de Identificación o Folio: <input *ngIf="client" type="text" [(ngModel)]="client.folio"></p><br>
         <!-- <p>Domicilio: <input type="text" [(ngModel)]="ft02.sdom"></p>
         <p>CURP: <input type="text" [(ngModel)]="ft02.scur"></p>
         <p>Tel. Cel: <input type="text" [(ngModel)]="ft02.scel"></p>
@@ -100,15 +100,15 @@
 
         <p><b>Datos del responsable de atender a la UVIE tanto en proyecto como en sitio 7.2 III.4:</b></p><br>
 
-        <p>Nombre: <input type="text" [(ngModel)]="ft02.rnom"></p>
-        <p>Identificación: <input type="text" [(ngModel)]="ft02.rid"></p>
-        <p>No. de Identificación o Folio: <input type="text" [(ngModel)]="ft02.rfol"></p><br>
+        <p>Nombre: <input *ngIf="client" type="text" [(ngModel)]="client.nombrers"></p>
+        <p>Identificación: <input *ngIf="client" type="text" [(ngModel)]="client.id2"></p>
+        <p>No. de Identificación o Folio: <input *ngIf="client" type="text" [(ngModel)]="client.folio2"></p><br>
 
 
         <p><b>Datos del responsable del proyecto 7.2 III.4:</b></p><br>
 
-        <p>Nombre: <input type="text" [(ngModel)]="ft02.rpnom"></p>
-        <p>No. de cédula profesional: <input type="text" [(ngModel)]="ft02.rpfol"></p>
+        <p>Nombre: <input *ngIf="client" type="text" [(ngModel)]="client.nombreuv"></p>
+        <p>No. de cédula profesional: <input *ngIf="client" type="text" [(ngModel)]="client.cedula"></p>
         <!-- <p>Domicilio: <input type="text" [(ngModel)]="ft02.rdom"></p>
         <p>CURP: <input type="text" [(ngModel)]="ft02.rcur"></p>
         <p>Tel. Cel: <input type="text" [(ngModel)]="ft02.rcel"></p>
@@ -140,13 +140,13 @@
     <button class="volver_ no-print" (click)="goBack()">
       Volver
     </button>
-    <button class="imprimir_ no-print" onclick="window.print()">
+    <!-- <button class="imprimir_ no-print" onclick="window.print()">
       Imprimir
-    </button>
+    </button> -->
     <button class="guardar_ no-print" (click)="submitClientData()">
       Guardar
   </button>
-  <button class="pdf_ no-print" (click)="savePDF()">
+  <button class="imprimir_ no-print" (click)="savePDF()">
         PDF
       </button>
   </div>

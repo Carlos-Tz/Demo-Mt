@@ -15,7 +15,7 @@ declare const pdfExport2: any;
 export class Ft08incie1Component implements OnInit {
   public clientF: FormGroup;
   public key = '';
-  public key2 = '';
+ // public key2 = '';
   public type = '';
   public mes = '';
   public nom = false;
@@ -36,7 +36,11 @@ export class Ft08incie1Component implements OnInit {
     mes: '',
     dia: '',
     nombreuv: '',
-    cargouv: ''
+    cargouv: '',
+    fft08ie1: '',
+    fft08ie2: '',
+    fft08pe1: '',
+    fft08pe2: ''
   };
   /* public ft081 = {
     tipo: '',
@@ -92,25 +96,105 @@ export class Ft08incie1Component implements OnInit {
 
   ngOnInit() {
     this.key = this.actRoute.snapshot.paramMap.get('key');
-    this.key2 = this.actRoute.snapshot.paramMap.get('key2');
+    // this.key2 = this.actRoute.snapshot.paramMap.get('key2');
     this.type = this.actRoute.snapshot.paramMap.get('type');
     this.form();
     if (this.offlineOnlineService.isOnline) {
       if (this.clientApi.clientObject) {
         this.clientApi.clientObject.valueChanges().subscribe(data => {
           this.client = data.datos;
+          if (this.type === '8i1') {
+            this.nom = true;
+            if (this.client.fft08ie1) {
+              this.ff = this.clientApi.splitDate(this.client.fft08ie1);
+              this.mes = this.clientApi.monthToRoman(this.ff.m);
+            }
+            if (data.fti81) {
+              this.clientF.patchValue(data.fti81);
+            }
+          }
+          if (this.type === '8i2') {
+            this.nom = true;
+            if (this.client.fft08ie2) {
+              this.ff = this.clientApi.splitDate(this.client.fft08ie2);
+              this.mes = this.clientApi.monthToRoman(this.ff.m);
+            }
+            if (data.fti82) {
+              this.clientF.patchValue(data.fti82);
+            }
+          }
+          if (this.type === '8p1') {
+            this.nom = false;
+            if (this.client.fft08pe1) {
+              this.ff = this.clientApi.splitDate(this.client.fft08pe1);
+              this.mes = this.clientApi.monthToRoman(this.ff.m);
+            }
+            if (data.ftp81) {
+              this.clientF.patchValue(data.ftp81);
+            }
+          }
+          if (this.type === '8p2') {
+            this.nom = false;
+            if (this.client.fft08pe2) {
+              this.ff = this.clientApi.splitDate(this.client.fft08pe2);
+              this.mes = this.clientApi.monthToRoman(this.ff.m);
+            }
+            if (data.ftp82) {
+              this.clientF.patchValue(data.ftp82);
+            }
+          }
         });
       }
     } else {
       this.clientApi.localDb.clients
       .get(this.key).then(async (cc) => {
         this.client = cc.datos;
+        if (this.type === '8i1') {
+          this.nom = true;
+          if (this.client.fft08ie1) {
+            this.ff = this.clientApi.splitDate(this.client.fft08ie1);
+            this.mes = this.clientApi.monthToRoman(this.ff.m);
+          }
+          if (cc.fti81) {
+            this.clientF.patchValue(cc.fti81);
+          }
+        }
+        if (this.type === '8i2') {
+          this.nom = true;
+          if (this.client.fft08ie2) {
+            this.ff = this.clientApi.splitDate(this.client.fft08ie2);
+            this.mes = this.clientApi.monthToRoman(this.ff.m);
+          }
+          if (cc.fti82) {
+            this.clientF.patchValue(cc.fti82);
+          }
+        }
+        if (this.type === '8p1') {
+          this.nom = false;
+          if (this.client.fft08pe1) {
+            this.ff = this.clientApi.splitDate(this.client.fft08pe1);
+            this.mes = this.clientApi.monthToRoman(this.ff.m);
+          }
+          if (cc.ftp81) {
+            this.clientF.patchValue(cc.ftp81);
+          }
+        }
+        if (this.type === '8p2') {
+          this.nom = false;
+          if (this.client.fft08pe2) {
+            this.ff = this.clientApi.splitDate(this.client.fft08pe2);
+            this.mes = this.clientApi.monthToRoman(this.ff.m);
+          }
+          if (cc.ftp82) {
+            this.clientF.patchValue(cc.ftp82);
+          }
+        }
       })
       .catch(e => {
         this.toastr.warning('Intentalo de nuevo!!');
       });
     }
-      if (this.type === 'NOM') {
+      /* if (this.type === 'NOM') {
         if (this.offlineOnlineService.isOnline) {
           this.clientApi.getCurrentDataF81(this.key, this.key2).valueChanges().subscribe(data => {
             this.clientF.patchValue(data);
@@ -136,8 +220,8 @@ export class Ft08incie1Component implements OnInit {
             this.toastr.warning('Intentalo de nuevo!!');
           });
         }
-      }
-      if (this.type === 'PEC') {
+      } */
+      /* if (this.type === 'PEC') {
         if (this.offlineOnlineService.isOnline) {
           this.clientApi.getCurrentDataF82(this.key, this.key2).valueChanges().subscribe(data => {
             this.clientF.patchValue(data);
@@ -163,7 +247,7 @@ export class Ft08incie1Component implements OnInit {
             this.toastr.warning('Intentalo de nuevo!!');
           });
         }
-      }
+      } */
   }
 
   goBack = () => {
@@ -171,13 +255,20 @@ export class Ft08incie1Component implements OnInit {
   }
 
   submitClientData = () => {
-    this.clientApi.UpdateFt08INCIE1(this.clientF.value, this.key2, this.type);
+    this.clientApi.UpdateFt08(this.clientF.value, this.key, this.type);
     this.toastr.success('Actualizado!');
   }
+  /* submitClientData = () => {
+    this.clientApi.UpdateFt08INCIE1(this.clientF.value, this.key2, this.type);
+    this.toastr.success('Actualizado!');
+  } */
 
   savePDF() {
-    pdfExport2(this.key, this.key2, this.type, this.client.anio, this.client.nocontrol, 'ft-081', true);
+    pdfExport2(this.key, this.type, this.client.anio, this.client.nocontrol, 'ft-081', true);
   }
+  /* savePDF() {
+    pdfExport2(this.key, this.key2, this.type, this.client.anio, this.client.nocontrol, 'ft-081', true);
+  } */
 
   form() {
     this.clientF = this.fb.group({

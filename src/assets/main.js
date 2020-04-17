@@ -10,7 +10,7 @@ var canvas3 = document.getElementById('canvas3');
 var modal4 = document.getElementById('myModal4');
 var span4 = document.getElementById("close4");
 var canvas4 = document.getElementById('canvas4');
-const {remote} = require('electron');
+const {remote, ipcRenderer} = require('electron');
 const {BrowserWindow, dialog, shell} = remote;
 const fs = require('fs');
 
@@ -144,224 +144,17 @@ document.addEventListener('keypress', function(evt) {
     }
   });
 
- /*  function pdfCaratula(id, anio, nocontrol) {
-    print_win = new BrowserWindow({show: false, webPreferences: { nodeIntegration: true }});
-    print_win.loadURL(`file://${__dirname}/index.html#/caratula/${id}`);
-    print_win.webContents.on('did-finish-load', function() {
-        if (!print_win) {
-          dialog.showErrorBox('Error', "Algo ha salido mal!");
-          return;
-        }
-        dialog.showSaveDialog(print_win, {defaultPath: `caratula_${nocontrol}_20${anio}__${id}`, filters: [{name: 'PDF', extensions: ['pdf']}]}, function(file_path) {
-          if (file_path) {
-            print_win.webContents.printToPDF({ pageSize: 'Letter'}, function(err, data) {
-              if (err) {
-                dialog.showErrorBox('Error', err);
-                return;
-              }
-              fs.writeFile(file_path, data, function(err) {
-                if (err) {
-                  dialog.showErrorBox('Error', err);
-                  return;
-                }
-                print_win = null;
-              });
-            });
-          }
-        });
-      });
+  function pdfExport(id, anio, nocontrol, tipo, land) {
+    ipcRenderer.send('var-in', [id, anio, nocontrol, tipo, land]);
   }
 
-  function pdfFt01(id, anio, nocontrol) {
-    print_win = new BrowserWindow({show: false, webPreferences: { nodeIntegration: true }});
-    print_win.loadURL(`file://${__dirname}/index.html#/ft-01/${id}`);
-    print_win.webContents.on('did-finish-load', function() {
-        if (!print_win) {
-          dialog.showErrorBox('Error', "Algo ha salido mal!");
-          return;
-        }
-        dialog.showSaveDialog(print_win, {defaultPath: `ft01_${nocontrol}_20${anio}__${id}`, filters: [{name: 'PDF', extensions: ['pdf']}]}, function(file_path) {
-          if (file_path) {
-            print_win.webContents.printToPDF({ pageSize: 'Letter'}, function(err, data) {
-              if (err) {
-                dialog.showErrorBox('Error', err);
-                return;
-              }
-              fs.writeFile(file_path, data, function(err) {
-                if (err) {
-                  dialog.showErrorBox('Error', err);
-                  return;
-                }
-                print_win = null;
-              });
-            });
-          }
-        });
-      });
+  function pdfExport2(id, id2, type, anio, nocontrol, tipo, land) {
+    ipcRenderer.send('var-in2', [id, id2, type, anio, nocontrol, tipo, land]);
+    // dialog.showMessageBox(null, options);
   }
-  function pdfFt02(id, anio, nocontrol) {
-    print_win = new BrowserWindow({show: false, webPreferences: { nodeIntegration: true }});
-    print_win.loadURL(`file://${__dirname}/index.html#/ft-02/${id}`);
-    print_win.webContents.on('did-finish-load', function() {
-        if (!print_win) {
-          dialog.showErrorBox('Error', "Algo ha salido mal!");
-          return;
-        }
-        dialog.showSaveDialog(print_win, {defaultPath: `ft02_${nocontrol}_20${anio}__${id}`, filters: [{name: 'PDF', extensions: ['pdf']}]}, function(file_path) {
-          if (file_path) {
-            print_win.webContents.printToPDF({ pageSize: 'Letter'}, function(err, data) {
-              if (err) {
-                dialog.showErrorBox('Error', err);
-                return;
-              }
-              fs.writeFile(file_path, data, function(err) {
-                if (err) {
-                  dialog.showErrorBox('Error', err);
-                  return;
-                }
-                print_win = null;
-              });
-            });
-          }
-        });
-      });
-  }
-  function pdfFt03(id, anio, nocontrol) {
-    print_win = new BrowserWindow({show: false, webPreferences: { nodeIntegration: true }});
-    print_win.loadURL(`file://${__dirname}/index.html#/ft-03/${id}`);
-    print_win.webContents.on('did-finish-load', function() {
-        if (!print_win) {
-          dialog.showErrorBox('Error', "Algo ha salido mal!");
-          return;
-        }
-        dialog.showSaveDialog(print_win, {defaultPath: `ft03_${nocontrol}_20${anio}__${id}`, filters: [{name: 'PDF', extensions: ['pdf']}]}, function(file_path) {
-          if (file_path) {
-            print_win.webContents.printToPDF({ pageSize: 'Letter'}, function(err, data) {
-              if (err) {
-                dialog.showErrorBox('Error', err);
-                return;
-              }
-              fs.writeFile(file_path, data, function(err) {
-                if (err) {
-                  dialog.showErrorBox('Error', err);
-                  return;
-                }
-                print_win = null;
-              });
-            });
-          }
-        });
-      });
-  }
-  function pdfFt05(id, anio, nocontrol) {
-    print_win = new BrowserWindow({show: false, webPreferences: { nodeIntegration: true }});
-    print_win.loadURL(`file://${__dirname}/index.html#/ft-05/${id}`);
-    print_win.webContents.on('did-finish-load', function() {
-        if (!print_win) {
-          dialog.showErrorBox('Error', "Algo ha salido mal!");
-          return;
-        }
-        dialog.showSaveDialog(print_win, {defaultPath: `ft05_${nocontrol}_20${anio}__${id}`, filters: [{name: 'PDF', extensions: ['pdf']}]}, function(file_path) {
-          if (file_path) {
-            print_win.webContents.printToPDF({ pageSize: 'Letter', landscape: true,}, function(err, data) {
-              if (err) {
-                dialog.showErrorBox('Error', err);
-                return;
-              }
-              fs.writeFile(file_path, data, function(err) {
-                if (err) {
-                  dialog.showErrorBox('Error', err);
-                  return;
-                }
-                print_win = null;
-              });
-            });
-          }
-        });
-      });
-  }
-  function pdfFt06(id, anio, nocontrol) {
-    print_win = new BrowserWindow({show: false, webPreferences: { nodeIntegration: true }});
-    print_win.loadURL(`file://${__dirname}/index.html#/ft-06/${id}`);
-    print_win.webContents.on('did-finish-load', function() {
-        if (!print_win) {
-          dialog.showErrorBox('Error', "Algo ha salido mal!");
-          return;
-        }
-        dialog.showSaveDialog(print_win, {defaultPath: `ft06_${nocontrol}_20${anio}__${id}`, filters: [{name: 'PDF', extensions: ['pdf']}]}, function(file_path) {
-          if (file_path) {
-            print_win.webContents.printToPDF({ pageSize: 'Letter', landscape: true,}, function(err, data) {
-              if (err) {
-                dialog.showErrorBox('Error', err);
-                return;
-              }
-              fs.writeFile(file_path, data, function(err) {
-                if (err) {
-                  dialog.showErrorBox('Error', err);
-                  return;
-                }
-                print_win = null;
-              });
-            });
-          }
-        });
-      });
-  }
-  function pdfFc07(id, anio, nocontrol) {
-    print_win = new BrowserWindow({show: false, webPreferences: { nodeIntegration: true }});
-    print_win.loadURL(`file://${__dirname}/index.html#/fc-07/${id}`);
-    print_win.webContents.on('did-finish-load', function() {
-        if (!print_win) {
-          dialog.showErrorBox('Error', "Algo ha salido mal!");
-          return;
-        }
-        dialog.showSaveDialog(print_win, {defaultPath: `fc07_${nocontrol}_20${anio}__${id}`, filters: [{name: 'PDF', extensions: ['pdf']}]}, function(file_path) {
-          if (file_path) {
-            print_win.webContents.printToPDF({ pageSize: 'Letter', landscape: true,}, function(err, data) {
-              if (err) {
-                dialog.showErrorBox('Error', err);
-                return;
-              }
-              fs.writeFile(file_path, data, function(err) {
-                if (err) {
-                  dialog.showErrorBox('Error', err);
-                  return;
-                }
-                print_win = null;
-              });
-            });
-          }
-        });
-      });
-  }
-  function pdfFt09(id, anio, nocontrol) {
-    print_win = new BrowserWindow({show: false, webPreferences: { nodeIntegration: true }});
-    print_win.loadURL(`file://${__dirname}/index.html#/ft-09/${id}`);
-    print_win.webContents.on('did-finish-load', function() {
-        if (!print_win) {
-          dialog.showErrorBox('Error', "Algo ha salido mal!");
-          return;
-        }
-        dialog.showSaveDialog(print_win, {defaultPath: `ft09_${nocontrol}_20${anio}__${id}`, filters: [{name: 'PDF', extensions: ['pdf']}]}, function(file_path) {
-          if (file_path) {
-            print_win.webContents.printToPDF({ pageSize: 'Letter', landscape: true,}, function(err, data) {
-              if (err) {
-                dialog.showErrorBox('Error', err);
-                return;
-              }
-              fs.writeFile(file_path, data, function(err) {
-                if (err) {
-                  dialog.showErrorBox('Error', err);
-                  return;
-                }
-                print_win = null;
-              });
-            });
-          }
-        });
-      });
-  } */
-  function pdfExport(id, anio, nocontrol, tipo, land) {
+
+ 
+  /* function pdfExport(id, anio, nocontrol, tipo, land) {
     print_win = new BrowserWindow({show: false, webPreferences: { nodeIntegration: true }});
     print_win.loadURL(`file://${__dirname}/index.html#/${tipo}/${id}`);
     print_win.webContents.on('did-finish-load', function() {
@@ -388,15 +181,15 @@ document.addEventListener('keypress', function(evt) {
         });
       });
   }
-  function pdfExport2(id, id2, type, anio, nocontrol, tipo, land) {
+  function pdfExport2(id, type, anio, nocontrol, tipo, land) {
     print_win = new BrowserWindow({show: false, webPreferences: { nodeIntegration: true }});
-    print_win.loadURL(`file://${__dirname}/index.html#/${tipo}/${id}/${id2}/${type}`);
+    print_win.loadURL(`file://${__dirname}/index.html#/${tipo}/${id}/${type}`);
     print_win.webContents.on('did-finish-load', function() {
         if (!print_win) {
           dialog.showErrorBox('Error', "Algo ha salido mal!");
           return;
         }
-        dialog.showSaveDialog(print_win, {defaultPath: `${tipo}_${type}_${nocontrol}_20${anio}__${id2}`, filters: [{name: 'PDF', extensions: ['pdf']}]}, function(file_path) {
+        dialog.showSaveDialog(print_win, {defaultPath: `${tipo}_${type}_${nocontrol}_20${anio}__${id}`, filters: [{name: 'PDF', extensions: ['pdf']}]}, function(file_path) {
           if (file_path) {
             print_win.webContents.printToPDF({ pageSize: 'Letter', landscape: land,}, function(err, data) {
               if (err) {
@@ -414,4 +207,4 @@ document.addEventListener('keypress', function(evt) {
           }
         });
       });
-  }
+  } */

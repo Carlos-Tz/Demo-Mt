@@ -18,16 +18,16 @@ import { F10 } from 'src/app/models/f10';
 export class ClientComponent implements OnInit {
   public clientData: Datos;
   public key: string;
-  public ft81List: F081[];
+  /* public ft81List: F081[];
   public ft82List: F081[];
   public ft15List: Ft7[];
-  public ft07List: Ft7[];
+  public ft07List: Ft7[]; */
   public ft10List: F10[];
-  public ft06List: F10[];
+  /* public ft06List: F10[];
   public lenft81 = 0;
   public lenft82 = 0;
   public lenft15 = 0;
-  public lenft07 = 0;
+  public lenft07 = 0; */
   public off = false;
   public newF = {
     fecha: '',
@@ -56,7 +56,7 @@ export class ClientComponent implements OnInit {
           this.clientApi.Getf06(this.key);
           this.clientApi.addft06();
         } */
-        if (data.ft81) {
+        /* if (data.ft81) {
           this.clientApi.Getf81(this.key).snapshotChanges().subscribe(re => {
             this.ft81List = [];
             re.forEach(item => {
@@ -99,7 +99,7 @@ export class ClientComponent implements OnInit {
             });
             this.lenft07 = this.ft07List.length;
           });
-        }
+        } */
       });
     } else {
       this.off = true;
@@ -107,7 +107,7 @@ export class ClientComponent implements OnInit {
     }
   }
 
-  async addForm() {
+  /* async addForm() {
     if (this.newF.fecha && this.newF.tipo) {
       if (this.newF.tipo === 'NOM') {
         if (this.offlineOnlineService.isOnline) { // Online
@@ -154,42 +154,42 @@ export class ClientComponent implements OnInit {
     }
     this.newF.fecha = '';
     this.newF.tipo = '';
-  }
+  } */
 
   goBack = () => {
     this.location.back();
   }
 
   async getClientOffline (id: string) {
-    this.ft81List = [];
+    /* this.ft81List = [];
     this.ft82List = [];
     this.ft07List = [];
-    this.ft15List = [];
+    this.ft15List = []; */
     this.ft10List = [];
-    this.ft06List = [];
+    /* this.ft06List = []; */
     this.clientApi.localDb.clients
       .get(id).then(async (client) => {
         this.clientData = client.datos;
-        this.ft10List = await this.clientApi.localDb.ft10.where('client').equals(id).toArray();
+        /* this.ft10List = await this.clientApi.localDb.ft10.where('client').equals(id).toArray();
         if (this.ft10List.length === 0) {
           this.clientApi.addFt10Offline(id);
-        }
-        this.ft06List = await this.clientApi.localDb.ft06.where('client').equals(id).toArray();
+        } */
+        /* this.ft06List = await this.clientApi.localDb.ft06.where('client').equals(id).toArray();
         if (this.ft06List.length === 0) {
           this.clientApi.addFt06Offline(id);
-        }
+        } */
       })
       .catch(e => {
         this.toastr.warning('Intentalo de nuevo!!');
       });
-    this.ft07List = await this.clientApi.localDb.ft07.where('client').equals(id).toArray();
+    /* this.ft07List = await this.clientApi.localDb.ft07.where('client').equals(id).toArray();
     this.lenft07 = this.ft07List.length;
     this.ft15List = await this.clientApi.localDb.ft15.where('client').equals(id).toArray();
     this.lenft15 = this.ft15List.length;
     this.ft81List = await this.clientApi.localDb.ft81.where('client').equals(id).toArray();
     this.lenft81 = this.ft81List.length;
     this.ft82List = await this.clientApi.localDb.ft82.where('client').equals(id).toArray();
-    this.lenft82 = this.ft82List.length;
+    this.lenft82 = this.ft82List.length; */
   }
 
   /* addFt10Offline (id: string) {
@@ -234,7 +234,7 @@ export class ClientComponent implements OnInit {
     this.clientApi.upfc07(this.clientData.ffc07, this.key);
     this.toastr.success('Fecha guardada!');
   } */
-  updateFt07(ft: any, key: string) {
+  /* updateFt07(ft: any, key: string) {
     if (this.offlineOnlineService.isOnline) {
       this.clientApi.upft07(ft.fecha, key, ft.$key);
     } else {
@@ -265,5 +265,5 @@ export class ClientComponent implements OnInit {
       this.clientApi.upft82Off(ft.fecha, ft.id);
     }
     this.toastr.success('Fecha guardada!');
-  }
+  } */
 }
