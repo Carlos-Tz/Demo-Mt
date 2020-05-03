@@ -79,8 +79,8 @@ export class Ft03Component implements OnInit {
           } else {
             this.cents = '00';
           }
-          if (this.client.fft03) {
-            this.ff = this.clientApi.splitDate(this.client.fft03);
+          if (this.client.fechai) {
+            this.ff = this.clientApi.splitDate(this.client.fechai);
             this.mes = this.monthToName(this.ff.m);
           }
           if (data.ft03) {
@@ -108,8 +108,8 @@ export class Ft03Component implements OnInit {
         } else {
           this.cents = '00';
         }
-        if (this.client.fft03) {
-          this.ff = this.clientApi.splitDate(this.client.fft03);
+        if (this.client.fechai) {
+          this.ff = this.clientApi.splitDate(this.client.fechai);
           this.mes = this.monthToName(this.ff.m);
         }
         if (client.ft03) {

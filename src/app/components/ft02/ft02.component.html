@@ -48,8 +48,8 @@
         <p>Capacidad de subestación: <b *ngIf="client">{{ client.sub }}</b></p>
         <p>Área electrificada: <b *ngIf="client">{{ client.area }}</b></p>
         <p>Existen Áreas Clasificadas como peligrosas:
-          <b *ngIf="client"><span *ngIf="client.instal=='peligrosa'">SI</span>
-            <span *ngIf="client.instal!=='peligrosa'">NO</span></b> (cuando sea el caso anexar el plano de
+          <b *ngIf="client"><span *ngIf="client.instal=='Áreas peligrosas'">SI</span>
+            <span *ngIf="client.instal!=='Áreas peligrosas'">NO</span></b> (cuando sea el caso anexar el plano de
           clasificación de áreas 7.3).</p>
         <p>Existen Locales con Ambientes Especiales:
           <b *ngIf="client"><span *ngIf="client.ambien=='si'">SI</span>
@@ -107,8 +107,8 @@
 
         <p><b>Datos del responsable del proyecto 7.2 III.4:</b></p><br>
 
-        <p>Nombre: <input *ngIf="client" type="text" [(ngModel)]="client.nombreuv"></p>
-        <p>No. de cédula profesional: <input *ngIf="client" type="text" [(ngModel)]="client.cedula"></p>
+        <p>Nombre: <input *ngIf="client" type="text" [(ngModel)]="client.nombrerp"></p>
+        <p>No. de cédula profesional: <input *ngIf="client" type="text" [(ngModel)]="client.foliorp"></p>
         <!-- <p>Domicilio: <input type="text" [(ngModel)]="ft02.rdom"></p>
         <p>CURP: <input type="text" [(ngModel)]="ft02.rcur"></p>
         <p>Tel. Cel: <input type="text" [(ngModel)]="ft02.rcel"></p>

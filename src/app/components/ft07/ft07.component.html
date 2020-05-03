@@ -33,54 +33,58 @@
             <tr>
               <td>
                 <p>NOMBRE, DENOMINACIÓN O RAZÓN SOCIAL DEL SOLICITANTE:</p>
-                <p> <b *ngIf="client" style="text-transform: uppercase;">{{ client.razon }}</b></p>
+                <p class="bb"> <b *ngIf="client" style="text-transform: uppercase;">{{ client.razon }}</b></p>
               </td>
             </tr>
             <tr>
-              <td>
-                <p>ACTIVIDAD: <b *ngIf="client" style="text-transform: uppercase;">{{ client.giro }}</b></p>
+              <td style="display: inline-flex;">
+                <span>ACTIVIDAD: </span> <div class="bb p" style="width: 17.4cm;"><b *ngIf="client" style="text-transform: uppercase;">{{ client.giro }}</b></div>
               </td>
             </tr>
           </table>
           <table>
             <tr>
               <td colspan="2">
-                <p>DOMICILIO DE LA INSTALACIÓN ELÉCTRICA:</p>
+                <p>DOMICILIO DE LA INSTALACIÓN ELÉCTRICA: 
+                  <span style="font-size: 1em;" *ngIf="type=='71'">(1 Instalación eléctrica)</span>
+                  <span style="font-size: 1em;" *ngIf="type=='72'">(2 Instalación eléctrica)</span>
+                  <span style="font-size: 1em;" *ngIf="type=='151'">(1 Proyecto)</span>
+                  <span style="font-size: 1em;" *ngIf="type=='152'">(2 Proyecto)</span>
+                </p>
               </td>
             </tr>
             <tr>
               <td colspan="2">
-                <p>CALLE O AVENIDA: <b *ngIf="client">{{ client.calle }}</b></p>
+                <span>CALLE O AVENIDA: </span> <input *ngIf="client" type="text" class="bb p" style="width: 16.3cm;" value="{{client.calle}}">
+                 <!-- <b *ngIf="client">{{ client.calle }}</b> -->
               </td>
             </tr>
             <tr>
-            <tr>
               <td colspan="2">
-                <p>COLONIA O POBLACIÓN: <b *ngIf="client">{{ client.colonia }}</b></p>
+                <span>COLONIA O POBLACIÓN: </span> <input type="text" class="bb p" style="width: 15.5cm;" *ngIf="client" value="{{ client.colonia }}">
               </td>
             </tr>
             <tr>
-            <tr>
               <td colspan="2">
-                <p>MUNICIPIO O DELEGACIÓN: <b *ngIf="client">{{ client.munic }}</b></p>
+                <span>MUNICIPIO O DELEGACIÓN: </span> <input class="bb p" style="width: 15cm;" *ngIf="client" value="{{ client.munic }}">
               </td>
             </tr>
             <tr>
               <td>
-                <p>CIUDAD O ESTADO: <b *ngIf="client">{{ client.estado }}</b></p>
+                <span>CIUDAD O ESTADO: </span> <input class="bb p" style="width: 9.7cm;" *ngIf="client" value="{{ client.estado }}">
               </td>
               <td>
-                <p>C.P: <b *ngIf="client">{{ client.cp }}</b></p>
+                <span>C.P: </span> <input class="bb p" style="width: 4.9cm;" *ngIf="client" value="{{ client.cp }}">
               </td>
             </tr>
             <tr>
               <td colspan="2">
-                <p>TELÉFONO: <b *ngIf="client">{{ client.tel }}</b></p>
+                <span>TELÉFONO:  </span> <input class="bb p" style="width: 17.5cm;" *ngIf="client" value="{{ client.tel }}">
               </td>
             </tr>
             <tr>
               <td colspan="2">
-                <p>CORREO ELECTRÓNICO: <b *ngIf="client">{{ client.correo }}</b></p>
+                <span>CORREO ELECTRÓNICO: </span>  <input class="bb p" style="width: 15.5cm;" *ngIf="client" value="{{ client.correo }}">
               </td>
             </tr>
           </table>
@@ -179,8 +183,12 @@
             <table>
               <tr>
                 <td>
-                  <p>Unidad de verificación de Instalaciones Eléctricas: <b *ngIf="client" style="text-transform: uppercase;">{{ client.nombreuv }}</b></p>
-                  <p>No. Registro: <b *ngIf="client">UVSEIE 448-A-{{ client.nocontrol }}/{{ ff.a }}</b></p>
+                  <p>Unidad de verificación de Instalaciones Eléctricas:
+                    <input *ngIf="client" type="text" class="bb" style="width: 6cm; text-transform: uppercase;" value="{{client.nombreuv}}">
+                    <!-- <b *ngIf="client" style="text-transform: uppercase;">{{ client.nombreuv }}</b> --></p>
+                  <p>No. Registro: 
+                    <input *ngIf="client" type="text" class="bb" style="width: 10.7cm;" value="{{client.nocontrol}}">
+                    <!-- <b *ngIf="client">UVSEIE 448-A-{{ client.nocontrol }}/{{ ff.a }}</b> --></p>
                 </td>
                 <td style="width: 250px;">
                   <div class="sign" style="margin: 0 auto;">
@@ -201,9 +209,9 @@
               <tr>
                 <td>
                   <p>Datos de la persona que atendió la visita</p>
-                  <p>Nombre: <input type="text" [(ngModel)]="ft07.nom1" class="nom"></p>
-                  <p>Identificación: <input type="text" [(ngModel)]="ft07.id1" class="id"></p>
-                  <p>Número o folio de la identificación: <input type="text" [(ngModel)]="ft07.folio1" class="fol"></p>
+                  <p>Nombre: <input *ngIf="client" type="text" [(ngModel)]="client.nombrers" class="nom"></p>
+                  <p>Identificación: <input *ngIf="client" type="text" [(ngModel)]="client.id2" class="id"></p>
+                  <p>Número o folio de la identificación: <input *ngIf="client" type="text" [(ngModel)]="client.folio2" class="fol"></p>
                   <p>Expedida por: <input type="text" [(ngModel)]="ft07.exp1" class="exp"></p>
                   <p>Dirección: <input type="text" [(ngModel)]="ft07.direc1" class="dir"></p>
                 </td>

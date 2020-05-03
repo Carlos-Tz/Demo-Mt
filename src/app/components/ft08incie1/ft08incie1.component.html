@@ -11,8 +11,8 @@
                 <h2><b>INFORME DE NO COMFORMIDAD</b></h2>
               </td>
               <td rowspan="2">
-                <p>Proyecto ( <b *ngIf="clientF.value"><span *ngIf="clientF.value.desc=='PRO'">X</span></b> ) <span style="padding-right: 3em;"></span> Memorias Técnicas Descriptivas ( )</p>
-                <p>Instalación en Sitio ( <b *ngIf="clientF.value"><span *ngIf="clientF.value.desc=='INS'">X</span></b> ) <span style="padding-right: 3em;"></span> Pruebas ( )</p>
+                <p>Proyecto ( <b *ngIf="clientF.value"><span *ngIf="type=='8p1' || type=='8p2'">X</span></b> ) <span style="padding-right: 3em;"></span> Memorias Técnicas Descriptivas ( )</p>
+                <p>Instalación en Sitio ( <b *ngIf="clientF.value"><span *ngIf="type=='8i1' || type=='8i2'">X</span></b> ) <span style="padding-right: 3em;"></span> Pruebas ( )</p>
               </td>
               <td style="padding-top: 3mm; width: 10%;">CÓDIGO: <b>FT-08</b></td>
             </tr>
@@ -41,7 +41,7 @@
             <tr>
               <th class="col1_">No</th>
               <th class="col2_">Descripción de No Conformidades</th>
-              <th class="col3_">No Conforme con la(s) seccion(es) <span *ngIf="nom">de la</span><span *ngIf="!nom">del</span> {{ clientF.value.tipo }}</th>
+              <th class="col3_">No Conforme con la(s) seccion(es) <span *ngIf="nom">de la NOM</span><span *ngIf="!nom">del PEC</span></th>
               <th class="cols_">Fecha de revisión</th>
               <th>Acciones Correctivas <p>(Por el Cliente)</p>
               </th>
@@ -53,7 +53,8 @@
               <td><textarea rows="3" formControlName="nc1"></textarea></td>
               <td><input type="date"formControlName="fr1"></td>              
               <td><textarea rows="3" formControlName="a1"></textarea></td>
-              <td><input type="date"formControlName="fs1"></td>     
+              <td *ngIf="type=='8i2' || type=='8p2'"><input type="date" formControlName="fs1"></td>     
+              <td *ngIf="type=='8i1' || type=='8p1'"><input type="text" formControlName="fs1"></td>     
             </tr>
             <tr *ngIf="clientF.value.filas > 1">
               <td style="text-align: center;"><input type="number" formControlName="n2"></td>
@@ -61,7 +62,8 @@
               <td><textarea rows="3"  formControlName="nc2"></textarea></td>
               <td><input type="date"formControlName="fr2"></td>     
               <td><textarea rows="3" formControlName="a2"></textarea></td>
-              <td><input type="date"formControlName="fs2"></td>     
+              <td *ngIf="type=='8i2' || type=='8p2'"><input type="date" formControlName="fs2"></td>     
+              <td *ngIf="type=='8i1' || type=='8p1'"><input type="text" formControlName="fs2"></td>     
             </tr>
             <tr *ngIf="clientF.value.filas > 2">
               <td style="text-align: center;"><input type="number" formControlName="n3"></td>
@@ -69,7 +71,8 @@
               <td><textarea rows="3"  formControlName="nc3"></textarea></td>
               <td><input type="date"formControlName="fr3"></td>     
               <td><textarea rows="3" formControlName="a3"></textarea></td>
-              <td><input type="date"formControlName="fs3"></td>     
+              <td *ngIf="type=='8i2' || type=='8p2'"><input type="date"formControlName="fs3"></td>     
+              <td *ngIf="type=='8i1' || type=='8p1'"><input type="text"formControlName="fs3"></td>     
             </tr>
             <tr *ngIf="clientF.value.filas > 3">
               <td style="text-align: center;"><input type="number" formControlName="n4"></td>
@@ -77,7 +80,8 @@
               <td><textarea rows="3"  formControlName="nc4"></textarea></td>
               <td><input type="date"formControlName="fr4"></td>     
               <td><textarea rows="3" formControlName="a4"></textarea></td>
-              <td><input type="date"formControlName="fs4"></td>     
+              <td *ngIf="type=='8i2' || type=='8p2'"><input type="date"formControlName="fs4"></td>     
+              <td *ngIf="type=='8i1' || type=='8p1'"><input type="text"formControlName="fs4"></td>     
             </tr>
             <tr *ngIf="clientF.value.filas > 4">
               <td style="text-align: center;"><input type="number" formControlName="n5"></td>
@@ -85,7 +89,8 @@
               <td><textarea rows="3"  formControlName="nc5"></textarea></td>
               <td><input type="date"formControlName="fr5"></td>     
               <td><textarea rows="3" formControlName="a5"></textarea></td>
-              <td><input type="date"formControlName="fs5"></td>     
+              <td *ngIf="type=='8i2' || type=='8p2'"><input type="date"formControlName="fs5"></td>     
+              <td *ngIf="type=='8i1' || type=='8p1'"><input type="text"formControlName="fs5"></td>     
             </tr>
             <tr *ngIf="clientF.value.filas > 5">
               <td style="text-align: center;"><input type="number" formControlName="n6"></td>
@@ -93,7 +98,8 @@
               <td><textarea rows="3"  formControlName="nc6"></textarea></td>
               <td><input type="date"formControlName="fr6"></td>     
               <td><textarea rows="3" formControlName="a6"></textarea></td>
-              <td><input type="date"formControlName="fs6"></td>     
+              <td *ngIf="type=='8i2' || type=='8p2'"><input type="date"formControlName="fs6"></td>     
+              <td *ngIf="type=='8i1' || type=='8p1'"><input type="text"formControlName="fs6"></td>     
             </tr>
           </table>
           </form>

@@ -33,13 +33,16 @@ export class Ft07Component implements OnInit {
     cp: '',
     giro: '',
     nombreuv: '',
+    nombrers: '',
     tel: '',
     correo: '',
     anio: '',
     fft151: '',
     fft152: '',
     fft071: '',
-    fft072: ''
+    fft072: '',
+    id2: '',
+    folio2: ''
   };
   public ft07 = {
     name: '',
@@ -137,6 +140,10 @@ export class Ft07Component implements OnInit {
             } else {
               this.initft15();
             }
+          }
+          if (this.ft07.nomycar === '') {
+            console.log('vacio');
+            this.ft07.nomycar = this.client.nombrers;
           }
         });
       }

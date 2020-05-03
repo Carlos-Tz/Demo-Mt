@@ -46,18 +46,37 @@ textarea {
     width: 100%;
     border: none;
     resize: none;
-    padding: 1.5mm;
+    padding: 0 1.5mm;
     font-size: 0.8em;
     font-family: 'Times New Roman', Times, serif;
+    line-height: 4.7mm;
+    background-size: 100% 4.7mm;
+    background-image: linear-gradient(transparent, transparent calc(4.7mm - 1px), #999 0px);
 }
-p {
+p, span {
     font-size: 0.75em;
     text-align: justify;
     margin: 1.7mm 2mm;
+}
+.p {
+    font-size: 0.75em !important;
+    text-align: justify;
+    margin: 1.1mm 2mm;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    font-weight: 600;
 }
 .tab_ {
     padding-left: 7mm;
 }
 .footer_ {
     font-size: 0.7em;
+}
+
+.bb {
+    border-bottom: 1px solid #999;
+}
+.bbb {
+    width: 100%;
 }

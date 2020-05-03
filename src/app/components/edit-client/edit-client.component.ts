@@ -102,6 +102,8 @@ export class EditClientComponent implements OnInit {
         memo: [''],
         nombreuv: [''],
         nombrers: [''],
+        nombrerp: [''],
+        fft01: [''],
         fft02: [''],
         fft03: [''],
         fft05: [''],
@@ -137,7 +139,20 @@ export class EditClientComponent implements OnInit {
         id2: [''],
         folio: [''],
         folio2: [''],
-        cedula: ['']
+        foliorp: [''],
+        cedula: [''],
+        dato1: [''],
+        dato2: [''],
+        dato3: [''],
+        dato4: [''],
+        dato5: [''],
+        dato6: [''],
+        dato7: [''],
+        dato8: [''],
+        dato9: [''],
+        dato10: [''],
+        dato11: [''],
+        dato12: ['']
     });
   }
 
@@ -237,9 +252,9 @@ export class EditClientComponent implements OnInit {
 
   changeSub(value: string) {
     if (value) {
-      if (value === 'cero') {
+      /* if (value === 'cero') {
         this.clientForm.patchValue({sub: '0.0'});
-      }
+      } */
       if (value === 'compartida') {
         this.clientForm.patchValue({sub: 'Subestación compartida'});
       }

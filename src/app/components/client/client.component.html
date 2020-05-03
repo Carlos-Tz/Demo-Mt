@@ -17,12 +17,12 @@
               </tr>
             </table>            
         </div>
-        <div class="mini-page"  [ngClass]="{'green':clientData.fechai, 'gray':!clientData.fechai}">
+        <div class="mini-page"  [ngClass]="{'green':clientData.fft01, 'gray':!clientData.fft01}">
             <p>FT-01 COTIZACIÓN</p>
             <table>
               <tr>
                 <!-- <td><img src="assets/save.svg" (click)="updateFi()"></td> -->
-                <td>Fecha: {{clientData.fechai}}</td>
+                <td>Fecha: {{clientData.fft01}}</td>
                 <td class="rigth_">
                   <!-- <img src="assets/edit.svg" [routerLink]="['/edit-coti/', key]"> -->
                   <img src="assets/eye.svg" [routerLink]="['/ft-01/', key]">
@@ -40,12 +40,12 @@
               </tr>
             </table>
         </div>
-        <div class="mini-page" [ngClass]="{'green':clientData.fft03, 'gray':!clientData.fft03}">
+        <div class="mini-page" [ngClass]="{'green':clientData.fechai, 'gray':!clientData.fechai}">
             <p>FT-03 CONTRATO</p>
              <table>
               <tr>
                 <!-- <td><img src="assets/save.svg" (click)="updateFt03()"></td> -->
-                <td>Fecha: {{clientData.fft03}}</td>
+                <td>Fecha: {{clientData.fechai}}</td>
                 <td class="rigth_"><img src="assets/eye.svg" [routerLink]="['/ft-03/', key]"></td>
               </tr>
             </table>

@@ -1,6 +1,7 @@
 export interface Datos {
     date: number;
     fechai: string;
+    fft01: string;
     fft02: string;
     fft03: string;
     fft05: string;
@@ -36,6 +37,7 @@ export interface Datos {
     folio: string;
     id2: string;
     folio2: string;
+    foliorp: string;
     cedula: string;
     tel: string;
     correo: string;
@@ -45,7 +47,7 @@ export interface Datos {
     colonia: string;
     munic: string;
     estado: string;
-    cp: number;
+    cp: string;
     logo: string;
     planos: string;
     tipos: string;
@@ -72,10 +74,23 @@ export interface Datos {
     memo: string;
     nombreuv: string;
     nombrers: string;
+    nombrerp: string;
     cargouv: string;
     pedido: number;
     fpago: string;
     vigencia: string;
     intro: string;
     intro2: string;
+    dato1: string;
+    dato2: string;
+    dato3: string;
+    dato4: string;
+    dato5: string;
+    dato6: string;
+    dato7: string;
+    dato8: string;
+    dato9: string;
+    dato10: string;
+    dato11: string;
+    dato12: string;
 }

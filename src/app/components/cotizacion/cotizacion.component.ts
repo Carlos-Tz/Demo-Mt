@@ -77,6 +77,8 @@ export class CotizacionComponent implements OnInit {
       memo: [''],
       nombreuv: [''],
       nombrers: [''],
+      nombrerp: [''],
+      fft01: [''],
       fft02: [''],
       fft03: [''],
       fft05: [''],
@@ -112,7 +114,20 @@ export class CotizacionComponent implements OnInit {
       id2: [''],
       folio: [''],
       folio2: [''],
-      cedula: ['']
+      foliorp: [''],
+      cedula: [''],
+      dato1: ['1. Solicitud de verificación de la instalación.'],
+      dato2: ['2. Identificaciòn oficial (IFE, Cartilla, Cedula Porfesional,Pasaporte o CURP) del representante del solicitante de la verifcaciòn y de la persona que atenderá la verificación.'],
+      dato3: ['3. RFC de la persona física o moral, que solicita la verificación.'],
+      dato4: ['4. Comprobante del domicilio de la instalación eléctrica.'],
+      dato5: ['5. Lista de los principales materiales utilizados en la instalación.'],
+      dato6: ['6. Lista de las principales cargas instaladas.'],
+      dato7: ['7. Diagrama unifilar general de la instalación.'],
+      dato8: ['8. Cuadro de cargas generales de la instalación.'],
+      dato9: ['9. Plano eléctrico de planta (lay-out) de la disposición de equipos.'],
+      dato10: ['10. Plano general de tierras.'],
+      dato11: ['11. Las pruebas exigidas en el numeral 6.6 del PEC vigente: Continuidad eléctrica de envolventes y canalizaciones metálicas, resistencia de electrodos artificiales y de la red de puesta a tierra, polaridad de las conexiones en los contactos.'],
+      dato12: ['12. Proyecto de las celdas solares.']
     });
   }
 
@@ -187,9 +202,9 @@ export class CotizacionComponent implements OnInit {
 
   changeSub(value: string) {
     if (value) {
-      if (value === 'cero') {
+      /* if (value === 'cero') {
         this.clientForm.patchValue({sub: '0.0'});
-      }
+      } */
       if (value === 'compartida') {
         this.clientForm.patchValue({sub: 'Subestación compartida'});
       }

@@ -10,7 +10,7 @@
                 <h2>
                   <b>COTIZACIÓN</b>
                 </h2>
-                <h4>Fecha: <b *ngIf="client">{{ client.dia }}/{{ month }}/{{ client.anio }} </b>Ref. MTI <b *ngIf="client">{{ client.dia }}/{{ month }}/{{ client.anio }}-10 </b></h4>
+                <h4>Fecha: <b *ngIf="client">{{ ff.d }}/{{ month }}/{{ ff.a }} </b>Ref. MTI <b *ngIf="client">{{ ff.d }}/{{ month }}/{{ ff.a }}-10 </b></h4>
   
               </td>
               <td style="padding-top: 3mm;">CÓDIGO: <b>FT-01</b></td>
@@ -81,16 +81,27 @@
   
           <p><b>El cliente debe proporcionar;</b></p><br>
   
-          <p class="tab_">1. Solicitud de verificación de la instalación.</p>
-          <p class="tab_">2. Identificaciòn oficial (IFE, Cartilla, Cedula Porfesional,Pasaporte o CURP) del representante
-              del solicitante de la verifcaciòn y de la persona que atenderá la verificación.</p>
-          <p class="tab_">3. RFC de la persona física o moral, que solicita la verificación.</p>
+          
+            <!-- 1. Solicitud de verificación de la instalación. -->
+            <textarea class="tab_" [(ngModel)]="client.dato1" rows="1"></textarea>
+            <!-- 2. Identificaciòn oficial (IFE, Cartilla, Cedula Porfesional,Pasaporte o CURP) del representante
+              del solicitante de la verifcaciòn y de la persona que atenderá la verificación. -->
+              <textarea class="tab_" [(ngModel)]="client.dato2" rows="2"></textarea>
+              <textarea class="tab_" [(ngModel)]="client.dato3" rows="1"></textarea>
+              <textarea class="tab_" [(ngModel)]="client.dato4" rows="1"></textarea>
+              <textarea class="tab_" [(ngModel)]="client.dato5" rows="1"></textarea>
+              <textarea class="tab_" [(ngModel)]="client.dato6" rows="1"></textarea>
+              <textarea class="tab_" [(ngModel)]="client.dato7" rows="1"></textarea>
+              <textarea class="tab_" [(ngModel)]="client.dato8" rows="1"></textarea>
+              
+              
+          <!-- <p class="tab_">3. RFC de la persona física o moral, que solicita la verificación.</p>
           <p class="tab_">4. Comprobante del domicilio de la instalación eléctrica.</p>
           <p class="tab_">5. Lista de los principales materiales utilizados en la instalación.</p>
           <p class="tab_">6. Lista de las principales cargas instaladas.</p>
           <p class="tab_">7. Diagrama unifilar general de la instalación.</p>
           <p class="tab_">8. Cuadro de cargas generales de la instalación.</p>
-          <p class="tab_">9. Plano eléctrico de planta (lay-out) de la disposición de equipos.</p>
+          <p class="tab_">9. Plano eléctrico de planta (lay-out) de la disposición de equipos.</p> -->
           
           <p class="footer_">Este documento hace las veces de contrato cuando ambas partes así lo consideren.En caso que
             “EL SOLICITANTE” en forma unilateral y sin causas imputables a “EL VERIFICADOR”, cancelará la verificación, no
@@ -112,7 +123,7 @@
                 <h2>
                   <b>COTIZACIÓN</b>
                 </h2>
-                <h4>Fecha: <b *ngIf="client">{{ client.dia }}/{{ month }}/{{ client.anio }} </b>Ref. MTI <b *ngIf="client">{{ client.dia }}/{{ month }}/{{ client.anio }}-10 </b></h4>
+                <h4>Fecha: <b *ngIf="client">{{ ff.d }}/{{ month }}/{{ ff.a }} </b>Ref. MTI <b *ngIf="client">{{ ff.d }}/{{ month }}/{{ ff.a }}-10 </b></h4>
   
               </td>
               <td style="padding-top: 3mm;">CÓDIGO: <b>FT-01</b></td>
@@ -127,10 +138,14 @@
               <td rowspan="2">Vigente a partir de: <br><b>17-Nov-17</b></td>
             </tr>
           </table>
-          <p class="tab_">10. Plano general de tierras.</p>
+          <textarea class="tab_" [(ngModel)]="client.dato9" rows="1"></textarea>
+          <textarea class="tab_" [(ngModel)]="client.dato10" rows="1"></textarea>
+              <textarea class="tab_" [(ngModel)]="client.dato11" rows="2"></textarea>
+              <textarea class="tab_" [(ngModel)]="client.dato12" rows="1"></textarea>
+          <!-- <p class="tab_">10. Plano general de tierras.</p>
           <p class="tab_">11. Las pruebas exigidas en el numeral 6.6 del PEC vigente:
               Continuidad eléctrica de envolventes y canalizaciones metálicas, resistencia de electrodos artificiales y de la red de puesta a tierra, polaridad de las conexiones en los contactos.</p>
-          <p class="tab_">12. Proyecto de las celdas solares.</p>
+          <p class="tab_">12. Proyecto de las celdas solares.</p> -->
           
           
           
@@ -155,7 +170,7 @@
           <p>8. La UVIE a través del SEDIVER generará y enviará el escrito para el informe trimestral de dictamenes de
             verificación e informe trimestral de dictamenes de verificación (anexo D).</p><br>
   
-          <p><b>El Costo:</b> “EL SOLICITANTE” se obliga a pagar a “EL VERIFICADOR” por el servicio antes descrito la cantidad de $ <b *ngIf="client">{{ client.costo }}</b> <b> + IVA, (</b><b *ngIf="client">{{ client.costol }}</b> <b> Pesos {{cents}}/100 M.N.), + IVA, a la entrega del Informe Técnico.</b>
+          <p><b>El Costo:</b> “EL SOLICITANTE” se obliga a pagar a “EL VERIFICADOR” por el servicio antes descrito la cantidad de $ <b *ngIf="client">{{ client.costo }}</b> <b> (</b><b *ngIf="client">{{ client.costol }}</b> <b> Pesos {{cents}}/100 M.N.), + IVA, a la entrega del Informe Técnico.</b>
             <b>Tiempo de entrega:</b> Si el proyecto e instalación cumplen con la NOM ,al termino de la instalación se entregara
             el dictamen.</p>
             <p><b>Vigencia: </b><input type="text" [(ngModel)]="client.vigencia"></p>

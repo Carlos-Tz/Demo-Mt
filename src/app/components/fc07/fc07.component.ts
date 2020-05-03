@@ -18,6 +18,7 @@ export class Fc07Component implements OnInit {
   public month = '';
   public monthf = '';
   public month1 = '';
+  public month01 = '';
   public month2 = '';
   public month3 = '';
   public month5 = '';
@@ -136,11 +137,13 @@ export class Fc07Component implements OnInit {
           this.client = data.datos;
           if (this.client.ffc07) {
             this.ff = this.clientApi.splitDate(this.client.ffc07); this.month = this.clientApi.monthToRoman(this.ff.m); }
-          this.month1 = this.clientApi.monthToRoman(this.client.mes);
+          this.month3 = this.clientApi.monthToRoman(this.client.mes);
           if (this.client.fft02) {
             this.ff2 = this.clientApi.splitDate(this.client.fft02); this.month2 = this.clientApi.monthToRoman(this.ff2.m); }
-          if (this.client.fft03) {
-            this.ff3 = this.clientApi.splitDate(this.client.fft03); this.month3 = this.clientApi.monthToRoman(this.ff3.m); }
+          if (this.client.fft01) {
+            this.ff1 = this.clientApi.splitDate(this.client.fft01); this.month01 = this.clientApi.monthToRoman(this.ff1.m); }
+          /* if (this.client.fft03) {
+            this.ff3 = this.clientApi.splitDate(this.client.fft03); this.month3 = this.clientApi.monthToRoman(this.ff3.m); } */
           if (this.client.fft05) {
             this.ff5 = this.clientApi.splitDate(this.client.fft05); this.month5 = this.clientApi.monthToRoman(this.ff5.m); }
           if (this.client.fft06) {

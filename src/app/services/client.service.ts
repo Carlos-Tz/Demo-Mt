@@ -3410,6 +3410,7 @@ export class ClientService {
           c.datos.memo = datos.memo;
           c.datos.nombreuv = datos.nombreuv;
           c.datos.nombrers = datos.nombrers;
+          c.datos.nombrerp = datos.nombrerp;
           c.datos.logo = datos.logo;
           c.datos.dia = datos.dia;
           c.datos.mes = datos.mes;
@@ -3422,6 +3423,7 @@ export class ClientService {
           c.datos.intro = datos.intro;
           c.datos.intro2 = datos.intro2;
           c.datos.date = datos.date;
+          c.datos.fft01 = datos.fft01;
           c.datos.fft02 = datos.fft02;
           c.datos.fft03 = datos.fft03;
           c.datos.fft05 = datos.fft05;
@@ -3444,9 +3446,22 @@ export class ClientService {
           c.datos.folio = datos.folio;
           c.datos.id2 = datos.id2;
           c.datos.folio2 = datos.folio2;
+          c.datos.foliorp = datos.foliorp;
           c.datos.cedula = datos.cedula;
           c.datos.s1 = datos.s1;
           c.datos.s2 = datos.s2;
+          c.datos.dato1 = datos.dato1;
+          c.datos.dato2 = datos.dato2;
+          c.datos.dato3 = datos.dato3;
+          c.datos.dato4 = datos.dato4;
+          c.datos.dato5 = datos.dato5;
+          c.datos.dato6 = datos.dato6;
+          c.datos.dato7 = datos.dato7;
+          c.datos.dato8 = datos.dato8;
+          c.datos.dato9 = datos.dato9;
+          c.datos.dato10 = datos.dato10;
+          c.datos.dato11 = datos.dato11;
+          c.datos.dato12 = datos.dato12;
         });
     }
   }
@@ -3504,7 +3519,26 @@ export class ClientService {
   UpdateFt01(ft01: any, key: string) {
     if (this.offlineOnlineService.isOnline) {
       this.db.object('data/' + key + '/datos/')
-        .update({ s1: ft01.s1, s2: ft01.s2, fpago: ft01.fpago, vigencia: ft01.vigencia, intro: ft01.intro, intro2: ft01.intro2 });
+        .update({ 
+          s1: ft01.s1,
+          s2: ft01.s2,
+          fpago: ft01.fpago,
+          vigencia: ft01.vigencia,
+          intro: ft01.intro,
+          intro2: ft01.intro2,
+          dato1: ft01.dato1,
+          dato2: ft01.dato2,
+          dato3: ft01.dato3,
+          dato4: ft01.dato4,
+          dato5: ft01.dato5,
+          dato6: ft01.dato6,
+          dato7: ft01.dato7,
+          dato8: ft01.dato8,
+          dato9: ft01.dato9,
+          dato10: ft01.dato10,
+          dato11: ft01.dato11,
+          dato12: ft01.dato12
+         });
     } else {
       this.localDb.clients // Offline
         .where('id').equals(key).modify(client => {
@@ -3514,6 +3548,18 @@ export class ClientService {
           client.datos.vigencia = ft01.vigencia;
           client.datos.intro = ft01.intro;
           client.datos.intro2 = ft01.intro2;
+          client.datos.dato1 = ft01.dato1;
+          client.datos.dato2 = ft01.dato2;
+          client.datos.dato3 = ft01.dato3;
+          client.datos.dato4 = ft01.dato4;
+          client.datos.dato5 = ft01.dato5;
+          client.datos.dato6 = ft01.dato6;
+          client.datos.dato7 = ft01.dato7;
+          client.datos.dato8 = ft01.dato8;
+          client.datos.dato9 = ft01.dato9;
+          client.datos.dato10 = ft01.dato10;
+          client.datos.dato11 = ft01.dato11;
+          client.datos.dato12 = ft01.dato12;
         });
     }
   }

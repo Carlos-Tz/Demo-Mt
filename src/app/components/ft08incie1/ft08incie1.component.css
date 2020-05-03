@@ -43,7 +43,7 @@ th {
     font-size: 1em;
     font-family: 'Times New Roman', Times, serif;
 }
-input[type=date] {
+input[type=date], input[type=text] {
     border: none;
 }
 input[type=checkbox] {

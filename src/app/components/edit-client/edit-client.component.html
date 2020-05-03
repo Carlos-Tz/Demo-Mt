@@ -68,7 +68,7 @@
           <table id="tab3">
             <tr>
               <td class="col50" [ngClass]="{'green':clientForm.value.fechai}">
-                <span class="line">Fecha de inicio: </span>
+                <span class="line">Fecha de inicio (Contrato):</span>
                 <input class="focusNext" type="date" formControlName="fechai">
               </td>
               <td class="col50" [ngClass]="{'green':clientForm.value.correo}">
@@ -133,7 +133,7 @@
               </td>
               <td class="col50" [ngClass]="{'green':clientForm.value.cp}">
                 <span class="line">C.P.: </span>
-                <input class="line2 focusNext" type="number" formControlName="cp" tabindex="15" >
+                <input class="line2 focusNext" type="text" formControlName="cp" tabindex="15" >
               </td>
             </tr>
           </table>
@@ -161,6 +161,29 @@
               <td class="col50" [ngClass]="{'green':clientForm.value.folio2}">
                 <span class="line">No. de Identificación o Folio: </span>
                 <input class="line3 focusNext" type="text" formControlName="folio2" tabindex="18" >
+              </td>
+            </tr>
+          </table>
+          <table id="tab1">
+            <tr>
+              <th>
+                <span class="line">Responsable del proyecto</span>
+              </th>
+            </tr>
+          </table>
+          <table id="tab2">
+            <tr>
+              <td [ngClass]="{'green':clientForm.value.nombrerp}">
+                <span class="line">Nombre: </span>
+                <input class="line1 focusNext" type="text" formControlName="nombrerp" tabindex="16" >
+              </td>
+            </tr>
+          </table>
+          <table id="tab2">
+            <tr>
+              <td [ngClass]="{'green':clientForm.value.foliorp}">
+                <span class="line">Cédula profesional: </span>
+                <input class="line1 focusNext" type="text" formControlName="foliorp" tabindex="16" >
               </td>
             </tr>
           </table>
@@ -261,7 +284,7 @@
                 <span class="line">Cap. de Subestación: </span>
                 <select name="subes" (change)=changeSub($event.target.value)>
                   <option value=""></option>
-                  <option value="cero">0.0</option>
+                  <!-- <option value="cero">0.0</option> -->
                   <option value="compartida">Subestación compartida</option>
                   <option value="cfe">Subestación CFE</option>
                   <option value="otro">Otro</option>
@@ -403,14 +426,14 @@
               </th>
             </tr>
           </table>
-          <!-- <table id="tab3">
+          <table id="tab3">
             <tr>
-              <td [ngClass]="{'green':clientForm.value.fechai}">
+              <td [ngClass]="{'green':clientForm.value.fft01}">
                 <span class="line">FT-01 COTIZACIÓN: </span>
-                <input type="date" formControlName="fechai">
+                <input type="date" formControlName="fft01">
               </td>
             </tr>
-          </table> -->
+          </table>
           <table id="tab3">
             <tr>
               <td [ngClass]="{'green':clientForm.value.fft02}">
@@ -419,14 +442,14 @@
               </td>
             </tr>
           </table>
-          <table id="tab3">
+          <!-- <table id="tab3">
             <tr>
               <td [ngClass]="{'green':clientForm.value.fft03}">
                 <span class="line">FT-03 CONTRATO: </span>
                 <input type="date" formControlName="fft03">
               </td>
             </tr>
-          </table>
+          </table> -->
           <table id="tab3">
             <tr>
               <td [ngClass]="{'green':clientForm.value.fft05}">

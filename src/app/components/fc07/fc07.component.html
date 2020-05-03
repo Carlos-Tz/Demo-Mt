@@ -110,9 +110,9 @@
           </tr>
           <tr>
             <td><p *ngIf="client">
-              <span *ngIf="month1">{{ client.dia }}/{{ month1 }}/{{ client.anio }}</span>
+              <span *ngIf="month1">{{ ff1.d }}/{{ month1 }}/{{ ff1.a }}</span>
               <span *ngIf="!month1">N/A</span><br>
-              <span *ngIf="month3">{{ ff3.d }}/{{ month3 }}/{{ ff3.a }}</span>
+              <span *ngIf="month3">{{ client.dia }}/{{ month3 }}/{{ client.anio }}</span>
               <span *ngIf="!month3">N/A</span></p></td>
             <td>
               <p>Formato de cotización FT-01 o Contrato FT-03</p>
