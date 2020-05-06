@@ -170,7 +170,7 @@
           <p>8. La UVIE a través del SEDIVER generará y enviará el escrito para el informe trimestral de dictamenes de
             verificación e informe trimestral de dictamenes de verificación (anexo D).</p><br>
   
-          <p><b>El Costo:</b> “EL SOLICITANTE” se obliga a pagar a “EL VERIFICADOR” por el servicio antes descrito la cantidad de $ <b *ngIf="client">{{ client.costo }}</b> <b> (</b><b *ngIf="client">{{ client.costol }}</b> <b> Pesos {{cents}}/100 M.N.), + IVA, a la entrega del Informe Técnico.</b>
+          <p><b>El Costo:</b> “EL SOLICITANTE” se obliga a pagar a “EL VERIFICADOR” por el servicio antes descrito la cantidad de $ <b *ngIf="client">{{ cost }}.{{cents}}</b> <b> (</b><b *ngIf="client">{{ client.costol }}</b> <b> Pesos {{cents}}/100 M.N.), + IVA, a la entrega del Informe Técnico.</b>
             <b>Tiempo de entrega:</b> Si el proyecto e instalación cumplen con la NOM ,al termino de la instalación se entregara
             el dictamen.</p>
             <p><b>Vigencia: </b><input type="text" [(ngModel)]="client.vigencia"></p>

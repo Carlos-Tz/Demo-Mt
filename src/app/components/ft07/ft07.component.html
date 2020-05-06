@@ -182,12 +182,12 @@
             <p>FIRMAS DE LOS QUE INTERVINIERON EN LA DILIGENCIA</p>
             <table>
               <tr>
-                <td>
+                <td style="border-right: solid 1px black;">
                   <p>Unidad de verificación de Instalaciones Eléctricas:
-                    <input *ngIf="client" type="text" class="bb" style="width: 6cm; text-transform: uppercase;" value="{{client.nombreuv}}">
+                    <input *ngIf="client" type="text" class="bb" style="width: 6.5cm; text-transform: uppercase;" value="{{client.nombreuv}}">
                     <!-- <b *ngIf="client" style="text-transform: uppercase;">{{ client.nombreuv }}</b> --></p>
                   <p>No. Registro: 
-                    <input *ngIf="client" type="text" class="bb" style="width: 10.7cm;" value="{{client.nocontrol}}">
+                    <input *ngIf="client" type="text" class="bb" style="width: 11.2cm;" value="{{client.nocontrol}}">
                     <!-- <b *ngIf="client">UVSEIE 448-A-{{ client.nocontrol }}/{{ ff.a }}</b> --></p>
                 </td>
                 <td style="width: 250px;">
@@ -207,7 +207,7 @@
             </table>
              <table class="table2_">
               <tr>
-                <td>
+                <td style="border-right: solid 1px black;">
                   <p>Datos de la persona que atendió la visita</p>
                   <p>Nombre: <input *ngIf="client" type="text" [(ngModel)]="client.nombrers" class="nom"></p>
                   <p>Identificación: <input *ngIf="client" type="text" [(ngModel)]="client.id2" class="id"></p>
@@ -232,7 +232,7 @@
             </table>
              <table class="table2_">
                 <tr>
-                  <td>
+                  <td style="border-right: solid 1px black;">
                     <p>Datos del Testigo</p>
                     <p>Nombre: <input type="text" [(ngModel)]="ft07.nom2" class="nom"></p>
                     <p>Identificación: <input type="text" [(ngModel)]="ft07.id2" class="id"></p>
@@ -257,7 +257,7 @@
               </table>
                <table class="table2_">
               <tr>
-                <td>
+                <td style="border-right: solid 1px black;">
                   <p>Datos del Testigo</p>
                   <p>Nombre: <input type="text" [(ngModel)]="ft07.nom3" class="nom"></p>
                   <p>Identificación: <input type="text" [(ngModel)]="ft07.id3" class="id"></p>

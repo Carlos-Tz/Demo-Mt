@@ -35,7 +35,7 @@ export class EditFt10Component implements OnInit {
     cri: '',
     obp: '',
     obs: '',
-    cum: ''
+    cum: 'si'
   };
 
   constructor(

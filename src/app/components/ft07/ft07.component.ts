@@ -145,6 +145,11 @@ export class Ft07Component implements OnInit {
             console.log('vacio');
             this.ft07.nomycar = this.client.nombrers;
           }
+          if (!this.ft07.fechaa && this.ff.m) {
+            this.ft07.fecham = this.monthToName(this.ff.m);
+            this.ft07.fechaa = `20${this.ff.a}`;
+            this.ft07.fechad = this.ff.d;
+          }
         });
       }
     } else {
@@ -190,6 +195,15 @@ export class Ft07Component implements OnInit {
           } else {
             this.initft15();
           }
+        }
+        if (this.ft07.nomycar === '') {
+            console.log('vacio');
+            this.ft07.nomycar = this.client.nombrers;
+          }
+        if (!this.ft07.fechaa && this.ff.m) {
+          this.ft07.fecham = this.monthToName(this.ff.m);
+          this.ft07.fechaa = `20${this.ff.a}`;
+          this.ft07.fechad = this.ff.d;
         }
       })
       .catch(e => {
@@ -290,5 +304,24 @@ export class Ft07Component implements OnInit {
     this.ft07.cod = 'FT-15';
     this.ft07.rev = 5;
     this.ft07.vigen = '17-Nov-17';
+  }
+  monthToName (mes: string) {
+    let m = '';
+    switch (mes) {
+      case '01': m = 'Enero'; break;
+      case '02': m = 'Febrero'; break;
+      case '03': m = 'Marzo'; break;
+      case '04': m = 'Abril'; break;
+      case '05': m = 'Mayo'; break;
+      case '06': m = 'Junio'; break;
+      case '07': m = 'Julio'; break;
+      case '08': m = 'Agosto'; break;
+      case '09': m = 'Septiembre'; break;
+      case '10': m = 'Octubre'; break;
+      case '11': m = 'Noviembre'; break;
+      case '12': m = 'Diciembre'; break;
+      default: m = ''; break;
+    }
+    return m;
   }
 }

@@ -60,7 +60,7 @@ export class ClientService {
       cri: '',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 2,
       nom: '110-2',
@@ -69,7 +69,7 @@ export class ClientService {
       cri: 'Los materiales y equipos utilizados están aprobados',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 3,
       nom: '110-3 b)',
@@ -78,7 +78,7 @@ export class ClientService {
       cri: 'De acuerdo con las instrucciones incluidas en la etiqueta y/o instalación',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 4,
       nom: '110-7',
@@ -87,7 +87,7 @@ export class ClientService {
       cri: 'El sistema esta libre de corto circuito y de conexiones a tierra por falla. PEC5.1',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 5,
       nom: '110-9',
@@ -96,7 +96,7 @@ export class ClientService {
       cri: 'Los interruptores tienen un rango de operación suficiente',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 6,
       nom: '110-12',
@@ -105,7 +105,7 @@ export class ClientService {
       cri: 'Los equipos están instalados de manera limpia y profesional',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 7,
       nom: '10-12 a )',
@@ -114,7 +114,7 @@ export class ClientService {
       cri: 'Las aberturas no utilizadas en las canalizaciones están cerradas',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 8,
       nom: '110-13',
@@ -123,7 +123,7 @@ export class ClientService {
       cri: 'El equipo esta montado de manera segura, anclado y el espacio de ventilación es adecuado',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 9,
       nom: '110-14 a ) 110-14 b) 110-14 c )',
@@ -133,7 +133,7 @@ export class ClientService {
       cri: 'Los conductores esta conectados con dispositivos adecuados El conductor no excede la temperatura de operación de terminales del equipo',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 10,
       nom: '110-16',
@@ -143,7 +143,7 @@ export class ClientService {
       cri: 'Los tableros de distribución, tableros de control industrial, envolventes para medidores enchufables y centros de control de motores, deben estar marcados para advertir del peligro potencial de arco eléctrico',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 11,
       nom: '110-26',
@@ -152,7 +152,7 @@ export class ClientService {
       cri: 'Alrededor del equipo existe suficiente espacio de trabajo',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 12,
       nom: '110-22',
@@ -161,7 +161,7 @@ export class ClientService {
       cri: 'Los medios de desconexión están identificados indicando su propósito',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 13,
       nom: '110-31',
@@ -170,7 +170,7 @@ export class ClientService {
       cri: 'Cuando el acceso sea controlado, solo deben ser accesibles por personal calificado',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 14,
       nom: '',
@@ -179,7 +179,7 @@ export class ClientService {
       cri: '',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 15,
       nom: '210-3',
@@ -188,7 +188,7 @@ export class ClientService {
       cri: 'Los circuitos están clasificados según la capacidad de conducción de corriente máxima ó según el valor de la protección',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 16,
       nom: '210-5',
@@ -198,7 +198,7 @@ export class ClientService {
       cri: 'El conductor de puesto a tierra es blanco y el de puesta a tierra es desnudo y verde, las fases de color diferente, como, azul, negra, roja',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 17,
       nom: '210-19 210-20',
@@ -207,7 +207,7 @@ export class ClientService {
       cri: 'El tamaño de conductores corresponde con la carga y están protegidos contra sobre-corriente',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 18,
       nom: '210-21 210-24',
@@ -216,7 +216,7 @@ export class ClientService {
       cri: 'Los circuitos tienen las capacidades nominales permitidas',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 19,
       nom: '220-12',
@@ -225,7 +225,7 @@ export class ClientService {
       cri: 'Los circuitos están previstos para las cargas calculadas, según 220-12',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 20,
       nom: '210-23',
@@ -234,7 +234,7 @@ export class ClientService {
       cri: 'Los circuitos alimentan las cargas permisibles',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 21,
       nom: '',
@@ -243,7 +243,7 @@ export class ClientService {
       cri: '',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 22,
       nom: '215-2',
@@ -252,7 +252,7 @@ export class ClientService {
       cri: 'Los alimentadores tienen el tamaño mínimo requerido',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 23,
       nom: '215-3 220-12',
@@ -261,7 +261,7 @@ export class ClientService {
       cri: 'El interruptor y el conductor son del tamaño adecuado para las cargas continuas y no continuas',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 24,
       nom: '220-12 220-61',
@@ -270,7 +270,7 @@ export class ClientService {
       cri: 'Los conductores son adecuados para la carga',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 25,
       nom: '215-5',
@@ -279,7 +279,7 @@ export class ClientService {
       cri: 'Contenga M2 , carga conectada, FD, datos conductor, %e, canalizaciones',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 26,
       nom: '215-10 230-95',
@@ -288,7 +288,7 @@ export class ClientService {
       cri: 'Los interruptores deben tener protección de falla a tierra',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 27,
       nom: '',
@@ -297,7 +297,7 @@ export class ClientService {
       cri: '',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 28,
       nom: '225-10 225-20 225-22',
@@ -308,7 +308,7 @@ export class ClientService {
       cri: 'Se permiten diferentes métodos de alambrado que protejan a los conductores contras daño mecánico, en exterior deben ser herméticas a la lluvia',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 29,
       nom: '225-15 225-18',
@@ -317,7 +317,7 @@ export class ClientService {
       cri: 'Conductores apoyados en estructuras sólidas Para diferentes condiciones la altura varía de 3.0 a 5.5 M',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 30,
       nom: '240-4 240-21 240-21 b) 1)',
@@ -326,7 +326,7 @@ export class ClientService {
       cri: 'Los conductores están debidamente protegidos por interruptores conectados al inicio y en cada conductor de fase',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 31,
       nom: '',
@@ -335,7 +335,7 @@ export class ClientService {
       cri: '',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 32,
       nom: '230-8',
@@ -344,7 +344,7 @@ export class ClientService {
       cri: 'La canalización subterránea esta sellada en ambos extremos',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 33,
       nom: '230-24 230-26 230-27',
@@ -354,7 +354,7 @@ export class ClientService {
       cri: 'Entre los conductores de acometida existen distancias adecuadas de seguridad y no son fácilmente accesibles. Están firmemente sujetos',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 34,
       nom: '230-32 230-50 a)',
@@ -363,7 +363,7 @@ export class ClientService {
       cri: 'La acometida subterránea está protegida y a una profundidad de 50 CM',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 35,
       nom: '230-23 230-31 230-42',
@@ -372,7 +372,7 @@ export class ClientService {
       cri: 'Las capacidades nominales y calibres de los conductores son los adecuados',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 36,
       nom: '230-82 250-24 b)',
@@ -381,7 +381,7 @@ export class ClientService {
       cri: 'Los gabinetes y partes metálicas del equipo de acometida están conectados a tierra',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 37,
       nom: '230-24 230-208 230-66',
@@ -391,7 +391,7 @@ export class ClientService {
       cri: 'Existe espacio de trabajo alrededor del equipo de acometida. El interruptor tiene la capacidad interruptiva adecuada. El equipo está aprobado',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 38,
       nom: '230-79 230-80',
@@ -400,7 +400,7 @@ export class ClientService {
       cri: 'Las capacidades nominales de los medios de desconexión son las adecuadas',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 39,
       nom: '',
@@ -409,7 +409,7 @@ export class ClientService {
       cri: '',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 40,
       nom: '240-4',
@@ -418,7 +418,7 @@ export class ClientService {
       cri: 'Los conductores están protegidos contra sobrecorriente de acuerdo a su ampacidad',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 41,
       nom: '240-12',
@@ -427,7 +427,7 @@ export class ClientService {
       cri: 'Existe una coordinación de protecciones contra cortocircuito.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 42,
       nom: '240-15',
@@ -436,7 +436,7 @@ export class ClientService {
       cri: 'Existen dispositivos de protección contra sobrecorriente requerido.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 43,
       nom: '240-21',
@@ -445,7 +445,7 @@ export class ClientService {
       cri: 'Existe la protección contra sobrecorriente en cada conductor de fase de circuito.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 44,
       nom: '240-30 a)',
@@ -454,7 +454,7 @@ export class ClientService {
       cri: 'Los dispositivos de sobrecorriente están protegidos contra daño físico.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 45,
       nom: '240-83 c)',
@@ -463,7 +463,7 @@ export class ClientService {
       cri: 'Todos los interruptores están marcados su valor nominal de interrupción.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 46,
       nom: '240-90',
@@ -472,7 +472,7 @@ export class ClientService {
       cri: 'Las protecciones contra sobrecorriente en las áreas industriales están supervisadas.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 47,
       nom: '240-100',
@@ -481,7 +481,7 @@ export class ClientService {
       cri: 'Cuentan todos los alimentadores y circuitos derivados con su protección contra sobrecorriente.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 48,
       nom: '',
@@ -490,7 +490,7 @@ export class ClientService {
       cri: '',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 49,
       nom: '250-24',
@@ -499,7 +499,7 @@ export class ClientService {
       cri: 'Se tiene un conductor de puesta a tierra conectado al conductor puesto a tierra',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 50,
       nom: '250-28',
@@ -508,7 +508,7 @@ export class ClientService {
       cri: 'Son de material resistente a la corrosión, barra, conductor o tornillo, tamaño acorde a la tabla 250-66',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 51,
       nom: '250-80 250-92',
@@ -517,7 +517,7 @@ export class ClientService {
       cri: 'Las partes metálicas no conductoras están conectadas a tierra',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 52,
       nom: '250-50',
@@ -527,7 +527,7 @@ export class ClientService {
       cri: 'La tubería de agua y estructura metálica del edificio son electrodos y electrodos prefabricados pueden usarse en el sistema de electrodos y deben interconectarse entre si, los diferentes sistemas de tierra deben conectarse entre si',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 53,
       nom: '250-53',
@@ -536,7 +536,7 @@ export class ClientService {
       cri: 'Existen electrodos especialmente construidos, como: varilla, tubería de agua, placas',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 54,
       nom: '250-66',
@@ -545,7 +545,7 @@ export class ClientService {
       cri: 'Se especificó de acuerdo a la tabla 250-66',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 55,
       nom: '',
@@ -554,7 +554,7 @@ export class ClientService {
       cri: '',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 56,
       nom: '250-64',
@@ -564,7 +564,7 @@ export class ClientService {
       cri: 'Los conductores de puesta a tierra están firmemente sujetos, protegidos y asegurados contra daño físico, son eléctricamente continuos y están conectados con materiales aprobados',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 57,
       nom: '250-68',
@@ -573,7 +573,7 @@ export class ClientService {
       cri: 'Las conexiones a los electrodos están accesibles y aseguran una puesta a tierra eficaz. Existen puentes de unión',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 58,
       nom: '250-70',
@@ -582,7 +582,7 @@ export class ClientService {
       cri: 'La conexión esta hecha con soldadura exotérmica, zapatas, conectores a presión, abrazaderas u otros medios aprobados',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 59,
       nom: '250-52',
@@ -591,7 +591,7 @@ export class ClientService {
       cri: 'La tubería metálica de agua y las armazones estructurales están conectadas equipotencialmente',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 60,
       nom: '250-168',
@@ -601,7 +601,7 @@ export class ClientService {
       cri: 'Existe un puente de unión principal, sin empalmes, que conecta al conductor de puesta a tierra de equipo y el envolvente del medio de desconexión de la acometida al conductor puesto a tierra del sistema',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 61,
       nom: '250-92 b) 250-102',
@@ -610,7 +610,7 @@ export class ClientService {
       cri: 'Las canalizaciones y gabinetes del equipo de acometida están conectados equipotencialmente en forma correcta.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 62,
       nom: '250-28 d) 1) 250-24 c)',
@@ -620,7 +620,7 @@ export class ClientService {
       cri: 'Verificar que el calibre del conductor de puesta a tierra del electrodo, en la acometida este de acuerdo a la tabla 250-66',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 63,
       nom: '250-30',
@@ -630,7 +630,7 @@ export class ClientService {
       cri: 'Revisar que los sistemas derivados independientemente tengan electrodos de puesta a tierra, conductores de electrodos de puesta a tierra y puentes de conexión equipotencial adecuados',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 64,
       nom: '',
@@ -639,7 +639,7 @@ export class ClientService {
       cri: '',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 65,
       nom: '250-118',
@@ -648,7 +648,7 @@ export class ClientService {
       cri: 'Cobre o aluminio, tubo conduit metálico, en c/derivado',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 66,
       nom: '250-146',
@@ -657,7 +657,7 @@ export class ClientService {
       cri: 'Verificar que la terminal de puesta a tierra del contacto este conectada a la caja metálica',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 67,
       nom: '250-96 250-28 348-60 350-60',
@@ -668,7 +668,7 @@ export class ClientService {
       cri: 'Verificar que las partes metálicas no conductoras estén conectadas a tierra con accesorios adecuados y aprobados, que los cables de puesta a tierra del electrodo y del equipo sean de cobre y de acuerdo a las tablas 250-66 y 250-122',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 68,
       nom: '408-40',
@@ -677,7 +677,7 @@ export class ClientService {
       cri: 'Los tableros de alumbrado y control están conectados a tierra',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 69,
       nom: '250-142',
@@ -687,7 +687,7 @@ export class ClientService {
       cri: 'Lado suministro: se permite utilizar el conductor puesto a tierra como conductor de puesta a tierra Lado de la carga: no se permite utilizar el conductor puesto a tierra como conductor de puesta a tierra',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 70,
       nom: '250-146 406-3 d)',
@@ -696,7 +696,7 @@ export class ClientService {
       cri: 'Los contactos de tierra aislada están identificados con un triángulo naranja y los conductores de puesta a tierra son aislados',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 71,
       nom: '',
@@ -705,7 +705,7 @@ export class ClientService {
       cri: '',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 72,
       nom: '300-3 a), b) y c) 1) 2)',
@@ -714,7 +714,7 @@ export class ClientService {
       cri: 'Los conductores, individuales, del mismo circuito y de menos de 600 V, están instalados en canalizaciones metálicas',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 73,
       nom: '300-4',
@@ -723,7 +723,7 @@ export class ClientService {
       cri: 'Los conductores están separados de los bordes de las canalizaciones metálicas y están protegidos contra tornillos y clavos',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 74,
       nom: '300-4 g)',
@@ -732,7 +732,7 @@ export class ClientService {
       cri: 'Las boquillas de las canalizaciones tienen una superficie lisa y redondeada',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 75,
       nom: '300-3 2)',
@@ -742,7 +742,7 @@ export class ClientService {
       cri: 'Se permitirá que los conductores de puesta atierra de equipos estén instalados afuera de la canalización o del ensamble de cable, si están de acuerdo con las disposiciones de 250-130 c)',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 76,
       nom: '300-10',
@@ -751,7 +751,7 @@ export class ClientService {
       cri: 'Las canalizaciones, cajas y gabinetes metálicos están unidos mecánicamente y tienen continuidad eléctrica',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 77,
       nom: '300-11',
@@ -761,7 +761,7 @@ export class ClientService {
       cri: 'Las canalizaciones, cajas, gabinetes, cables y accesorios están firmemente sujetos y soportadas en su lugar , no se usan como medios de soporte',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 78,
       nom: '300-13',
@@ -770,7 +770,7 @@ export class ClientService {
       cri: 'Los conductores son continuos entre las cajas, registros y gabinetes, no existen empalmes',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 79,
       nom: '300-14',
@@ -779,7 +779,7 @@ export class ClientService {
       cri: 'Existen 15 cm de longitud adicional en las cajas y puntos de conexión',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 80,
       nom: '300-15',
@@ -788,7 +788,7 @@ export class ClientService {
       cri: 'Están instaladas cajas en los puntos de conexión, empalme, salida y alambrado',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 81,
       nom: '300-17',
@@ -797,7 +797,7 @@ export class ClientService {
       cri: 'La ocupación de los conductores en las canalizaciones, es la correcta',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 82,
       nom: '300-18',
@@ -806,7 +806,7 @@ export class ClientService {
       cri: 'Las canalizaciones están instaladas de manera completa, antes de cablear',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 83,
       nom: '300-21',
@@ -816,7 +816,7 @@ export class ClientService {
       cri: 'Las aberturas alrededor de los elementos eléctricos que pasan a través de paredes, pisos o techos resistentes al fuego están protegidas contra el fuego por métodos adecuados',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 84,
       nom: '',
@@ -825,7 +825,7 @@ export class ClientService {
       cri: '',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 85,
       nom: '392-18',
@@ -835,7 +835,7 @@ export class ClientService {
       cri: 'El sistema esta instalado de manera completa, no están instalados cables de mas de 600 v con otros de menor voltaje, están separadas 60 cm de otras tuberías de servicios',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 86,
       nom: '392-60',
@@ -845,7 +845,7 @@ export class ClientService {
       cri: 'Está provista de un conductor de puesta a tierra en toda la longitud de la charola y este esta conectado a la misma cada 15 m con un accesorio compatible con el material de la charola',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 87,
       nom: '392-30',
@@ -855,7 +855,7 @@ export class ClientService {
       cri: 'Los empalmes no sobresalen los rieles laterales; los cables o sus conjuntos están fijos firmemente, los cables del 4 al 4/0 están colocados en una sola capa;',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 88,
       nom: '392-22',
@@ -865,7 +865,7 @@ export class ClientService {
       cri: 'La suma de los diámetros de todos los cables no supera el ancho de la charola para cables de 4/0 o mayores; para cables menores a 4/0 la suma de las áreas no debe superar la superficie máxima permisible en la tabla 318-9. Ver las demás condiciones',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 89,
       nom: '392-22 a)',
@@ -874,7 +874,7 @@ export class ClientService {
       cri: 'Se acepta si están uniformemente distribuidos a lo ancho y hay espacio entre ellos, ver tabla 392-22 a)',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 90,
       nom: '392-22 c)',
@@ -884,7 +884,7 @@ export class ClientService {
       cri: 'Cables mono-conductores en grupos de tres, cuatro están instalados en una sola capa y la suma de los diámetros de los cables agrupados no exceden el ancho de la charola',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 91,
       nom: '',
@@ -893,7 +893,7 @@ export class ClientService {
       cri: '',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 92,
       nom: '358-10',
@@ -902,7 +902,7 @@ export class ClientService {
       cri: 'Se utiliza en instalaciones interiores ocultas y expuestas',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 93,
       nom: '358-20',
@@ -911,7 +911,7 @@ export class ClientService {
       cri: 'Diámetro: Mínimo 16 mm (1/2”), Máximo 103 mm (4”)',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 94,
       nom: '358-22',
@@ -920,7 +920,7 @@ export class ClientService {
       cri: 'La ocupación de los conductores de acuerdo a la tabla 1, capitulo 10',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 95,
       nom: '358-28 358-42',
@@ -929,7 +929,7 @@ export class ClientService {
       cri: 'El tubo instalado no está roscado, no hay bordes en sus extremos, los acoplamientos y accesorios están firmemente sujetos',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 96,
       nom: '358-24 358-26',
@@ -939,7 +939,7 @@ export class ClientService {
       cri: 'En las curvas el tubo no ha sufrido daños. El radio de curvatura esta hecho de acuerdo a la tabla 2 capitulo 10. No existen mas de 4 dobleces de un cuadrante de (360ª en total)',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 97,
       nom: '358-30',
@@ -948,7 +948,7 @@ export class ClientService {
       cri: 'Está sujeto firmemente por menos cada tres metros y no mayor de 90 cm de cada caja de salida',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 98,
       nom: '',
@@ -957,7 +957,7 @@ export class ClientService {
       cri: '',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 99,
       nom: '314-4',
@@ -966,7 +966,7 @@ export class ClientService {
       cri: 'Las cajas metálicas están puestas a tierra',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 100,
       nom: '314-16',
@@ -975,7 +975,7 @@ export class ClientService {
       cri: 'Existe suficiente espacio para los conductores en las cajas y condulets',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 101,
       nom: '314-17 314-17 a)',
@@ -984,7 +984,7 @@ export class ClientService {
       cri: 'Los conductores están protegidos contra la abrasión. Las aberturas no utilizadas están cerradas',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 102,
       nom: '314-20',
@@ -993,7 +993,7 @@ export class ClientService {
       cri: 'Las cajas instaladas en paredes o los plafones no quede a más de 6 mm dentro de la superficie terminada',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 103,
       nom: '314-21',
@@ -1002,7 +1002,7 @@ export class ClientService {
       cri: 'No existen espacios ni separaciones mayores que 3 mm en el borde de la caja.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 104,
       nom: '314-23',
@@ -1011,7 +1011,7 @@ export class ClientService {
       cri: 'Las cajas están sostenidas firmemente, los cables están seguros y los accesorios de soporte son galvanizados',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 105,
       nom: '314-24',
@@ -1020,7 +1020,7 @@ export class ClientService {
       cri: 'La profundidad mínima en las cajas instaladas es de 12.7 mm',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 106,
       nom: '314-27',
@@ -1029,7 +1029,7 @@ export class ClientService {
       cri: 'Las cajas de salida para lámparas son las adecuadas y están certificadas',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 107,
       nom: '314-29',
@@ -1038,7 +1038,7 @@ export class ClientService {
       cri: 'Las cajas están accesibles',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 108,
       nom: '314-30',
@@ -1047,7 +1047,7 @@ export class ClientService {
       cri: 'Los registros se deben diseñar e instalar para que resistan todas las cargas que probablemente se impongan sobre ellos',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 109,
       nom: '314-40',
@@ -1056,7 +1056,7 @@ export class ClientService {
       cri: 'Las cajas son galvanizadas y de un espesor mínimo de 1.6 mm, están conectadas a tierra',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 110,
       nom: '',
@@ -1065,7 +1065,7 @@ export class ClientService {
       cri: '',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 111,
       nom: '312-3',
@@ -1075,7 +1075,7 @@ export class ClientService {
       cri: 'El borde no está metido mas de 6.35 mm por debajo de la superficie, los gabinetes instalados están a nivel de la superficie, o sobresalen de la misma',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 112,
       nom: '312-4',
@@ -1085,7 +1085,7 @@ export class ClientService {
       cri: 'Las superficeis no combustibles que estén dañadas o incompletas se deben reparar para que no queden espacios abiertos ni separaciones mayores a 3 mm en el borde del gabinete o la caja de desconexión.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 113,
       nom: '312-5',
@@ -1094,7 +1094,7 @@ export class ClientService {
       cri: 'Los conductores están protegidos contra la abrasión y están firmemente sujetos al gabinete',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 114,
       nom: '312-6 312-7',
@@ -1103,7 +1103,7 @@ export class ClientService {
       cri: 'Existe suficiente espacio para el alambrado y doblado de los cables',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 115,
       nom: '312-8',
@@ -1113,7 +1113,7 @@ export class ClientService {
       cri: 'No se utilizan como cajas de empalme',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 116,
       nom: '',
@@ -1122,7 +1122,7 @@ export class ClientService {
       cri: '',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 117,
       nom: '404-2 404-12',
@@ -1131,7 +1131,7 @@ export class ClientService {
       cri: 'Las conexiones están hechas en los conductores de fase. Los gabinetes están conectados a tierra',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 118,
       nom: '',
@@ -1140,7 +1140,7 @@ export class ClientService {
       cri: '',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 119,
       nom: '406-4 a)',
@@ -1149,7 +1149,7 @@ export class ClientService {
       cri: 'Los contactos que están instalados en circuitos derivados de 15y 20 Amperes son de tipo puesta a tierra.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 120,
       nom: '406-4 b)',
@@ -1158,7 +1158,7 @@ export class ClientService {
       cri: 'Los contactos cuentan con un conductor de puesta a tierra',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 121,
       nom: '406-5',
@@ -1167,7 +1167,7 @@ export class ClientService {
       cri: 'Los contactos están firmemente en su lugar que les corresponde.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 122,
       nom: '406-9',
@@ -1176,7 +1176,7 @@ export class ClientService {
       cri: 'El contacto exterior está protegido a prueba de intemperie',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 123,
       nom: '406-11',
@@ -1185,7 +1185,7 @@ export class ClientService {
       cri: 'La conexión de la terminal cumple con el 250-146',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 124,
       nom: '',
@@ -1194,7 +1194,7 @@ export class ClientService {
       cri: '',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 125,
       nom: '408-3 408-3 a) 1)',
@@ -1204,7 +1204,7 @@ export class ClientService {
       cri: 'No están sujetos a daño físico. No hay sobre-calentamiento. Tienen puente de unión. Las terminales son accesibles. Las fases están arregladas ABC del frente hacia atrás, de arriba hacia abajo o de izquierda a derecha. Hay suficiente espacio de trabajo',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 126,
       nom: '408-4 a)',
@@ -1213,7 +1213,7 @@ export class ClientService {
       cri: 'Cada circuito o modificación de circuito debe ser identificado',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 127,
       nom: '408-20',
@@ -1222,7 +1222,7 @@ export class ClientService {
       cri: 'Están ubicados en lugares permanentemente secos solo son accesibles a personas calificadas',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 128,
       nom: '408-17',
@@ -1231,7 +1231,7 @@ export class ClientService {
       cri: 'Es un espacio dedicado, no hay probabilidad de que transmitan fuego a materiales combustibles',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 129,
       nom: '408-18',
@@ -1240,7 +1240,7 @@ export class ClientService {
       cri: 'El tablero esta separado 90 cm del techo combustible, existe espacio de trabajo suficiente alrededor del tablero',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 130,
       nom: '408-19',
@@ -1249,7 +1249,7 @@ export class ClientService {
       cri: 'Los cables dentro del tablero están aprobados y listados, son resistentes a la propagación de la flama',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 131,
       nom: '408-5',
@@ -1258,7 +1258,7 @@ export class ClientService {
       cri: 'Existe espacio suficiente que permite la instalación de los conductores en dichos envolventes, de acuerdo as la tabla 408-5',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 132,
       nom: '408-30 408-36',
@@ -1267,7 +1267,7 @@ export class ClientService {
       cri: 'Deben tener parámetros nominales no menores a los mínimos del alimentador. Protegidos individualmente',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 133,
       nom: '408-50 408-51 408-52',
@@ -1276,7 +1276,7 @@ export class ClientService {
       cri: 'Están hechos de material no combustible Están rígidamente montadas Están protegidos con interruptores de 15 amperes.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 134,
       nom: '408-55',
@@ -1285,7 +1285,7 @@ export class ClientService {
       cri: 'Cuentan con espacio arriba y abajo para el doblez de los cables, tabla 312-6 a) y b)',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 135,
       nom: '',
@@ -1294,7 +1294,7 @@ export class ClientService {
       cri: '',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 136,
       nom: '410-5',
@@ -1303,7 +1303,7 @@ export class ClientService {
       cri: 'Las luminarias están contenidos en una envolvente',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 137,
       nom: '410-20',
@@ -1312,7 +1312,7 @@ export class ClientService {
       cri: 'Existe espacio suficiente para el acomodo de los conductores',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 138,
       nom: '410-21',
@@ -1321,7 +1321,7 @@ export class ClientService {
       cri: 'Las luminarias permiten la ventilación de los cables',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 139,
       nom: '410-24',
@@ -1330,7 +1330,7 @@ export class ClientService {
       cri: 'Están conectadas con tubo conduit metálico flexible, las cajas de conexión están accesibles',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 140,
       nom: '410-30',
@@ -1339,7 +1339,7 @@ export class ClientService {
       cri: 'Están firmemente sujetos al techo con canal, tirantes y cadena metálica',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 141,
       nom: '410-52',
@@ -1348,7 +1348,7 @@ export class ClientService {
       cri: 'Se utiliza aislamiento THWLS',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 142,
       nom: '410-74',
@@ -1357,7 +1357,7 @@ export class ClientService {
       cri: 'Están debidamente identificados',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 143,
       nom: '410-151',
@@ -1366,7 +1366,7 @@ export class ClientService {
       cri: 'Los rieles de iluminación deben estar instalados y conectados en forma permanente a un circuito derivado',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 144,
       nom: '410-154',
@@ -1375,7 +1375,7 @@ export class ClientService {
       cri: 'Los rieles de iluminación se deben sujetar y asegurar , de modo que cada sujeción sea adecuada',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 145,
       nom: '',
@@ -1384,7 +1384,7 @@ export class ClientService {
       cri: '',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 146,
       nom: '430-6',
@@ -1393,7 +1393,7 @@ export class ClientService {
       cri: 'Los conductores están seleccionados con las tablas 430-247 al 430-250; interruptores con la tabla 430-52. Los elementos térmicos se seleccionan con la corriente de placa.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 147,
       nom: '430-7 430-8',
@@ -1402,7 +1402,7 @@ export class ClientService {
       cri: 'Existe una placa de datos en la carcasa del motor. Existe una placa de datos en el gabinete de control. ',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 148,
       nom: '430-9',
@@ -1411,7 +1411,7 @@ export class ClientService {
       cri: 'Las terminales están identificadas por dígitos o colores, los conductores son de cobre, no existen falsos contactos.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 149,
       nom: '430-10',
@@ -1420,7 +1420,7 @@ export class ClientService {
       cri: 'Los gabinetes no se usan como cajas de conexión. Existe espacio suficiente dentro de los gabinetes de equipo de control para el doblado de cables tabla 430-10(b).',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 150,
       nom: '430-12',
@@ -1429,7 +1429,7 @@ export class ClientService {
       cri: 'Las cajas son metálicas, existe espacio suficiente para el acomodo de las terminales (tabla 430-12 (b) )',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 151,
       nom: '430-14',
@@ -1438,7 +1438,7 @@ export class ClientService {
       cri: 'Los motores esta ventilados y obedecen a un programa de mantenimiento',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 152,
       nom: '430-22 a)',
@@ -1447,7 +1447,7 @@ export class ClientService {
       cri: 'La capacidad de corriente de los conductores es del 125% de la corriente de plena carga (tabla 430-247 a 430-250)',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 153,
       nom: '430-24',
@@ -1456,7 +1456,7 @@ export class ClientService {
       cri: 'Los conductores tienen capacidades de corriente iguales a la suma de las corrientes de plena carga de los aparatos más la corriente de plena carga de los motores ( 430-247 a 430-250) mas el 125% de la del motor mas grande.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 154,
       nom: '430-31 al 430-44',
@@ -1465,7 +1465,7 @@ export class ClientService {
       cri: 'La protección contra sobrecarga del motor no excede los valores permitidos.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 155,
       nom: '430-51 al 430-58',
@@ -1474,7 +1474,7 @@ export class ClientService {
       cri: 'La protección contra falla a tierra y corto circuito del circuito derivado del motor no excede los valores permitidos.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 156,
       nom: '430-61 al 430-63',
@@ -1483,7 +1483,7 @@ export class ClientService {
       cri: 'La protección contra falla a tierra y corto circuito del alimentador del motor no excede los valores permitidos.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 157,
       nom: '430-71 al 430-75',
@@ -1492,7 +1492,7 @@ export class ClientService {
       cri: 'La protección contra sobre corriente no excede los valores permitidos y la protección de los conductores no excede los valores especificados en la columna A de la Tabla 430-72 (b).',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 158,
       nom: '430-81 al 430-90',
@@ -1501,7 +1501,7 @@ export class ClientService {
       cri: 'Los controladores son del tipo apropiado y posean las capacidades nominales y la envolvente.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 159,
       nom: '430-92 al 430-98',
@@ -1510,7 +1510,7 @@ export class ClientService {
       cri: 'La protección contra sobre corriente no excede las capacidades nominales apropiadas. El arreglo de fases es apropiado. Los espacios mínimos para cableados son adecuados (tabla 430-97).',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 160,
       nom: '430-101 al 430-113 110-26 110-34',
@@ -1519,7 +1519,7 @@ export class ClientService {
       cri: 'Las capacidades nominales de los medios de desconexión y protección son los adecuados. El espacio de trabajo y el espacio dedicado son los adecuados. Los medios de desconexión están a la vista y son fácilmente accesibles.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 161,
       nom: '430-221 al 430-227',
@@ -1528,7 +1528,7 @@ export class ClientService {
       cri: 'Los controles están identificados. Las canalizaciones son metálicas. Los conductores son del calibre adecuado. Está protegido contra CC, falla a tierra y sobre carga. Los controladores son del tamaño adecuado. El medio de desconexión tiene bloqueo mecánico.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 162,
       nom: '430-231 al 430-233',
@@ -1537,7 +1537,7 @@ export class ClientService {
       cri: 'Las partes vivas están protegidas mediante un envolvente. Existen tarimas aislantes frente al equipo eléctrico.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 163,
       nom: '430-241 al 430-245',
@@ -1546,7 +1546,7 @@ export class ClientService {
       cri: 'Todas las partes metálicas no conductoras de energía eléctrica están conectadas.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 164,
       nom: '',
@@ -1555,7 +1555,7 @@ export class ClientService {
       cri: '',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 165,
       nom: '440-1 al 440-3',
@@ -1564,7 +1564,7 @@ export class ClientService {
       cri: 'Están identificados los equipos sujetos a este articulo.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 166,
       nom: '440 – 4 a) b) c)',
@@ -1574,7 +1574,7 @@ export class ClientService {
       cri: 'La unidad cuenta con una placa de datos que identifica las características eléctricas del motor. Existe una protección contra corto circuito y sobrecarga. La capacidad del circuito derivado se selección con la corriente eléctrica de carga nominal de placa',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 167,
       nom: '440-12 a)',
@@ -1584,7 +1584,7 @@ export class ClientService {
       cri: 'El tamaño del controlador fue seleccionado en función de la corriente eléctrica del rotor bloqueado. Tablas 430-251A o 430-251B',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 168,
       nom: '440-21 al 440-22',
@@ -1594,7 +1594,7 @@ export class ClientService {
       cri: 'Están establecidos los requisitos para los dispositivos de protección contra sobre-corrientes debidas a corto circuito y falla a tierra. Soportan la corriente de arranque del motor y tiene un ajuste no mayor al 175% de la corriente eléctrica nominal',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 169,
       nom: '440-31 al 440-35',
@@ -1603,7 +1603,7 @@ export class ClientService {
       cri: 'El calibre de los conductores es adecuado y se basa en la información aplicable de la placa de datos.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 170,
       nom: '440-41',
@@ -1612,7 +1612,7 @@ export class ClientService {
       cri: 'Los controladores tienen las capacidades nominales adecuadas. (datos de placa)',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 171,
       nom: '440-60 al 440-65',
@@ -1622,7 +1622,7 @@ export class ClientService {
       cri: 'Los conductores, toma corrientes, cordones y dispositivos de sobre-corriente para acondicionadores de aire de habitación están dimensionados apropiadamente.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 172,
       nom: '',
@@ -1631,7 +1631,7 @@ export class ClientService {
       cri: '',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 173,
       nom: '450-1, 450-2',
@@ -1640,7 +1640,7 @@ export class ClientService {
       cri: 'Están identificados los transformadores tratados en este articulo.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 174,
       nom: '450-3',
@@ -1649,7 +1649,7 @@ export class ClientService {
       cri: 'Se cuenta con protección contra sobre-corriente para los transformadores de más de 600 Volts, de acuerdo a la tabla 450-3 a),450-3 b).',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 175,
       nom: '450-6',
@@ -1658,7 +1658,7 @@ export class ClientService {
       cri: 'Debe contar con protección en los términos de esta sección.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 176,
       nom: '450-7',
@@ -1667,7 +1667,7 @@ export class ClientService {
       cri: 'La protección de cada TR debe cumplir con 450-3 a) ó 450-3 b).',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 177,
       nom: '450-8',
@@ -1676,7 +1676,7 @@ export class ClientService {
       cri: 'Se acepta cuando tengan protección mecánica y no tengan partes vivas expuestas.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 178,
       nom: '450-9',
@@ -1685,7 +1685,7 @@ export class ClientService {
       cri: 'La ventilación se considera correcta cuando sin provocar aumentos de temperatura mayor a la nominal del TR.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 179,
       nom: '450-10',
@@ -1694,7 +1694,7 @@ export class ClientService {
       cri: 'El tanque del TR está conectado a tierra.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 180,
       nom: '450-11',
@@ -1703,7 +1703,7 @@ export class ClientService {
       cri: 'Tiene una placa con las características técnicas del TR.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 181,
       nom: '450-12',
@@ -1712,7 +1712,7 @@ export class ClientService {
       cri: 'Tiene espacio suficiente para permitir los radios de curvatura de los cables, ver 312-6, tabla 314-16 b).',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 182,
       nom: '450-13',
@@ -1721,7 +1721,7 @@ export class ClientService {
       cri: 'El acceso es fácil para el personal calificado de inspección y mantenimiento 450-13 a) ó 450-13 b).',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 183,
       nom: '450-21',
@@ -1730,7 +1730,7 @@ export class ClientService {
       cri: '',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 184,
       nom: '',
@@ -1739,7 +1739,7 @@ export class ClientService {
       cri: 'Están instalados a no menos de 30 cm de materiales combustibles.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 185,
       nom: '',
@@ -1748,7 +1748,7 @@ export class ClientService {
       cri: 'Están instalados en un cuarto resistente al fuego.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 186,
       nom: '',
@@ -1757,7 +1757,7 @@ export class ClientService {
       cri: 'Están instalados en una bóveda.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 187,
       nom: '450-22',
@@ -1766,7 +1766,7 @@ export class ClientService {
       cri: 'Tienen un envolvente a prueba de intemperie.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 188,
       nom: '450-23',
@@ -1775,7 +1775,7 @@ export class ClientService {
       cri: '',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 189,
       nom: '',
@@ -1784,7 +1784,7 @@ export class ClientService {
       cri: 'Los TR instalados son < 35KV, no hay materiales combustibles, se tiene un área de confinamiento del líquido.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 190,
       nom: '',
@@ -1793,7 +1793,7 @@ export class ClientService {
       cri: 'El área cumple las restricciones en la aprobación del liquido.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 191,
       nom: '',
@@ -1802,7 +1802,7 @@ export class ClientService {
       cri: 'Se tiene un sistema automático de extinguidores, 450-26.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 192,
       nom: '',
@@ -1811,7 +1811,7 @@ export class ClientService {
       cri: 'La instalación cumple con las restricciones aprobadas para el líquido,, 450-27.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 193,
       nom: '450-24',
@@ -1820,7 +1820,7 @@ export class ClientService {
       cri: 'Están instalados en bóvedas y tienen un área para confinar el liquido, el TR cuenta con una válvula de alivio.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 194,
       nom: '450-25',
@@ -1829,7 +1829,7 @@ export class ClientService {
       cri: 'No se permite.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 195,
       nom: '450-26',
@@ -1838,7 +1838,7 @@ export class ClientService {
       cri: 'Están instalados en una bóveda, ver parte C de 450.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 196,
       nom: '450-27',
@@ -1847,7 +1847,7 @@ export class ClientService {
       cri: 'Las construcciones aledañas son resistentes al fuego, hay espacio suficiente para aislar el fuego, barreras separadoras  resistentes al fuego, sistemas rociadores automáticos, espacios para confinar el aceite.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 197,
       nom: '450-28',
@@ -1856,7 +1856,7 @@ export class ClientService {
       cri: 'El TR tiene una placa con sus nuevas características.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 198,
       nom: '450-41',
@@ -1865,7 +1865,7 @@ export class ClientService {
       cri: 'Cuentan con ventilación al aire exterior, natural o forzada.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 199,
       nom: '450-42',
@@ -1874,7 +1874,7 @@ export class ClientService {
       cri: 'Están construidos con resistencia estructural acorde al peso del TR y resistente al fuego por tres horas.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 200,
       nom: '450-43',
@@ -1883,7 +1883,7 @@ export class ClientService {
       cri: 'La puerta es de cierre hermético resistente al fuego, tiene un murete de 10 cm de altura para contener el aceite y permanece cerrada.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 201,
       nom: '',
@@ -1892,7 +1892,7 @@ export class ClientService {
       cri: '',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 202,
       nom: '924-2 a), b)',
@@ -1901,7 +1901,7 @@ export class ClientService {
       cri: 'Tienen un medio de desconexión entre el suministro y el transformador.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 203,
       nom: '924-3',
@@ -1910,7 +1910,7 @@ export class ClientService {
       cri: 'El espacio está restringido y resguardado su acceso, deben tener una altura mínima de 2.10 m y deben cumplir con el 110-34.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 204,
       nom: '924-4 a) al e)',
@@ -1919,7 +1919,7 @@ export class ClientService {
       cri: 'Están hechos de materiales no combustibles, no se emplean como almacén o taller, están libres de materiales combustibles, están ventilados y acceso restringido.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 205,
       nom: '924-5',
@@ -1928,7 +1928,7 @@ export class ClientService {
       cri: 'Existen un alumbrado y permite los trabajos de mantenimiento y segura para el personal que lo realice, el alumbrado está conectado a una planta de emergencia (tabla 924-5).',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 206,
       nom: '924-6',
@@ -1937,7 +1937,7 @@ export class ClientService {
       cri: 'Los pisos son planos, firmes y con superficie antiderrapante, los huecos y trincheras están tapados, las escaleras tienen pasamanos.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 207,
       nom: '924-7',
@@ -1946,7 +1946,7 @@ export class ClientService {
       cri: 'El acceso y salida están libres de obstáculos, las puertas abren hacia afuera, en la puerta está un letrero de advertencia con le leyenda “PELIGRO ALTA TENSIÓN”.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 208,
       nom: '924-8',
@@ -1955,7 +1955,7 @@ export class ClientService {
       cri: 'Existen extintores y medio para confinar recoger y almacenar el aceite que puede fugarse de los tanques, cuando los transformadores se enfriados por aceite existen barreras que limitan la propagación del fuego.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 209,
       nom: '924-9',
@@ -1964,7 +1964,7 @@ export class ClientService {
       cri: 'Los tableros son accesibles y con el espacio suficiente para operación y mantenimiento seguros, no hay materiales combustibles cercanos.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 210,
       nom: '924-10',
@@ -1973,7 +1973,7 @@ export class ClientService {
       cri: 'Existe en el primario un interruptor de fusibles.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 211,
       nom: '924-11',
@@ -1982,7 +1982,7 @@ export class ClientService {
       cri: 'La subestación tiene su propio medio de protección.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 212,
       nom: '924-12',
@@ -1991,7 +1991,7 @@ export class ClientService {
       cri: 'El equipo está diseñado para operar en intemperie.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 213,
       nom: '924-13',
@@ -2000,7 +2000,7 @@ export class ClientService {
       cri: 'Los equipos soportan los esfuerzos sísmicos y limitan el ruido a 60 dB.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 214,
       nom: '924-14',
@@ -2009,7 +2009,7 @@ export class ClientService {
       cri: 'No hay partes maltratadas o rotas del equipo, un programa de mantenimiento con su bitácora.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 215,
       nom: '924-15',
@@ -2018,7 +2018,7 @@ export class ClientService {
       cri: 'Las partes en movimiento tienen un resguardo.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 216,
       nom: '924-16',
@@ -2027,7 +2027,7 @@ export class ClientService {
       cri: 'Los equipos están identificados.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 217,
       nom: '924-17',
@@ -2036,7 +2036,7 @@ export class ClientService {
       cri: 'Tienen un medio para ponerse en corto circuito y conectarse a tierra simultáneamente.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 218,
       nom: '924-18',
@@ -2045,7 +2045,7 @@ export class ClientService {
       cri: 'Están equipados con unos conectores adecuados.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 219,
       nom: '924-19',
@@ -2054,7 +2054,7 @@ export class ClientService {
       cri: 'Los tr tienen su medio de desconexión, existe un contendor de aceite y están instalados en una bóveda, trabajan al 80% de su capacidad.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 220,
       nom: '924-20',
@@ -2063,7 +2063,7 @@ export class ClientService {
       cri: 'Los líquidos aislantes son biodegradables.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 221,
       nom: '924-23',
@@ -2072,7 +2072,7 @@ export class ClientService {
       cri: 'Las partes metálicas no conductoras están conectadas a tierra.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 222,
       nom: '924-24',
@@ -2081,7 +2081,7 @@ export class ClientService {
       cri: 'Existen tarimas y tapetes enfrente a los tableros.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 223,
       nom: '',
@@ -2090,7 +2090,7 @@ export class ClientService {
       cri: '',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 224,
       nom: '445-10',
@@ -2099,7 +2099,7 @@ export class ClientService {
       cri: 'Los generadores están montados en un local dedicado.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 225,
       nom: '445-11',
@@ -2108,7 +2108,7 @@ export class ClientService {
       cri: 'Los generadores tienen una placa de datos con sus características técnicas.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 226,
       nom: '445-12',
@@ -2117,7 +2117,7 @@ export class ClientService {
       cri: 'Los generadores tienen un interruptor para protección contra sobre carga.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 227,
       nom: '445-13',
@@ -2126,7 +2126,7 @@ export class ClientService {
       cri: 'La ampacidad de los conductores es el 115% de la corriente de placa del generador, el neutro cumple con lo indicado en la sección 220-61.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 228,
       nom: '445-14',
@@ -2135,7 +2135,7 @@ export class ClientService {
       cri: 'Las partes vivas están resguardadas.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 229,
       nom: '445-15',
@@ -2144,7 +2144,7 @@ export class ClientService {
       cri: 'Las partes que el operador maneje están resguardadas se deben cumplir los requisitos 430-233.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 230,
       nom: '445-16',
@@ -2153,7 +2153,7 @@ export class ClientService {
       cri: 'En donde aplique los conductores están protegidos por un pasa cable.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 231,
       nom: '',
@@ -2162,7 +2162,7 @@ export class ClientService {
       cri: '',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 232,
       nom: '',
@@ -2171,7 +2171,7 @@ export class ClientService {
       cri: '',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 233,
       nom: '690-4',
@@ -2180,7 +2180,7 @@ export class ClientService {
       cri: 'Los circuitos de las fuentes FV y los circuitos FTV de salida no están instalados en la misma canalización.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 234,
       nom: '',
@@ -2189,7 +2189,7 @@ export class ClientService {
       cri: 'Los conductores del SFV y del inversor están identificados.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 235,
       nom: '',
@@ -2198,7 +2198,7 @@ export class ClientService {
       cri: 'Los conductores de SFT diferentes están agrupados.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 236,
       nom: '',
@@ -2207,7 +2207,7 @@ export class ClientService {
       cri: 'Las conexiones de los paneles están organizadas de manera que al quitar un módulo no se pierde la continuidad de ningún conductor puesto a tierra.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 237,
       nom: '',
@@ -2216,7 +2216,7 @@ export class ClientService {
       cri: 'El alambrado está hecho por personal calificado.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 238,
       nom: '',
@@ -2225,7 +2225,7 @@ export class ClientService {
       cri: 'La trayectoria de los circuitos está a la vista.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 239,
       nom: '',
@@ -2234,7 +2234,7 @@ export class ClientService {
       cri: 'Los medios de desconexión del SFTV en cada inversor están identificados.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 240,
       nom: '',
@@ -2243,7 +2243,7 @@ export class ClientService {
       cri: 'El dispositivo de protección detecta falas a tierra.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 241,
       nom: '',
@@ -2252,7 +2252,7 @@ export class ClientService {
       cri: 'Los circuitos con falla se desconectan automáticamente y el inversor suspende la alimentación a los circuitos de salida.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 242,
       nom: '',
@@ -2261,7 +2261,7 @@ export class ClientService {
       cri: 'El inversor cuenta con un letreo de advertencia "Peligro de descarga eléctrica, si se indica una falla a tierra, los conductores normalmente puestos a tierra pueden estar energizados y no puestos a tierra".',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 243,
       nom: '690-7',
@@ -2270,7 +2270,7 @@ export class ClientService {
       cri: 'En SFV se anota la tensión máxima 600 V. Tabla 690-7, Para ˃ 600 V, ver 690 parte I y articulo 490.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 244,
       nom: '',
@@ -2279,7 +2279,7 @@ export class ClientService {
       cri: 'En circuitos de SFV se tiene el letrero de advertencia "Arreglo fotovoltaico bipolar, la desconexión de los conductores del nuetro o los puestos a tierra pueden ocasionar una sobre tensión en el arreglo o en el inversor".',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 245,
       nom: '690-8',
@@ -2288,7 +2288,7 @@ export class ClientService {
       cri: 'La corriente máxima se cálculo en base a esta sección.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 246,
       nom: '',
@@ -2297,7 +2297,7 @@ export class ClientService {
       cri: 'La ampacidad y valor nominal de las protecciones se seleccionó de acuerdo a esta sección.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 247,
       nom: '690-9',
@@ -2306,7 +2306,7 @@ export class ClientService {
       cri: 'Los circuitos de salida FV y del inversor están protegidos contra sobre corriente.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 248,
       nom: '',
@@ -2315,7 +2315,7 @@ export class ClientService {
       cri: 'El TR de potencia está protegido contra sobre corriente ver 450-3.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 249,
       nom: '',
@@ -2324,7 +2324,7 @@ export class ClientService {
       cri: 'Los dispositivos de protección utilizados en CC están etiquetados para este uso.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 250,
       nom: '690-10',
@@ -2333,7 +2333,7 @@ export class ClientService {
       cri: 'El sistema de alambrado es adecuado.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 251,
       nom: '',
@@ -2342,7 +2342,7 @@ export class ClientService {
       cri: 'Cuenta con letreo de advertencia "Alimentación individual de 120 V, no conectar circuitos derivados multifamiliares".',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 252,
       nom: '',
@@ -2351,7 +2351,7 @@ export class ClientService {
       cri: 'En caso de que haya retroalimentación no se empelan interruptores automáticos que estén marcados "Línea" y "carga".',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 253,
       nom: '690-11',
@@ -2360,7 +2360,7 @@ export class ClientService {
       cri: 'Está instalado un interruptor de falla por arco.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 254,
       nom: '690-13',
@@ -2369,7 +2369,7 @@ export class ClientService {
       cri: 'Se tiene un medio de desconexión que des conecta todos los conductores portadores de CC, adecuado y fácilmente accesible, etiquetado para uso en SFV.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 255,
       nom: '690-16',
@@ -2378,7 +2378,7 @@ export class ClientService {
       cri: 'Se tienen medios de desconexión para desconectar un fusible.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 256,
       nom: '690-17',
@@ -2387,7 +2387,7 @@ export class ClientService {
       cri: 'Se cuenta con interruptores automáticos operados manualmente.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 257,
       nom: '',
@@ -2396,7 +2396,7 @@ export class ClientService {
       cri: 'Advertencia: "Peligro de descarga Eléctrica, no tocar terminales. Las terminales, tanto en el lado de línea como en el lado de carga, pueden estar energizados en la posición de abierto".',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 258,
       nom: '690-31',
@@ -2405,7 +2405,7 @@ export class ClientService {
       cri: 'Se utilizan todos los métodos de alambrado.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 259,
       nom: '690-33',
@@ -2414,7 +2414,7 @@ export class ClientService {
       cri: 'Son polarizadas y no son intercambiables, protegen a las personas de contactos con partes vivas, el elemento de puesta a tierra es el primero en hacer contacto.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 260,
       nom: '690-34',
@@ -2423,7 +2423,7 @@ export class ClientService {
       cri: 'Las cajas de conexión están accesibles',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 261,
       nom: '',
@@ -2432,7 +2432,7 @@ export class ClientService {
       cri: 'En cada caja de conexión existe un letrero de advertencia "Peligro de descarga eléctrica, los conductores de corriente continua de este sistema fotovoltaico no están puestos a tierra y pueden estar energizados".',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 262,
       nom: '690-41',
@@ -2441,7 +2441,7 @@ export class ClientService {
       cri: 'El conductor de un sistema de 2 hilos mayor a 50 V y el conductor de referencia está sólidamente puesto a tierra.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 263,
       nom: '690-43',
@@ -2450,7 +2450,7 @@ export class ClientService {
       cri: 'Partes metálicas expuestas no portadoras de corriente están puestos a tierra.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 264,
       nom: '690-45',
@@ -2459,7 +2459,7 @@ export class ClientService {
       cri: 'Está de acuerdo a la tabla 250-122.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 265,
       nom: '690-47',
@@ -2468,7 +2468,7 @@ export class ClientService {
       cri: 'En los sistemas de CA cumple con 250.50 hasta 250-60 y 250.64.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 266,
       nom: '',
@@ -2477,7 +2477,7 @@ export class ClientService {
       cri: 'En sistemas de CC el conductor del electrodo está acorde con 250-166, o 250.169 y 250-64.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 267,
       nom: '690-48',
@@ -2486,7 +2486,7 @@ export class ClientService {
       cri: 'Al retiro de un equipo, se instala un puente de unión para mantener la continuidad.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 268,
       nom: '690-51',
@@ -2495,7 +2495,7 @@ export class ClientService {
       cri: 'Los módulos están marcados con la polaridad y una placa con las características técnicas.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 269,
       nom: '690-52',
@@ -2504,7 +2504,7 @@ export class ClientService {
       cri: 'Están marcados con identificación de las puntas y la placa de datos técnicos.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 270,
       nom: '690-53',
@@ -2513,7 +2513,7 @@ export class ClientService {
       cri: 'En el desconectador está una etiqueta permanente con las características técnicas de la fuente FV.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 271,
       nom: '690-54',
@@ -2522,7 +2522,7 @@ export class ClientService {
       cri: 'Todos los puntos de interconexión con otras fuentes están marcadas con la corriente y tensión nominales.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 272,
       nom: '690-55',
@@ -2531,7 +2531,7 @@ export class ClientService {
       cri: 'Los sistemas autónomos cuentan con una placa o directorio permanente.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 273,
       nom: '690-57',
@@ -2540,7 +2540,7 @@ export class ClientService {
       cri: 'Al estar abierto desconecta todas las alimentaciones.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 274,
       nom: '690-61',
@@ -2549,7 +2549,7 @@ export class ClientService {
       cri: 'Des energiza automáticamente su salida a la red cuando hay pérdida de tensión.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 275,
       nom: '690-71',
@@ -2558,7 +2558,7 @@ export class ClientService {
       cri: 'Se instalan de acuerdo al artículo 480.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }, {
       id_: 276,
       nom: '690-80',
@@ -2567,347 +2567,11 @@ export class ClientService {
       cri: 'Se cumple con el artículo 490.',
       obp: '',
       obs: '',
-      cum: ''
+      cum: 'si'
     }
   ];
   // public currentD = '';
   // public client = {};
-  /* public f06 = [
-    {
-      id_: 1,
-      nom: '',
-      tex: 'Se recibe el Proyecto Eléctrico correspondiente.',
-      tip: '',
-      cri: '',
-      obp: '',
-      obs: '',
-      cum: ''
-    }, {
-      id_: 2,
-      nom: 'PEC 7.1',
-      tex: 'El proyecto esta integrado por un diagrama unifilar.',
-      tip: 'D',
-      cri: 'Contenga información de todos los circuitos',
-      obp: '',
-      obs: '',
-      cum: 'si'
-    }, {
-      id_: 3,
-      nom: 'PEC 7.1',
-      tex: 'Relación de cargas.',
-      tip: 'D',
-      cri: 'Se acepta si se hay una relación de cargas.',
-      obp: '',
-      obs: '',
-      cum: 'si'
-    }, {
-      id_: 4,
-      nom: 'PEC 7.1',
-      tex: 'Lista de los principales materiales y equipos utilizados de manera general incluida la lnformación de Transformadores cuando aplique, documentoque compruebe que están aprobados y cumplen con las normas oficiales mexicanas y disposiciones legales aplicables.',
-      tip: 'D',
-      cri: 'Se acepta si hay una lista de materialesy un documento de certificación del TR.',
-      obp: '',
-      obs: '',
-      cum: 'si'
-    }, {
-      id_: 5,
-      nom: 'NOM-001-SEDE-2012 215-5, 310-10c)',
-      tex: '¿El diagrama de alimentadores muestra los detalles de los circuitos alimentadores, superficie en m2 del edificio, carga total conectada, factores de demanda, carga calculada, el tipo tamaño nominal y longitud de los conductores y caída de tensión de cada circuito derivado,alimentador,tipo de aislamiento?',
-      tip: 'D',
-      cri: 'Se acepta si cumple con el 215-5',
-      obp: '',
-      obs: '',
-      cum: 'si'
-    }, {
-      id_: 6,
-      nom: 'PEC 7.2',
-      tex: 'Para instalaciones eléctricas con carga instalada igual o mayor a 100 kW.',
-      tip: '',
-      cri: '',
-      obp: '',
-      obs: '',
-      cum: ''
-    }, {
-      id_: 7,
-      nom: 'PEC 7.2.I, 215-5',
-      tex: 'El Diagrama unifilar debe contener:',
-      tip: '',
-      cri: '',
-      obp: '',
-      obs: '',
-      cum: ''
-    }, {
-      id_: 8,
-      nom: 'PEC 7.2.I.1',
-      tex: 'Características de la acometida.',
-      tip: 'D',
-      cri: 'Se acepta si se define dichas características.',
-      obp: '',
-      obs: '',
-      cum: ''
-    }, {
-      id_: 9,
-      nom: 'PEC 7.2.I.2',
-      tex: 'Características de la subestación.',
-      tip: 'D',
-      cri: 'Se acepta si define las características de la subestación.',
-      obp: '',
-      obs: '',
-      cum: ''
-    }, {
-      id_: 10,
-      nom: 'PEC 7.2.I.3, 210-19 nota 4, 310-8c)',
-      tex: 'Características de los alimentadores hasta los centros de carga, tableros de fuerza, alumbrado, entre otros, indicando en cada caso el tamaño (calibre) de los conductores (conductores activos, neutro y de puesta a tierra), la longitud y la corriente en amperes, (%e, canalización,tipo de aislamiento.)',
-      tip: 'D',
-      cri: 'Se acepta si se indican las características de los alimentadores.',
-      obp: '',
-      obs: '',
-      cum: ''
-    }, {
-      id_: 11,
-      nom: 'PEC 7.2.I.4, 110-9',
-      tex: 'Tipo de los dispositivos de interrupción, capacidad interruptiva e intervalo de ajuste de cada una de las protecciones de los alimentadores.',
-      tip: 'D',
-      cri: 'Se acepta si se indican los tipos, sus ajustes y capacidades de interrupción.',
-      obp: '',
-      obs: '',
-      cum: ''
-    }, {
-      id_: 12,
-      nom: 'PEC 7.2.II',
-      tex: 'Cuadro de distribución de cargas por circuito, el cual debe contener:',
-      tip: '',
-      cri: '',
-      obp: '',
-      obs: '',
-      cum: ''
-    }, {
-      id_: 13,
-      nom: 'PEC 7.2.II.1',
-      tex: 'Circuito de alumbrado y luminarias.',
-      tip: 'D',
-      cri: 'Se acepta si se indican los circuitos.',
-      obp: '',
-      obs: '',
-      cum: ''
-    }, {
-      id_: 14,
-      nom: 'PEC 7.2.II.2',
-      tex: 'Número de circuitos, número de lámparas, receptáculos, dispositivos eléctricos por cada circuito, fase o fases a que va conectado el circuito, carga en watts o VA y corriente en amperes de cada circuito, tamaño (calibre) de los conductores, protección contra sobre corriente por cada circuito y el desbalanceo entre fases expresado en por ciento.',
-      tip: 'D',
-      cri: 'Se acepta si se indican todas las características indicadas.',
-      obp: '',
-      obs: '',
-      cum: ''
-    }, {
-      id_: 15,
-      nom: 'PEC 7.2.II.3',
-      tex: 'Fuerza, circuitos, fases a que va conectado el circuito, características de los motores o aparatos y sus dispositivos de protección y control, carga en watts o VA y corriente en amperes de cada circuito, tamaño (calibre) de los conductores y el resumen de cargas indicando el desbalanceo entre fases expresado en por ciento.',
-      tip: 'D',
-      cri: 'Se acepta si se indican todas las características indicadas.',
-      obp: '',
-      obs: '',
-      cum: ''
-    }, {
-      id_: 16,
-      nom: 'PEC 7.2.III',
-      tex: 'Plano eléctrico el cual debe contener:',
-      tip: '',
-      cri: '',
-      obp: '',
-      obs: '',
-      cum: ''
-    }, {
-      id_: 17,
-      nom: 'PEC 7.2.III.1',
-      tex: 'Escala mínima de 1:100. La altura mínima de la letra o caracteres debe ser de 2mm.',
-      tip: 'D',
-      cri: 'Se acepta si se entrega en archivo electrónico.',
-      obp: '',
-      obs: '',
-      cum: ''
-    }, {
-      id_: 18,
-      nom: 'PEC 7.2.III.2',
-      tex: 'Utilizar el Sistema General de Unidades de Medida, de acuerdo con la Norma NOM-008-SCFI vigente y en todas sus leyendas en idioma español.',
-      tip: 'D',
-      cri: 'Se acepta aunque sea en otro idioma, siempre y cuando también traiga el español.',
-      obp: '',
-      obs: '',
-      cum: ''
-    }, {
-      id_: 19,
-      nom: 'PEC 7.2.III.3',
-      tex: 'Contener los datos relativos a las instalaciones eléctricas, ser claros e incluir la información para su correcta interpretación de manera que permita construir la instalación. Pueden indicarse notas aclaratorias a los puntos que el proyectista considere necesarios.',
-      tip: 'D',
-      cri: 'Se acepta si se cuenta con notas aclaratorias y dibujos típicos de detalle referente al proyecto eléctrico que faciliten la instalación.',
-      obp: '',
-      obs: '',
-      cum: ''
-    }, {
-      id_: 20,
-      nom: 'PEC 7.2.III.4',
-      tex: 'Incluir la información mínima siguiente: a) Nombre o razón social del cliente del servicio. b) Domicilio (calle y número, colonia, código postal, delegación o población, municipio y entidad). c) Uso al que se vaya a destinar la instalación ( giro o actividad). d) Nombre, número de cédula profesional y firma del responsable del proyecto. e) Fecha de elaboración del proyecto.',
-      tip: 'D',
-      cri: 'Se acepta si cumple con todos los requisitos.',
-      obp: '',
-      obs: '',
-      cum: ''
-    }, {
-      id_: 21,
-      nom: 'PEC 7.2.III.5',
-      tex: 'Los planos eléctricos de planta y elevación, deben incluir lo siguiente:',
-      tip: '',
-      cri: '',
-      obp: '',
-      obs: '',
-      cum: ''
-    }, {
-      id_: 22,
-      nom: 'PEC 7.2.III.5.a)',
-      tex: 'a) Localización del punto de la acometida, del interruptor general y del equipo principal incluyendo el tablero o tableros generales de distribución.',
-      tip: 'D',
-      cri: 'Se acepta si se indican cuando existan.',
-      obp: '',
-      obs: '',
-      cum: ''
-    }, {
-      id_: 23,
-      nom: 'PEC 7.2.III.5.b)',
-      tex: 'b) Localización de centros de control de motores, tableros de fuerza, de alumbrado y receptáculos.',
-      tip: 'D',
-      cri: 'Se acepta si se indican cuando existan.',
-      obp: '',
-      obs: '',
-      cum: ''
-    }, {
-      id_: 24,
-      nom: 'PEC 7.2.III.5.c)',
-      tex: 'c) Trayectoria de alimentadores y circuitos derivados, tanto de fuerza como de alumbrado, identificando cada circuito, e indicando su tamaño y canalización, localización de motores y equipos alimentados por los circuitos derivados, localización de los controladores y sus medios de desconexión, localización de receptáculos y unidades de alumbrado con sus controladores, identificando las cargas con su circuito y tablero correspondiente.',
-      tip: 'D',
-      cri: 'Se acepta si se indican todas las características indicadas.',
-      obp: '',
-      obs: '',
-      cum: ''
-    }, {
-      id_: 25,
-      nom: 'PEC 7.2.III.5.d)',
-      tex: 'd) Localización, en su caso, de áreas peligrosas indicando su clasificación de acuerdo con la NOM.',
-      tip: 'D',
-      cri: 'Se acepta si se identifican tales áreas.',
-      obp: '',
-      obs: '',
-      cum: ''
-    }, {
-      id_: 26,
-      nom: 'PEC 7.2.IV 110-2',
-      tex: 'Lista de los principales materiales utilizados. Incluida la  información de Transformadores cuando aplique, documentoque compruebe que están aprobados y cumplen con las normas oficiales mexicanas y disposiciones legales aplicables',
-      tip: 'D',
-      cri: 'Se acepta cuando hay una lista de materiales y un documento de certificación del TR',
-      obp: '',
-      obs: '',
-      cum: ''
-    }, {
-      id_: 27,
-      nom: 'PEC 7.2.V 110-2',
-      tex: 'Lista de los principales equipos utilizados. Incluida la  información de Transformadores cuando aplique, documentoque compruebe que están aprobados y cumplen con las normas oficiales mexicanas y disposiciones legales aplicables',
-      tip: 'D',
-      cri: 'Se acepta si hay una lista de equipos. y un documento de certificación del TR',
-      obp: '',
-      obs: '',
-      cum: ''
-    }, {
-      id_: 28,
-      nom: 'PEC 7.2.VI',
-      tex: 'Croquis de localización, indicando el domicilio donde se ubica la instalación.',
-      tip: 'D',
-      cri: 'Se acepta si esta el croquis de localización.',
-      obp: '',
-      obs: '',
-      cum: ''
-    }, {
-      id_: 29,
-      nom: 'PEC 7.2.VII',
-      tex: 'Memoria técnica, la cual debe contener, de manera enunciativa y no limitativa:',
-      tip: '',
-      cri: '',
-      obp: '',
-      obs: '',
-      cum: ''
-    }, {
-      id_: 30,
-      nom: 'PEC 7.2.VII.1',
-      tex: 'Los cálculos de corriente de corto circuito trifásico para la adecuada selección de la capacidad interruptiva de las protecciones de la instalación.',
-      tip: 'D',
-      cri: 'Se acepta si cuenta con dicho cálculo.',
-      obp: '',
-      obs: '',
-      cum: ''
-    }, {
-      id_: 31,
-      nom: 'PEC 7.2.VII.2',
-      tex: 'Los cálculos de corriente de falla de fase a tierra (monofásico y bifásico), para el diseño de la malla de tierra de la subestación eléctrica.',
-      tip: 'D',
-      cri: 'Se acepta si cuenta con dicho cálculo.',
-      obp: '',
-      obs: '',
-      cum: ''
-    }, {
-      id_: 32,
-      nom: 'PEC 7.2.VII.3',
-      tex: 'Los cálculos correspondientes a la malla de tierra (incluyendo la resistividad del terreno) para subestaciones considerando las tensiones de paso, contacto, su resistencia a tierra, así como la selección del tamaño (calibre) del conductor, longitud del conductor de la malla y la selección de los electrodos. Nota- En los casos en que el neutro sea corrido no se requieren los cálculos de la malla de tierra.',
-      tip: 'D',
-      cri: 'Se acepta si cuenta con dicho cálculo.',
-      obp: '',
-      obs: '',
-      cum: ''
-    }, {
-      id_: 33,
-      nom: 'PEC 7.2.VII.4',
-      tex: 'Los cálculos de caída de tensión en alimentadores y circuitos derivados.',
-      tip: 'D',
-      cri: 'Se acepta si cuenta con dicho cálculo.',
-      obp: '',
-      obs: '',
-      cum: ''
-    }, {
-      id_: 34,
-      nom: 'PEC 7.3',
-      tex: 'Las áreas en donde pueda existir peligro o riesgo de incendio o explosión debido a la presencia y manejo de gases o vapores inflamables, líquidos inflamables, polvos combustibles o fibras inflamables dispersas en el aire, deben estar indicadas en el proyecto conforme a lo dispuesto en la NOM.',
-      tip: 'D',
-      cri: 'Se acepta si se identifican tales áreas.',
-      obp: '',
-      obs: '',
-      cum: ''
-    }, {
-      id_: 35,
-      nom: 'PEC 7.3',
-      tex: 'El solicitante de la verificación debe presentar a la UV el plano de las áreas peligrosas (clasificadas) indicando los límites en vistas de planta y cortes transversales y longitudinales, de forma que las disposiciones contenidas en la NOM, aplicables a cada clasificación, puedan verificarse objetivamente. La clasificación de las áreas debe hacerse por personas clasificadas, baja la responsabilidad del solicitante de la verificación teniendo en cuenta la información contenida de la NOM y en otras disposiciones legales aplicables.',
-      tip: 'D',
-      cri: 'Se acepta si se identifican tales áreas en corte y elevación.',
-      obp: '',
-      obs: '',
-      cum: ''
-    }, {
-      id_: 36,
-      nom: 'PEC 7.3',
-      tex: 'Cada dictamen de verificación que la UNIE expida para instalaciones eléctricas que contenga áreas peligrosas (clasificadas) deben indicar la fecha para la próxima verificación de la instalación eléctrica de dichas áreas, para que el usuario o propietario de la instalación la solicite a una UVIE, la cual circunscribirá a los conceptos y alcances a que se refiere el anexo "B".',
-      tip: 'D',
-      cri: 'Se acepta cuando este señalada la fecha de la verificación periódica.',
-      obp: '',
-      obs: '',
-      cum: ''
-    }, {
-      id_: 37,
-      nom: 'PEC 7.3',
-      tex: 'Si las instalaciones eléctricas que tiene áreas peligrosas (clasificadas) cumplen con lo establecido en la NOM, la UVIE expedirá un dictamen de verificación, el cual se entregara al solicitante de la verificación, quien lo conservará y deberá estar a disposición de la Autoridad competente u otra dependencia o entidad pública que lo solicite conforme a sus atribuciones.',
-      tip: 'D',
-      cri: 'El informe trimestral debe tener este señalamiento.',
-      obp: '',
-      obs: '',
-      cum: ''
-    }
-  ]; */
 
   constructor(
     private db: AngularFireDatabase,

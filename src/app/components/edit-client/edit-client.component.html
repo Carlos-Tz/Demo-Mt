@@ -97,7 +97,9 @@
               </td>
               <td class="col50" [ngClass]="{'green':clientForm.value.logo}">
                 <span class="line">Logo: </span>
-                <input class="line2 focusNext" type="file" accept="image/*" (change)="changeListener($event)">
+                <label for="file"> Cargar logo
+                <input class="line2 focusNext" type="file" accept="image/*" (change)="changeListener($event)" id="file">
+              </label>
               </td>
             </tr>
           </table>

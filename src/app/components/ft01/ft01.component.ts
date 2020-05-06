@@ -17,6 +17,7 @@ export class Ft01Component implements OnInit {
   public key = '';
   public month = '';
   public cents = '';
+  public cost = '';
   public client = {
     razon: '',
     nombre: '',
@@ -29,7 +30,7 @@ export class Ft01Component implements OnInit {
     sub: '',
     cargai: '',
     tipos: '',
-    costo: '',
+    costo: 0,
     costol: '',
     dia: '',
     mes: '',
@@ -84,9 +85,9 @@ export class Ft01Component implements OnInit {
           this.client = data.datos;
           if (this.client.fft01) {
             this.ff = this.clientApi.splitDate(this.client.fft01);
-            this.mes = this.monthToName(this.ff.m);
+            /* this.mes = this.monthToName(this.ff.m); */
           }
-          this.month = this.clientApi.monthToRoman(this.mes);
+          this.month = this.clientApi.monthToRoman(this.ff.m);
           if (!this.client.fpago) { this.client.fpago = 'Las actuales con la empresa.'; }
           if (!this.client.vigencia) { this.client.vigencia = '30 días naturales.'; }
           if (!this.client.intro) {
@@ -107,42 +108,6 @@ export class Ft01Component implements OnInit {
               this.client.intro2 = 'A fin de cumplir con las leyes aplicables a la materia, las instalaciones eléctricas en servicios en tensión y en lugares de concentración pública deben ser verificadas por una Unidad de Verificación de Instalaciones Eléctricas aprobada por la Secretaría de Energía y acreditada por la Entidad Mexicana de Acreditación';
             }
           }
-          /* if (!this.client.dato1) {
-            this.client.dato1 = '1. Solicitud de verificación de la instalación.';
-          }
-          if (!this.client.dato2) {
-            this.client.dato2 = '2. Identificaciòn oficial (IFE, Cartilla, Cedula Porfesional,Pasaporte o CURP) del representante del solicitante de la verifcaciòn y de la persona que atenderá la verificación.';
-          }
-          if (!this.client.dato3) {
-            this.client.dato3 = '3. RFC de la persona física o moral, que solicita la verificación.';
-          }
-          if (!this.client.dato4) {
-            this.client.dato4 = '4. Comprobante del domicilio de la instalación eléctrica.';
-          }
-          if (!this.client.dato5) {
-            this.client.dato5 = '5. Lista de los principales materiales utilizados en la instalación.';
-          }
-          if (!this.client.dato6) {
-            this.client.dato6 = '6. Lista de las principales cargas instaladas.';
-          }
-          if (!this.client.dato7) {
-            this.client.dato7 = '7. Diagrama unifilar general de la instalación.';
-          }
-          if (!this.client.dato8) {
-            this.client.dato8 = '8. Cuadro de cargas generales de la instalación.';
-          }
-          if (!this.client.dato9) {
-            this.client.dato9 = '9. Plano eléctrico de planta (lay-out) de la disposición de equipos.';
-          }
-          if (!this.client.dato10) {
-            this.client.dato10 = '10. Plano general de tierras.';
-          }
-          if (!this.client.dato11) {
-            this.client.dato11 = '11. Las pruebas exigidas en el numeral 6.6 del PEC vigente: Continuidad eléctrica de envolventes y canalizaciones metálicas, resistencia de electrodos artificiales y de la red de puesta a tierra, polaridad de las conexiones en los contactos.';
-          }
-          if (!this.client.dato12) {
-            this.client.dato12 = '12. Proyecto de las celdas solares.';
-          } */
           if (this.client.cent) {
             if (this.client.cent < 10) {
               this.cents = `0${this.client.cent}`;
@@ -151,6 +116,17 @@ export class Ft01Component implements OnInit {
             }
           } else {
             this.cents = '00';
+          }
+          if (this.client.costo) {
+            if (this.client.costo < 1000) {
+              this.cost = `${this.client.costo}`;
+            } else if (this.client.costo > 999 && this.client.costo < 1000000) {
+              this.cost = `${this.client.costo.toString().slice(0, -3)},${this.client.costo.toString().slice(-3)}`;
+            } else if (this.client.costo > 999999 && this.client.costo < 1000000000) {
+              this.cost = `${this.client.costo.toString().slice(0, -6)},${this.client.costo.toString().slice(-6, -3)},${this.client.costo.toString().slice(-3)}`;
+            } else {
+              this.cost = '';
+            }
           }
         });
       }
@@ -181,6 +157,17 @@ export class Ft01Component implements OnInit {
             }
           } else {
             this.cents = '00';
+          }
+          if (this.client.costo) {
+            if (this.client.costo < 1000) {
+              this.cost = `${this.client.costo}`;
+            } else if (this.client.costo > 999 && this.client.costo < 1000000) {
+              this.cost = `${this.client.costo.toString().slice(0, -3)},${this.client.costo.toString().slice(-3)}`;
+            } else if (this.client.costo > 999999 && this.client.costo < 1000000000) {
+              this.cost = `${this.client.costo.toString().slice(0, -6)},${this.client.costo.toString().slice(-6, -3)},${this.client.costo.toString().slice(-3)}`;
+            } else {
+              this.cost = '';
+            }
           }
       })
       .catch(e => {

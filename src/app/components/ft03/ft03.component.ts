@@ -13,7 +13,7 @@ declare const pdfExport: any;
   styleUrls: ['./ft03.component.css']
 })
 export class Ft03Component implements OnInit {
-  public client: {
+  public client = {
     razon: '',
     nocontrol: '',
     tension: '',
@@ -29,17 +29,18 @@ export class Ft03Component implements OnInit {
     revp: '',
     verfs: '',
     verfbt: '',
-    costo: '',
+    costo: 0,
     costol: '',
     anio: '',
     fechai: '',
     nombreuv: '',
     fft03: '',
-    cent: ''
+    cent: 0
   };
   public key = '';
   public mes = '';
   public cents = '';
+  public cost = '';
   public ff = {
     d: '',
     m: '',
@@ -79,6 +80,17 @@ export class Ft03Component implements OnInit {
           } else {
             this.cents = '00';
           }
+          if (this.client.costo) {
+            if (this.client.costo < 1000) {
+              this.cost = `${this.client.costo}`;
+            } else if (this.client.costo > 999 && this.client.costo < 1000000) {
+              this.cost = `${this.client.costo.toString().slice(0, -3)},${this.client.costo.toString().slice(-3)}`;
+            } else if (this.client.costo > 999999 && this.client.costo < 1000000000) {
+              this.cost = `${this.client.costo.toString().slice(0, -6)},${this.client.costo.toString().slice(-6, -3)},${this.client.costo.toString().slice(-3)}`;
+            } else {
+              this.cost = '';
+            }
+          }
           if (this.client.fechai) {
             this.ff = this.clientApi.splitDate(this.client.fechai);
             this.mes = this.monthToName(this.ff.m);
@@ -107,6 +119,17 @@ export class Ft03Component implements OnInit {
           }
         } else {
           this.cents = '00';
+        }
+        if (this.client.costo) {
+          if (this.client.costo < 1000) {
+            this.cost = `${this.client.costo}`;
+          } else if (this.client.costo > 999 && this.client.costo < 1000000) {
+            this.cost = `${this.client.costo.toString().slice(0, -3)},${this.client.costo.toString().slice(-3)}`;
+          } else if (this.client.costo > 999999 && this.client.costo < 1000000000) {
+            this.cost = `${this.client.costo.toString().slice(0, -6)},${this.client.costo.toString().slice(-6, -3)},${this.client.costo.toString().slice(-3)}`;
+          } else {
+            this.cost = '';
+          }
         }
         if (this.client.fechai) {
           this.ff = this.clientApi.splitDate(this.client.fechai);
