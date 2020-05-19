@@ -1,6 +1,6 @@
 .page {
-  min-height: 35cm !important;
-  height: 35cm !important;
+  min-height: 36cm !important;
+  height: 36cm !important;
 }
 input[type="number"], input[type="text"] {
     border-bottom: none !important;
@@ -79,7 +79,7 @@ input[type="number"], input[type="text"] {
   }
 
 
-  input[type="text"],input[type="number"], input[type="date"] {
+  input[type="text"],input[type="number"], input[type="date"], select {
     font-family: var(--font);
     color: var(--input-text-color);
     /* width: 100%; */

@@ -28,6 +28,7 @@ export class Ft01Component implements OnInit {
     estado: '',
     cp: '',
     sub: '',
+    csub: '',
     cargai: '',
     tipos: '',
     costo: 0,

@@ -3065,6 +3065,7 @@ export class ClientService {
           c.datos.corriente = datos.corriente;
           c.datos.volts = datos.volts;
           c.datos.sub = datos.sub;
+          c.datos.csub = datos.csub;
           c.datos.area = datos.area;
           c.datos.costo = datos.costo;
           c.datos.costol = datos.costol;

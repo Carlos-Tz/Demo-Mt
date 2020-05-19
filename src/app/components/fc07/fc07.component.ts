@@ -73,6 +73,7 @@ export class Fc07Component implements OnInit {
     tension: '',
     cargai: '',
     sub: '',
+    csub: '',
     instal: '',
     planos: '',
     dia: '',

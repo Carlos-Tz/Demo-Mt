@@ -26,6 +26,7 @@ export class Ft02Component implements OnInit {
     estado: '',
     cp: '',
     sub: '',
+    csub: '',
     cargai: '',
     tipos: '',
     alcance: '',

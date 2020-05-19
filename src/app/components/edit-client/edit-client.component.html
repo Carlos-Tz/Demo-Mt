@@ -282,8 +282,19 @@
           </table>
           <table id="tab3">
             <tr>
+              <td [ngClass]="{'green':clientForm.value.csub}">
+                <span class="line">Capacidad de subestacion: </span>
+                <!-- <span class="line">{{costol}} {{cents}}/100 MN</span> -->
+                <input class="focusNext" type="text" formControlName="csub" style="width: 13cm;">
+                <!-- <input class="line1" type="text" formControlName="costol" value={{costol}}> -->
+
+              </td>
+            </tr>
+          </table>
+          <table id="tab3">
+            <tr>
               <td class="col50" [ngClass]="{'green':clientForm.value.sub}">
-                <span class="line">Cap. de Subestación: </span>
+                <span class="line">Tipo de Subestación: </span>
                 <select name="subes" (change)=changeSub($event.target.value)>
                   <option value=""></option>
                   <!-- <option value="cero">0.0</option> -->

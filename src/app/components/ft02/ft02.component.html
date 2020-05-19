@@ -45,7 +45,7 @@
             *ngIf="client">{{ client.cargadem }}</b> kW </p>
         <p>Corriente Demandada: <b *ngIf="client">{{ client.corriente }}</b> Amps. <b
             *ngIf="client">{{ client.volts }}</b> V </p>
-        <p>Capacidad de subestación: <b *ngIf="client">{{ client.sub }}</b></p>
+        <p>Tipo de subestación: <b *ngIf="client">{{ client.sub }}</b>, Capacidad de subestación: <b *ngIf="client">{{ client.csub }}</b></p>
         <p>Área electrificada: <b *ngIf="client">{{ client.area }}</b></p>
         <p>Existen Áreas Clasificadas como peligrosas:
           <b *ngIf="client"><span *ngIf="client.instal=='Áreas peligrosas'">SI</span>

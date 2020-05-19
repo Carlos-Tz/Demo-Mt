@@ -36,7 +36,7 @@
           <p>Razón social o nombre del cliente: <b *ngIf="client" style="text-transform: uppercase">{{ client.razon }}</b></p>
           <p>Giro (SCIAN) o actividad empresarial: <b *ngIf="client" style="text-transform: uppercase">{{ client.giro }}</b></p>
           <p>Domicilio del servicio: <b *ngIf="client">{{ client.calle }} {{ client.colonia }}. {{ client.munic }} {{ client.estado }} C.P. {{ client.cp }}</b></p>
-          <p>Capacidad total en subestación: <b *ngIf="client">{{ client.sub }}</b></p>
+          <p>Tipo de subestación: <b *ngIf="client">{{ client.sub }}</b>, Capacidad total en subestación: <b *ngIf="client">{{ client.csub }}</b></p>
           <p>Carga total instalada: <b *ngIf="client">{{ client.cargai }}</b> kW </p>
           <p>Tipo de servicio: <b *ngIf="client">{{ client.tipos }}</b></p><br>
   

@@ -92,6 +92,7 @@ export class EditClientComponent implements OnInit {
         corriente: [''],
         volts: [''],
         sub: [''],
+        csub: [''],
         area: [''],
         costo: [''],
         costol: [''],

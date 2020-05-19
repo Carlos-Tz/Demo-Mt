@@ -67,6 +67,7 @@ export class CotizacionComponent implements OnInit {
       corriente: [''],
       volts: [''],
       sub: [''],
+      csub: [''],
       area: [''],
       costo: [''],
       costol: [''],

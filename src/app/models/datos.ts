@@ -59,6 +59,7 @@ export interface Datos {
     corriente: number;
     volts: string;
     sub: string;
+    csub: string;
     area: string;
     costo: number;
     costol: string;
