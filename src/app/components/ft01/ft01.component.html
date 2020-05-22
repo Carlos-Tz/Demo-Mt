@@ -31,13 +31,14 @@
           <p>Correo: <b *ngIf="client">{{ client.correo }}</b></p><br>
           <textarea [(ngModel)]="client.intro" rows="3" style="margin-bottom: 0.5em;"></textarea>
   
-          <p><b>GENERALES:</b></p><br>
+          <p><b>GENERALES:</b></p>
   
           <p>Razón social o nombre del cliente: <b *ngIf="client" style="text-transform: uppercase">{{ client.razon }}</b></p>
           <p>Giro (SCIAN) o actividad empresarial: <b *ngIf="client" style="text-transform: uppercase">{{ client.giro }}</b></p>
           <p>Domicilio del servicio: <b *ngIf="client">{{ client.calle }} {{ client.colonia }}. {{ client.munic }} {{ client.estado }} C.P. {{ client.cp }}</b></p>
           <p>Tipo de subestación: <b *ngIf="client">{{ client.sub }}</b>, Capacidad total en subestación: <b *ngIf="client">{{ client.csub }}</b></p>
           <p>Carga total instalada: <b *ngIf="client">{{ client.cargai }}</b> kW </p>
+          <p>Área total construida: <b *ngIf="client">{{ client.area }}</b></p>
           <p>Tipo de servicio: <b *ngIf="client">{{ client.tipos }}</b></p><br>
   
           <textarea [(ngModel)]="client.intro2" rows="3" style="margin-bottom: 0.5em;"></textarea>

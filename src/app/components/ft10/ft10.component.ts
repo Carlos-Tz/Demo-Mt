@@ -33,7 +33,7 @@ export class Ft10Component implements OnInit {
   public ft10List: F10[];
   public len = 1;
   public key = '';
-  public page0 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
+  public page0 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 
   constructor(
     private clientApi: ClientService,
@@ -62,7 +62,7 @@ export class Ft10Component implements OnInit {
           surv['$key'] = item.key;
           this.ft10List.push(surv as F10);
         });
-        this.len = Math.ceil((this.ft10List.length) / 17);
+        this.len = Math.ceil((this.ft10List.length) / 15);
         this.pages = this.page0.slice(0, this.len);
       });
     } else {
@@ -79,7 +79,7 @@ export class Ft10Component implements OnInit {
       });
       this.ft10List = [];
       this.ft10List = await this.clientApi.localDb.ft10.where('client').equals(this.key).toArray();
-      this.len = Math.ceil((this.ft10List.length) / 17);
+      this.len = Math.ceil((this.ft10List.length) / 15);
       this.pages = this.page0.slice(0, this.len);
       this.ft10List.sort((a, b) => {
         return a.id_ - b.id_;
